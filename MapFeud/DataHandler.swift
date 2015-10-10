@@ -1,0 +1,337 @@
+//
+//  PopulateData.swift
+//  TimeIt
+//
+//  Created by knut on 18/07/15.
+//  Copyright (c) 2015 knut. All rights reserved.
+//
+
+import Foundation
+import CoreData
+import UIKit
+
+
+class DataHandler
+{
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var placeItems:[Place]!
+    var todaysYear:Double!
+    init()
+    {
+        loadGameData()
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(NSCalendarUnit.Year, fromDate: date)
+        todaysYear = Double(components.year)
+        
+        placeItems = []
+    }
+    
+    func readTxtFile(name:String)
+    {
+        
+        if let path = NSBundle.mainBundle().pathForResource(name, ofType: "txt"){
+            do{
+            let data = try String(contentsOfFile:path, encoding: NSUTF8StringEncoding)
+
+                let myStrings = data.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet())
+                var lines:[CGPoint] = []
+                var questions:[Question] = []
+                for textline in myStrings
+                {
+                    
+                    
+                    let elements = textline.componentsSeparatedByString(";")
+
+                        let type = elements[0]
+                        if type == "eof"
+                        {
+                            break
+                        }
+                        else if type == "qst" // additional question
+                        {
+                            let questionElements = elements[1].componentsSeparatedByString("#")
+                            //let id = questionElements[0]
+                            //_?
+                            let hmmm1 = questionElements[1]
+                            if hmmm1 != ""
+                            {
+                                print("hmmm1 = \(hmmm1)")
+                            }
+                            let level = questionElements[2]
+                            let intStringLevel = level.substringFromIndex(level.startIndex.advancedBy(level.characters.count - 1))
+                            let image = questionElements[3]
+                            let englishText = questionElements[4]
+                            
+                            let question = Question.createInManagedObjectContext(self.managedObjectContext, text: englishText, level:Int(intStringLevel)!, image:image)
+                            questions.append(question)
+                            
+                        }
+                        else if type == "inf"
+                        {
+                            let type = elements[1]
+                            let name = elements[2]
+                            //_?
+                            let hmmm2 = elements[3]
+                            if hmmm2 != ""
+                            {
+                                print("hmmm2 = \(hmmm2)")
+                            }
+                            
+                            var intStringLevel = "0"
+                            var info = ""
+                            var hint1 = ""
+                            var hint2 = ""
+                            var excludePlaces = ""
+                            var includePlaces = ""
+                            if elements[4] != "notUsed"
+                            {
+                                let level = elements[4]
+                                intStringLevel = level.substringFromIndex(level.startIndex.advancedBy(level.characters.count - 1))//String(level.characters.last)
+                                info = elements[5]
+                                
+                                let hintElements = elements[6].componentsSeparatedByString("#")
+                                
+                                hint1 = hintElements[0]
+                                hint2 = hintElements[1]
+                                
+                                if elements.count > 7
+                                {
+                                    excludePlaces = elements[7]
+                                    if elements.count > 8
+                                    {
+                                        includePlaces = elements[8]
+                                    }
+                                }
+                            }
+                            
+                            let place = Place.createInManagedObjectContext(self.managedObjectContext, name: name, refId:"", type:type,level:Int(intStringLevel)!,info:info, hint1:hint1, hint2:hint2,includePlaces:includePlaces, excludePlaces:excludePlaces)
+                            
+                            
+                            if lines.count == 1
+                            {
+                                let linePoint = LinePoint.createInManagedObjectContext(self.managedObjectContext, point: lines[0],sort:0 )
+                                place.addLinePoint(linePoint)
+                            }
+                            else
+                            {
+                                for var i = 0 ; i < lines.count; i++
+                                {
+                                    let linePoint = LinePoint.createInManagedObjectContext(self.managedObjectContext, point: lines[i],sort:i)
+                                    place.addLinePoint(linePoint)
+                                }
+                            }
+                            
+                            for item in questions
+                            {
+                                place.addQuestion(item)
+                            }
+                            //save()
+                            
+                            questions = []
+                            lines = []
+                        }
+                        else
+                        {
+                            let x = CGFloat((elements[0] as NSString).floatValue)
+                            let y = CGFloat((elements[1] as NSString).floatValue)
+                            lines.append(CGPointMake( x,  y ))
+                            
+                        }
+                    
+                    print(textline)
+                }
+                save()
+            
+            }
+            catch
+            {
+                print(error)
+            }
+        }
+
+        
+    }
+    
+    func populateData(completePopulating: (() -> (Void))?)
+    {
+
+        readTxtFile("statesAfrica")
+        readTxtFile("statesAsia")
+        
+        
+        
+
+
+        //savePeriodesFromCollection(dataToPopulate)
+        print("populated new data")
+        save()
+        dataPopulatedValue = 1
+        saveGameData()
+
+        completePopulating?()
+    }
+    
+
+
+    func save() {
+
+        do{
+            try managedObjectContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func fetchData(tags:[String] = [],fromLevel:Int = 1,toLevel:Int = 1) {
+        
+        // Create a new fetch request using the LogItem entity
+        // eqvivalent to select * from Relation
+        let fetchEvents = NSFetchRequest(entityName: "Place")
+        
+        //let sortDescriptor = NSSortDescriptor(key: "number", ascending: true)
+        //fetchRequest.sortDescriptors = [sortDescriptor]
+        
+
+        /*
+        var predicateTags:String = ""
+        if tags.count > 0
+        {
+            for item in tags
+            {
+                if item != ""
+                {
+                    predicateTags = "\(predicateTags)|\(item)"
+                }
+            }
+            predicateTags.removeAtIndex(predicateTags.startIndex)
+        }
+        
+        let predicate = NSPredicate(format: "periods.@count > 0 AND level >= \(fromLevel) AND level <= \(toLevel) AND tags  MATCHES '.*(\(predicateTags)).*'")//
+        fetchEvents.predicate = predicate
+        */
+        if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Place] {
+            placeItems = fetchResults
+        }
+        
+    }
+    
+    func fetchPlace(idRef:String) -> Place?
+    {
+        let fetchEvents = NSFetchRequest(entityName: "Place")
+        
+        let predicate = NSPredicate(format: "refId = '\(idRef)'")
+        fetchEvents.predicate = predicate
+
+        if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Place] {
+            return fetchResults.first
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
+    func addRecordToGameResults(value:String)
+    {
+        //self.gameResultsValue.insertObject(value, atIndex: 0)
+        self.gameResultsValues.append(value)
+    }
+    
+    let DataPopulatedKey = "DataPopulated"
+    let OkScoreKey = "OkScore"
+    let GoodScoreKey = "GoodScore"
+    let LoveScoreKey = "LoveScore"
+    let TagsKey = "Tags"
+    let LevelKey = "Level"
+    let EventsUpdateKey = "EventsUpdate"
+    
+    let GameResultsKey = "GameResults"
+    let AdFreeKey = "AdFree"
+    
+    var dataPopulatedValue:AnyObject = 0
+    var okScoreValue:AnyObject = 0
+    var goodScoreValue:AnyObject = 0
+    var loveScoreValue:AnyObject = 0
+    var tagsValue:AnyObject = 0
+    var levelValue:AnyObject = 0
+    var eventsUpdateValue:AnyObject = 0
+    var adFreeValue:AnyObject = 0
+    
+    var gameResultsValues:[AnyObject] = []
+
+    func loadGameData() {
+        // getting path to GameData.plist
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        let documentsDirectory = paths[0] as! String
+        let path = (documentsDirectory as NSString).stringByAppendingPathComponent("GameData.plist")
+        let fileManager = NSFileManager.defaultManager()
+        //check if file exists
+        if(!fileManager.fileExistsAtPath(path)) {
+            // If it doesn't, copy it from the default file in the Bundle
+            if let bundlePath = NSBundle.mainBundle().pathForResource("GameData", ofType: "plist") {
+                let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
+                print("Bundle GameData.plist file is --> \(resultDictionary?.description)")
+                do {
+                    try fileManager.copyItemAtPath(bundlePath, toPath: path)
+                } catch _ {
+                }
+                print("copy")
+            } else {
+                print("GameData.plist not found. Please, make sure it is part of the bundle.")
+            }
+        } else {
+            print("GameData.plist already exits at path. \(path)")
+            // use this to delete file from documents directory
+            //fileManager.removeItemAtPath(path, error: nil)
+        }
+        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+        print("Loaded GameData.plist file is --> \(resultDictionary?.description)")
+        let myDict = NSDictionary(contentsOfFile: path)
+        if let dict = myDict {
+            //loading values
+            dataPopulatedValue = dict.objectForKey(DataPopulatedKey)!
+            okScoreValue = dict.objectForKey(OkScoreKey)!
+            goodScoreValue = dict.objectForKey(GoodScoreKey)!
+            loveScoreValue = dict.objectForKey(LoveScoreKey)!
+            tagsValue = dict.objectForKey(TagsKey)!
+            levelValue = dict.objectForKey(LevelKey)!
+            eventsUpdateValue = dict.objectForKey(EventsUpdateKey)!
+            adFreeValue = dict.objectForKey(AdFreeKey)!
+            NSUserDefaults.standardUserDefaults().setBool(adFreeValue as! NSNumber == 1 ? true : false, forKey: "adFree")
+            gameResultsValues = dict.objectForKey(GameResultsKey)! as! [AnyObject]
+        } else {
+            print("WARNING: Couldn't create dictionary from GameData.plist! Default values will be used!")
+        }
+    }
+    
+    func saveGameData() {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
+        let documentsDirectory = paths.objectAtIndex(0) as! NSString
+        let path = documentsDirectory.stringByAppendingPathComponent("GameData.plist")
+        let dict: NSMutableDictionary = ["XInitializerItem": "DoNotEverChangeMe"]
+        //saving values
+        dict.setObject(dataPopulatedValue, forKey: DataPopulatedKey)
+        dict.setObject(okScoreValue, forKey: OkScoreKey)
+        dict.setObject(goodScoreValue, forKey: GoodScoreKey)
+        dict.setObject(loveScoreValue, forKey: LoveScoreKey)
+        dict.setObject(tagsValue, forKey: TagsKey)
+        dict.setObject(levelValue, forKey: LevelKey)
+        dict.setObject(eventsUpdateValue, forKey: EventsUpdateKey)
+        dict.setObject(adFreeValue, forKey: AdFreeKey)
+        
+        dict.setObject(gameResultsValues, forKey: GameResultsKey)
+        //writing to GameData.plist
+        dict.writeToFile(path, atomically: false)
+        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+        print("Saved GameData.plist file is --> \(resultDictionary?.description)")
+    }
+    
+    func getMaxTimeLimit(year: Double) -> Double
+    {
+        return year > todaysYear ? todaysYear : year
+    }
+}
+
+
