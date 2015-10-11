@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 
-protocol TiledScrollViewDataSource
+protocol MapDelegate
 {
-    func noName(scrollView:MapScrollView,  tileForRow:Int, column:Int, resolution:Int) -> UIView ;
+    func resolutionChanged()
     
 }
 
 
 class MapScrollView:UIView, UIScrollViewDelegate  {
     
-    var overlayDrawView:TileContainerOverlayView!
+    
     var tileContainerView:TileContainerView!
     var scrollView:UIScrollView!
     
@@ -31,6 +31,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     let maximumResolution:Int = 1
     var resolution:Int = -2
     
+    var delegate:MapDelegate?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -40,8 +42,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     override init(frame: CGRect) {
         super.init(frame: frame)
         tileContainerView = TileContainerView(frame: CGRectZero)
-        overlayDrawView = TileContainerOverlayView(frame: CGRectZero)
-        overlayDrawView.backgroundColor = UIColor.clearColor()
+
+        //overlayDrawView.backgroundColor = UIColor.clearColor()
         
 /*
         let maskImage = UIImage(named: "25MaskLand.png" )
@@ -51,30 +53,30 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         overlayDrawView.layer.addSublayer(mask)
         overlayDrawView.layer.mask = mask
 */
-        overlayDrawView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth,UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleBottomMargin]
-        overlayDrawView.autoresizesSubviews = true
+        tileContainerView.autoresizesSubviews = true
+        tileContainerView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth,UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleBottomMargin]
+        //overlayDrawView.autoresizesSubviews = true
         
         scrollView = UIScrollView(frame: CGRectMake(0, 0, frame.width, frame.height))
         scrollView.autoresizesSubviews = true
-        print("setting up scrollview with framesize \(frame.width) * \(frame.height)")
-        self.scrollView.addSubview(tileContainerView)
-        self.scrollView.addSubview(overlayDrawView)
-        
         
         let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
         let mapWith:CGFloat =  constMapWidth * (CGFloat(resolutionPercentage) / 100.0)
         let mapHeight:CGFloat =  constMapHeight * (CGFloat(resolutionPercentage) / 100.0)
+        
+        
+        self.scrollView.addSubview(tileContainerView)
+        
+        
     
         tileContainerView.frame = CGRectMake(0, 0, mapWith, mapHeight)
-        overlayDrawView.frame = CGRectMake(0, 0, mapWith, mapHeight)
+        
         
         
         setupTiles()
         
         
         scrollView.contentSize = tileContainerView.bounds.size
-        
-        print("scrollview contentsize with framesize \(tileContainerView.bounds.size.width) * \(tileContainerView.bounds.size.height)")
         
         let scrollViewFrame = scrollView.frame
         let scaleWidth = scrollViewFrame.size.width / scrollView.contentSize.width
@@ -83,13 +85,16 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         scrollView.delegate = self
         scrollView.minimumZoomScale = minScale
-        scrollView.maximumZoomScale = 1.5
+        scrollView.maximumZoomScale = 2.9
         scrollView.zoomScale = minScale
         
         self.addSubview(scrollView)
         
     }
     
+    var placesToDraw:[[LinePoint]] = []
+    var placesToExcludeDraw:[[LinePoint]] = []
+    var overlayDrawView:TileContainerOverlayLayer?
     func drawPlace(place:Place)
     {
         //test
@@ -97,14 +102,20 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         let excludedPlace = datactrl.fetchPlace(place.excludePlaces)
         
         print("drawing \(place.name)")
-        let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
-        var regions:[[LinePoint]] = []
-        regions.append(place.sortedPoints)
+        //let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
+        placesToDraw = []
+        placesToDraw.append(place.sortedPoints)
         
-        var excludedRegions:[[LinePoint]] = []
-        excludedRegions.append(excludedPlace!.sortedPoints)
+        placesToExcludeDraw = []
+        placesToExcludeDraw.append(excludedPlace!.sortedPoints)
         
-        overlayDrawView.drawLines(regions,excludedRegions: excludedRegions, resolutionPercentage: CGFloat(resolutionPercentage), zoomScale: scrollView.zoomScale)
+        //overlayDrawView?.resolutionPercentage = resolutionPercentage
+        overlayDrawView?.exludedRegions = placesToExcludeDraw
+        overlayDrawView?.regions = placesToDraw
+        overlayDrawView?.setNeedsDisplay()
+        
+
+        //overlayDrawView.drawLines(regions,excludedRegions: excludedRegions, resolutionPercentage: CGFloat(resolutionPercentage), zoomScale: scrollView.zoomScale)
     }
     
     func setupTiles()
@@ -125,11 +136,10 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         // The resolution is stored as a power of 2, so -1 means 50%, -2 means 25%, and 0 means 100%.
         let resolutionPercentage = 100 * pow(Double(2), Double(resolution));
-        
+        print("resolution : \(resolutionPercentage)")
         let mapWith:CGFloat =  constMapWidth * (CGFloat(resolutionPercentage) / 100.0)
         let mapHeight:CGFloat =  constMapHeight * (CGFloat(resolutionPercentage) / 100.0)
-        print("mapWith \(mapWith) constMapWidth \(constMapWidth)")
-        print("mapHeight \(mapHeight) constMapHeight \(constMapHeight)")
+
         //tileContainerView.frame = CGRectMake(0, 0, mapWith, mapHeight)
         let maxRow:Int = Int(ceil(mapHeight / maxTileSize))
         let maxColumn:Int = Int(ceil(mapWith / maxTileSize))
@@ -161,28 +171,21 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             }
         }
         
-        //overlayDrawView.frame = tileContainerView.frame
         
-        //test
+        overlayDrawView = TileContainerOverlayLayer()
+        overlayDrawView!.frame = CGRectMake(0, 0, mapWith, mapHeight)
+        overlayDrawView!.contentsGravity = kCAGravityCenter
+        tileContainerView.layer.addSublayer(overlayDrawView!)
         
-        let testlayer = CALayer()
-        let testimageName = "world_\(Int(resolutionPercentage))_0_0.jpg"
-        let testtileImage = UIImage(named: testimageName)
-        testlayer.frame = CGRectMake(0, 0, testtileImage!.size.width, testtileImage!.size.height)
-        testlayer.contents = testtileImage?.CGImage //UIImage(named: "star")?.CGImage
-        testlayer.contentsGravity = kCAGravityCenter
-        overlayDrawView.layer.addSublayer(testlayer)
+        overlayDrawView!.regions = placesToDraw
+        overlayDrawView!.exludedRegions = placesToExcludeDraw
+        overlayDrawView!.resolutionPercentage = CGFloat(resolutionPercentage)
+        
+        
+        overlayDrawView!.setNeedsDisplay()
+        
+        delegate?.resolutionChanged()
 
-        //end test
-        
-        overlayDrawView.resolutionPercentage = CGFloat(resolutionPercentage)
-        overlayDrawView.zoomScale = scrollView.zoomScale
-        overlayDrawView.setNeedsDisplay()
-        //tileContainerView.setOverlay(CGFloat(resolutionPercentage))
-        //tileContainerView.setNeedsDisplay()
-
-        //scrollView.contentSize = CGSizeMake(tileContainerView.frame.size.width * self.scrollView.zoomScale, tileContainerView.frame.size.height * self.scrollView.zoomScale)
-         //print("111 scrollView.contentSize width \(scrollView.contentSize.width) height \(scrollView.contentSize.height)")
     }
     
     
@@ -263,16 +266,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             //[self reloadData];
             
             self.setupTiles()
-            
-            
-            
-            print("scrollview contentsize with framesize \(tileContainerView.bounds.size.width) * \(tileContainerView.bounds.size.height)")
-            
-
 
         }
-        
-
     }
     
 
@@ -287,10 +282,13 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             scrollView.contentSize.height * 0.5 + offsetY)
         */
         
-        overlayDrawView.zoomScale = scrollView.zoomScale
-        overlayDrawView.setNeedsDisplay()
+        //overlayDrawView.zoomScale = scrollView.zoomScale
+        //overlayDrawView.setNeedsDisplay()
     }
     
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        
+    }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
@@ -324,6 +322,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return tileContainerView
     }
+    
+    
     
     
     

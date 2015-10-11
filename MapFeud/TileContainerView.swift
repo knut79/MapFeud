@@ -24,7 +24,7 @@ class TileContainerView: UIView {
     
     override func drawRect(rect: CGRect)
     {
-        print("--- \(frame.width) ) - \(frame.height)")
+        //print("--- \(frame.width) ) - \(frame.height)")
     }
     
     /*
