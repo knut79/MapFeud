@@ -47,10 +47,12 @@ class ViewController: UIViewController {//, MapDelegate {
         
         self.view.addSubview(map)
         
+        let questonViewHeight = UIScreen.mainScreen().bounds.height * 0.1
+        
         let magnifyingSide = UIScreen.mainScreen().bounds.width * 0.22
         magnifyingGlass = MagnifyingGlassView(frame: CGRectMake( 0 , 0 ,magnifyingSide , magnifyingSide))
         magnifyingGlassLeftPos = CGPointMake(magnifyingSide , magnifyingSide)
-        magnifyingGlassRightPos = CGPointMake(UIScreen.mainScreen().bounds.width - magnifyingSide , magnifyingSide)
+        magnifyingGlassRightPos = CGPointMake(UIScreen.mainScreen().bounds.width - (magnifyingSide / 2) , questonViewHeight + (magnifyingSide / 2))
         magnifyingGlass.center = magnifyingGlassLeftPos
         magnifyingGlass.mapToMagnify = map
         magnifyingGlass.alpha = 0
@@ -60,7 +62,7 @@ class ViewController: UIViewController {//, MapDelegate {
         
         setupButtons()
         
-        questionView = QuestionView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height * 0.1))
+        questionView = QuestionView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, questonViewHeight))
         questionView.alpha = 0
         self.view.addSubview(questionView)
         
@@ -85,6 +87,10 @@ class ViewController: UIViewController {//, MapDelegate {
         okButton.center = CGPointMake(UIScreen.mainScreen().bounds.width - (okButton.frame.width / 2) - margin , UIScreen.mainScreen().bounds.height - (okButton.frame.height / 2) - margin)
         okButton.addTarget(self, action: "okAction", forControlEvents: UIControlEvents.TouchUpInside)
         okButton.setTitle("🆗", forState: UIControlState.Normal)
+        okButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        okButton.layer.borderWidth = 2
+        okButton.layer.cornerRadius = okButton.bounds.size.width / 2
+        okButton.layer.masksToBounds = true
         self.view.addSubview(okButton)
         
         
@@ -104,7 +110,10 @@ class ViewController: UIViewController {//, MapDelegate {
     
     func setPoint()
     {
+        playerIcon.alpha = 0
         map.setPoint(playerIcon.center)
+        let southAfricaTestExcluded = datactrl.fetchPlace("South Africa")
+        map.drawLineToPlace(southAfricaTestExcluded!)
     }
     
     func populateDataIfNeeded()
@@ -176,7 +185,7 @@ class ViewController: UIViewController {//, MapDelegate {
                 UIView.animateWithDuration(1, animations: { () -> Void in
                     
                     self.questionView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, self.questionView.frame.height / 2)
-                    self.questionView.backgroundColor = UIColor.whiteColor()
+                    self.questionView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.9)
                     
                     
                     }, completion: { (value: Bool) in

@@ -19,6 +19,8 @@ class TileContainerOverlayLayer: CALayer {
         super.init()
     }
     
+    var fromPoint:CGPoint?
+    var toPoint:CGPoint?
     var regions:[[LinePoint]] = []
     var exludedRegions:[[LinePoint]] = []
     var resolutionPercentage:CGFloat = 100
@@ -63,7 +65,10 @@ class TileContainerOverlayLayer: CALayer {
         
         //drawMask(ctx)
 
-        
+        if let _ = fromPoint
+        {
+            drawLine(ctx)
+        }
         drawPlace(ctx)
         
         //CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 0.75);
@@ -91,6 +96,17 @@ class TileContainerOverlayLayer: CALayer {
         CGContextClipToMask(context, maskRect, mask)
     }
     
+    func drawLine(context:CGContext)
+    {
+        print("Drawing line \(fromPoint!.x),\(fromPoint!.y) -> \(toPoint!.x),\(toPoint!.y)")
+        CGContextBeginPath(context)
+        CGContextMoveToPoint(context, CGFloat(fromPoint!.x) * (resolutionPercentage / 100.0), CGFloat(fromPoint!.y) * (resolutionPercentage / 100.0))
+        CGContextAddLineToPoint(context, CGFloat(toPoint!.x) * (resolutionPercentage / 100.0) , CGFloat(toPoint!.y) * (resolutionPercentage / 100.0))
+        CGContextStrokePath(context)
+        CGContextClosePath(context)
+        //CGContextFillPath(context)
+    }
+    
     func drawPlace(context:CGContext)
     {
         for lines in regions
@@ -104,7 +120,7 @@ class TileContainerOverlayLayer: CALayer {
             for var i = 1 ; i < lines.count ; i++
             {
                 let line = lines[i] //as! LinePoint
-                print("x \(line.x) ) y \(line.y)")
+                //print("x \(line.x)  y \(line.y)")
                 CGPathAddLineToPoint(pathRef, nil, CGFloat(line.x) * (resolutionPercentage / 100.0) , CGFloat(line.y) * (resolutionPercentage / 100.0) )
                 //CGContextAddLineToPoint(context, CGFloat(line.x) * (resolutionPercentage / 100.0) * zoomScale, CGFloat(line.y) * (resolutionPercentage / 100.0) * zoomScale)
             }
@@ -132,7 +148,7 @@ class TileContainerOverlayLayer: CALayer {
             for var i = 1 ; i < lines.count ; i++
             {
                 let line = lines[i] //as! LinePoint
-                print("x \(line.x) ) y \(line.y)")
+                //print("x \(line.x)  y \(line.y)")
                 CGPathAddLineToPoint(pathRef, nil, CGFloat(line.x) * (resolutionPercentage / 100.0) , CGFloat(line.y) * (resolutionPercentage / 100.0) )
                 //CGContextAddLineToPoint(context, CGFloat(line.x) * (resolutionPercentage / 100.0) * zoomScale, CGFloat(line.y) * (resolutionPercentage / 100.0) * zoomScale)
             }

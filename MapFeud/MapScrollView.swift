@@ -97,7 +97,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
     }
 
-    var playerSymbolOrigin:CGPoint!
+    var playerRealMapCords:CGPoint!
     func setPoint(playerIconCenter:CGPoint)
     {
         var xPos = (playerIconCenter.x + scrollView.contentOffset.x) / scrollView.zoomScale
@@ -113,31 +113,76 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             xPos = xPos * 2
             yPos = yPos * 2
         }
-        playerSymbolOrigin = CGPointMake(xPos, yPos)
+        playerRealMapCords = CGPointMake(xPos, yPos)
         
         playerSymbol.removeFromSuperview()
         playerSymbol.alpha = 1
         setPlayerIcon()
+
     }
     
     func setPlayerIcon()
     {
         if playerSymbol.alpha == 1
         {
-            let hPrsSide = UIScreen.mainScreen().bounds.width * 0.12 * CGFloat(3.0)
+            let hPrsSide = UIScreen.mainScreen().bounds.width * 0.12
             let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
-            let side = hPrsSide * CGFloat(resolutionPercentage / 100)
-            playerSymbol.frame = CGRectMake(0, 0, side / scrollView.zoomScale, side / scrollView.zoomScale)
-            //let xPos = (playerSymbolOrigin.x + scrollView.contentOffset.x) / scrollView.zoomScale
-            //let yPos = (playerSymbolOrigin.y + scrollView.contentOffset.y) / scrollView.zoomScale
-            playerSymbol.center = CGPointMake(playerSymbolOrigin.x * CGFloat(resolutionPercentage / 100), playerSymbolOrigin.y * CGFloat(resolutionPercentage / 100))
+            let side = hPrsSide //* CGFloat(resolutionPercentage / 100)
+            playerSymbol.frame = CGRectMake(0, 0, side, side)
+            
+            playerSymbol.center = CGPointMake(playerRealMapCords.x * CGFloat(resolutionPercentage / 100), playerRealMapCords.y * CGFloat(resolutionPercentage / 100))
+            playerSymbol.alpha = 0
+            playerSymbol.transform = CGAffineTransformScale(playerSymbol.transform, 1.5, 1.5)
             tileContainerView.addSubview(playerSymbol)
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.playerSymbol.alpha = 1
+                self.playerSymbol.transform = CGAffineTransformIdentity
+                }, completion: { (value: Bool) in
+                    
+                    
+            })
         }
     }
     
+    func drawLineToPlace(place:Place)
+    {
+        drawPlace(place)
+        
+        var excluded:[[LinePoint]] = []
+        var included:[[LinePoint]] = []
+        
+        let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+        let excludedPlace = datactrl.fetchPlace(place.excludePlaces)
+        included.append(place.sortedPoints)
+        excluded.append(excludedPlace!.sortedPoints)
+
+        let coordinateHelper = CoordinateHelper(includedRegions: included,excludedRegions: excluded)
+        let nearestPoint = coordinateHelper.getNearestPoint(playerRealMapCords)
+        
+        if nearestPoint == nil
+        {
+            overlayDrawView?.fromPoint = nil
+            overlayDrawView?.toPoint = nil
+            print("Correct location")
+        }
+        else
+        {
+            overlayDrawView?.fromPoint = playerRealMapCords
+            overlayDrawView?.toPoint = nearestPoint
+            overlayDrawView?.setNeedsDisplay()
+        }
+        
+        
+        //let distanceBetweenPoints = [CoordinateHelper GetDistanceInKm:realMapGamePoint andPoint2:nearestPoint];
+    }
+    
+
+    
+    
+    var overlayDrawView:TileContainerOverlayLayer?
     var placesToDraw:[[LinePoint]] = []
     var placesToExcludeDraw:[[LinePoint]] = []
-    var overlayDrawView:TileContainerOverlayLayer?
     func drawPlace(place:Place)
     {
         //test
@@ -146,6 +191,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         print("drawing \(place.name)")
         //let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
+
+        
         placesToDraw = []
         placesToDraw.append(place.sortedPoints)
         
@@ -168,7 +215,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         for view in tileContainerView.subviews {
             view.removeFromSuperview()
         }
-*/
+        */
         
         playerSymbol.removeFromSuperview()
         

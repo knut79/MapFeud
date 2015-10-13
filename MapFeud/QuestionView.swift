@@ -30,6 +30,8 @@ class QuestionView: UIView {
         self.addSubview(questionText)
         
         imageView = UIImageView(frame: CGRectZero)
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor.lightGrayColor().CGColor
         imageView.userInteractionEnabled = true
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapFlag:")
         singleTapGestureRecognizer.numberOfTapsRequired = 1
@@ -94,7 +96,7 @@ class QuestionView: UIView {
                 imageView.image = image
                 let heightRatio = image.size.height / (self.bounds.height - 3)
                 imageView.frame = CGRectMake(3, 3, image.size.width / heightRatio, self.bounds.height - 6)
-                questionText.frame = CGRectMake(imageView.frame.maxX + 3, 0, self.bounds.width - imageView.frame.width - 6, self.bounds.height)
+                questionText.frame = CGRectMake(imageView.frame.maxX + 3, 0, self.bounds.width - imageView.frame.width - 9, self.bounds.height)
             }
         }
         else

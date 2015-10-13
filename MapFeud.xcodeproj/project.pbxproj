@@ -510,6 +510,7 @@
 		7254B1F91BCB27AD00A22920 /* HintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1F81BCB27AD00A22920 /* HintButton.swift */; settings = {ASSET_TAGS = (); }; };
 		7254B1FB1BCBC8FE00A22920 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1FA1BCBC8FE00A22920 /* QuestionView.swift */; settings = {ASSET_TAGS = (); }; };
 		7254B1FD1BCC145500A22920 /* StaticValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1FC1BCC145500A22920 /* StaticValues.swift */; settings = {ASSET_TAGS = (); }; };
+		7254B1FF1BCD279D00A22920 /* CoordinateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1FE1BCD279D00A22920 /* CoordinateHelper.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1039,6 +1040,7 @@
 		7254B1F81BCB27AD00A22920 /* HintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintButton.swift; sourceTree = "<group>"; };
 		7254B1FA1BCBC8FE00A22920 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		7254B1FC1BCC145500A22920 /* StaticValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticValues.swift; sourceTree = "<group>"; };
+		7254B1FE1BCD279D00A22920 /* CoordinateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1112,6 +1114,7 @@
 				7254B1F61BC9E4F900A22920 /* MagnifyingGlassView.swift */,
 				7254B1F81BCB27AD00A22920 /* HintButton.swift */,
 				7254B1FA1BCBC8FE00A22920 /* QuestionView.swift */,
+				7254B1FE1BCD279D00A22920 /* CoordinateHelper.swift */,
 			);
 			path = MapFeud;
 			sourceTree = "<group>";
@@ -2307,6 +2310,7 @@
 				7254B1F71BC9E4F900A22920 /* MagnifyingGlassView.swift in Sources */,
 				7254B1F51BC9B74E00A22920 /* PlayerIconView.swift in Sources */,
 				7254B04C1BC5F95800A22920 /* TileContainerView.swift in Sources */,
+				7254B1FF1BCD279D00A22920 /* CoordinateHelper.swift in Sources */,
 				7254B1FD1BCC145500A22920 /* StaticValues.swift in Sources */,
 				7254B0471BC55C7E00A22920 /* Question.swift in Sources */,
 				7254B1FB1BCBC8FE00A22920 /* QuestionView.swift in Sources */,
