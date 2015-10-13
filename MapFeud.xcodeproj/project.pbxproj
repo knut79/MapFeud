@@ -507,6 +507,9 @@
 		7254B1F31BC99CAA00A22920 /* ZimbabweFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B12C1BC99CA900A22920 /* ZimbabweFlag.png */; settings = {ASSET_TAGS = (); }; };
 		7254B1F51BC9B74E00A22920 /* PlayerIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1F41BC9B74E00A22920 /* PlayerIconView.swift */; settings = {ASSET_TAGS = (); }; };
 		7254B1F71BC9E4F900A22920 /* MagnifyingGlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1F61BC9E4F900A22920 /* MagnifyingGlassView.swift */; settings = {ASSET_TAGS = (); }; };
+		7254B1F91BCB27AD00A22920 /* HintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1F81BCB27AD00A22920 /* HintButton.swift */; settings = {ASSET_TAGS = (); }; };
+		7254B1FB1BCBC8FE00A22920 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1FA1BCBC8FE00A22920 /* QuestionView.swift */; settings = {ASSET_TAGS = (); }; };
+		7254B1FD1BCC145500A22920 /* StaticValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B1FC1BCC145500A22920 /* StaticValues.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1033,6 +1036,9 @@
 		7254B12C1BC99CA900A22920 /* ZimbabweFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZimbabweFlag.png; sourceTree = "<group>"; };
 		7254B1F41BC9B74E00A22920 /* PlayerIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerIconView.swift; sourceTree = "<group>"; };
 		7254B1F61BC9E4F900A22920 /* MagnifyingGlassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnifyingGlassView.swift; sourceTree = "<group>"; };
+		7254B1F81BCB27AD00A22920 /* HintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintButton.swift; sourceTree = "<group>"; };
+		7254B1FA1BCBC8FE00A22920 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		7254B1FC1BCC145500A22920 /* StaticValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1087,6 +1093,7 @@
 				7254B0601BC99C0100A22920 /* gameGraphics */,
 				7254B0511BC7278600A22920 /* masks */,
 				7254B0481BC5708700A22920 /* MapFeud.xcdatamodeld */,
+				7254B1FC1BCC145500A22920 /* StaticValues.swift */,
 				7254B0421BC40E6800A22920 /* DataHandler.swift */,
 				7254B0391BC407BF00A22920 /* DataClasses */,
 				7254B00C1BC3E94A00A22920 /* FlatDatafiles */,
@@ -1103,6 +1110,8 @@
 				7254B04D1BC607AA00A22920 /* TileContainerOverlayView.swift */,
 				7254B1F41BC9B74E00A22920 /* PlayerIconView.swift */,
 				7254B1F61BC9E4F900A22920 /* MagnifyingGlassView.swift */,
+				7254B1F81BCB27AD00A22920 /* HintButton.swift */,
+				7254B1FA1BCBC8FE00A22920 /* QuestionView.swift */,
 			);
 			path = MapFeud;
 			sourceTree = "<group>";
@@ -2298,7 +2307,10 @@
 				7254B1F71BC9E4F900A22920 /* MagnifyingGlassView.swift in Sources */,
 				7254B1F51BC9B74E00A22920 /* PlayerIconView.swift in Sources */,
 				7254B04C1BC5F95800A22920 /* TileContainerView.swift in Sources */,
+				7254B1FD1BCC145500A22920 /* StaticValues.swift in Sources */,
 				7254B0471BC55C7E00A22920 /* Question.swift in Sources */,
+				7254B1FB1BCBC8FE00A22920 /* QuestionView.swift in Sources */,
+				7254B1F91BCB27AD00A22920 /* HintButton.swift in Sources */,
 				72424A541BC2C468009FED5C /* AppDelegate.swift in Sources */,
 				7254B04E1BC607AA00A22920 /* TileContainerOverlayView.swift in Sources */,
 			);

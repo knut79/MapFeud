@@ -30,6 +30,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     let minimumResolution:Int = -2
     let maximumResolution:Int = 1
     var resolution:Int = -2
+    var playerSymbol:UIImageView!
     
     var delegate:MapDelegate?
     
@@ -71,6 +72,10 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     
         tileContainerView.frame = CGRectMake(0, 0, mapWith, mapHeight)
         
+        let image = UIImage(named: "ArrowGreen.png")
+        playerSymbol = UIImageView(image:image)
+        playerSymbol.alpha = 0
+        
         
         
         setupTiles()
@@ -90,6 +95,44 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         self.addSubview(scrollView)
         
+    }
+
+    var playerSymbolOrigin:CGPoint!
+    func setPoint(playerIconCenter:CGPoint)
+    {
+        var xPos = (playerIconCenter.x + scrollView.contentOffset.x) / scrollView.zoomScale
+        var yPos = (playerIconCenter.y + scrollView.contentOffset.y) / scrollView.zoomScale
+        let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
+        if resolutionPercentage == 25
+        {
+            xPos = xPos * 4
+            yPos = yPos * 4
+        }
+        else if resolutionPercentage == 50
+        {
+            xPos = xPos * 2
+            yPos = yPos * 2
+        }
+        playerSymbolOrigin = CGPointMake(xPos, yPos)
+        
+        playerSymbol.removeFromSuperview()
+        playerSymbol.alpha = 1
+        setPlayerIcon()
+    }
+    
+    func setPlayerIcon()
+    {
+        if playerSymbol.alpha == 1
+        {
+            let hPrsSide = UIScreen.mainScreen().bounds.width * 0.12 * CGFloat(3.0)
+            let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
+            let side = hPrsSide * CGFloat(resolutionPercentage / 100)
+            playerSymbol.frame = CGRectMake(0, 0, side / scrollView.zoomScale, side / scrollView.zoomScale)
+            //let xPos = (playerSymbolOrigin.x + scrollView.contentOffset.x) / scrollView.zoomScale
+            //let yPos = (playerSymbolOrigin.y + scrollView.contentOffset.y) / scrollView.zoomScale
+            playerSymbol.center = CGPointMake(playerSymbolOrigin.x * CGFloat(resolutionPercentage / 100), playerSymbolOrigin.y * CGFloat(resolutionPercentage / 100))
+            tileContainerView.addSubview(playerSymbol)
+        }
     }
     
     var placesToDraw:[[LinePoint]] = []
@@ -126,6 +169,9 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             view.removeFromSuperview()
         }
 */
+        
+        playerSymbol.removeFromSuperview()
+        
         if tileContainerView.layer.sublayers?.count > 0
         {
             for layer in tileContainerView.layer.sublayers! {
@@ -183,6 +229,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         
         overlayDrawView!.setNeedsDisplay()
+        
+        setPlayerIcon()
         
         delegate?.resolutionChanged()
 

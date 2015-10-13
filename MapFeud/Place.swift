@@ -3,14 +3,6 @@ import CoreData
 import UIKit
 
 
-enum PlaceType:Int
-{
-    //case info = 0
-    case region = 0
-    case city = 1
-    case country = 2
-}
-
 class Place: NSManagedObject {
     
     @NSManaged var refId: String
@@ -21,21 +13,19 @@ class Place: NSManagedObject {
     @NSManaged var points: NSSet
     @NSManaged var questions: NSSet
     @NSManaged var info:String
-    @NSManaged var level:Int16
     @NSManaged var includePlaces:String
     @NSManaged var excludePlaces:String
     
-    class func createInManagedObjectContext(moc: NSManagedObjectContext, name: String, refId:String, type:String, level:Int, info:String, hint1:String, hint2:String, includePlaces:String, excludePlaces:String) -> Place{
+    class func createInManagedObjectContext(moc: NSManagedObjectContext, name: String, refId:String, type:Int16, info:String, hint1:String, hint2:String, includePlaces:String, excludePlaces:String) -> Place{
         let newitem = NSEntityDescription.insertNewObjectForEntityForName("Place", inManagedObjectContext: moc) as! Place
         
         newitem.refId = refId == "" ? name : refId
         newitem.name = name
         
-        newitem.type = 1
+        newitem.type = type
         newitem.info = info
         newitem.hint1 = hint1
         newitem.hint2 = hint2
-        newitem.level = Int16(level)
         newitem.points = NSMutableSet()
         newitem.questions = NSMutableSet()
         
@@ -43,6 +33,8 @@ class Place: NSManagedObject {
         newitem.excludePlaces = excludePlaces
         return newitem
     }
+    
+
     
     var sortedPoints:[LinePoint]
         {

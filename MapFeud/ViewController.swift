@@ -16,6 +16,12 @@ class ViewController: UIViewController {//, MapDelegate {
     var magnifyingGlass: MagnifyingGlassView!
     var magnifyingGlassLeftPos:CGPoint!
     var magnifyingGlassRightPos:CGPoint!
+    var questionView:QuestionView!
+    var currentQuestion:Question!
+    
+    
+    var hintButton:HintButton!
+    var okButton:UIButton!
     
     
     override func viewDidLoad() {
@@ -30,6 +36,8 @@ class ViewController: UIViewController {//, MapDelegate {
         map.addSubview(playerIcon)
         
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+
+        
         
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapMap:")
         singleTapGestureRecognizer.numberOfTapsRequired = 1
@@ -48,13 +56,55 @@ class ViewController: UIViewController {//, MapDelegate {
         magnifyingGlass.alpha = 0
         self.view.addSubview(magnifyingGlass)
         
+
+        
         setupButtons()
         
+        questionView = QuestionView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height * 0.1))
+        questionView.alpha = 0
+        self.view.addSubview(questionView)
+        
         populateDataIfNeeded()
+
+
     }
     
     func setupButtons()
     {
+        let margin = UIScreen.mainScreen().bounds.width * 0.025
+        
+        let buttonSide = UIScreen.mainScreen().bounds.width * 0.15
+        
+        hintButton = HintButton(frame: CGRectMake(0, 0, buttonSide, buttonSide))
+        hintButton.center = CGPointMake(margin + (hintButton.frame.width / 2) , UIScreen.mainScreen().bounds.height * 0.33)
+        hintButton.addTarget(self, action: "useHintAction", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(hintButton)
+
+        
+        okButton = UIButton(frame: CGRectMake(0, 0, buttonSide, buttonSide))
+        okButton.center = CGPointMake(UIScreen.mainScreen().bounds.width - (okButton.frame.width / 2) - margin , UIScreen.mainScreen().bounds.height - (okButton.frame.height / 2) - margin)
+        okButton.addTarget(self, action: "okAction", forControlEvents: UIControlEvents.TouchUpInside)
+        okButton.setTitle("🆗", forState: UIControlState.Normal)
+        self.view.addSubview(okButton)
+        
+        
+        
+    }
+
+    
+    func useHintAction()
+    {
+
+    }
+    
+    func okAction()
+    {
+        setPoint()
+    }
+    
+    func setPoint()
+    {
+        map.setPoint(playerIcon.center)
     }
     
     func populateDataIfNeeded()
@@ -81,9 +131,61 @@ class ViewController: UIViewController {//, MapDelegate {
     func afterPopulateData()
     {
         datactrl.fetchData()
-        let southAfricaTestExcluded = datactrl.fetchPlace("South Africa")
-        //map.drawPlace(datactrl.placeItems[0])
-        map.drawPlace(southAfricaTestExcluded!)
+        
+        datactrl.shuffleQuestions()
+        datactrl.orderOnUsed()
+        
+        
+        startGame()
+        
+        //TEST
+        //let southAfricaTestExcluded = datactrl.fetchPlace("South Africa")
+        //map.drawPlace(southAfricaTestExcluded!)
+    }
+    
+    var index = 0
+    func startGame()
+    {
+        setNextQuestion()
+    }
+    
+    func setNextQuestion()
+    {
+        currentQuestion = datactrl.questionItems[index % datactrl.questionItems.count]
+        
+        if let qv = questionView
+        {
+            qv.setQuestion(currentQuestion)
+        }
+        
+        
+        showQuestion()
+    }
+    
+    func showQuestion()
+    {
+        questionView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
+        self.questionView.questionText.textColor = UIColor.whiteColor()
+        self.questionView.transform = CGAffineTransformScale(self.questionView.transform, 0.1, 0.1)
+        UIView.animateWithDuration(0.50, animations: { () -> Void in
+            
+            self.questionView.alpha = 1
+            self.questionView.transform = CGAffineTransformIdentity
+            }, completion: { (value: Bool) in
+                
+                UIView.animateWithDuration(1, animations: { () -> Void in
+                    
+                    self.questionView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, self.questionView.frame.height / 2)
+                    self.questionView.backgroundColor = UIColor.whiteColor()
+                    
+                    
+                    }, completion: { (value: Bool) in
+                        
+                        self.questionView.questionText.textColor = UIColor.blackColor()
+                        
+                })
+                
+        })
     }
     
     

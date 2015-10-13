@@ -14,7 +14,8 @@ import UIKit
 class DataHandler
 {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    var placeItems:[Place]!
+    //var placeItems:[Place]!
+    var questionItems:[Question]!
     var todaysYear:Double!
     init()
     {
@@ -25,7 +26,7 @@ class DataHandler
         let components = calendar.components(NSCalendarUnit.Year, fromDate: date)
         todaysYear = Double(components.year)
         
-        placeItems = []
+        questionItems = []
     }
     
     func readTxtFile(name:String)
@@ -64,7 +65,7 @@ class DataHandler
                             let image = questionElements[3]
                             let englishText = questionElements[4]
                             
-                            let question = Question.createInManagedObjectContext(self.managedObjectContext, text: englishText, level:Int(intStringLevel)!, image:image)
+                            let question = Question.createInManagedObjectContext(self.managedObjectContext, text: englishText, level:Int(intStringLevel)!, image:image,answerTemplate: "from $")
                             questions.append(question)
                             
                         }
@@ -106,7 +107,12 @@ class DataHandler
                                 }
                             }
                             
-                            let place = Place.createInManagedObjectContext(self.managedObjectContext, name: name, refId:"", type:type,level:Int(intStringLevel)!,info:info, hint1:hint1, hint2:hint2,includePlaces:includePlaces, excludePlaces:excludePlaces)
+                            let typeInt = Int16(typeStringToEnum(type).rawValue)
+                            
+                            let place = Place.createInManagedObjectContext(self.managedObjectContext, name: name, refId:"", type:typeInt,info:info, hint1:hint1, hint2:hint2,includePlaces:includePlaces, excludePlaces:excludePlaces)
+                            
+                            
+                            addDefaultQuestionForPlace(place,level: Int(intStringLevel)!)
                             
                             
                             if lines.count == 1
@@ -150,18 +156,99 @@ class DataHandler
                 print(error)
             }
         }
-
-        
     }
+
+    
+    func typeStringToEnum(typeString:String) -> PlaceType
+    {
+        if typeString == "City"
+        {
+            return PlaceType.City
+        }
+        else if typeString == "Mountain"
+        {
+            return PlaceType.Mountain
+        }
+        else if typeString == "UnDefPlace"
+        {
+            return PlaceType.UnDefPlace
+        }
+        else if typeString == "State"
+        {
+            return PlaceType.State
+        }
+        else if typeString == "County"
+        {
+            return PlaceType.County
+        }
+        else if typeString == "Lake"
+        {
+            return PlaceType.Lake
+        }
+        else if typeString == "UnDefWaterRegion"
+        {
+            return PlaceType.UnDefWaterRegion
+        }
+        else if typeString == "Island"
+        {
+            return PlaceType.Island
+        }
+        else if typeString == "Peninsula"
+        {
+            return PlaceType.Peninsula
+        }
+        else if typeString == "UnDefRegion"
+        {
+            return PlaceType.UnDefRegion
+        }
+        else
+        {
+            fatalError("Could not find type \(typeString)")
+        }
+    }
+
+    
+    func addDefaultQuestionForPlace(place:Place, level:Int)
+    {
+        var questionText = "Where is \(place.name) located"
+        var answerText = "from $"
+        let placeType = PlaceType(rawValue: Int(place.type))
+        switch(placeType!)
+        {
+            case .City :
+                questionText = "Where is the city \(place.name) located"
+            break
+            case .Mountain:
+                questionText = "Where is the mountain \(place.name) located"
+            break
+            case .State:
+                questionText = "Where is the state \(place.name) located"
+                answerText = "from $ state border"
+            break
+            case .County:
+                questionText = "Where is the county \(place.name) located"
+                answerText = "from $ county border"
+            break
+            case .Lake:
+                questionText = "Where is \(place.name) located"
+                answerText = "from $s waterfront"
+            break
+            default:
+                questionText = "Where is \(place.name) located"
+                answerText = "from $"
+            break
+
+        }
+        let question = Question.createInManagedObjectContext(self.managedObjectContext, text: questionText, level:level, image:"", answerTemplate:answerText)
+        place.addQuestion(question)
+    }
+    
     
     func populateData(completePopulating: (() -> (Void))?)
     {
 
         readTxtFile("statesAfrica")
         readTxtFile("statesAsia")
-        
-        
-        
 
 
         //savePeriodesFromCollection(dataToPopulate)
@@ -173,6 +260,21 @@ class DataHandler
         completePopulating?()
     }
     
+    func shuffleQuestions()
+    {
+        questionItems = shuffle(questionItems)
+    }
+    
+    func shuffle<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
+        let ecount = list.count
+        for i in 0..<(ecount - 1) {
+            let j = Int(arc4random_uniform(UInt32(ecount - i))) + i
+            if j != i {
+                swap(&list[i], &list[j])
+            }
+        }
+        return list
+    }
 
 
     func save() {
@@ -184,11 +286,16 @@ class DataHandler
         }
     }
     
+    func orderOnUsed()
+    {
+        questionItems = questionItems.sort { $0.used < $1.used }
+    }
+    
     func fetchData(tags:[String] = [],fromLevel:Int = 1,toLevel:Int = 1) {
         
         // Create a new fetch request using the LogItem entity
         // eqvivalent to select * from Relation
-        let fetchEvents = NSFetchRequest(entityName: "Place")
+        let fetchEvents = NSFetchRequest(entityName: "Question")
         
         //let sortDescriptor = NSSortDescriptor(key: "number", ascending: true)
         //fetchRequest.sortDescriptors = [sortDescriptor]
@@ -211,8 +318,8 @@ class DataHandler
         let predicate = NSPredicate(format: "periods.@count > 0 AND level >= \(fromLevel) AND level <= \(toLevel) AND tags  MATCHES '.*(\(predicateTags)).*'")//
         fetchEvents.predicate = predicate
         */
-        if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Place] {
-            placeItems = fetchResults
+        if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Question] {
+            questionItems = fetchResults
         }
         
     }
