@@ -247,8 +247,11 @@ class DataHandler
     func populateData(completePopulating: (() -> (Void))?)
     {
 
-        readTxtFile("statesAfrica")
+        //readTxtFile("statesAfrica")
+        //readTxtFile("statesAsia")
+        //readTxtFile("statesNorthAmerica")
         readTxtFile("statesAsia")
+        
 
 
         //savePeriodesFromCollection(dataToPopulate)
@@ -338,6 +341,30 @@ class DataHandler
         {
             return nil
         }
+    }
+    
+    func fetchPlaces(idRefs:String) -> [Place]?
+    {
+        if idRefs != ""
+        {
+            let fetchEvents = NSFetchRequest(entityName: "Place")
+            
+            let idRefsRightFormat = idRefs.stringByReplacingOccurrencesOfString("#", withString: "|", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            
+            //let predicate = NSPredicate(format: "refId MATCHES '.*(\(idRefsRightFormat)).*'")
+            let predicate = NSPredicate(format: "refId MATCHES '(\(idRefsRightFormat))'")
+            fetchEvents.predicate = predicate
+            
+            if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Place] {
+                
+                for item in fetchResults
+                {
+                    print("--TEST-- \(item.name)")
+                }
+                return fetchResults
+            }
+        }
+        return nil
     }
     
     func addRecordToGameResults(value:String)

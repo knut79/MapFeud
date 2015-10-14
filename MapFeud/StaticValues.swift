@@ -35,6 +35,15 @@ import UIKit
 //Where is %@ located
 //from %@
 
+
+
+
+
+struct GlobalConstants {
+    static let constMapHeight:CGFloat = 2944
+    static let constMapWidth:CGFloat = 4096
+}
+
 enum PlaceType: Int
 {
     case City = 0,

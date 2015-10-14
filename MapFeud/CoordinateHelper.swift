@@ -56,6 +56,30 @@ class CoordinateHelper {
                 nearestPoint = point.nearestPointInPolygon(cgPointExcluded)
             }
         }
+        
+        //check outside of map on both sides
+        if let np = nearestPoint
+        {
+            let leftNearestPoint = CGPointMake(np.x - GlobalConstants.constMapWidth, np.y)
+            let rightNearestPoint = CGPointMake(np.x + GlobalConstants.constMapWidth, np.y)
+            let orgDistance = point.distanceFromCGPoints(np)
+            let distanceLeftside = point.distanceFromCGPoints(leftNearestPoint)
+            let distanceRightside = point.distanceFromCGPoints(rightNearestPoint)
+            if orgDistance > distanceLeftside
+            {
+                let leftPoint = CGPointMake(point.x + GlobalConstants.constMapWidth, point.y)
+                nearestPoint = leftPoint.nearestPointInPolygon(cgPointIncluded)
+                nearestPoint = CGPointMake(nearestPoint!.x - GlobalConstants.constMapWidth, nearestPoint!.y)
+                //nearestPoint = leftPoint
+            }
+            else if orgDistance > distanceRightside // ok
+            {
+                let rightPoint = CGPointMake(point.x - GlobalConstants.constMapWidth, point.y)
+                nearestPoint = rightPoint.nearestPointInPolygon(cgPointIncluded)
+                nearestPoint = CGPointMake(nearestPoint!.x + GlobalConstants.constMapWidth, nearestPoint!.y)
+                //nearestPoint = rightPoint
+            }
+        }
         return nearestPoint
     }
     

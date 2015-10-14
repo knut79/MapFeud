@@ -51,7 +51,7 @@ class ViewController: UIViewController {//, MapDelegate {
         
         let magnifyingSide = UIScreen.mainScreen().bounds.width * 0.22
         magnifyingGlass = MagnifyingGlassView(frame: CGRectMake( 0 , 0 ,magnifyingSide , magnifyingSide))
-        magnifyingGlassLeftPos = CGPointMake(magnifyingSide , magnifyingSide)
+        magnifyingGlassLeftPos = CGPointMake((magnifyingSide / 2) ,questonViewHeight + (magnifyingSide / 2))
         magnifyingGlassRightPos = CGPointMake(UIScreen.mainScreen().bounds.width - (magnifyingSide / 2) , questonViewHeight + (magnifyingSide / 2))
         magnifyingGlass.center = magnifyingGlassLeftPos
         magnifyingGlass.mapToMagnify = map
@@ -112,8 +112,13 @@ class ViewController: UIViewController {//, MapDelegate {
     {
         playerIcon.alpha = 0
         map.setPoint(playerIcon.center)
-        let southAfricaTestExcluded = datactrl.fetchPlace("South Africa")
+        //let southAfricaTestExcluded = datactrl.fetchPlace("South Africa")
+        //let southAfricaTestExcluded = datactrl.fetchPlace("Usa")
+        let southAfricaTestExcluded = datactrl.fetchPlace("Japan")
+        
         map.drawLineToPlace(southAfricaTestExcluded!)
+        
+        map.animateAnswer()
     }
     
     func populateDataIfNeeded()
@@ -227,14 +232,17 @@ class ViewController: UIViewController {//, MapDelegate {
         
         if(isInnMagnifyingView)
         {
-            if self.magnifyingGlass.center == magnifyingGlassLeftPos
-            {
-                self.magnifyingGlass.center = magnifyingGlassRightPos
-            }
-            else
-            {
-                self.magnifyingGlass.center = magnifyingGlassLeftPos
-            }
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                if self.magnifyingGlass.center == self.magnifyingGlassLeftPos
+                {
+                    self.magnifyingGlass.center = self.magnifyingGlassRightPos
+                }
+                else
+                {
+                    self.magnifyingGlass.center = self.magnifyingGlassLeftPos
+                }
+                })
+
         }
         else if(isInnView)
         {

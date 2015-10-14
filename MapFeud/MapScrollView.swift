@@ -23,8 +23,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     var tileContainerView:TileContainerView!
     var scrollView:UIScrollView!
     
-    let constMapHeight:CGFloat = 2944
-    let constMapWidth:CGFloat = 4096
+
     let maxTileSize:CGFloat = 256
     
     let minimumResolution:Int = -2
@@ -62,8 +61,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         scrollView.autoresizesSubviews = true
         
         let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
-        let mapWith:CGFloat =  constMapWidth * (CGFloat(resolutionPercentage) / 100.0)
-        let mapHeight:CGFloat =  constMapHeight * (CGFloat(resolutionPercentage) / 100.0)
+        let mapWith:CGFloat =  GlobalConstants.constMapWidth * (CGFloat(resolutionPercentage) / 100.0)
+        let mapHeight:CGFloat =  GlobalConstants.constMapHeight * (CGFloat(resolutionPercentage) / 100.0)
         
         
         self.scrollView.addSubview(tileContainerView)
@@ -153,10 +152,26 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         var included:[[LinePoint]] = []
         
         let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
-        let excludedPlace = datactrl.fetchPlace(place.excludePlaces)
+        
+        let excludedPlaces = datactrl.fetchPlaces(place.excludePlaces)
         included.append(place.sortedPoints)
-        excluded.append(excludedPlace!.sortedPoints)
-
+        
+        let includedPlaces = datactrl.fetchPlaces(place.includePlaces)
+        if let ips = includedPlaces
+        {
+            for item in ips
+            {
+                included.append(item.sortedPoints)
+            }
+        }
+        
+        if let eps = excludedPlaces
+        {
+            for item in eps
+            {
+                excluded.append(item.sortedPoints)
+            }
+        }
         let coordinateHelper = CoordinateHelper(includedRegions: included,excludedRegions: excluded)
         let nearestPoint = coordinateHelper.getNearestPoint(playerRealMapCords)
         
@@ -177,6 +192,21 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         //let distanceBetweenPoints = [CoordinateHelper GetDistanceInKm:realMapGamePoint andPoint2:nearestPoint];
     }
     
+    func animateAnswer()
+    {
+        
+        /*
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.overlayDrawView!.transform = CATransform3DScale(self.overlayDrawView!.transform, 1.5, 1.5, 1.5)
+            }, completion: { (value: Bool) in
+                
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.overlayDrawView!.transform = CATransform3DIdentity
+                    }, completion: { (value: Bool) in
+                })
+        })
+        */
+    }
 
     
     
@@ -187,7 +217,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     {
         //test
         let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
-        let excludedPlace = datactrl.fetchPlace(place.excludePlaces)
+        let excludedPlaces = datactrl.fetchPlaces(place.excludePlaces)
         
         print("drawing \(place.name)")
         //let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
@@ -195,9 +225,24 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         placesToDraw = []
         placesToDraw.append(place.sortedPoints)
+        let includedPlaces = datactrl.fetchPlaces(place.includePlaces)
+        if let ips = includedPlaces
+        {
+            for ip in ips
+            {
+                placesToDraw.append(ip.sortedPoints)
+            }
+        }
         
         placesToExcludeDraw = []
-        placesToExcludeDraw.append(excludedPlace!.sortedPoints)
+        if let eps = excludedPlaces
+        {
+            for ep in eps
+            {
+                placesToExcludeDraw.append(ep.sortedPoints)
+            }
+        }
+        
         
         //overlayDrawView?.resolutionPercentage = resolutionPercentage
         overlayDrawView?.exludedRegions = placesToExcludeDraw
@@ -230,17 +275,18 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         // The resolution is stored as a power of 2, so -1 means 50%, -2 means 25%, and 0 means 100%.
         let resolutionPercentage = 100 * pow(Double(2), Double(resolution));
         print("resolution : \(resolutionPercentage)")
-        let mapWith:CGFloat =  constMapWidth * (CGFloat(resolutionPercentage) / 100.0)
-        let mapHeight:CGFloat =  constMapHeight * (CGFloat(resolutionPercentage) / 100.0)
+        let mapWith:CGFloat =  GlobalConstants.constMapWidth * (CGFloat(resolutionPercentage) / 100.0)
+        let mapHeight:CGFloat =  GlobalConstants.constMapHeight * (CGFloat(resolutionPercentage) / 100.0)
 
         //tileContainerView.frame = CGRectMake(0, 0, mapWith, mapHeight)
         let maxRow:Int = Int(ceil(mapHeight / maxTileSize))
         let maxColumn:Int = Int(ceil(mapWith / maxTileSize))
         for var row = 0 ; row < maxRow ; row++
         {
-            for var col = 0 ; col < maxColumn ; col++
+            for var col = -1 ; col <= maxColumn ; col++
             {
-                let imageName = "world_\(Int(resolutionPercentage))_\(col)_\(row).jpg"
+                let pictureCol = col < 0 ? maxColumn - 1 : (col % maxColumn)
+                let imageName = "world_\(Int(resolutionPercentage))_\(pictureCol)_\(row).jpg"
                 
                 let tileImage = UIImage(named: imageName)
 
@@ -260,9 +306,41 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
                 {
                     print("Did not find file \(imageName)")
                 }
-                
             }
         }
+        
+        //test
+        /*
+        for var row = 0 ; row < maxRow ; row++
+        {
+            let col = 0
+                let imageName = "world_\(Int(resolutionPercentage))_\(col)_\(row).jpg"
+                
+                let tileImage = UIImage(named: imageName)
+                
+                if let image = tileImage
+                {
+                    let layer = CALayer()
+                    layer.frame = CGRectMake(CGFloat(maxColumn) * maxTileSize, CGFloat(row) * maxTileSize, image.size.width, image.size.height)
+                    layer.contents = tileImage?.CGImage //UIImage(named: "star")?.CGImage
+                    layer.contentsGravity = kCAGravityCenter
+                    tileContainerView.layer.addSublayer(layer)
+                    
+                    //let tileImageView = UIImageView(image:image)
+                    //tileImageView.frame = CGRectMake(CGFloat(col) * maxTileSize, CGFloat(row) * maxTileSize, image.size.width, image.size.height)
+                    //tileContainerView.addSubview(tileImageView)
+                }
+                else
+                {
+                    print("Did not find file \(imageName)")
+                }
+            
+        }
+        */
+        
+        //end test
+        
+        
         
         
         overlayDrawView = TileContainerOverlayLayer()

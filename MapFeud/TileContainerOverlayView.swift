@@ -33,25 +33,6 @@ class TileContainerOverlayLayer: CALayer {
         self.zoomScale = zoomScale
         self.setNeedsDisplay()
     }
-    
-    /*
-    override func drawInContext(ctx: CGContext)
-    {
-        print("1  --- \(frame.width) ) - \(frame.height)")
-
-        CGContextSetLineCap(ctx, CGLineCap.Round)
-        CGContextSetLineJoin(ctx, CGLineJoin.Round)
-        CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 1)
-        CGContextSetRGBFillColor(ctx, 1.0, 0.0, 0.0, 1.0)
-        //CGContextSetFillColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetRGBFillColor(ctx, 0, 200, 0, 0.5);
-        
-        drawMask(ctx)
-        drawTest(ctx)
-    }
-*/
-    
-    
 
     override func drawInContext(ctx: CGContext)
     {
@@ -65,17 +46,15 @@ class TileContainerOverlayLayer: CALayer {
         
         //drawMask(ctx)
 
+
+        drawPlace(ctx)
         if let _ = fromPoint
         {
             drawLine(ctx)
         }
-        drawPlace(ctx)
         
-        //CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 0.75);
-        //[self StrokeUpRegions:loc andContextRef:context];
-        //[self StrokeUpExludedRegions:loc andContextRef:context];
-        //CGContextRestoreGState(context);
-        
+        //_?
+        self.shouldRasterize = true
     }
     
     func drawMask(context:CGContext)
@@ -99,19 +78,38 @@ class TileContainerOverlayLayer: CALayer {
     func drawLine(context:CGContext)
     {
         print("Drawing line \(fromPoint!.x),\(fromPoint!.y) -> \(toPoint!.x),\(toPoint!.y)")
+        
         CGContextBeginPath(context)
         CGContextMoveToPoint(context, CGFloat(fromPoint!.x) * (resolutionPercentage / 100.0), CGFloat(fromPoint!.y) * (resolutionPercentage / 100.0))
         CGContextAddLineToPoint(context, CGFloat(toPoint!.x) * (resolutionPercentage / 100.0) , CGFloat(toPoint!.y) * (resolutionPercentage / 100.0))
         CGContextStrokePath(context)
         CGContextClosePath(context)
-        //CGContextFillPath(context)
+ 
+        if toPoint!.x > GlobalConstants.constMapWidth
+        {
+            CGContextBeginPath(context)
+            CGContextMoveToPoint(context, CGFloat(fromPoint!.x - GlobalConstants.constMapWidth) * (resolutionPercentage / 100.0), CGFloat(fromPoint!.y) * (resolutionPercentage / 100.0))
+            CGContextAddLineToPoint(context, CGFloat(toPoint!.x - GlobalConstants.constMapWidth) * (resolutionPercentage / 100.0) , CGFloat(toPoint!.y) * (resolutionPercentage / 100.0))
+            CGContextStrokePath(context)
+            CGContextClosePath(context)
+        }
+        if toPoint!.x < 0
+        {
+            CGContextBeginPath(context)
+            CGContextMoveToPoint(context, CGFloat(fromPoint!.x + GlobalConstants.constMapWidth) * (resolutionPercentage / 100.0), CGFloat(fromPoint!.y) * (resolutionPercentage / 100.0))
+            CGContextAddLineToPoint(context, CGFloat(toPoint!.x + GlobalConstants.constMapWidth) * (resolutionPercentage / 100.0) , CGFloat(toPoint!.y) * (resolutionPercentage / 100.0))
+            CGContextStrokePath(context)
+            CGContextClosePath(context)
+        }
+        
+
     }
     
     func drawPlace(context:CGContext)
     {
         for lines in regions
         {
-            CGContextBeginPath(context)
+            //CGContextBeginPath(context)
             
             let pathRef:CGMutablePathRef = CGPathCreateMutable()
             let firstPoint = lines[0]
@@ -131,8 +129,11 @@ class TileContainerOverlayLayer: CALayer {
             CGPathCloseSubpath(pathRef)
             CGContextAddPath(context, pathRef)
             
+            //CGPathAddPath(pathRef, nil, <#T##path2: CGPath?##CGPath?#>)
+            
             //CGContextClosePath(context)
             //CGContextFillPath(context)
+            //break
         }
 
         for lines in exludedRegions
@@ -159,7 +160,7 @@ class TileContainerOverlayLayer: CALayer {
             CGPathCloseSubpath(pathRef)
             CGContextAddPath(context, pathRef)
             
-            CGContextClosePath(context)
+            //CGContextClosePath(context)
         
         }
 
