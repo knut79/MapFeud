@@ -12,8 +12,7 @@ import UIKit
 
 protocol MapDelegate
 {
-    func resolutionChanged()
-    
+    func finishedAnimatingAnswer(distance:Int)
 }
 
 
@@ -30,6 +29,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     let maximumResolution:Int = 1
     var resolution:Int = -2
     var playerSymbol:UIImageView!
+    
+    let coordinateHelper = CoordinateHelper()
     
     var delegate:MapDelegate?
     
@@ -96,7 +97,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
     }
 
-    var playerRealMapCords:CGPoint!
+    var realMapCordsPlayerPoint:CGPoint!
+    var realMapCordsNearestPoint:CGPoint!
     func setPoint(playerIconCenter:CGPoint)
     {
         var xPos = (playerIconCenter.x + scrollView.contentOffset.x) / scrollView.zoomScale
@@ -112,7 +114,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             xPos = xPos * 2
             yPos = yPos * 2
         }
-        playerRealMapCords = CGPointMake(xPos, yPos)
+        realMapCordsPlayerPoint = CGPointMake(xPos, yPos)
         
         playerSymbol.removeFromSuperview()
         playerSymbol.alpha = 1
@@ -129,7 +131,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             let side = hPrsSide //* CGFloat(resolutionPercentage / 100)
             playerSymbol.frame = CGRectMake(0, 0, side, side)
             
-            playerSymbol.center = CGPointMake(playerRealMapCords.x * CGFloat(resolutionPercentage / 100), playerRealMapCords.y * CGFloat(resolutionPercentage / 100))
+            playerSymbol.center = CGPointMake(realMapCordsPlayerPoint.x * CGFloat(resolutionPercentage / 100), realMapCordsPlayerPoint.y * CGFloat(resolutionPercentage / 100))
             playerSymbol.alpha = 0
             playerSymbol.transform = CGAffineTransformScale(playerSymbol.transform, 1.5, 1.5)
             tileContainerView.addSubview(playerSymbol)
@@ -142,6 +144,28 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
                     
             })
         }
+    }
+    
+    func animateAnswer(place:Place)
+    {
+        drawLineToPlace(place)
+        
+        let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
+        
+        let rect = coordinateHelper.getRectOfIncludedAreas()
+        
+        let xPos = rect.midX * (CGFloat(resolutionPercentage) / 100.0)
+        let yPos = rect.midY * (CGFloat(resolutionPercentage) / 100.0)
+        let zoomRectWidth = scrollView.frame.width
+        let zoomRectHeight = scrollView.frame.height
+        
+        scrollView.zoomToRect(CGRectMake(xPos - (zoomRectWidth / 2), yPos - (zoomRectHeight / 2), zoomRectWidth , zoomRectHeight), animated: true)
+        
+        overlayDrawView?.fromPoint = realMapCordsPlayerPoint
+        overlayDrawView?.toPoint = realMapCordsNearestPoint
+        
+        var distance:Int = coordinateHelper.getDistanceInKm(realMapCordsPlayerPoint, point2: realMapCordsNearestPoint)
+        delegate?.finishedAnimatingAnswer(distance)
     }
     
     func drawLineToPlace(place:Place)
@@ -172,10 +196,10 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
                 excluded.append(item.sortedPoints)
             }
         }
-        let coordinateHelper = CoordinateHelper(includedRegions: included,excludedRegions: excluded)
-        let nearestPoint = coordinateHelper.getNearestPoint(playerRealMapCords)
         
-        if nearestPoint == nil
+        realMapCordsNearestPoint = coordinateHelper.getNearestPoint(realMapCordsPlayerPoint,includedRegions: included,excludedRegions: excluded)
+        
+        if realMapCordsNearestPoint == nil
         {
             overlayDrawView?.fromPoint = nil
             overlayDrawView?.toPoint = nil
@@ -183,31 +207,12 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         }
         else
         {
-            overlayDrawView?.fromPoint = playerRealMapCords
-            overlayDrawView?.toPoint = nearestPoint
+            overlayDrawView?.fromPoint = realMapCordsPlayerPoint
+            overlayDrawView?.toPoint = realMapCordsNearestPoint
             overlayDrawView?.setNeedsDisplay()
         }
         
-        
-        //let distanceBetweenPoints = [CoordinateHelper GetDistanceInKm:realMapGamePoint andPoint2:nearestPoint];
     }
-    
-    func animateAnswer()
-    {
-        
-        /*
-        UIView.animateWithDuration(1, animations: { () -> Void in
-            self.overlayDrawView!.transform = CATransform3DScale(self.overlayDrawView!.transform, 1.5, 1.5, 1.5)
-            }, completion: { (value: Bool) in
-                
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.overlayDrawView!.transform = CATransform3DIdentity
-                    }, completion: { (value: Bool) in
-                })
-        })
-        */
-    }
-
     
     
     var overlayDrawView:TileContainerOverlayLayer?
@@ -215,13 +220,10 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     var placesToExcludeDraw:[[LinePoint]] = []
     func drawPlace(place:Place)
     {
-        //test
         let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
         let excludedPlaces = datactrl.fetchPlaces(place.excludePlaces)
         
         print("drawing \(place.name)")
-        //let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
-
         
         placesToDraw = []
         placesToDraw.append(place.sortedPoints)
@@ -247,6 +249,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         //overlayDrawView?.resolutionPercentage = resolutionPercentage
         overlayDrawView?.exludedRegions = placesToExcludeDraw
         overlayDrawView?.regions = placesToDraw
+
         overlayDrawView?.setNeedsDisplay()
         
 
@@ -273,7 +276,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         
         // The resolution is stored as a power of 2, so -1 means 50%, -2 means 25%, and 0 means 100%.
-        let resolutionPercentage = 100 * pow(Double(2), Double(resolution));
+        let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
         print("resolution : \(resolutionPercentage)")
         let mapWith:CGFloat =  GlobalConstants.constMapWidth * (CGFloat(resolutionPercentage) / 100.0)
         let mapHeight:CGFloat =  GlobalConstants.constMapHeight * (CGFloat(resolutionPercentage) / 100.0)
@@ -308,41 +311,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
                 }
             }
         }
-        
-        //test
-        /*
-        for var row = 0 ; row < maxRow ; row++
-        {
-            let col = 0
-                let imageName = "world_\(Int(resolutionPercentage))_\(col)_\(row).jpg"
-                
-                let tileImage = UIImage(named: imageName)
-                
-                if let image = tileImage
-                {
-                    let layer = CALayer()
-                    layer.frame = CGRectMake(CGFloat(maxColumn) * maxTileSize, CGFloat(row) * maxTileSize, image.size.width, image.size.height)
-                    layer.contents = tileImage?.CGImage //UIImage(named: "star")?.CGImage
-                    layer.contentsGravity = kCAGravityCenter
-                    tileContainerView.layer.addSublayer(layer)
-                    
-                    //let tileImageView = UIImageView(image:image)
-                    //tileImageView.frame = CGRectMake(CGFloat(col) * maxTileSize, CGFloat(row) * maxTileSize, image.size.width, image.size.height)
-                    //tileContainerView.addSubview(tileImageView)
-                }
-                else
-                {
-                    print("Did not find file \(imageName)")
-                }
-            
-        }
-        */
-        
-        //end test
-        
-        
-        
-        
+
         overlayDrawView = TileContainerOverlayLayer()
         overlayDrawView!.frame = CGRectMake(0, 0, mapWith, mapHeight)
         overlayDrawView!.contentsGravity = kCAGravityCenter
@@ -351,13 +320,13 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         overlayDrawView!.regions = placesToDraw
         overlayDrawView!.exludedRegions = placesToExcludeDraw
         overlayDrawView!.resolutionPercentage = CGFloat(resolutionPercentage)
+        overlayDrawView?.fromPoint = realMapCordsPlayerPoint
+        overlayDrawView?.toPoint = realMapCordsNearestPoint
         
         
         overlayDrawView!.setNeedsDisplay()
         
         setPlayerIcon()
-        
-        delegate?.resolutionChanged()
 
     }
     

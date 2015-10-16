@@ -25,6 +25,8 @@ class TileContainerOverlayLayer: CALayer {
     var exludedRegions:[[LinePoint]] = []
     var resolutionPercentage:CGFloat = 100
     var zoomScale:CGFloat = 1
+    
+    /*
     func drawLines(regions:[[LinePoint]],excludedRegions:[[LinePoint]], resolutionPercentage:CGFloat, zoomScale:CGFloat)
     {
         self.regions = regions
@@ -33,6 +35,7 @@ class TileContainerOverlayLayer: CALayer {
         self.zoomScale = zoomScale
         self.setNeedsDisplay()
     }
+    */
 
     override func drawInContext(ctx: CGContext)
     {
@@ -44,15 +47,24 @@ class TileContainerOverlayLayer: CALayer {
         CGContextSetRGBFillColor(ctx, 1.0, 0.0, 0.0, 1.0)
         CGContextSetFillColorWithColor(ctx, UIColor.blackColor().CGColor)
         
+
+        //test
         //drawMask(ctx)
-
-
-        drawPlace(ctx)
+        //end test
         if let _ = fromPoint
         {
             drawLine(ctx)
         }
-        
+
+        if regions.count == 1 && regions[0].count == 1
+        {
+            drawPoint(ctx)
+        }
+        else
+        {
+            drawMask(ctx)
+            drawPlace(ctx)
+        }
         //_?
         self.shouldRasterize = true
     }
@@ -60,7 +72,7 @@ class TileContainerOverlayLayer: CALayer {
     func drawMask(context:CGContext)
     {
         //let maskImage = UIImage(named: "25MaskWater.png" )
-        let maskImage = UIImage(named: "25MaskWater.png" )
+        let maskImage = UIImage(named: "25MaskLand.png" )
         //let maskImageScaled = UIImage(CGImage: maskImage!.CGImage!, scale: zoomScale, orientation: UIImageOrientation.Up)
         let sacleSize = CGSizeMake(maskImage!.size.width * zoomScale, maskImage!.size.height * zoomScale)
         UIGraphicsBeginImageContextWithOptions(sacleSize, false, 0.0);
@@ -73,6 +85,14 @@ class TileContainerOverlayLayer: CALayer {
         //let mask: CGImageRef = CGImageMaskCreate(CGImageGetWidth(maskImage!.CGImage), CGImageGetHeight(maskImage!.CGImage), CGImageGetBitsPerComponent(maskImage!.CGImage), CGImageGetBitsPerPixel(maskImage!.CGImage), CGImageGetBytesPerRow(maskImage!.CGImage), CGImageGetDataProvider(maskImage!.CGImage), nil, false)!
 
         CGContextClipToMask(context, maskRect, mask)
+    }
+    
+    func drawPoint(context:CGContext)
+    {
+        let point = regions[0][0]
+        CGContextAddArc(context, CGFloat(point.x) * (resolutionPercentage / 100.0), CGFloat(point.y) * (resolutionPercentage / 100.0), 4, 0.0, CGFloat(M_PI * 2.0), 1)
+
+        CGContextStrokePath(context);
     }
     
     func drawLine(context:CGContext)
@@ -107,6 +127,7 @@ class TileContainerOverlayLayer: CALayer {
     
     func drawPlace(context:CGContext)
     {
+        
         for lines in regions
         {
             //CGContextBeginPath(context)

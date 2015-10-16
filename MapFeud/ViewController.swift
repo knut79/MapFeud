@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {//, MapDelegate {
+class ViewController: UIViewController , MapDelegate {
 
     var datactrl:DataHandler!
     var map:MapScrollView!
@@ -17,6 +17,7 @@ class ViewController: UIViewController {//, MapDelegate {
     var magnifyingGlassLeftPos:CGPoint!
     var magnifyingGlassRightPos:CGPoint!
     var questionView:QuestionView!
+    var answerView:AnswerView!
     var currentQuestion:Question!
     
     
@@ -28,7 +29,7 @@ class ViewController: UIViewController {//, MapDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         map = MapScrollView(frame: UIScreen.mainScreen().bounds)
-        //map.delegate = self
+        map.delegate = self
         
         playerIcon = PlayerIconView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width * 0.12, UIScreen.mainScreen().bounds.width * 0.12))
         playerIcon.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
@@ -65,6 +66,10 @@ class ViewController: UIViewController {//, MapDelegate {
         questionView = QuestionView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, questonViewHeight))
         questionView.alpha = 0
         self.view.addSubview(questionView)
+        
+        answerView = AnswerView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, questonViewHeight))
+        answerView.alpha = 0
+        self.view.addSubview(answerView)
         
         populateDataIfNeeded()
 
@@ -114,11 +119,50 @@ class ViewController: UIViewController {//, MapDelegate {
         map.setPoint(playerIcon.center)
         //let southAfricaTestExcluded = datactrl.fetchPlace("South Africa")
         //let southAfricaTestExcluded = datactrl.fetchPlace("Usa")
-        let southAfricaTestExcluded = datactrl.fetchPlace("Japan")
+        //let southAfricaTestExcluded = datactrl.fetchPlace("Japan")
+        let southAfricaTestExcluded = currentQuestion.place
+
+        map.animateAnswer(southAfricaTestExcluded)
+    }
+    
+    func finishedAnimatingAnswer(distance:Int)
+    {
+        if let qv = answerView
+        {
+            qv.setAnswer(currentQuestion, distance: distance)
+        }
+        showAnswer()
+    }
+    
+    func showAnswer()
+    {
         
-        map.drawLineToPlace(southAfricaTestExcluded!)
+        answerView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
+        self.answerView.answerText.textColor = UIColor.whiteColor()
         
-        map.animateAnswer()
+        self.answerView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
+        self.answerView.transform = CGAffineTransformScale(self.answerView.transform, 0.1, 0.1)
+        UIView.animateWithDuration(0.50, animations: { () -> Void in
+            self.questionView.alpha = 0
+            self.answerView.alpha = 1
+            self.answerView.transform = CGAffineTransformIdentity
+            }, completion: { (value: Bool) in
+                
+                UIView.animateWithDuration(1, animations: { () -> Void in
+                    
+                    self.answerView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, self.questionView.frame.height / 2)
+                    self.answerView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.9)
+                    
+                    
+                    }, completion: { (value: Bool) in
+                        
+                        self.answerView.answerText.textColor = UIColor.blackColor()
+                        
+                        //self.setNextQuestion()
+                        //self.playerIcon.alpha = 1
+                        
+                })
+            })
     }
     
     func populateDataIfNeeded()
@@ -157,7 +201,7 @@ class ViewController: UIViewController {//, MapDelegate {
         //map.drawPlace(southAfricaTestExcluded!)
     }
     
-    var index = 0
+    var questionindex = 0
     func startGame()
     {
         setNextQuestion()
@@ -165,8 +209,8 @@ class ViewController: UIViewController {//, MapDelegate {
     
     func setNextQuestion()
     {
-        currentQuestion = datactrl.questionItems[index % datactrl.questionItems.count]
-        
+        currentQuestion = datactrl.questionItems[questionindex % datactrl.questionItems.count]
+        questionindex++
         if let qv = questionView
         {
             qv.setQuestion(currentQuestion)
@@ -180,6 +224,8 @@ class ViewController: UIViewController {//, MapDelegate {
     {
         questionView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
         self.questionView.questionText.textColor = UIColor.whiteColor()
+        
+        self.questionView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
         self.questionView.transform = CGAffineTransformScale(self.questionView.transform, 0.1, 0.1)
         UIView.animateWithDuration(0.50, animations: { () -> Void in
             
@@ -299,13 +345,6 @@ class ViewController: UIViewController {//, MapDelegate {
         })
     }
     
-    //MARK MapDelegate
-    /*
-    func resolutionChanged()
-    {
-        magnifyingGlass.viewToMagnify = map.scrollView
-    }
-*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

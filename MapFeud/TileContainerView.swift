@@ -26,23 +26,5 @@ class TileContainerView: UIView {
     {
         //print("--- \(frame.width) ) - \(frame.height)")
     }
-    
-    /*
-    func setOverlay(scale:CGFloat)
-    {
-        overlayDrawView = TileContainerOverlayView(frame: self.bounds)
-        overlayDrawView.backgroundColor = UIColor.blackColor()
-        self.addSubview(overlayDrawView)
-        overlayDrawView.scale = scale
-    }
-
-    func drawLines(lines:NSSet, scale:CGFloat)
-    {
-        overlayDrawView.lines = lines
-        overlayDrawView.scale = scale
-        self.setNeedsDisplay()
-    }
-*/
-    
 
 }

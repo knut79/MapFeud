@@ -13,47 +13,101 @@ class CoordinateHelper {
     
     var includedRegions:[[LinePoint]] = []
     var excludedRegions:[[LinePoint]] = []
-    init(includedRegions:[[LinePoint]], excludedRegions:[[LinePoint]])
+    init()
     {
-        self.includedRegions = includedRegions
-        self.excludedRegions = excludedRegions
+    }
+    
+    func convertFromLinePointsToPoints(collection:[[LinePoint]]) -> [[CGPoint]]
+    {
+        var pointCollections:[[CGPoint]] = []
+        for region in collection
+        {
+            var pointCollection:[CGPoint] = []
+            for linePoint in region
+            {
+                let linePoint = linePoint as LinePoint
+                pointCollection.append(CGPointMake(CGFloat(linePoint.x), CGFloat(linePoint.y)))
+            }
+            pointCollections.append(pointCollection)
+        }
+        return pointCollections
+    }
+    
+    func getRectOfIncludedAreas() -> CGRect
+    {
+        var minX:CGFloat = CGFloat.max, minY:CGFloat = CGFloat.max, maxX:CGFloat = 0.0 , maxY:CGFloat = 0.0
+        
+        let includedPointCollections = convertFromLinePointsToPoints(includedRegions)
+        
+        if includedPointCollections.count == 1 && includedPointCollections[0].count == 1
+        {
+            return CGRectMake(includedPointCollections[0][0].x - 5, includedPointCollections[0][0].y - 5, 10, 10)
+        }
+        else
+        {
+        
+            var i = 0, j = 0
+            for j = 0; j < includedPointCollections.count; j++
+            {
+                let vertices = includedPointCollections[j]
+                for i = 0; i < vertices.count; i++
+                {
+                    if vertices[i].x < minX
+                    {
+                        minX = vertices[i].x
+                    }
+                    if vertices[i].x > maxX
+                    {
+                        maxX = vertices[i].x
+                    }
+                    if vertices[i].y < minY
+                    {
+                        minX = vertices[i].y
+                    }
+                    if vertices[i].y > maxY
+                    {
+                        maxX = vertices[i].y
+                    }
+                }
+            }
+            return CGRectMake(minX, minY, maxX - minX, maxY - minY)
+        }
+        
     }
     
     //Returns nil if correct answer
-    func getNearestPoint(point:CGPoint) -> CGPoint?
+    func getNearestPoint(point:CGPoint,includedRegions:[[LinePoint]], excludedRegions:[[LinePoint]]) -> CGPoint?
     {
+        self.includedRegions = includedRegions
+        self.excludedRegions = excludedRegions
         //check if point is within any of the polygons
         //..... get nearest border point
         //else .. check if point within exluded area
         //......get nearest border point
         
         var nearestPoint:CGPoint?
-        var cgPointIncluded:[CGPoint] = []
-        for item in includedRegions[0]
-        {
-            let linePoint = item as LinePoint
-            cgPointIncluded.append(CGPointMake(CGFloat(linePoint.x), CGFloat(linePoint.y)))
-        }
-        let inside = point.isInsidePolygon(cgPointIncluded)
+
+        let includedPointCollections = convertFromLinePointsToPoints(includedRegions)
         
+        //check if inside any of the included regions
+
+        let inside = point.isInsidePolygons(includedPointCollections)
+
         
         if inside == false
         {
-            nearestPoint = point.nearestPointInPolygon(cgPointIncluded)
+            nearestPoint = point.nearestPointInPolygons(includedPointCollections)
         }
         else
         {
             //check if point inside excluded region
-            var cgPointExcluded:[CGPoint] = []
-            for item in excludedRegions[0]
-            {
-                let linePoint = item as LinePoint
-                cgPointExcluded.append(CGPointMake(CGFloat(linePoint.x), CGFloat(linePoint.y)))
-            }
-            let insideExcluded = point.isInsidePolygon(cgPointExcluded)
+            
+            
+            let excludedPointCollections = convertFromLinePointsToPoints(excludedRegions)
+            let insideExcluded = point.isInsidePolygons(excludedPointCollections)
             if insideExcluded
             {
-                nearestPoint = point.nearestPointInPolygon(cgPointExcluded)
+                nearestPoint = point.nearestPointInPolygons(excludedPointCollections)
             }
         }
         
@@ -68,19 +122,102 @@ class CoordinateHelper {
             if orgDistance > distanceLeftside
             {
                 let leftPoint = CGPointMake(point.x + GlobalConstants.constMapWidth, point.y)
-                nearestPoint = leftPoint.nearestPointInPolygon(cgPointIncluded)
+                nearestPoint = leftPoint.nearestPointInPolygons(includedPointCollections)
                 nearestPoint = CGPointMake(nearestPoint!.x - GlobalConstants.constMapWidth, nearestPoint!.y)
                 //nearestPoint = leftPoint
             }
             else if orgDistance > distanceRightside // ok
             {
                 let rightPoint = CGPointMake(point.x - GlobalConstants.constMapWidth, point.y)
-                nearestPoint = rightPoint.nearestPointInPolygon(cgPointIncluded)
+                nearestPoint = rightPoint.nearestPointInPolygons(includedPointCollections)
                 nearestPoint = CGPointMake(nearestPoint!.x + GlobalConstants.constMapWidth, nearestPoint!.y)
                 //nearestPoint = rightPoint
             }
         }
         return nearestPoint
+    }
+    
+    
+    
+    func getDistanceInKm(point1:CGPoint, point2:CGPoint) -> Int
+    {
+        //float distance = [self GetDistance:point1 andPoint2:point2] ;
+    
+        let convertedPoint1:CGPoint = self.convertPointToLatLong(point1)
+        let convertedPoint2:CGPoint = self.convertPointToLatLong(point2)
+    
+        //haversine
+        let distance:CGFloat = self.haversineCalulationDistance(convertedPoint1,pos2: convertedPoint2)
+        /*
+        test
+        CGPoint oslo = CGPointMake(10.75,59.95);
+        CGPoint washington = CGPointMake(-77.033333,38.883333);
+        float distanceTest = [self HaversineCalulationDistance:washington andPost2:oslo];
+        */
+    
+        return lrintf(Float(distance))
+    }
+    
+    func haversineCalulationDistance(pos1:CGPoint,pos2:CGPoint) -> CGFloat
+    {
+        let R:Float = 6371 //km
+        //float R = (type == DistanceType.Miles) ? 3960 : 6371;
+    
+        let temp1:CGFloat = pos2.y - pos1.y
+        let dLat:Float = self.toRadian(temp1)
+        let temp2:CGFloat = pos2.x - pos1.x
+        let dLon:Float = self.toRadian(temp2)
+    
+        let a:Float = sin(dLat / 2) * sinf(dLat / 2) + cosf(self.toRadian(pos1.y)) * cosf(self.toRadian(pos2.y)) *  sinf(dLon / 2) * sinf(dLon / 2);
+        //Math.Min
+        let c:Float = 2 * asinf(fminf(1, sqrtf(a)))
+        let d:Float = R * c
+        return CGFloat(d)
+    }
+    
+    func toRadian(val:CGFloat) -> Float
+    {
+        return (Float(M_PI) / 180) * Float(val)
+    }
+    
+    
+    func convertPointToLatLong(point:CGPoint) -> CGPoint
+    {
+        var returnPoint = CGPointZero
+        returnPoint.x = self.convertToLong(point.x)
+        returnPoint.y = self.convertToLat(point.y)
+        return returnPoint
+    }
+    
+    func convertToLat(yCoordinate:CGFloat) -> CGFloat
+    {
+        //
+        //float yCoordinateWithOffset = yCoordinate;//119.35;
+        //float factor = 2944.0/180.0;
+        //float factor = 2944.0/(84.0 + 64.0);
+        //
+        let mapHeightIfCoversAllDegrees:CGFloat = (GlobalConstants.constMapHeight * 180) / 148
+        let factor:CGFloat = mapHeightIfCoversAllDegrees / 180.0
+    
+        var latValue:CGFloat = yCoordinate / factor
+        latValue -= 90.0;
+        let latOffset:CGFloat = -22.6
+        latValue = latValue + latOffset
+        latValue = latValue * -1
+    
+        return latValue
+    }
+    
+    func convertToLong(xCoordinate:CGFloat) -> CGFloat
+    {
+    
+        let factor:CGFloat = GlobalConstants.constMapWidth / 360.0
+        var longValue:CGFloat = xCoordinate / factor
+        longValue -= 180.0
+        let logitudeOffset:CGFloat = 9
+        longValue = longValue + logitudeOffset
+    
+        return longValue
     }
     
 }
@@ -98,6 +235,27 @@ extension CGPoint{
             {
                 nearestDistance = tempNearestDistance
                 nearestPoint = vertices[i]
+            }
+        }
+        return nearestPoint!
+    }
+    
+    func nearestPointInPolygons(verticesCollection:[[CGPoint]]) -> CGPoint
+    {
+        var nearestPoint:CGPoint?
+        var nearestDistance:CGFloat = CGFloat.max
+        var i = 0, j = 0
+        for j = 0; j < verticesCollection.count; j++
+        {
+            let vertices = verticesCollection[j]
+            for i = 0; i < vertices.count; i++
+            {
+                let tempNearestDistance = self.distanceFromCGPoints(vertices[i])
+                if tempNearestDistance < nearestDistance
+                {
+                    nearestDistance = tempNearestDistance
+                    nearestPoint = vertices[i]
+                }
             }
         }
         return nearestPoint!
@@ -124,9 +282,24 @@ extension CGPoint{
         }
         return c
     }
+    
+    func isInsidePolygons(verticesCollection:[[CGPoint]]) -> Bool {
+        var c = false, i = 0
+        for i = 0; i < verticesCollection.count; i++
+        {
+            if self.isInsidePolygon(verticesCollection[i])
+            {
+                c = true
+                break
+            }
+        }
+        
+        return c
+    }
     /*
     func distanceFromCGPoints(a:CGPoint,b:CGPoint)->CGFloat{
         return sqrt(pow(a.x-b.x,2)+pow(a.y-b.y,2));
     }
     */
+    
 }

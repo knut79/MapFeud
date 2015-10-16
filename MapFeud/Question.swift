@@ -9,6 +9,7 @@ class Question: NSManagedObject {
     @NSManaged var image:String
     @NSManaged var answerTemplate:String
     @NSManaged var used:Int32
+    @NSManaged var place:Place
     
     class func createInManagedObjectContext(moc: NSManagedObjectContext, text: String, level:Int, image:String, answerTemplate:String) -> Question{
         let newitem = NSEntityDescription.insertNewObjectForEntityForName("Question", inManagedObjectContext: moc) as! Question

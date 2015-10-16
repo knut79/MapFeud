@@ -71,7 +71,9 @@ class DataHandler
                         }
                         else if type == "inf"
                         {
-                            let type = elements[1]
+                            let typeAndQuestonOverrideElements = elements[1].componentsSeparatedByString("#")
+                            let type = typeAndQuestonOverrideElements[0]
+                            let overrideQuestionTemplateText:String? = typeAndQuestonOverrideElements.count > 1 ? typeAndQuestonOverrideElements[1] : nil
                             let name = elements[2]
                             //_?
                             let hmmm2 = elements[3]
@@ -86,8 +88,10 @@ class DataHandler
                             var hint2 = ""
                             var excludePlaces = ""
                             var includePlaces = ""
+                            var addDefaultQuestion = false
                             if elements[4] != "notUsed"
                             {
+                                addDefaultQuestion = true
                                 let level = elements[4]
                                 intStringLevel = level.substringFromIndex(level.startIndex.advancedBy(level.characters.count - 1))//String(level.characters.last)
                                 info = elements[5]
@@ -111,8 +115,10 @@ class DataHandler
                             
                             let place = Place.createInManagedObjectContext(self.managedObjectContext, name: name, refId:"", type:typeInt,info:info, hint1:hint1, hint2:hint2,includePlaces:includePlaces, excludePlaces:excludePlaces)
                             
-                            
-                            addDefaultQuestionForPlace(place,level: Int(intStringLevel)!)
+                            if addDefaultQuestion
+                            {
+                                addDefaultQuestionForPlace(place,level: Int(intStringLevel)!, overrideQuestionText: overrideQuestionTemplateText)
+                            }
                             
                             
                             if lines.count == 1
@@ -208,10 +214,11 @@ class DataHandler
     }
 
     
-    func addDefaultQuestionForPlace(place:Place, level:Int)
+    func addDefaultQuestionForPlace(place:Place, level:Int, overrideQuestionText:String?)
     {
         var questionText = "Where is \(place.name) located"
         var answerText = "from $"
+
         let placeType = PlaceType(rawValue: Int(place.type))
         switch(placeType!)
         {
@@ -239,6 +246,12 @@ class DataHandler
             break
 
         }
+        
+        if let qtext = overrideQuestionText
+        {
+            questionText = "\(qtext) \(place.name)"
+        }
+        
         let question = Question.createInManagedObjectContext(self.managedObjectContext, text: questionText, level:level, image:"", answerTemplate:answerText)
         place.addQuestion(question)
     }
@@ -250,7 +263,8 @@ class DataHandler
         //readTxtFile("statesAfrica")
         //readTxtFile("statesAsia")
         //readTxtFile("statesNorthAmerica")
-        readTxtFile("statesAsia")
+        //readTxtFile("statesAsia")
+        readTxtFile("capitalsAmerica")
         
 
 
