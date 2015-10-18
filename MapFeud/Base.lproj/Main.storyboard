@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapFeud" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainMenuViewController" customModule="MapFeud" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,9 +19,72 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="qL5-du-KSU" kind="presentation" identifier="segueFromMainMenuToPlay" id="J8i-Ff-itB"/>
+                        <segue destination="SQT-lK-blY" kind="presentation" identifier="segueFromMainMenuToChallengeResults" id="WeW-W4-LfV"/>
+                        <segue destination="7TM-Gb-8ex" kind="presentation" identifier="segueFromMainMenuToChallenge" id="nMV-qK-2TA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="265" y="305"/>
+        </scene>
+        <!--Challenge View Controller-->
+        <scene sceneID="g3k-R6-6Xy">
+            <objects>
+                <viewController id="7TM-Gb-8ex" customClass="ChallengeViewController" customModule="MapFeud" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uvo-2w-VO7"/>
+                        <viewControllerLayoutGuide type="bottom" id="tRC-Sc-l86"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ff7-nz-PuF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xCx-o0-EwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957" y="162"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="t8u-LB-aJR">
+            <objects>
+                <viewController id="SQT-lK-blY" customClass="ResultsViewController" customModule="MapFeud" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cU1-WJ-O9M"/>
+                        <viewControllerLayoutGuide type="bottom" id="Znh-ja-RYj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dMA-wp-Naz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h3W-ir-UYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002" y="673"/>
+        </scene>
+        <!--Play View Controller-->
+        <scene sceneID="WaS-gK-f2r">
+            <objects>
+                <viewController id="qL5-du-KSU" customClass="PlayViewController" customModule="MapFeud" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mqs-xJ-Ejn"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Oi-kh-V2H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ibu-ar-5Xr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kdh-V9-OGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078" y="768"/>
         </scene>
     </scenes>
 </document>

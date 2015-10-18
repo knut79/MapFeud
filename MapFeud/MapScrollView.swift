@@ -164,7 +164,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         overlayDrawView?.fromPoint = realMapCordsPlayerPoint
         overlayDrawView?.toPoint = realMapCordsNearestPoint
         
-        var distance:Int = coordinateHelper.getDistanceInKm(realMapCordsPlayerPoint, point2: realMapCordsNearestPoint)
+        let distance:Int = coordinateHelper.getDistanceInKm(realMapCordsPlayerPoint, point2: realMapCordsNearestPoint)
         delegate?.finishedAnimatingAnswer(distance)
     }
     

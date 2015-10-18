@@ -42,6 +42,16 @@ import UIKit
 struct GlobalConstants {
     static let constMapHeight:CGFloat = 2944
     static let constMapWidth:CGFloat = 4096
+    
+    static let minLevel:Int = 1
+    static let maxLevel:Int = 5
+    
+    static let smallButtonSide:CGFloat = 32
+}
+
+enum gameType: Int
+{
+    case training = 0, makingChallenge = 1, takingChallenge = 2
 }
 
 enum PlaceType: Int

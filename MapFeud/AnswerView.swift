@@ -24,13 +24,13 @@ class AnswerView: UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
 
-        /*
+        
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapAnswer:")
         singleTapGestureRecognizer.numberOfTapsRequired = 1
         singleTapGestureRecognizer.enabled = true
         singleTapGestureRecognizer.cancelsTouchesInView = false
         self.addGestureRecognizer(singleTapGestureRecognizer)
-        */
+
         infoText = UILabel(frame: CGRectMake(0, 0, self.bounds.width, self.bounds.height  * 4))
         infoText.adjustsFontSizeToFitWidth = true
         infoText.textAlignment = NSTextAlignment.Center
@@ -46,7 +46,7 @@ class AnswerView: UIView {
         answerText.textColor = UIColor.whiteColor()
         self.addSubview(answerText)
         
-        
+        /*
         infoButton = UILabel(frame: CGRectMake( self.answerText.frame.maxX ,self.bounds.width * 0.01, self.bounds.width * 0.1,self.bounds.width * 0.1))
         infoButton.text = "ℹ"
         infoButton.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -60,7 +60,7 @@ class AnswerView: UIView {
         singleTapGestureRecognizer.cancelsTouchesInView = false
         infoButton.addGestureRecognizer(singleTapGestureRecognizer)
         self.addSubview(infoButton)
-        
+        */
     }
     
     var orgFrame:CGRect!
@@ -100,7 +100,7 @@ class AnswerView: UIView {
     {
         print("setQueston called")
         let template = question.answerTemplate.stringByReplacingOccurrencesOfString("$", withString: question.place.name, options: NSStringCompareOptions.LiteralSearch, range: nil)
-        answerText.text = "\(distance)km \(template)"
+        answerText.text = "\(distance) km \(template)"
         
         
         infoText.text = question.place.info
