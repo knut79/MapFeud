@@ -536,6 +536,258 @@
 		72BD9D281BD27A240062FE44 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */; settings = {ASSET_TAGS = (); }; };
 		72BD9D2C1BD2ADD90062FE44 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD9D2B1BD2ADD90062FE44 /* Challenge.swift */; settings = {ASSET_TAGS = (); }; };
 		72BD9D2E1BD2FEF60062FE44 /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD9D2D1BD2FEF60062FE44 /* DistanceView.swift */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF01BD3D4C40062FE44 /* world_100_border_0_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D301BD3D4C30062FE44 /* world_100_border_0_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF11BD3D4C40062FE44 /* world_100_border_0_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D311BD3D4C30062FE44 /* world_100_border_0_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF21BD3D4C40062FE44 /* world_100_border_0_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D321BD3D4C30062FE44 /* world_100_border_0_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF31BD3D4C40062FE44 /* world_100_border_0_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D331BD3D4C30062FE44 /* world_100_border_0_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF41BD3D4C40062FE44 /* world_100_border_0_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D341BD3D4C30062FE44 /* world_100_border_0_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF51BD3D4C40062FE44 /* world_100_border_0_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D351BD3D4C30062FE44 /* world_100_border_0_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF61BD3D4C40062FE44 /* world_100_border_0_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D361BD3D4C30062FE44 /* world_100_border_0_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF71BD3D4C40062FE44 /* world_100_border_0_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D371BD3D4C30062FE44 /* world_100_border_0_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF81BD3D4C40062FE44 /* world_100_border_0_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D381BD3D4C30062FE44 /* world_100_border_0_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DF91BD3D4C40062FE44 /* world_100_border_0_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D391BD3D4C30062FE44 /* world_100_border_0_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DFA1BD3D4C40062FE44 /* world_100_border_0_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D3A1BD3D4C30062FE44 /* world_100_border_0_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DFB1BD3D4C40062FE44 /* world_100_border_0_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D3B1BD3D4C30062FE44 /* world_100_border_0_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DFC1BD3D4C40062FE44 /* world_100_border_1_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D3C1BD3D4C30062FE44 /* world_100_border_1_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DFD1BD3D4C40062FE44 /* world_100_border_1_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D3D1BD3D4C30062FE44 /* world_100_border_1_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DFE1BD3D4C40062FE44 /* world_100_border_1_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D3E1BD3D4C30062FE44 /* world_100_border_1_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9DFF1BD3D4C40062FE44 /* world_100_border_1_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D3F1BD3D4C30062FE44 /* world_100_border_1_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E001BD3D4C40062FE44 /* world_100_border_1_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D401BD3D4C30062FE44 /* world_100_border_1_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E011BD3D4C40062FE44 /* world_100_border_1_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D411BD3D4C30062FE44 /* world_100_border_1_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E021BD3D4C40062FE44 /* world_100_border_1_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D421BD3D4C30062FE44 /* world_100_border_1_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E031BD3D4C40062FE44 /* world_100_border_1_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D431BD3D4C30062FE44 /* world_100_border_1_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E041BD3D4C40062FE44 /* world_100_border_1_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D441BD3D4C30062FE44 /* world_100_border_1_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E051BD3D4C40062FE44 /* world_100_border_1_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D451BD3D4C30062FE44 /* world_100_border_1_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E061BD3D4C40062FE44 /* world_100_border_1_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D461BD3D4C30062FE44 /* world_100_border_1_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E071BD3D4C40062FE44 /* world_100_border_1_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D471BD3D4C30062FE44 /* world_100_border_1_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E081BD3D4C40062FE44 /* world_100_border_2_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D481BD3D4C30062FE44 /* world_100_border_2_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E091BD3D4C40062FE44 /* world_100_border_2_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D491BD3D4C30062FE44 /* world_100_border_2_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E0A1BD3D4C40062FE44 /* world_100_border_2_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D4A1BD3D4C30062FE44 /* world_100_border_2_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E0B1BD3D4C40062FE44 /* world_100_border_2_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D4B1BD3D4C30062FE44 /* world_100_border_2_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E0C1BD3D4C40062FE44 /* world_100_border_2_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D4C1BD3D4C30062FE44 /* world_100_border_2_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E0D1BD3D4C40062FE44 /* world_100_border_2_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D4D1BD3D4C30062FE44 /* world_100_border_2_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E0E1BD3D4C40062FE44 /* world_100_border_2_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D4E1BD3D4C30062FE44 /* world_100_border_2_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E0F1BD3D4C40062FE44 /* world_100_border_2_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D4F1BD3D4C30062FE44 /* world_100_border_2_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E101BD3D4C40062FE44 /* world_100_border_2_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D501BD3D4C30062FE44 /* world_100_border_2_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E111BD3D4C40062FE44 /* world_100_border_2_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D511BD3D4C30062FE44 /* world_100_border_2_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E121BD3D4C40062FE44 /* world_100_border_2_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D521BD3D4C30062FE44 /* world_100_border_2_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E131BD3D4C40062FE44 /* world_100_border_2_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D531BD3D4C30062FE44 /* world_100_border_2_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E141BD3D4C40062FE44 /* world_100_border_3_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D541BD3D4C30062FE44 /* world_100_border_3_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E151BD3D4C40062FE44 /* world_100_border_3_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D551BD3D4C30062FE44 /* world_100_border_3_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E161BD3D4C40062FE44 /* world_100_border_3_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D561BD3D4C30062FE44 /* world_100_border_3_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E171BD3D4C40062FE44 /* world_100_border_3_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D571BD3D4C30062FE44 /* world_100_border_3_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E181BD3D4C40062FE44 /* world_100_border_3_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D581BD3D4C30062FE44 /* world_100_border_3_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E191BD3D4C40062FE44 /* world_100_border_3_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D591BD3D4C30062FE44 /* world_100_border_3_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E1A1BD3D4C40062FE44 /* world_100_border_3_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D5A1BD3D4C30062FE44 /* world_100_border_3_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E1B1BD3D4C40062FE44 /* world_100_border_3_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D5B1BD3D4C30062FE44 /* world_100_border_3_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E1C1BD3D4C40062FE44 /* world_100_border_3_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D5C1BD3D4C30062FE44 /* world_100_border_3_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E1D1BD3D4C40062FE44 /* world_100_border_3_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D5D1BD3D4C30062FE44 /* world_100_border_3_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E1E1BD3D4C40062FE44 /* world_100_border_3_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D5E1BD3D4C30062FE44 /* world_100_border_3_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E1F1BD3D4C40062FE44 /* world_100_border_3_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D5F1BD3D4C30062FE44 /* world_100_border_3_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E201BD3D4C40062FE44 /* world_100_border_4_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D601BD3D4C30062FE44 /* world_100_border_4_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E211BD3D4C40062FE44 /* world_100_border_4_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D611BD3D4C30062FE44 /* world_100_border_4_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E221BD3D4C40062FE44 /* world_100_border_4_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D621BD3D4C30062FE44 /* world_100_border_4_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E231BD3D4C40062FE44 /* world_100_border_4_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D631BD3D4C30062FE44 /* world_100_border_4_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E241BD3D4C40062FE44 /* world_100_border_4_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D641BD3D4C30062FE44 /* world_100_border_4_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E251BD3D4C40062FE44 /* world_100_border_4_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D651BD3D4C30062FE44 /* world_100_border_4_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E261BD3D4C40062FE44 /* world_100_border_4_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D661BD3D4C30062FE44 /* world_100_border_4_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E271BD3D4C40062FE44 /* world_100_border_4_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D671BD3D4C30062FE44 /* world_100_border_4_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E281BD3D4C40062FE44 /* world_100_border_4_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D681BD3D4C30062FE44 /* world_100_border_4_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E291BD3D4C40062FE44 /* world_100_border_4_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D691BD3D4C30062FE44 /* world_100_border_4_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E2A1BD3D4C40062FE44 /* world_100_border_4_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D6A1BD3D4C30062FE44 /* world_100_border_4_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E2B1BD3D4C40062FE44 /* world_100_border_4_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D6B1BD3D4C30062FE44 /* world_100_border_4_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E2C1BD3D4C40062FE44 /* world_100_border_5_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D6C1BD3D4C30062FE44 /* world_100_border_5_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E2D1BD3D4C40062FE44 /* world_100_border_5_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D6D1BD3D4C30062FE44 /* world_100_border_5_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E2E1BD3D4C40062FE44 /* world_100_border_5_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D6E1BD3D4C30062FE44 /* world_100_border_5_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E2F1BD3D4C40062FE44 /* world_100_border_5_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D6F1BD3D4C30062FE44 /* world_100_border_5_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E301BD3D4C40062FE44 /* world_100_border_5_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D701BD3D4C30062FE44 /* world_100_border_5_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E311BD3D4C40062FE44 /* world_100_border_5_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D711BD3D4C30062FE44 /* world_100_border_5_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E321BD3D4C40062FE44 /* world_100_border_5_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D721BD3D4C30062FE44 /* world_100_border_5_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E331BD3D4C40062FE44 /* world_100_border_5_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D731BD3D4C30062FE44 /* world_100_border_5_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E341BD3D4C40062FE44 /* world_100_border_5_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D741BD3D4C30062FE44 /* world_100_border_5_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E351BD3D4C40062FE44 /* world_100_border_5_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D751BD3D4C30062FE44 /* world_100_border_5_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E361BD3D4C40062FE44 /* world_100_border_5_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D761BD3D4C30062FE44 /* world_100_border_5_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E371BD3D4C40062FE44 /* world_100_border_5_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D771BD3D4C30062FE44 /* world_100_border_5_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E381BD3D4C40062FE44 /* world_100_border_6_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D781BD3D4C30062FE44 /* world_100_border_6_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E391BD3D4C40062FE44 /* world_100_border_6_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D791BD3D4C30062FE44 /* world_100_border_6_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E3A1BD3D4C40062FE44 /* world_100_border_6_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D7A1BD3D4C30062FE44 /* world_100_border_6_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E3B1BD3D4C40062FE44 /* world_100_border_6_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D7B1BD3D4C30062FE44 /* world_100_border_6_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E3C1BD3D4C40062FE44 /* world_100_border_6_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D7C1BD3D4C30062FE44 /* world_100_border_6_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E3D1BD3D4C40062FE44 /* world_100_border_6_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D7D1BD3D4C30062FE44 /* world_100_border_6_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E3E1BD3D4C40062FE44 /* world_100_border_6_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D7E1BD3D4C30062FE44 /* world_100_border_6_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E3F1BD3D4C40062FE44 /* world_100_border_6_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D7F1BD3D4C30062FE44 /* world_100_border_6_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E401BD3D4C40062FE44 /* world_100_border_6_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D801BD3D4C30062FE44 /* world_100_border_6_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E411BD3D4C40062FE44 /* world_100_border_6_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D811BD3D4C30062FE44 /* world_100_border_6_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E421BD3D4C40062FE44 /* world_100_border_6_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D821BD3D4C30062FE44 /* world_100_border_6_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E431BD3D4C40062FE44 /* world_100_border_6_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D831BD3D4C30062FE44 /* world_100_border_6_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E441BD3D4C40062FE44 /* world_100_border_7_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D841BD3D4C30062FE44 /* world_100_border_7_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E451BD3D4C40062FE44 /* world_100_border_7_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D851BD3D4C30062FE44 /* world_100_border_7_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E461BD3D4C40062FE44 /* world_100_border_7_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D861BD3D4C30062FE44 /* world_100_border_7_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E471BD3D4C40062FE44 /* world_100_border_7_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D871BD3D4C30062FE44 /* world_100_border_7_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E481BD3D4C40062FE44 /* world_100_border_7_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D881BD3D4C30062FE44 /* world_100_border_7_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E491BD3D4C40062FE44 /* world_100_border_7_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D891BD3D4C30062FE44 /* world_100_border_7_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E4A1BD3D4C40062FE44 /* world_100_border_7_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D8A1BD3D4C30062FE44 /* world_100_border_7_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E4B1BD3D4C40062FE44 /* world_100_border_7_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D8B1BD3D4C30062FE44 /* world_100_border_7_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E4C1BD3D4C40062FE44 /* world_100_border_7_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D8C1BD3D4C30062FE44 /* world_100_border_7_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E4D1BD3D4C40062FE44 /* world_100_border_7_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D8D1BD3D4C30062FE44 /* world_100_border_7_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E4E1BD3D4C40062FE44 /* world_100_border_7_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D8E1BD3D4C30062FE44 /* world_100_border_7_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E4F1BD3D4C40062FE44 /* world_100_border_7_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D8F1BD3D4C30062FE44 /* world_100_border_7_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E501BD3D4C40062FE44 /* world_100_border_8_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D901BD3D4C30062FE44 /* world_100_border_8_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E511BD3D4C40062FE44 /* world_100_border_8_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D911BD3D4C30062FE44 /* world_100_border_8_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E521BD3D4C40062FE44 /* world_100_border_8_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D921BD3D4C30062FE44 /* world_100_border_8_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E531BD3D4C40062FE44 /* world_100_border_8_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D931BD3D4C30062FE44 /* world_100_border_8_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E541BD3D4C40062FE44 /* world_100_border_8_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D941BD3D4C30062FE44 /* world_100_border_8_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E551BD3D4C40062FE44 /* world_100_border_8_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D951BD3D4C30062FE44 /* world_100_border_8_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E561BD3D4C40062FE44 /* world_100_border_8_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D961BD3D4C30062FE44 /* world_100_border_8_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E571BD3D4C40062FE44 /* world_100_border_8_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D971BD3D4C30062FE44 /* world_100_border_8_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E581BD3D4C40062FE44 /* world_100_border_8_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D981BD3D4C30062FE44 /* world_100_border_8_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E591BD3D4C40062FE44 /* world_100_border_8_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D991BD3D4C30062FE44 /* world_100_border_8_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E5A1BD3D4C40062FE44 /* world_100_border_8_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D9A1BD3D4C30062FE44 /* world_100_border_8_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E5B1BD3D4C40062FE44 /* world_100_border_8_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D9B1BD3D4C30062FE44 /* world_100_border_8_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E5C1BD3D4C40062FE44 /* world_100_border_9_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D9C1BD3D4C30062FE44 /* world_100_border_9_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E5D1BD3D4C40062FE44 /* world_100_border_9_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D9D1BD3D4C30062FE44 /* world_100_border_9_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E5E1BD3D4C40062FE44 /* world_100_border_9_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D9E1BD3D4C30062FE44 /* world_100_border_9_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E5F1BD3D4C40062FE44 /* world_100_border_9_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9D9F1BD3D4C30062FE44 /* world_100_border_9_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E601BD3D4C40062FE44 /* world_100_border_9_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA01BD3D4C30062FE44 /* world_100_border_9_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E611BD3D4C40062FE44 /* world_100_border_9_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA11BD3D4C30062FE44 /* world_100_border_9_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E621BD3D4C40062FE44 /* world_100_border_9_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA21BD3D4C30062FE44 /* world_100_border_9_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E631BD3D4C40062FE44 /* world_100_border_9_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA31BD3D4C30062FE44 /* world_100_border_9_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E641BD3D4C40062FE44 /* world_100_border_9_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA41BD3D4C40062FE44 /* world_100_border_9_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E651BD3D4C40062FE44 /* world_100_border_9_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA51BD3D4C40062FE44 /* world_100_border_9_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E661BD3D4C40062FE44 /* world_100_border_9_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA61BD3D4C40062FE44 /* world_100_border_9_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E671BD3D4C40062FE44 /* world_100_border_9_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA71BD3D4C40062FE44 /* world_100_border_9_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E681BD3D4C40062FE44 /* world_100_border_10_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA81BD3D4C40062FE44 /* world_100_border_10_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E691BD3D4C40062FE44 /* world_100_border_10_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DA91BD3D4C40062FE44 /* world_100_border_10_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E6A1BD3D4C40062FE44 /* world_100_border_10_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DAA1BD3D4C40062FE44 /* world_100_border_10_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E6B1BD3D4C40062FE44 /* world_100_border_10_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DAB1BD3D4C40062FE44 /* world_100_border_10_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E6C1BD3D4C40062FE44 /* world_100_border_10_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DAC1BD3D4C40062FE44 /* world_100_border_10_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E6D1BD3D4C40062FE44 /* world_100_border_10_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DAD1BD3D4C40062FE44 /* world_100_border_10_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E6E1BD3D4C40062FE44 /* world_100_border_10_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DAE1BD3D4C40062FE44 /* world_100_border_10_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E6F1BD3D4C40062FE44 /* world_100_border_10_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DAF1BD3D4C40062FE44 /* world_100_border_10_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E701BD3D4C40062FE44 /* world_100_border_10_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB01BD3D4C40062FE44 /* world_100_border_10_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E711BD3D4C40062FE44 /* world_100_border_10_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB11BD3D4C40062FE44 /* world_100_border_10_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E721BD3D4C40062FE44 /* world_100_border_10_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB21BD3D4C40062FE44 /* world_100_border_10_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E731BD3D4C40062FE44 /* world_100_border_10_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB31BD3D4C40062FE44 /* world_100_border_10_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E741BD3D4C40062FE44 /* world_100_border_11_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB41BD3D4C40062FE44 /* world_100_border_11_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E751BD3D4C40062FE44 /* world_100_border_11_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB51BD3D4C40062FE44 /* world_100_border_11_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E761BD3D4C40062FE44 /* world_100_border_11_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB61BD3D4C40062FE44 /* world_100_border_11_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E771BD3D4C40062FE44 /* world_100_border_11_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB71BD3D4C40062FE44 /* world_100_border_11_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E781BD3D4C40062FE44 /* world_100_border_11_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB81BD3D4C40062FE44 /* world_100_border_11_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E791BD3D4C40062FE44 /* world_100_border_11_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DB91BD3D4C40062FE44 /* world_100_border_11_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E7A1BD3D4C40062FE44 /* world_100_border_11_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DBA1BD3D4C40062FE44 /* world_100_border_11_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E7B1BD3D4C40062FE44 /* world_100_border_11_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DBB1BD3D4C40062FE44 /* world_100_border_11_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E7C1BD3D4C40062FE44 /* world_100_border_11_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DBC1BD3D4C40062FE44 /* world_100_border_11_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E7D1BD3D4C40062FE44 /* world_100_border_11_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DBD1BD3D4C40062FE44 /* world_100_border_11_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E7E1BD3D4C40062FE44 /* world_100_border_11_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DBE1BD3D4C40062FE44 /* world_100_border_11_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E7F1BD3D4C40062FE44 /* world_100_border_11_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DBF1BD3D4C40062FE44 /* world_100_border_11_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E801BD3D4C40062FE44 /* world_100_border_12_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC01BD3D4C40062FE44 /* world_100_border_12_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E811BD3D4C40062FE44 /* world_100_border_12_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC11BD3D4C40062FE44 /* world_100_border_12_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E821BD3D4C40062FE44 /* world_100_border_12_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC21BD3D4C40062FE44 /* world_100_border_12_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E831BD3D4C40062FE44 /* world_100_border_12_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC31BD3D4C40062FE44 /* world_100_border_12_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E841BD3D4C40062FE44 /* world_100_border_12_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC41BD3D4C40062FE44 /* world_100_border_12_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E851BD3D4C40062FE44 /* world_100_border_12_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC51BD3D4C40062FE44 /* world_100_border_12_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E861BD3D4C40062FE44 /* world_100_border_12_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC61BD3D4C40062FE44 /* world_100_border_12_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E871BD3D4C40062FE44 /* world_100_border_12_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC71BD3D4C40062FE44 /* world_100_border_12_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E881BD3D4C40062FE44 /* world_100_border_12_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC81BD3D4C40062FE44 /* world_100_border_12_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E891BD3D4C40062FE44 /* world_100_border_12_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DC91BD3D4C40062FE44 /* world_100_border_12_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E8A1BD3D4C40062FE44 /* world_100_border_12_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DCA1BD3D4C40062FE44 /* world_100_border_12_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E8B1BD3D4C40062FE44 /* world_100_border_12_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DCB1BD3D4C40062FE44 /* world_100_border_12_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E8C1BD3D4C40062FE44 /* world_100_border_13_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DCC1BD3D4C40062FE44 /* world_100_border_13_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E8D1BD3D4C40062FE44 /* world_100_border_13_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DCD1BD3D4C40062FE44 /* world_100_border_13_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E8E1BD3D4C40062FE44 /* world_100_border_13_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DCE1BD3D4C40062FE44 /* world_100_border_13_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E8F1BD3D4C40062FE44 /* world_100_border_13_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DCF1BD3D4C40062FE44 /* world_100_border_13_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E901BD3D4C40062FE44 /* world_100_border_13_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD01BD3D4C40062FE44 /* world_100_border_13_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E911BD3D4C40062FE44 /* world_100_border_13_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD11BD3D4C40062FE44 /* world_100_border_13_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E921BD3D4C40062FE44 /* world_100_border_13_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD21BD3D4C40062FE44 /* world_100_border_13_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E931BD3D4C40062FE44 /* world_100_border_13_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD31BD3D4C40062FE44 /* world_100_border_13_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E941BD3D4C40062FE44 /* world_100_border_13_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD41BD3D4C40062FE44 /* world_100_border_13_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E951BD3D4C40062FE44 /* world_100_border_13_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD51BD3D4C40062FE44 /* world_100_border_13_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E961BD3D4C40062FE44 /* world_100_border_13_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD61BD3D4C40062FE44 /* world_100_border_13_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E971BD3D4C40062FE44 /* world_100_border_13_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD71BD3D4C40062FE44 /* world_100_border_13_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E981BD3D4C40062FE44 /* world_100_border_14_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD81BD3D4C40062FE44 /* world_100_border_14_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E991BD3D4C40062FE44 /* world_100_border_14_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DD91BD3D4C40062FE44 /* world_100_border_14_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E9A1BD3D4C40062FE44 /* world_100_border_14_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DDA1BD3D4C40062FE44 /* world_100_border_14_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E9B1BD3D4C40062FE44 /* world_100_border_14_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DDB1BD3D4C40062FE44 /* world_100_border_14_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E9C1BD3D4C40062FE44 /* world_100_border_14_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DDC1BD3D4C40062FE44 /* world_100_border_14_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E9D1BD3D4C40062FE44 /* world_100_border_14_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DDD1BD3D4C40062FE44 /* world_100_border_14_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E9E1BD3D4C40062FE44 /* world_100_border_14_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DDE1BD3D4C40062FE44 /* world_100_border_14_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9E9F1BD3D4C40062FE44 /* world_100_border_14_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DDF1BD3D4C40062FE44 /* world_100_border_14_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA01BD3D4C40062FE44 /* world_100_border_14_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE01BD3D4C40062FE44 /* world_100_border_14_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA11BD3D4C40062FE44 /* world_100_border_14_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE11BD3D4C40062FE44 /* world_100_border_14_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA21BD3D4C40062FE44 /* world_100_border_14_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE21BD3D4C40062FE44 /* world_100_border_14_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA31BD3D4C40062FE44 /* world_100_border_14_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE31BD3D4C40062FE44 /* world_100_border_14_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA41BD3D4C40062FE44 /* world_100_border_15_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE41BD3D4C40062FE44 /* world_100_border_15_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA51BD3D4C40062FE44 /* world_100_border_15_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE51BD3D4C40062FE44 /* world_100_border_15_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA61BD3D4C40062FE44 /* world_100_border_15_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE61BD3D4C40062FE44 /* world_100_border_15_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA71BD3D4C40062FE44 /* world_100_border_15_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE71BD3D4C40062FE44 /* world_100_border_15_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA81BD3D4C40062FE44 /* world_100_border_15_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE81BD3D4C40062FE44 /* world_100_border_15_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EA91BD3D4C40062FE44 /* world_100_border_15_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DE91BD3D4C40062FE44 /* world_100_border_15_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EAA1BD3D4C40062FE44 /* world_100_border_15_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DEA1BD3D4C40062FE44 /* world_100_border_15_6.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EAB1BD3D4C40062FE44 /* world_100_border_15_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DEB1BD3D4C40062FE44 /* world_100_border_15_7.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EAC1BD3D4C40062FE44 /* world_100_border_15_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DEC1BD3D4C40062FE44 /* world_100_border_15_8.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EAD1BD3D4C40062FE44 /* world_100_border_15_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DED1BD3D4C40062FE44 /* world_100_border_15_9.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EAE1BD3D4C40062FE44 /* world_100_border_15_10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DEE1BD3D4C40062FE44 /* world_100_border_15_10.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EAF1BD3D4C40062FE44 /* world_100_border_15_11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9DEF1BD3D4C40062FE44 /* world_100_border_15_11.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE11BD3D5170062FE44 /* world_50_border_0_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB11BD3D5170062FE44 /* world_50_border_0_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE21BD3D5170062FE44 /* world_50_border_0_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB21BD3D5170062FE44 /* world_50_border_0_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE31BD3D5170062FE44 /* world_50_border_0_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB31BD3D5170062FE44 /* world_50_border_0_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE41BD3D5170062FE44 /* world_50_border_0_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB41BD3D5170062FE44 /* world_50_border_0_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE51BD3D5170062FE44 /* world_50_border_0_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB51BD3D5170062FE44 /* world_50_border_0_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE61BD3D5170062FE44 /* world_50_border_0_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB61BD3D5170062FE44 /* world_50_border_0_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE71BD3D5170062FE44 /* world_50_border_1_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB71BD3D5170062FE44 /* world_50_border_1_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE81BD3D5170062FE44 /* world_50_border_1_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB81BD3D5170062FE44 /* world_50_border_1_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EE91BD3D5170062FE44 /* world_50_border_1_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EB91BD3D5170062FE44 /* world_50_border_1_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EEA1BD3D5170062FE44 /* world_50_border_1_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EBA1BD3D5170062FE44 /* world_50_border_1_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EEB1BD3D5170062FE44 /* world_50_border_1_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EBB1BD3D5170062FE44 /* world_50_border_1_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EEC1BD3D5170062FE44 /* world_50_border_1_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EBC1BD3D5170062FE44 /* world_50_border_1_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EED1BD3D5170062FE44 /* world_50_border_2_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EBD1BD3D5170062FE44 /* world_50_border_2_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EEE1BD3D5170062FE44 /* world_50_border_2_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EBE1BD3D5170062FE44 /* world_50_border_2_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EEF1BD3D5170062FE44 /* world_50_border_2_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EBF1BD3D5170062FE44 /* world_50_border_2_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF01BD3D5170062FE44 /* world_50_border_2_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC01BD3D5170062FE44 /* world_50_border_2_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF11BD3D5170062FE44 /* world_50_border_2_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC11BD3D5170062FE44 /* world_50_border_2_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF21BD3D5170062FE44 /* world_50_border_2_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC21BD3D5170062FE44 /* world_50_border_2_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF31BD3D5170062FE44 /* world_50_border_3_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC31BD3D5170062FE44 /* world_50_border_3_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF41BD3D5170062FE44 /* world_50_border_3_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC41BD3D5170062FE44 /* world_50_border_3_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF51BD3D5170062FE44 /* world_50_border_3_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC51BD3D5170062FE44 /* world_50_border_3_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF61BD3D5170062FE44 /* world_50_border_3_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC61BD3D5170062FE44 /* world_50_border_3_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF71BD3D5170062FE44 /* world_50_border_3_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC71BD3D5170062FE44 /* world_50_border_3_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF81BD3D5170062FE44 /* world_50_border_3_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC81BD3D5170062FE44 /* world_50_border_3_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EF91BD3D5170062FE44 /* world_50_border_4_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EC91BD3D5170062FE44 /* world_50_border_4_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EFA1BD3D5170062FE44 /* world_50_border_4_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ECA1BD3D5170062FE44 /* world_50_border_4_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EFB1BD3D5170062FE44 /* world_50_border_4_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ECB1BD3D5170062FE44 /* world_50_border_4_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EFC1BD3D5170062FE44 /* world_50_border_4_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ECC1BD3D5170062FE44 /* world_50_border_4_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EFD1BD3D5170062FE44 /* world_50_border_4_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ECD1BD3D5170062FE44 /* world_50_border_4_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EFE1BD3D5170062FE44 /* world_50_border_4_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ECE1BD3D5170062FE44 /* world_50_border_4_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9EFF1BD3D5170062FE44 /* world_50_border_5_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ECF1BD3D5170062FE44 /* world_50_border_5_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F001BD3D5170062FE44 /* world_50_border_5_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED01BD3D5170062FE44 /* world_50_border_5_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F011BD3D5170062FE44 /* world_50_border_5_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED11BD3D5170062FE44 /* world_50_border_5_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F021BD3D5170062FE44 /* world_50_border_5_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED21BD3D5170062FE44 /* world_50_border_5_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F031BD3D5170062FE44 /* world_50_border_5_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED31BD3D5170062FE44 /* world_50_border_5_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F041BD3D5170062FE44 /* world_50_border_5_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED41BD3D5170062FE44 /* world_50_border_5_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F051BD3D5170062FE44 /* world_50_border_6_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED51BD3D5170062FE44 /* world_50_border_6_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F061BD3D5170062FE44 /* world_50_border_6_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED61BD3D5170062FE44 /* world_50_border_6_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F071BD3D5170062FE44 /* world_50_border_6_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED71BD3D5170062FE44 /* world_50_border_6_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F081BD3D5170062FE44 /* world_50_border_6_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED81BD3D5170062FE44 /* world_50_border_6_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F091BD3D5170062FE44 /* world_50_border_6_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9ED91BD3D5170062FE44 /* world_50_border_6_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F0A1BD3D5170062FE44 /* world_50_border_6_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EDA1BD3D5170062FE44 /* world_50_border_6_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F0B1BD3D5170062FE44 /* world_50_border_7_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EDB1BD3D5170062FE44 /* world_50_border_7_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F0C1BD3D5170062FE44 /* world_50_border_7_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EDC1BD3D5170062FE44 /* world_50_border_7_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F0D1BD3D5170062FE44 /* world_50_border_7_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EDD1BD3D5170062FE44 /* world_50_border_7_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F0E1BD3D5170062FE44 /* world_50_border_7_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EDE1BD3D5170062FE44 /* world_50_border_7_3.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F0F1BD3D5170062FE44 /* world_50_border_7_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EDF1BD3D5170062FE44 /* world_50_border_7_4.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F101BD3D5170062FE44 /* world_50_border_7_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9EE01BD3D5170062FE44 /* world_50_border_7_5.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F1E1BD3D5530062FE44 /* world_25_border_0_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F121BD3D5530062FE44 /* world_25_border_0_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F1F1BD3D5530062FE44 /* world_25_border_0_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F131BD3D5530062FE44 /* world_25_border_0_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F201BD3D5530062FE44 /* world_25_border_0_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F141BD3D5530062FE44 /* world_25_border_0_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F211BD3D5530062FE44 /* world_25_border_1_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F151BD3D5530062FE44 /* world_25_border_1_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F221BD3D5530062FE44 /* world_25_border_1_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F161BD3D5530062FE44 /* world_25_border_1_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F231BD3D5530062FE44 /* world_25_border_1_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F171BD3D5530062FE44 /* world_25_border_1_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F241BD3D5530062FE44 /* world_25_border_2_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F181BD3D5530062FE44 /* world_25_border_2_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F251BD3D5530062FE44 /* world_25_border_2_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F191BD3D5530062FE44 /* world_25_border_2_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F261BD3D5530062FE44 /* world_25_border_2_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F1A1BD3D5530062FE44 /* world_25_border_2_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F271BD3D5530062FE44 /* world_25_border_3_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F1B1BD3D5530062FE44 /* world_25_border_3_0.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F281BD3D5530062FE44 /* world_25_border_3_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F1C1BD3D5530062FE44 /* world_25_border_3_1.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F291BD3D5530062FE44 /* world_25_border_3_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F1D1BD3D5530062FE44 /* world_25_border_3_2.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1092,6 +1344,258 @@
 		72BD9D291BD2AA430062FE44 /* MapFeud-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapFeud-Bridging-Header.h"; sourceTree = "<group>"; };
 		72BD9D2B1BD2ADD90062FE44 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		72BD9D2D1BD2FEF60062FE44 /* DistanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceView.swift; sourceTree = "<group>"; };
+		72BD9D301BD3D4C30062FE44 /* world_100_border_0_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_0.jpg; sourceTree = "<group>"; };
+		72BD9D311BD3D4C30062FE44 /* world_100_border_0_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_1.jpg; sourceTree = "<group>"; };
+		72BD9D321BD3D4C30062FE44 /* world_100_border_0_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_2.jpg; sourceTree = "<group>"; };
+		72BD9D331BD3D4C30062FE44 /* world_100_border_0_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_3.jpg; sourceTree = "<group>"; };
+		72BD9D341BD3D4C30062FE44 /* world_100_border_0_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_4.jpg; sourceTree = "<group>"; };
+		72BD9D351BD3D4C30062FE44 /* world_100_border_0_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_5.jpg; sourceTree = "<group>"; };
+		72BD9D361BD3D4C30062FE44 /* world_100_border_0_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_6.jpg; sourceTree = "<group>"; };
+		72BD9D371BD3D4C30062FE44 /* world_100_border_0_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_7.jpg; sourceTree = "<group>"; };
+		72BD9D381BD3D4C30062FE44 /* world_100_border_0_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_8.jpg; sourceTree = "<group>"; };
+		72BD9D391BD3D4C30062FE44 /* world_100_border_0_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_9.jpg; sourceTree = "<group>"; };
+		72BD9D3A1BD3D4C30062FE44 /* world_100_border_0_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_10.jpg; sourceTree = "<group>"; };
+		72BD9D3B1BD3D4C30062FE44 /* world_100_border_0_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_0_11.jpg; sourceTree = "<group>"; };
+		72BD9D3C1BD3D4C30062FE44 /* world_100_border_1_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_0.jpg; sourceTree = "<group>"; };
+		72BD9D3D1BD3D4C30062FE44 /* world_100_border_1_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_1.jpg; sourceTree = "<group>"; };
+		72BD9D3E1BD3D4C30062FE44 /* world_100_border_1_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_2.jpg; sourceTree = "<group>"; };
+		72BD9D3F1BD3D4C30062FE44 /* world_100_border_1_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_3.jpg; sourceTree = "<group>"; };
+		72BD9D401BD3D4C30062FE44 /* world_100_border_1_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_4.jpg; sourceTree = "<group>"; };
+		72BD9D411BD3D4C30062FE44 /* world_100_border_1_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_5.jpg; sourceTree = "<group>"; };
+		72BD9D421BD3D4C30062FE44 /* world_100_border_1_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_6.jpg; sourceTree = "<group>"; };
+		72BD9D431BD3D4C30062FE44 /* world_100_border_1_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_7.jpg; sourceTree = "<group>"; };
+		72BD9D441BD3D4C30062FE44 /* world_100_border_1_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_8.jpg; sourceTree = "<group>"; };
+		72BD9D451BD3D4C30062FE44 /* world_100_border_1_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_9.jpg; sourceTree = "<group>"; };
+		72BD9D461BD3D4C30062FE44 /* world_100_border_1_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_10.jpg; sourceTree = "<group>"; };
+		72BD9D471BD3D4C30062FE44 /* world_100_border_1_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_1_11.jpg; sourceTree = "<group>"; };
+		72BD9D481BD3D4C30062FE44 /* world_100_border_2_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_0.jpg; sourceTree = "<group>"; };
+		72BD9D491BD3D4C30062FE44 /* world_100_border_2_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_1.jpg; sourceTree = "<group>"; };
+		72BD9D4A1BD3D4C30062FE44 /* world_100_border_2_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_2.jpg; sourceTree = "<group>"; };
+		72BD9D4B1BD3D4C30062FE44 /* world_100_border_2_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_3.jpg; sourceTree = "<group>"; };
+		72BD9D4C1BD3D4C30062FE44 /* world_100_border_2_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_4.jpg; sourceTree = "<group>"; };
+		72BD9D4D1BD3D4C30062FE44 /* world_100_border_2_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_5.jpg; sourceTree = "<group>"; };
+		72BD9D4E1BD3D4C30062FE44 /* world_100_border_2_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_6.jpg; sourceTree = "<group>"; };
+		72BD9D4F1BD3D4C30062FE44 /* world_100_border_2_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_7.jpg; sourceTree = "<group>"; };
+		72BD9D501BD3D4C30062FE44 /* world_100_border_2_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_8.jpg; sourceTree = "<group>"; };
+		72BD9D511BD3D4C30062FE44 /* world_100_border_2_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_9.jpg; sourceTree = "<group>"; };
+		72BD9D521BD3D4C30062FE44 /* world_100_border_2_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_10.jpg; sourceTree = "<group>"; };
+		72BD9D531BD3D4C30062FE44 /* world_100_border_2_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_2_11.jpg; sourceTree = "<group>"; };
+		72BD9D541BD3D4C30062FE44 /* world_100_border_3_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_0.jpg; sourceTree = "<group>"; };
+		72BD9D551BD3D4C30062FE44 /* world_100_border_3_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_1.jpg; sourceTree = "<group>"; };
+		72BD9D561BD3D4C30062FE44 /* world_100_border_3_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_2.jpg; sourceTree = "<group>"; };
+		72BD9D571BD3D4C30062FE44 /* world_100_border_3_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_3.jpg; sourceTree = "<group>"; };
+		72BD9D581BD3D4C30062FE44 /* world_100_border_3_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_4.jpg; sourceTree = "<group>"; };
+		72BD9D591BD3D4C30062FE44 /* world_100_border_3_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_5.jpg; sourceTree = "<group>"; };
+		72BD9D5A1BD3D4C30062FE44 /* world_100_border_3_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_6.jpg; sourceTree = "<group>"; };
+		72BD9D5B1BD3D4C30062FE44 /* world_100_border_3_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_7.jpg; sourceTree = "<group>"; };
+		72BD9D5C1BD3D4C30062FE44 /* world_100_border_3_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_8.jpg; sourceTree = "<group>"; };
+		72BD9D5D1BD3D4C30062FE44 /* world_100_border_3_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_9.jpg; sourceTree = "<group>"; };
+		72BD9D5E1BD3D4C30062FE44 /* world_100_border_3_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_10.jpg; sourceTree = "<group>"; };
+		72BD9D5F1BD3D4C30062FE44 /* world_100_border_3_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_3_11.jpg; sourceTree = "<group>"; };
+		72BD9D601BD3D4C30062FE44 /* world_100_border_4_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_0.jpg; sourceTree = "<group>"; };
+		72BD9D611BD3D4C30062FE44 /* world_100_border_4_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_1.jpg; sourceTree = "<group>"; };
+		72BD9D621BD3D4C30062FE44 /* world_100_border_4_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_2.jpg; sourceTree = "<group>"; };
+		72BD9D631BD3D4C30062FE44 /* world_100_border_4_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_3.jpg; sourceTree = "<group>"; };
+		72BD9D641BD3D4C30062FE44 /* world_100_border_4_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_4.jpg; sourceTree = "<group>"; };
+		72BD9D651BD3D4C30062FE44 /* world_100_border_4_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_5.jpg; sourceTree = "<group>"; };
+		72BD9D661BD3D4C30062FE44 /* world_100_border_4_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_6.jpg; sourceTree = "<group>"; };
+		72BD9D671BD3D4C30062FE44 /* world_100_border_4_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_7.jpg; sourceTree = "<group>"; };
+		72BD9D681BD3D4C30062FE44 /* world_100_border_4_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_8.jpg; sourceTree = "<group>"; };
+		72BD9D691BD3D4C30062FE44 /* world_100_border_4_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_9.jpg; sourceTree = "<group>"; };
+		72BD9D6A1BD3D4C30062FE44 /* world_100_border_4_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_10.jpg; sourceTree = "<group>"; };
+		72BD9D6B1BD3D4C30062FE44 /* world_100_border_4_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_4_11.jpg; sourceTree = "<group>"; };
+		72BD9D6C1BD3D4C30062FE44 /* world_100_border_5_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_0.jpg; sourceTree = "<group>"; };
+		72BD9D6D1BD3D4C30062FE44 /* world_100_border_5_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_1.jpg; sourceTree = "<group>"; };
+		72BD9D6E1BD3D4C30062FE44 /* world_100_border_5_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_2.jpg; sourceTree = "<group>"; };
+		72BD9D6F1BD3D4C30062FE44 /* world_100_border_5_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_3.jpg; sourceTree = "<group>"; };
+		72BD9D701BD3D4C30062FE44 /* world_100_border_5_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_4.jpg; sourceTree = "<group>"; };
+		72BD9D711BD3D4C30062FE44 /* world_100_border_5_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_5.jpg; sourceTree = "<group>"; };
+		72BD9D721BD3D4C30062FE44 /* world_100_border_5_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_6.jpg; sourceTree = "<group>"; };
+		72BD9D731BD3D4C30062FE44 /* world_100_border_5_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_7.jpg; sourceTree = "<group>"; };
+		72BD9D741BD3D4C30062FE44 /* world_100_border_5_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_8.jpg; sourceTree = "<group>"; };
+		72BD9D751BD3D4C30062FE44 /* world_100_border_5_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_9.jpg; sourceTree = "<group>"; };
+		72BD9D761BD3D4C30062FE44 /* world_100_border_5_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_10.jpg; sourceTree = "<group>"; };
+		72BD9D771BD3D4C30062FE44 /* world_100_border_5_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_5_11.jpg; sourceTree = "<group>"; };
+		72BD9D781BD3D4C30062FE44 /* world_100_border_6_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_0.jpg; sourceTree = "<group>"; };
+		72BD9D791BD3D4C30062FE44 /* world_100_border_6_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_1.jpg; sourceTree = "<group>"; };
+		72BD9D7A1BD3D4C30062FE44 /* world_100_border_6_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_2.jpg; sourceTree = "<group>"; };
+		72BD9D7B1BD3D4C30062FE44 /* world_100_border_6_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_3.jpg; sourceTree = "<group>"; };
+		72BD9D7C1BD3D4C30062FE44 /* world_100_border_6_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_4.jpg; sourceTree = "<group>"; };
+		72BD9D7D1BD3D4C30062FE44 /* world_100_border_6_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_5.jpg; sourceTree = "<group>"; };
+		72BD9D7E1BD3D4C30062FE44 /* world_100_border_6_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_6.jpg; sourceTree = "<group>"; };
+		72BD9D7F1BD3D4C30062FE44 /* world_100_border_6_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_7.jpg; sourceTree = "<group>"; };
+		72BD9D801BD3D4C30062FE44 /* world_100_border_6_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_8.jpg; sourceTree = "<group>"; };
+		72BD9D811BD3D4C30062FE44 /* world_100_border_6_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_9.jpg; sourceTree = "<group>"; };
+		72BD9D821BD3D4C30062FE44 /* world_100_border_6_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_10.jpg; sourceTree = "<group>"; };
+		72BD9D831BD3D4C30062FE44 /* world_100_border_6_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_6_11.jpg; sourceTree = "<group>"; };
+		72BD9D841BD3D4C30062FE44 /* world_100_border_7_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_0.jpg; sourceTree = "<group>"; };
+		72BD9D851BD3D4C30062FE44 /* world_100_border_7_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_1.jpg; sourceTree = "<group>"; };
+		72BD9D861BD3D4C30062FE44 /* world_100_border_7_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_2.jpg; sourceTree = "<group>"; };
+		72BD9D871BD3D4C30062FE44 /* world_100_border_7_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_3.jpg; sourceTree = "<group>"; };
+		72BD9D881BD3D4C30062FE44 /* world_100_border_7_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_4.jpg; sourceTree = "<group>"; };
+		72BD9D891BD3D4C30062FE44 /* world_100_border_7_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_5.jpg; sourceTree = "<group>"; };
+		72BD9D8A1BD3D4C30062FE44 /* world_100_border_7_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_6.jpg; sourceTree = "<group>"; };
+		72BD9D8B1BD3D4C30062FE44 /* world_100_border_7_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_7.jpg; sourceTree = "<group>"; };
+		72BD9D8C1BD3D4C30062FE44 /* world_100_border_7_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_8.jpg; sourceTree = "<group>"; };
+		72BD9D8D1BD3D4C30062FE44 /* world_100_border_7_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_9.jpg; sourceTree = "<group>"; };
+		72BD9D8E1BD3D4C30062FE44 /* world_100_border_7_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_10.jpg; sourceTree = "<group>"; };
+		72BD9D8F1BD3D4C30062FE44 /* world_100_border_7_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_7_11.jpg; sourceTree = "<group>"; };
+		72BD9D901BD3D4C30062FE44 /* world_100_border_8_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_0.jpg; sourceTree = "<group>"; };
+		72BD9D911BD3D4C30062FE44 /* world_100_border_8_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_1.jpg; sourceTree = "<group>"; };
+		72BD9D921BD3D4C30062FE44 /* world_100_border_8_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_2.jpg; sourceTree = "<group>"; };
+		72BD9D931BD3D4C30062FE44 /* world_100_border_8_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_3.jpg; sourceTree = "<group>"; };
+		72BD9D941BD3D4C30062FE44 /* world_100_border_8_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_4.jpg; sourceTree = "<group>"; };
+		72BD9D951BD3D4C30062FE44 /* world_100_border_8_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_5.jpg; sourceTree = "<group>"; };
+		72BD9D961BD3D4C30062FE44 /* world_100_border_8_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_6.jpg; sourceTree = "<group>"; };
+		72BD9D971BD3D4C30062FE44 /* world_100_border_8_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_7.jpg; sourceTree = "<group>"; };
+		72BD9D981BD3D4C30062FE44 /* world_100_border_8_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_8.jpg; sourceTree = "<group>"; };
+		72BD9D991BD3D4C30062FE44 /* world_100_border_8_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_9.jpg; sourceTree = "<group>"; };
+		72BD9D9A1BD3D4C30062FE44 /* world_100_border_8_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_10.jpg; sourceTree = "<group>"; };
+		72BD9D9B1BD3D4C30062FE44 /* world_100_border_8_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_8_11.jpg; sourceTree = "<group>"; };
+		72BD9D9C1BD3D4C30062FE44 /* world_100_border_9_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_0.jpg; sourceTree = "<group>"; };
+		72BD9D9D1BD3D4C30062FE44 /* world_100_border_9_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_1.jpg; sourceTree = "<group>"; };
+		72BD9D9E1BD3D4C30062FE44 /* world_100_border_9_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_2.jpg; sourceTree = "<group>"; };
+		72BD9D9F1BD3D4C30062FE44 /* world_100_border_9_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_3.jpg; sourceTree = "<group>"; };
+		72BD9DA01BD3D4C30062FE44 /* world_100_border_9_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_4.jpg; sourceTree = "<group>"; };
+		72BD9DA11BD3D4C30062FE44 /* world_100_border_9_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_5.jpg; sourceTree = "<group>"; };
+		72BD9DA21BD3D4C30062FE44 /* world_100_border_9_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_6.jpg; sourceTree = "<group>"; };
+		72BD9DA31BD3D4C30062FE44 /* world_100_border_9_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_7.jpg; sourceTree = "<group>"; };
+		72BD9DA41BD3D4C40062FE44 /* world_100_border_9_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_8.jpg; sourceTree = "<group>"; };
+		72BD9DA51BD3D4C40062FE44 /* world_100_border_9_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_9.jpg; sourceTree = "<group>"; };
+		72BD9DA61BD3D4C40062FE44 /* world_100_border_9_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_10.jpg; sourceTree = "<group>"; };
+		72BD9DA71BD3D4C40062FE44 /* world_100_border_9_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_9_11.jpg; sourceTree = "<group>"; };
+		72BD9DA81BD3D4C40062FE44 /* world_100_border_10_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_0.jpg; sourceTree = "<group>"; };
+		72BD9DA91BD3D4C40062FE44 /* world_100_border_10_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_1.jpg; sourceTree = "<group>"; };
+		72BD9DAA1BD3D4C40062FE44 /* world_100_border_10_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_2.jpg; sourceTree = "<group>"; };
+		72BD9DAB1BD3D4C40062FE44 /* world_100_border_10_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_3.jpg; sourceTree = "<group>"; };
+		72BD9DAC1BD3D4C40062FE44 /* world_100_border_10_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_4.jpg; sourceTree = "<group>"; };
+		72BD9DAD1BD3D4C40062FE44 /* world_100_border_10_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_5.jpg; sourceTree = "<group>"; };
+		72BD9DAE1BD3D4C40062FE44 /* world_100_border_10_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_6.jpg; sourceTree = "<group>"; };
+		72BD9DAF1BD3D4C40062FE44 /* world_100_border_10_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_7.jpg; sourceTree = "<group>"; };
+		72BD9DB01BD3D4C40062FE44 /* world_100_border_10_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_8.jpg; sourceTree = "<group>"; };
+		72BD9DB11BD3D4C40062FE44 /* world_100_border_10_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_9.jpg; sourceTree = "<group>"; };
+		72BD9DB21BD3D4C40062FE44 /* world_100_border_10_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_10.jpg; sourceTree = "<group>"; };
+		72BD9DB31BD3D4C40062FE44 /* world_100_border_10_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_10_11.jpg; sourceTree = "<group>"; };
+		72BD9DB41BD3D4C40062FE44 /* world_100_border_11_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_0.jpg; sourceTree = "<group>"; };
+		72BD9DB51BD3D4C40062FE44 /* world_100_border_11_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_1.jpg; sourceTree = "<group>"; };
+		72BD9DB61BD3D4C40062FE44 /* world_100_border_11_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_2.jpg; sourceTree = "<group>"; };
+		72BD9DB71BD3D4C40062FE44 /* world_100_border_11_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_3.jpg; sourceTree = "<group>"; };
+		72BD9DB81BD3D4C40062FE44 /* world_100_border_11_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_4.jpg; sourceTree = "<group>"; };
+		72BD9DB91BD3D4C40062FE44 /* world_100_border_11_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_5.jpg; sourceTree = "<group>"; };
+		72BD9DBA1BD3D4C40062FE44 /* world_100_border_11_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_6.jpg; sourceTree = "<group>"; };
+		72BD9DBB1BD3D4C40062FE44 /* world_100_border_11_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_7.jpg; sourceTree = "<group>"; };
+		72BD9DBC1BD3D4C40062FE44 /* world_100_border_11_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_8.jpg; sourceTree = "<group>"; };
+		72BD9DBD1BD3D4C40062FE44 /* world_100_border_11_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_9.jpg; sourceTree = "<group>"; };
+		72BD9DBE1BD3D4C40062FE44 /* world_100_border_11_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_10.jpg; sourceTree = "<group>"; };
+		72BD9DBF1BD3D4C40062FE44 /* world_100_border_11_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_11_11.jpg; sourceTree = "<group>"; };
+		72BD9DC01BD3D4C40062FE44 /* world_100_border_12_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_0.jpg; sourceTree = "<group>"; };
+		72BD9DC11BD3D4C40062FE44 /* world_100_border_12_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_1.jpg; sourceTree = "<group>"; };
+		72BD9DC21BD3D4C40062FE44 /* world_100_border_12_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_2.jpg; sourceTree = "<group>"; };
+		72BD9DC31BD3D4C40062FE44 /* world_100_border_12_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_3.jpg; sourceTree = "<group>"; };
+		72BD9DC41BD3D4C40062FE44 /* world_100_border_12_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_4.jpg; sourceTree = "<group>"; };
+		72BD9DC51BD3D4C40062FE44 /* world_100_border_12_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_5.jpg; sourceTree = "<group>"; };
+		72BD9DC61BD3D4C40062FE44 /* world_100_border_12_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_6.jpg; sourceTree = "<group>"; };
+		72BD9DC71BD3D4C40062FE44 /* world_100_border_12_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_7.jpg; sourceTree = "<group>"; };
+		72BD9DC81BD3D4C40062FE44 /* world_100_border_12_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_8.jpg; sourceTree = "<group>"; };
+		72BD9DC91BD3D4C40062FE44 /* world_100_border_12_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_9.jpg; sourceTree = "<group>"; };
+		72BD9DCA1BD3D4C40062FE44 /* world_100_border_12_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_10.jpg; sourceTree = "<group>"; };
+		72BD9DCB1BD3D4C40062FE44 /* world_100_border_12_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_12_11.jpg; sourceTree = "<group>"; };
+		72BD9DCC1BD3D4C40062FE44 /* world_100_border_13_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_0.jpg; sourceTree = "<group>"; };
+		72BD9DCD1BD3D4C40062FE44 /* world_100_border_13_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_1.jpg; sourceTree = "<group>"; };
+		72BD9DCE1BD3D4C40062FE44 /* world_100_border_13_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_2.jpg; sourceTree = "<group>"; };
+		72BD9DCF1BD3D4C40062FE44 /* world_100_border_13_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_3.jpg; sourceTree = "<group>"; };
+		72BD9DD01BD3D4C40062FE44 /* world_100_border_13_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_4.jpg; sourceTree = "<group>"; };
+		72BD9DD11BD3D4C40062FE44 /* world_100_border_13_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_5.jpg; sourceTree = "<group>"; };
+		72BD9DD21BD3D4C40062FE44 /* world_100_border_13_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_6.jpg; sourceTree = "<group>"; };
+		72BD9DD31BD3D4C40062FE44 /* world_100_border_13_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_7.jpg; sourceTree = "<group>"; };
+		72BD9DD41BD3D4C40062FE44 /* world_100_border_13_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_8.jpg; sourceTree = "<group>"; };
+		72BD9DD51BD3D4C40062FE44 /* world_100_border_13_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_9.jpg; sourceTree = "<group>"; };
+		72BD9DD61BD3D4C40062FE44 /* world_100_border_13_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_10.jpg; sourceTree = "<group>"; };
+		72BD9DD71BD3D4C40062FE44 /* world_100_border_13_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_13_11.jpg; sourceTree = "<group>"; };
+		72BD9DD81BD3D4C40062FE44 /* world_100_border_14_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_0.jpg; sourceTree = "<group>"; };
+		72BD9DD91BD3D4C40062FE44 /* world_100_border_14_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_1.jpg; sourceTree = "<group>"; };
+		72BD9DDA1BD3D4C40062FE44 /* world_100_border_14_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_2.jpg; sourceTree = "<group>"; };
+		72BD9DDB1BD3D4C40062FE44 /* world_100_border_14_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_3.jpg; sourceTree = "<group>"; };
+		72BD9DDC1BD3D4C40062FE44 /* world_100_border_14_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_4.jpg; sourceTree = "<group>"; };
+		72BD9DDD1BD3D4C40062FE44 /* world_100_border_14_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_5.jpg; sourceTree = "<group>"; };
+		72BD9DDE1BD3D4C40062FE44 /* world_100_border_14_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_6.jpg; sourceTree = "<group>"; };
+		72BD9DDF1BD3D4C40062FE44 /* world_100_border_14_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_7.jpg; sourceTree = "<group>"; };
+		72BD9DE01BD3D4C40062FE44 /* world_100_border_14_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_8.jpg; sourceTree = "<group>"; };
+		72BD9DE11BD3D4C40062FE44 /* world_100_border_14_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_9.jpg; sourceTree = "<group>"; };
+		72BD9DE21BD3D4C40062FE44 /* world_100_border_14_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_10.jpg; sourceTree = "<group>"; };
+		72BD9DE31BD3D4C40062FE44 /* world_100_border_14_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_14_11.jpg; sourceTree = "<group>"; };
+		72BD9DE41BD3D4C40062FE44 /* world_100_border_15_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_0.jpg; sourceTree = "<group>"; };
+		72BD9DE51BD3D4C40062FE44 /* world_100_border_15_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_1.jpg; sourceTree = "<group>"; };
+		72BD9DE61BD3D4C40062FE44 /* world_100_border_15_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_2.jpg; sourceTree = "<group>"; };
+		72BD9DE71BD3D4C40062FE44 /* world_100_border_15_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_3.jpg; sourceTree = "<group>"; };
+		72BD9DE81BD3D4C40062FE44 /* world_100_border_15_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_4.jpg; sourceTree = "<group>"; };
+		72BD9DE91BD3D4C40062FE44 /* world_100_border_15_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_5.jpg; sourceTree = "<group>"; };
+		72BD9DEA1BD3D4C40062FE44 /* world_100_border_15_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_6.jpg; sourceTree = "<group>"; };
+		72BD9DEB1BD3D4C40062FE44 /* world_100_border_15_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_7.jpg; sourceTree = "<group>"; };
+		72BD9DEC1BD3D4C40062FE44 /* world_100_border_15_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_8.jpg; sourceTree = "<group>"; };
+		72BD9DED1BD3D4C40062FE44 /* world_100_border_15_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_9.jpg; sourceTree = "<group>"; };
+		72BD9DEE1BD3D4C40062FE44 /* world_100_border_15_10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_10.jpg; sourceTree = "<group>"; };
+		72BD9DEF1BD3D4C40062FE44 /* world_100_border_15_11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_border_15_11.jpg; sourceTree = "<group>"; };
+		72BD9EB11BD3D5170062FE44 /* world_50_border_0_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_0_0.jpg; sourceTree = "<group>"; };
+		72BD9EB21BD3D5170062FE44 /* world_50_border_0_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_0_1.jpg; sourceTree = "<group>"; };
+		72BD9EB31BD3D5170062FE44 /* world_50_border_0_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_0_2.jpg; sourceTree = "<group>"; };
+		72BD9EB41BD3D5170062FE44 /* world_50_border_0_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_0_3.jpg; sourceTree = "<group>"; };
+		72BD9EB51BD3D5170062FE44 /* world_50_border_0_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_0_4.jpg; sourceTree = "<group>"; };
+		72BD9EB61BD3D5170062FE44 /* world_50_border_0_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_0_5.jpg; sourceTree = "<group>"; };
+		72BD9EB71BD3D5170062FE44 /* world_50_border_1_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_1_0.jpg; sourceTree = "<group>"; };
+		72BD9EB81BD3D5170062FE44 /* world_50_border_1_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_1_1.jpg; sourceTree = "<group>"; };
+		72BD9EB91BD3D5170062FE44 /* world_50_border_1_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_1_2.jpg; sourceTree = "<group>"; };
+		72BD9EBA1BD3D5170062FE44 /* world_50_border_1_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_1_3.jpg; sourceTree = "<group>"; };
+		72BD9EBB1BD3D5170062FE44 /* world_50_border_1_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_1_4.jpg; sourceTree = "<group>"; };
+		72BD9EBC1BD3D5170062FE44 /* world_50_border_1_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_1_5.jpg; sourceTree = "<group>"; };
+		72BD9EBD1BD3D5170062FE44 /* world_50_border_2_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_2_0.jpg; sourceTree = "<group>"; };
+		72BD9EBE1BD3D5170062FE44 /* world_50_border_2_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_2_1.jpg; sourceTree = "<group>"; };
+		72BD9EBF1BD3D5170062FE44 /* world_50_border_2_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_2_2.jpg; sourceTree = "<group>"; };
+		72BD9EC01BD3D5170062FE44 /* world_50_border_2_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_2_3.jpg; sourceTree = "<group>"; };
+		72BD9EC11BD3D5170062FE44 /* world_50_border_2_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_2_4.jpg; sourceTree = "<group>"; };
+		72BD9EC21BD3D5170062FE44 /* world_50_border_2_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_2_5.jpg; sourceTree = "<group>"; };
+		72BD9EC31BD3D5170062FE44 /* world_50_border_3_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_3_0.jpg; sourceTree = "<group>"; };
+		72BD9EC41BD3D5170062FE44 /* world_50_border_3_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_3_1.jpg; sourceTree = "<group>"; };
+		72BD9EC51BD3D5170062FE44 /* world_50_border_3_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_3_2.jpg; sourceTree = "<group>"; };
+		72BD9EC61BD3D5170062FE44 /* world_50_border_3_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_3_3.jpg; sourceTree = "<group>"; };
+		72BD9EC71BD3D5170062FE44 /* world_50_border_3_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_3_4.jpg; sourceTree = "<group>"; };
+		72BD9EC81BD3D5170062FE44 /* world_50_border_3_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_3_5.jpg; sourceTree = "<group>"; };
+		72BD9EC91BD3D5170062FE44 /* world_50_border_4_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_4_0.jpg; sourceTree = "<group>"; };
+		72BD9ECA1BD3D5170062FE44 /* world_50_border_4_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_4_1.jpg; sourceTree = "<group>"; };
+		72BD9ECB1BD3D5170062FE44 /* world_50_border_4_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_4_2.jpg; sourceTree = "<group>"; };
+		72BD9ECC1BD3D5170062FE44 /* world_50_border_4_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_4_3.jpg; sourceTree = "<group>"; };
+		72BD9ECD1BD3D5170062FE44 /* world_50_border_4_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_4_4.jpg; sourceTree = "<group>"; };
+		72BD9ECE1BD3D5170062FE44 /* world_50_border_4_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_4_5.jpg; sourceTree = "<group>"; };
+		72BD9ECF1BD3D5170062FE44 /* world_50_border_5_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_5_0.jpg; sourceTree = "<group>"; };
+		72BD9ED01BD3D5170062FE44 /* world_50_border_5_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_5_1.jpg; sourceTree = "<group>"; };
+		72BD9ED11BD3D5170062FE44 /* world_50_border_5_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_5_2.jpg; sourceTree = "<group>"; };
+		72BD9ED21BD3D5170062FE44 /* world_50_border_5_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_5_3.jpg; sourceTree = "<group>"; };
+		72BD9ED31BD3D5170062FE44 /* world_50_border_5_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_5_4.jpg; sourceTree = "<group>"; };
+		72BD9ED41BD3D5170062FE44 /* world_50_border_5_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_5_5.jpg; sourceTree = "<group>"; };
+		72BD9ED51BD3D5170062FE44 /* world_50_border_6_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_6_0.jpg; sourceTree = "<group>"; };
+		72BD9ED61BD3D5170062FE44 /* world_50_border_6_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_6_1.jpg; sourceTree = "<group>"; };
+		72BD9ED71BD3D5170062FE44 /* world_50_border_6_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_6_2.jpg; sourceTree = "<group>"; };
+		72BD9ED81BD3D5170062FE44 /* world_50_border_6_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_6_3.jpg; sourceTree = "<group>"; };
+		72BD9ED91BD3D5170062FE44 /* world_50_border_6_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_6_4.jpg; sourceTree = "<group>"; };
+		72BD9EDA1BD3D5170062FE44 /* world_50_border_6_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_6_5.jpg; sourceTree = "<group>"; };
+		72BD9EDB1BD3D5170062FE44 /* world_50_border_7_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_7_0.jpg; sourceTree = "<group>"; };
+		72BD9EDC1BD3D5170062FE44 /* world_50_border_7_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_7_1.jpg; sourceTree = "<group>"; };
+		72BD9EDD1BD3D5170062FE44 /* world_50_border_7_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_7_2.jpg; sourceTree = "<group>"; };
+		72BD9EDE1BD3D5170062FE44 /* world_50_border_7_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_7_3.jpg; sourceTree = "<group>"; };
+		72BD9EDF1BD3D5170062FE44 /* world_50_border_7_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_7_4.jpg; sourceTree = "<group>"; };
+		72BD9EE01BD3D5170062FE44 /* world_50_border_7_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_50_border_7_5.jpg; sourceTree = "<group>"; };
+		72BD9F121BD3D5530062FE44 /* world_25_border_0_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_0_0.jpg; sourceTree = "<group>"; };
+		72BD9F131BD3D5530062FE44 /* world_25_border_0_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_0_1.jpg; sourceTree = "<group>"; };
+		72BD9F141BD3D5530062FE44 /* world_25_border_0_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_0_2.jpg; sourceTree = "<group>"; };
+		72BD9F151BD3D5530062FE44 /* world_25_border_1_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_1_0.jpg; sourceTree = "<group>"; };
+		72BD9F161BD3D5530062FE44 /* world_25_border_1_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_1_1.jpg; sourceTree = "<group>"; };
+		72BD9F171BD3D5530062FE44 /* world_25_border_1_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_1_2.jpg; sourceTree = "<group>"; };
+		72BD9F181BD3D5530062FE44 /* world_25_border_2_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_2_0.jpg; sourceTree = "<group>"; };
+		72BD9F191BD3D5530062FE44 /* world_25_border_2_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_2_1.jpg; sourceTree = "<group>"; };
+		72BD9F1A1BD3D5530062FE44 /* world_25_border_2_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_2_2.jpg; sourceTree = "<group>"; };
+		72BD9F1B1BD3D5530062FE44 /* world_25_border_3_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_3_0.jpg; sourceTree = "<group>"; };
+		72BD9F1C1BD3D5530062FE44 /* world_25_border_3_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_3_1.jpg; sourceTree = "<group>"; };
+		72BD9F1D1BD3D5530062FE44 /* world_25_border_3_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_3_2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1195,6 +1699,9 @@
 		72424A861BC31B6D009FED5C /* Tiles */ = {
 			isa = PBXGroup;
 			children = (
+				72BD9F111BD3D5360062FE44 /* 25WithBorder */,
+				72BD9EB01BD3D4FE0062FE44 /* 50WithBorder */,
+				72BD9D2F1BD3D4A30062FE44 /* 100WithBorder */,
 				7254AE111BC31D9C00A22920 /* 100WithoutBorder */,
 				7254AE101BC31D9000A22920 /* 50WithoutBorder */,
 				7254AE0F1BC31D7D00A22920 /* 25WithoutBorder */,
@@ -1832,6 +2339,279 @@
 			name = Play;
 			sourceTree = "<group>";
 		};
+		72BD9D2F1BD3D4A30062FE44 /* 100WithBorder */ = {
+			isa = PBXGroup;
+			children = (
+				72BD9D301BD3D4C30062FE44 /* world_100_border_0_0.jpg */,
+				72BD9D311BD3D4C30062FE44 /* world_100_border_0_1.jpg */,
+				72BD9D321BD3D4C30062FE44 /* world_100_border_0_2.jpg */,
+				72BD9D331BD3D4C30062FE44 /* world_100_border_0_3.jpg */,
+				72BD9D341BD3D4C30062FE44 /* world_100_border_0_4.jpg */,
+				72BD9D351BD3D4C30062FE44 /* world_100_border_0_5.jpg */,
+				72BD9D361BD3D4C30062FE44 /* world_100_border_0_6.jpg */,
+				72BD9D371BD3D4C30062FE44 /* world_100_border_0_7.jpg */,
+				72BD9D381BD3D4C30062FE44 /* world_100_border_0_8.jpg */,
+				72BD9D391BD3D4C30062FE44 /* world_100_border_0_9.jpg */,
+				72BD9D3A1BD3D4C30062FE44 /* world_100_border_0_10.jpg */,
+				72BD9D3B1BD3D4C30062FE44 /* world_100_border_0_11.jpg */,
+				72BD9D3C1BD3D4C30062FE44 /* world_100_border_1_0.jpg */,
+				72BD9D3D1BD3D4C30062FE44 /* world_100_border_1_1.jpg */,
+				72BD9D3E1BD3D4C30062FE44 /* world_100_border_1_2.jpg */,
+				72BD9D3F1BD3D4C30062FE44 /* world_100_border_1_3.jpg */,
+				72BD9D401BD3D4C30062FE44 /* world_100_border_1_4.jpg */,
+				72BD9D411BD3D4C30062FE44 /* world_100_border_1_5.jpg */,
+				72BD9D421BD3D4C30062FE44 /* world_100_border_1_6.jpg */,
+				72BD9D431BD3D4C30062FE44 /* world_100_border_1_7.jpg */,
+				72BD9D441BD3D4C30062FE44 /* world_100_border_1_8.jpg */,
+				72BD9D451BD3D4C30062FE44 /* world_100_border_1_9.jpg */,
+				72BD9D461BD3D4C30062FE44 /* world_100_border_1_10.jpg */,
+				72BD9D471BD3D4C30062FE44 /* world_100_border_1_11.jpg */,
+				72BD9D481BD3D4C30062FE44 /* world_100_border_2_0.jpg */,
+				72BD9D491BD3D4C30062FE44 /* world_100_border_2_1.jpg */,
+				72BD9D4A1BD3D4C30062FE44 /* world_100_border_2_2.jpg */,
+				72BD9D4B1BD3D4C30062FE44 /* world_100_border_2_3.jpg */,
+				72BD9D4C1BD3D4C30062FE44 /* world_100_border_2_4.jpg */,
+				72BD9D4D1BD3D4C30062FE44 /* world_100_border_2_5.jpg */,
+				72BD9D4E1BD3D4C30062FE44 /* world_100_border_2_6.jpg */,
+				72BD9D4F1BD3D4C30062FE44 /* world_100_border_2_7.jpg */,
+				72BD9D501BD3D4C30062FE44 /* world_100_border_2_8.jpg */,
+				72BD9D511BD3D4C30062FE44 /* world_100_border_2_9.jpg */,
+				72BD9D521BD3D4C30062FE44 /* world_100_border_2_10.jpg */,
+				72BD9D531BD3D4C30062FE44 /* world_100_border_2_11.jpg */,
+				72BD9D541BD3D4C30062FE44 /* world_100_border_3_0.jpg */,
+				72BD9D551BD3D4C30062FE44 /* world_100_border_3_1.jpg */,
+				72BD9D561BD3D4C30062FE44 /* world_100_border_3_2.jpg */,
+				72BD9D571BD3D4C30062FE44 /* world_100_border_3_3.jpg */,
+				72BD9D581BD3D4C30062FE44 /* world_100_border_3_4.jpg */,
+				72BD9D591BD3D4C30062FE44 /* world_100_border_3_5.jpg */,
+				72BD9D5A1BD3D4C30062FE44 /* world_100_border_3_6.jpg */,
+				72BD9D5B1BD3D4C30062FE44 /* world_100_border_3_7.jpg */,
+				72BD9D5C1BD3D4C30062FE44 /* world_100_border_3_8.jpg */,
+				72BD9D5D1BD3D4C30062FE44 /* world_100_border_3_9.jpg */,
+				72BD9D5E1BD3D4C30062FE44 /* world_100_border_3_10.jpg */,
+				72BD9D5F1BD3D4C30062FE44 /* world_100_border_3_11.jpg */,
+				72BD9D601BD3D4C30062FE44 /* world_100_border_4_0.jpg */,
+				72BD9D611BD3D4C30062FE44 /* world_100_border_4_1.jpg */,
+				72BD9D621BD3D4C30062FE44 /* world_100_border_4_2.jpg */,
+				72BD9D631BD3D4C30062FE44 /* world_100_border_4_3.jpg */,
+				72BD9D641BD3D4C30062FE44 /* world_100_border_4_4.jpg */,
+				72BD9D651BD3D4C30062FE44 /* world_100_border_4_5.jpg */,
+				72BD9D661BD3D4C30062FE44 /* world_100_border_4_6.jpg */,
+				72BD9D671BD3D4C30062FE44 /* world_100_border_4_7.jpg */,
+				72BD9D681BD3D4C30062FE44 /* world_100_border_4_8.jpg */,
+				72BD9D691BD3D4C30062FE44 /* world_100_border_4_9.jpg */,
+				72BD9D6A1BD3D4C30062FE44 /* world_100_border_4_10.jpg */,
+				72BD9D6B1BD3D4C30062FE44 /* world_100_border_4_11.jpg */,
+				72BD9D6C1BD3D4C30062FE44 /* world_100_border_5_0.jpg */,
+				72BD9D6D1BD3D4C30062FE44 /* world_100_border_5_1.jpg */,
+				72BD9D6E1BD3D4C30062FE44 /* world_100_border_5_2.jpg */,
+				72BD9D6F1BD3D4C30062FE44 /* world_100_border_5_3.jpg */,
+				72BD9D701BD3D4C30062FE44 /* world_100_border_5_4.jpg */,
+				72BD9D711BD3D4C30062FE44 /* world_100_border_5_5.jpg */,
+				72BD9D721BD3D4C30062FE44 /* world_100_border_5_6.jpg */,
+				72BD9D731BD3D4C30062FE44 /* world_100_border_5_7.jpg */,
+				72BD9D741BD3D4C30062FE44 /* world_100_border_5_8.jpg */,
+				72BD9D751BD3D4C30062FE44 /* world_100_border_5_9.jpg */,
+				72BD9D761BD3D4C30062FE44 /* world_100_border_5_10.jpg */,
+				72BD9D771BD3D4C30062FE44 /* world_100_border_5_11.jpg */,
+				72BD9D781BD3D4C30062FE44 /* world_100_border_6_0.jpg */,
+				72BD9D791BD3D4C30062FE44 /* world_100_border_6_1.jpg */,
+				72BD9D7A1BD3D4C30062FE44 /* world_100_border_6_2.jpg */,
+				72BD9D7B1BD3D4C30062FE44 /* world_100_border_6_3.jpg */,
+				72BD9D7C1BD3D4C30062FE44 /* world_100_border_6_4.jpg */,
+				72BD9D7D1BD3D4C30062FE44 /* world_100_border_6_5.jpg */,
+				72BD9D7E1BD3D4C30062FE44 /* world_100_border_6_6.jpg */,
+				72BD9D7F1BD3D4C30062FE44 /* world_100_border_6_7.jpg */,
+				72BD9D801BD3D4C30062FE44 /* world_100_border_6_8.jpg */,
+				72BD9D811BD3D4C30062FE44 /* world_100_border_6_9.jpg */,
+				72BD9D821BD3D4C30062FE44 /* world_100_border_6_10.jpg */,
+				72BD9D831BD3D4C30062FE44 /* world_100_border_6_11.jpg */,
+				72BD9D841BD3D4C30062FE44 /* world_100_border_7_0.jpg */,
+				72BD9D851BD3D4C30062FE44 /* world_100_border_7_1.jpg */,
+				72BD9D861BD3D4C30062FE44 /* world_100_border_7_2.jpg */,
+				72BD9D871BD3D4C30062FE44 /* world_100_border_7_3.jpg */,
+				72BD9D881BD3D4C30062FE44 /* world_100_border_7_4.jpg */,
+				72BD9D891BD3D4C30062FE44 /* world_100_border_7_5.jpg */,
+				72BD9D8A1BD3D4C30062FE44 /* world_100_border_7_6.jpg */,
+				72BD9D8B1BD3D4C30062FE44 /* world_100_border_7_7.jpg */,
+				72BD9D8C1BD3D4C30062FE44 /* world_100_border_7_8.jpg */,
+				72BD9D8D1BD3D4C30062FE44 /* world_100_border_7_9.jpg */,
+				72BD9D8E1BD3D4C30062FE44 /* world_100_border_7_10.jpg */,
+				72BD9D8F1BD3D4C30062FE44 /* world_100_border_7_11.jpg */,
+				72BD9D901BD3D4C30062FE44 /* world_100_border_8_0.jpg */,
+				72BD9D911BD3D4C30062FE44 /* world_100_border_8_1.jpg */,
+				72BD9D921BD3D4C30062FE44 /* world_100_border_8_2.jpg */,
+				72BD9D931BD3D4C30062FE44 /* world_100_border_8_3.jpg */,
+				72BD9D941BD3D4C30062FE44 /* world_100_border_8_4.jpg */,
+				72BD9D951BD3D4C30062FE44 /* world_100_border_8_5.jpg */,
+				72BD9D961BD3D4C30062FE44 /* world_100_border_8_6.jpg */,
+				72BD9D971BD3D4C30062FE44 /* world_100_border_8_7.jpg */,
+				72BD9D981BD3D4C30062FE44 /* world_100_border_8_8.jpg */,
+				72BD9D991BD3D4C30062FE44 /* world_100_border_8_9.jpg */,
+				72BD9D9A1BD3D4C30062FE44 /* world_100_border_8_10.jpg */,
+				72BD9D9B1BD3D4C30062FE44 /* world_100_border_8_11.jpg */,
+				72BD9D9C1BD3D4C30062FE44 /* world_100_border_9_0.jpg */,
+				72BD9D9D1BD3D4C30062FE44 /* world_100_border_9_1.jpg */,
+				72BD9D9E1BD3D4C30062FE44 /* world_100_border_9_2.jpg */,
+				72BD9D9F1BD3D4C30062FE44 /* world_100_border_9_3.jpg */,
+				72BD9DA01BD3D4C30062FE44 /* world_100_border_9_4.jpg */,
+				72BD9DA11BD3D4C30062FE44 /* world_100_border_9_5.jpg */,
+				72BD9DA21BD3D4C30062FE44 /* world_100_border_9_6.jpg */,
+				72BD9DA31BD3D4C30062FE44 /* world_100_border_9_7.jpg */,
+				72BD9DA41BD3D4C40062FE44 /* world_100_border_9_8.jpg */,
+				72BD9DA51BD3D4C40062FE44 /* world_100_border_9_9.jpg */,
+				72BD9DA61BD3D4C40062FE44 /* world_100_border_9_10.jpg */,
+				72BD9DA71BD3D4C40062FE44 /* world_100_border_9_11.jpg */,
+				72BD9DA81BD3D4C40062FE44 /* world_100_border_10_0.jpg */,
+				72BD9DA91BD3D4C40062FE44 /* world_100_border_10_1.jpg */,
+				72BD9DAA1BD3D4C40062FE44 /* world_100_border_10_2.jpg */,
+				72BD9DAB1BD3D4C40062FE44 /* world_100_border_10_3.jpg */,
+				72BD9DAC1BD3D4C40062FE44 /* world_100_border_10_4.jpg */,
+				72BD9DAD1BD3D4C40062FE44 /* world_100_border_10_5.jpg */,
+				72BD9DAE1BD3D4C40062FE44 /* world_100_border_10_6.jpg */,
+				72BD9DAF1BD3D4C40062FE44 /* world_100_border_10_7.jpg */,
+				72BD9DB01BD3D4C40062FE44 /* world_100_border_10_8.jpg */,
+				72BD9DB11BD3D4C40062FE44 /* world_100_border_10_9.jpg */,
+				72BD9DB21BD3D4C40062FE44 /* world_100_border_10_10.jpg */,
+				72BD9DB31BD3D4C40062FE44 /* world_100_border_10_11.jpg */,
+				72BD9DB41BD3D4C40062FE44 /* world_100_border_11_0.jpg */,
+				72BD9DB51BD3D4C40062FE44 /* world_100_border_11_1.jpg */,
+				72BD9DB61BD3D4C40062FE44 /* world_100_border_11_2.jpg */,
+				72BD9DB71BD3D4C40062FE44 /* world_100_border_11_3.jpg */,
+				72BD9DB81BD3D4C40062FE44 /* world_100_border_11_4.jpg */,
+				72BD9DB91BD3D4C40062FE44 /* world_100_border_11_5.jpg */,
+				72BD9DBA1BD3D4C40062FE44 /* world_100_border_11_6.jpg */,
+				72BD9DBB1BD3D4C40062FE44 /* world_100_border_11_7.jpg */,
+				72BD9DBC1BD3D4C40062FE44 /* world_100_border_11_8.jpg */,
+				72BD9DBD1BD3D4C40062FE44 /* world_100_border_11_9.jpg */,
+				72BD9DBE1BD3D4C40062FE44 /* world_100_border_11_10.jpg */,
+				72BD9DBF1BD3D4C40062FE44 /* world_100_border_11_11.jpg */,
+				72BD9DC01BD3D4C40062FE44 /* world_100_border_12_0.jpg */,
+				72BD9DC11BD3D4C40062FE44 /* world_100_border_12_1.jpg */,
+				72BD9DC21BD3D4C40062FE44 /* world_100_border_12_2.jpg */,
+				72BD9DC31BD3D4C40062FE44 /* world_100_border_12_3.jpg */,
+				72BD9DC41BD3D4C40062FE44 /* world_100_border_12_4.jpg */,
+				72BD9DC51BD3D4C40062FE44 /* world_100_border_12_5.jpg */,
+				72BD9DC61BD3D4C40062FE44 /* world_100_border_12_6.jpg */,
+				72BD9DC71BD3D4C40062FE44 /* world_100_border_12_7.jpg */,
+				72BD9DC81BD3D4C40062FE44 /* world_100_border_12_8.jpg */,
+				72BD9DC91BD3D4C40062FE44 /* world_100_border_12_9.jpg */,
+				72BD9DCA1BD3D4C40062FE44 /* world_100_border_12_10.jpg */,
+				72BD9DCB1BD3D4C40062FE44 /* world_100_border_12_11.jpg */,
+				72BD9DCC1BD3D4C40062FE44 /* world_100_border_13_0.jpg */,
+				72BD9DCD1BD3D4C40062FE44 /* world_100_border_13_1.jpg */,
+				72BD9DCE1BD3D4C40062FE44 /* world_100_border_13_2.jpg */,
+				72BD9DCF1BD3D4C40062FE44 /* world_100_border_13_3.jpg */,
+				72BD9DD01BD3D4C40062FE44 /* world_100_border_13_4.jpg */,
+				72BD9DD11BD3D4C40062FE44 /* world_100_border_13_5.jpg */,
+				72BD9DD21BD3D4C40062FE44 /* world_100_border_13_6.jpg */,
+				72BD9DD31BD3D4C40062FE44 /* world_100_border_13_7.jpg */,
+				72BD9DD41BD3D4C40062FE44 /* world_100_border_13_8.jpg */,
+				72BD9DD51BD3D4C40062FE44 /* world_100_border_13_9.jpg */,
+				72BD9DD61BD3D4C40062FE44 /* world_100_border_13_10.jpg */,
+				72BD9DD71BD3D4C40062FE44 /* world_100_border_13_11.jpg */,
+				72BD9DD81BD3D4C40062FE44 /* world_100_border_14_0.jpg */,
+				72BD9DD91BD3D4C40062FE44 /* world_100_border_14_1.jpg */,
+				72BD9DDA1BD3D4C40062FE44 /* world_100_border_14_2.jpg */,
+				72BD9DDB1BD3D4C40062FE44 /* world_100_border_14_3.jpg */,
+				72BD9DDC1BD3D4C40062FE44 /* world_100_border_14_4.jpg */,
+				72BD9DDD1BD3D4C40062FE44 /* world_100_border_14_5.jpg */,
+				72BD9DDE1BD3D4C40062FE44 /* world_100_border_14_6.jpg */,
+				72BD9DDF1BD3D4C40062FE44 /* world_100_border_14_7.jpg */,
+				72BD9DE01BD3D4C40062FE44 /* world_100_border_14_8.jpg */,
+				72BD9DE11BD3D4C40062FE44 /* world_100_border_14_9.jpg */,
+				72BD9DE21BD3D4C40062FE44 /* world_100_border_14_10.jpg */,
+				72BD9DE31BD3D4C40062FE44 /* world_100_border_14_11.jpg */,
+				72BD9DE41BD3D4C40062FE44 /* world_100_border_15_0.jpg */,
+				72BD9DE51BD3D4C40062FE44 /* world_100_border_15_1.jpg */,
+				72BD9DE61BD3D4C40062FE44 /* world_100_border_15_2.jpg */,
+				72BD9DE71BD3D4C40062FE44 /* world_100_border_15_3.jpg */,
+				72BD9DE81BD3D4C40062FE44 /* world_100_border_15_4.jpg */,
+				72BD9DE91BD3D4C40062FE44 /* world_100_border_15_5.jpg */,
+				72BD9DEA1BD3D4C40062FE44 /* world_100_border_15_6.jpg */,
+				72BD9DEB1BD3D4C40062FE44 /* world_100_border_15_7.jpg */,
+				72BD9DEC1BD3D4C40062FE44 /* world_100_border_15_8.jpg */,
+				72BD9DED1BD3D4C40062FE44 /* world_100_border_15_9.jpg */,
+				72BD9DEE1BD3D4C40062FE44 /* world_100_border_15_10.jpg */,
+				72BD9DEF1BD3D4C40062FE44 /* world_100_border_15_11.jpg */,
+			);
+			name = 100WithBorder;
+			sourceTree = "<group>";
+		};
+		72BD9EB01BD3D4FE0062FE44 /* 50WithBorder */ = {
+			isa = PBXGroup;
+			children = (
+				72BD9EB11BD3D5170062FE44 /* world_50_border_0_0.jpg */,
+				72BD9EB21BD3D5170062FE44 /* world_50_border_0_1.jpg */,
+				72BD9EB31BD3D5170062FE44 /* world_50_border_0_2.jpg */,
+				72BD9EB41BD3D5170062FE44 /* world_50_border_0_3.jpg */,
+				72BD9EB51BD3D5170062FE44 /* world_50_border_0_4.jpg */,
+				72BD9EB61BD3D5170062FE44 /* world_50_border_0_5.jpg */,
+				72BD9EB71BD3D5170062FE44 /* world_50_border_1_0.jpg */,
+				72BD9EB81BD3D5170062FE44 /* world_50_border_1_1.jpg */,
+				72BD9EB91BD3D5170062FE44 /* world_50_border_1_2.jpg */,
+				72BD9EBA1BD3D5170062FE44 /* world_50_border_1_3.jpg */,
+				72BD9EBB1BD3D5170062FE44 /* world_50_border_1_4.jpg */,
+				72BD9EBC1BD3D5170062FE44 /* world_50_border_1_5.jpg */,
+				72BD9EBD1BD3D5170062FE44 /* world_50_border_2_0.jpg */,
+				72BD9EBE1BD3D5170062FE44 /* world_50_border_2_1.jpg */,
+				72BD9EBF1BD3D5170062FE44 /* world_50_border_2_2.jpg */,
+				72BD9EC01BD3D5170062FE44 /* world_50_border_2_3.jpg */,
+				72BD9EC11BD3D5170062FE44 /* world_50_border_2_4.jpg */,
+				72BD9EC21BD3D5170062FE44 /* world_50_border_2_5.jpg */,
+				72BD9EC31BD3D5170062FE44 /* world_50_border_3_0.jpg */,
+				72BD9EC41BD3D5170062FE44 /* world_50_border_3_1.jpg */,
+				72BD9EC51BD3D5170062FE44 /* world_50_border_3_2.jpg */,
+				72BD9EC61BD3D5170062FE44 /* world_50_border_3_3.jpg */,
+				72BD9EC71BD3D5170062FE44 /* world_50_border_3_4.jpg */,
+				72BD9EC81BD3D5170062FE44 /* world_50_border_3_5.jpg */,
+				72BD9EC91BD3D5170062FE44 /* world_50_border_4_0.jpg */,
+				72BD9ECA1BD3D5170062FE44 /* world_50_border_4_1.jpg */,
+				72BD9ECB1BD3D5170062FE44 /* world_50_border_4_2.jpg */,
+				72BD9ECC1BD3D5170062FE44 /* world_50_border_4_3.jpg */,
+				72BD9ECD1BD3D5170062FE44 /* world_50_border_4_4.jpg */,
+				72BD9ECE1BD3D5170062FE44 /* world_50_border_4_5.jpg */,
+				72BD9ECF1BD3D5170062FE44 /* world_50_border_5_0.jpg */,
+				72BD9ED01BD3D5170062FE44 /* world_50_border_5_1.jpg */,
+				72BD9ED11BD3D5170062FE44 /* world_50_border_5_2.jpg */,
+				72BD9ED21BD3D5170062FE44 /* world_50_border_5_3.jpg */,
+				72BD9ED31BD3D5170062FE44 /* world_50_border_5_4.jpg */,
+				72BD9ED41BD3D5170062FE44 /* world_50_border_5_5.jpg */,
+				72BD9ED51BD3D5170062FE44 /* world_50_border_6_0.jpg */,
+				72BD9ED61BD3D5170062FE44 /* world_50_border_6_1.jpg */,
+				72BD9ED71BD3D5170062FE44 /* world_50_border_6_2.jpg */,
+				72BD9ED81BD3D5170062FE44 /* world_50_border_6_3.jpg */,
+				72BD9ED91BD3D5170062FE44 /* world_50_border_6_4.jpg */,
+				72BD9EDA1BD3D5170062FE44 /* world_50_border_6_5.jpg */,
+				72BD9EDB1BD3D5170062FE44 /* world_50_border_7_0.jpg */,
+				72BD9EDC1BD3D5170062FE44 /* world_50_border_7_1.jpg */,
+				72BD9EDD1BD3D5170062FE44 /* world_50_border_7_2.jpg */,
+				72BD9EDE1BD3D5170062FE44 /* world_50_border_7_3.jpg */,
+				72BD9EDF1BD3D5170062FE44 /* world_50_border_7_4.jpg */,
+				72BD9EE01BD3D5170062FE44 /* world_50_border_7_5.jpg */,
+			);
+			name = 50WithBorder;
+			sourceTree = "<group>";
+		};
+		72BD9F111BD3D5360062FE44 /* 25WithBorder */ = {
+			isa = PBXGroup;
+			children = (
+				72BD9F121BD3D5530062FE44 /* world_25_border_0_0.jpg */,
+				72BD9F131BD3D5530062FE44 /* world_25_border_0_1.jpg */,
+				72BD9F141BD3D5530062FE44 /* world_25_border_0_2.jpg */,
+				72BD9F151BD3D5530062FE44 /* world_25_border_1_0.jpg */,
+				72BD9F161BD3D5530062FE44 /* world_25_border_1_1.jpg */,
+				72BD9F171BD3D5530062FE44 /* world_25_border_1_2.jpg */,
+				72BD9F181BD3D5530062FE44 /* world_25_border_2_0.jpg */,
+				72BD9F191BD3D5530062FE44 /* world_25_border_2_1.jpg */,
+				72BD9F1A1BD3D5530062FE44 /* world_25_border_2_2.jpg */,
+				72BD9F1B1BD3D5530062FE44 /* world_25_border_3_0.jpg */,
+				72BD9F1C1BD3D5530062FE44 /* world_25_border_3_1.jpg */,
+				72BD9F1D1BD3D5530062FE44 /* world_25_border_3_2.jpg */,
+			);
+			name = 25WithBorder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1939,19 +2719,31 @@
 				7254B16F1BC99CA900A22920 /* GhanaFlag.png in Resources */,
 				7254AFE81BC31E1000A22920 /* world_100_10_6.jpg in Resources */,
 				7254AF6B1BC31E1000A22920 /* world_100_0_1.jpg in Resources */,
+				72BD9EE31BD3D5170062FE44 /* world_50_border_0_2.jpg in Resources */,
 				7254AF541BC31E1000A22920 /* world_100_14_2.jpg in Resources */,
 				7254AFA31BC31E1000A22920 /* world_100_4_9.jpg in Resources */,
+				72BD9E921BD3D4C40062FE44 /* world_100_border_13_6.jpg in Resources */,
 				7254B1831BC99CA900A22920 /* IvoryCoastFlag.png in Resources */,
 				7254B1B11BC99CAA00A22920 /* NorthernIrelandFlag.png in Resources */,
 				7254AE881BC31DE900A22920 /* world_50_7_4.jpg in Resources */,
+				72BD9E0D1BD3D4C40062FE44 /* world_100_border_2_5.jpg in Resources */,
 				7254B18D1BC99CA900A22920 /* LaosFlag.png in Resources */,
 				7254AFE61BC31E1000A22920 /* world_100_10_4.jpg in Resources */,
+				72BD9E171BD3D4C40062FE44 /* world_100_border_3_3.jpg in Resources */,
 				7254B12E1BC99CA900A22920 /* AlbaniaFlag.png in Resources */,
+				72BD9E641BD3D4C40062FE44 /* world_100_border_9_8.jpg in Resources */,
+				72BD9E051BD3D4C40062FE44 /* world_100_border_1_9.jpg in Resources */,
+				72BD9DF61BD3D4C40062FE44 /* world_100_border_0_6.jpg in Resources */,
 				7254AF571BC31E1000A22920 /* world_100_14_5.jpg in Resources */,
+				72BD9E6A1BD3D4C40062FE44 /* world_100_border_10_2.jpg in Resources */,
 				7254B12F1BC99CA900A22920 /* AlgeriaFlag.png in Resources */,
+				72BD9E9D1BD3D4C40062FE44 /* world_100_border_14_5.jpg in Resources */,
 				7254AFF81BC31E1000A22920 /* world_100_11_10.jpg in Resources */,
 				7254AFA11BC31E1000A22920 /* world_100_4_7.jpg in Resources */,
 				7254B1A31BC99CAA00A22920 /* MontenegroFlag.png in Resources */,
+				72BD9EF91BD3D5170062FE44 /* world_50_border_4_0.jpg in Resources */,
+				72BD9EA31BD3D4C40062FE44 /* world_100_border_14_11.jpg in Resources */,
+				72BD9EA51BD3D4C40062FE44 /* world_100_border_15_1.jpg in Resources */,
 				7254B19B1BC99CAA00A22920 /* MaltaFlag.png in Resources */,
 				7254AE7A1BC31DE900A22920 /* world_50_5_2.jpg in Resources */,
 				7254B1631BC99CA900A22920 /* EstoniaFlag.png in Resources */,
@@ -1959,79 +2751,120 @@
 				7254AF5A1BC31E1000A22920 /* world_100_14_8.jpg in Resources */,
 				7254AF5D1BC31E1000A22920 /* world_100_14_11.jpg in Resources */,
 				7254B1391BC99CA900A22920 /* BarbadosFlag.png in Resources */,
+				72BD9E7B1BD3D4C40062FE44 /* world_100_border_11_7.jpg in Resources */,
+				72BD9E561BD3D4C40062FE44 /* world_100_border_8_6.jpg in Resources */,
+				72BD9E991BD3D4C40062FE44 /* world_100_border_14_1.jpg in Resources */,
 				7254AE781BC31DE900A22920 /* world_50_5_0.jpg in Resources */,
 				7254AF5B1BC31E1000A22920 /* world_100_14_9.jpg in Resources */,
 				7254B0261BC3E98000A22920 /* capitalsAsia.txt in Resources */,
 				7254B02B1BC3E98000A22920 /* islands.txt in Resources */,
+				72BD9E0F1BD3D4C40062FE44 /* world_100_border_2_7.jpg in Resources */,
 				7254B0621BC99C1A00A22920 /* ArrowGreen.png in Resources */,
 				7254AFD61BC31E1000A22920 /* world_100_9_0.jpg in Resources */,
 				7254AF711BC31E1000A22920 /* world_100_0_7.jpg in Resources */,
 				7254AFD81BC31E1000A22920 /* world_100_9_2.jpg in Resources */,
+				72BD9EE71BD3D5170062FE44 /* world_50_border_1_0.jpg in Resources */,
 				7254B15A1BC99CA900A22920 /* DominicaFlag.png in Resources */,
 				7254B16D1BC99CA900A22920 /* GeorgiaFlag.png in Resources */,
+				72BD9E291BD3D4C40062FE44 /* world_100_border_4_9.jpg in Resources */,
 				7254AE651BC31DE900A22920 /* world_50_1_5.jpg in Resources */,
 				7254B1A51BC99CAA00A22920 /* MozambiqueFlag.png in Resources */,
+				72BD9EA11BD3D4C40062FE44 /* world_100_border_14_9.jpg in Resources */,
 				7254B1901BC99CAA00A22920 /* LiberiaFlag.png in Resources */,
+				72BD9E721BD3D4C40062FE44 /* world_100_border_10_10.jpg in Resources */,
 				7254B0021BC31E1000A22920 /* world_100_12_8.jpg in Resources */,
 				7254AF901BC31E1000A22920 /* world_100_3_2.jpg in Resources */,
 				7254B16E1BC99CA900A22920 /* GermanyFlag.png in Resources */,
+				72BD9E1A1BD3D4C40062FE44 /* world_100_border_3_6.jpg in Resources */,
 				7254AFD31BC31E1000A22920 /* world_100_8_9.jpg in Resources */,
 				7254AF8B1BC31E1000A22920 /* world_100_2_9.jpg in Resources */,
 				7254AF641BC31E1000A22920 /* world_100_15_6.jpg in Resources */,
+				72BD9E671BD3D4C40062FE44 /* world_100_border_9_11.jpg in Resources */,
+				72BD9E271BD3D4C40062FE44 /* world_100_border_4_7.jpg in Resources */,
 				7254B1EC1BC99CAA00A22920 /* UzbekistanFlag.png in Resources */,
 				7254AFA01BC31E1000A22920 /* world_100_4_6.jpg in Resources */,
 				7254AF811BC31E1000A22920 /* world_100_1_11.jpg in Resources */,
 				7254AE1E1BC31DB800A22920 /* world_25_1_0.jpg in Resources */,
 				7254AFC81BC31E1000A22920 /* world_100_7_10.jpg in Resources */,
 				7254AFD01BC31E1000A22920 /* world_100_8_6.jpg in Resources */,
+				72BD9E0B1BD3D4C40062FE44 /* world_100_border_2_3.jpg in Resources */,
 				7254B0251BC3E98000A22920 /* capitalsAmerica.txt in Resources */,
 				72424A611BC2C469009FED5C /* LaunchScreen.storyboard in Resources */,
 				7254AFF71BC31E1000A22920 /* world_100_11_9.jpg in Resources */,
 				7254AFA41BC31E1000A22920 /* world_100_4_10.jpg in Resources */,
 				7254AE241BC31DB800A22920 /* world_25_3_0.jpg in Resources */,
+				72BD9EED1BD3D5170062FE44 /* world_50_border_2_0.jpg in Resources */,
 				7254AF611BC31E1000A22920 /* world_100_15_3.jpg in Resources */,
 				7254B1D71BC99CAA00A22920 /* SwazilandFlag.png in Resources */,
 				7254AFA71BC31E1000A22920 /* world_100_5_1.jpg in Resources */,
 				7254AF931BC31E1000A22920 /* world_100_3_5.jpg in Resources */,
+				72BD9E831BD3D4C40062FE44 /* world_100_border_12_3.jpg in Resources */,
+				72BD9E361BD3D4C40062FE44 /* world_100_border_5_10.jpg in Resources */,
+				72BD9DF71BD3D4C40062FE44 /* world_100_border_0_7.jpg in Resources */,
 				7254B13B1BC99CA900A22920 /* BelgiumFlag.png in Resources */,
 				7254AE5F1BC31DE900A22920 /* world_50_0_5.jpg in Resources */,
+				72BD9E401BD3D4C40062FE44 /* world_100_border_6_8.jpg in Resources */,
+				72BD9E031BD3D4C40062FE44 /* world_100_border_1_7.jpg in Resources */,
 				7254AF781BC31E1000A22920 /* world_100_1_2.jpg in Resources */,
+				72BD9E2E1BD3D4C40062FE44 /* world_100_border_5_2.jpg in Resources */,
+				72BD9E801BD3D4C40062FE44 /* world_100_border_12_0.jpg in Resources */,
 				7254B1701BC99CA900A22920 /* GreeceFlag.png in Resources */,
 				7254B1601BC99CA900A22920 /* EnglandFlag.png in Resources */,
+				72BD9E021BD3D4C40062FE44 /* world_100_border_1_6.jpg in Resources */,
 				7254B1671BC99CA900A22920 /* FijiFlag.png in Resources */,
 				7254B1861BC99CA900A22920 /* JordanFlag.png in Resources */,
+				72BD9E5B1BD3D4C40062FE44 /* world_100_border_8_11.jpg in Resources */,
 				7254AF831BC31E1000A22920 /* world_100_2_1.jpg in Resources */,
 				7254AFB61BC31E1000A22920 /* world_100_6_4.jpg in Resources */,
 				7254AFFB1BC31E1000A22920 /* world_100_12_1.jpg in Resources */,
+				72BD9EF41BD3D5170062FE44 /* world_50_border_3_1.jpg in Resources */,
+				72BD9E911BD3D4C40062FE44 /* world_100_border_13_5.jpg in Resources */,
 				7254AF551BC31E1000A22920 /* world_100_14_3.jpg in Resources */,
+				72BD9F001BD3D5170062FE44 /* world_50_border_5_1.jpg in Resources */,
 				7254B1CA1BC99CAA00A22920 /* SeychellesFlag.png in Resources */,
 				7254B19E1BC99CAA00A22920 /* MauritiusFlag.png in Resources */,
 				7254B1971BC99CAA00A22920 /* MalawiFlag.png in Resources */,
 				7254AFB51BC31E1000A22920 /* world_100_6_3.jpg in Resources */,
 				7254AE251BC31DB800A22920 /* world_25_3_1.jpg in Resources */,
 				7254B0051BC31E1000A22920 /* world_100_12_11.jpg in Resources */,
+				72BD9F0F1BD3D5170062FE44 /* world_50_border_7_4.jpg in Resources */,
 				7254B18A1BC99CA900A22920 /* KosovoFlag.png in Resources */,
 				7254B1E71BC99CAA00A22920 /* UkraineFlag.png in Resources */,
+				72BD9E741BD3D4C40062FE44 /* world_100_border_11_0.jpg in Resources */,
 				7254AFB91BC31E1000A22920 /* world_100_6_7.jpg in Resources */,
+				72BD9EF31BD3D5170062FE44 /* world_50_border_3_0.jpg in Resources */,
 				7254B13D1BC99CA900A22920 /* BeninFlag.png in Resources */,
 				7254B17F1BC99CA900A22920 /* IrelandFlag.png in Resources */,
 				7254B15E1BC99CA900A22920 /* EgyptFlag.png in Resources */,
+				72BD9F081BD3D5170062FE44 /* world_50_border_6_3.jpg in Resources */,
+				72BD9E3A1BD3D4C40062FE44 /* world_100_border_6_2.jpg in Resources */,
+				72BD9E661BD3D4C40062FE44 /* world_100_border_9_10.jpg in Resources */,
 				7254AFE91BC31E1000A22920 /* world_100_10_7.jpg in Resources */,
 				7254B1B31BC99CAA00A22920 /* NorwayFlag.png in Resources */,
+				72BD9E6D1BD3D4C40062FE44 /* world_100_border_10_5.jpg in Resources */,
+				72BD9EF61BD3D5170062FE44 /* world_50_border_3_3.jpg in Resources */,
 				7254AE5B1BC31DE900A22920 /* world_50_0_1.jpg in Resources */,
 				7254AE671BC31DE900A22920 /* world_50_2_1.jpg in Resources */,
+				72BD9E541BD3D4C40062FE44 /* world_100_border_8_4.jpg in Resources */,
+				72BD9E711BD3D4C40062FE44 /* world_100_border_10_9.jpg in Resources */,
 				7254AF7D1BC31E1000A22920 /* world_100_1_7.jpg in Resources */,
+				72BD9E8F1BD3D4C40062FE44 /* world_100_border_13_3.jpg in Resources */,
 				7254AE731BC31DE900A22920 /* world_50_4_1.jpg in Resources */,
 				7254B1931BC99CAA00A22920 /* LithuaniaFlag.png in Resources */,
+				72BD9F1F1BD3D5530062FE44 /* world_25_border_0_1.jpg in Resources */,
 				7254B1E61BC99CAA00A22920 /* UgandaFlag.png in Resources */,
 				7254B17E1BC99CA900A22920 /* IraqFlag.png in Resources */,
 				7254AE741BC31DE900A22920 /* world_50_4_2.jpg in Resources */,
+				72BD9E771BD3D4C40062FE44 /* world_100_border_11_3.jpg in Resources */,
 				7254B1691BC99CA900A22920 /* FranceFlag.png in Resources */,
 				7254AF4D1BC31E1000A22920 /* world_100_13_7.jpg in Resources */,
 				7254B19C1BC99CAA00A22920 /* MarshallIslandsFlag.png in Resources */,
 				7254AE261BC31DB800A22920 /* world_25_3_2.jpg in Resources */,
 				7254AF851BC31E1000A22920 /* world_100_2_3.jpg in Resources */,
+				72BD9F271BD3D5530062FE44 /* world_25_border_3_0.jpg in Resources */,
 				7254B1D81BC99CAA00A22920 /* SwedenFlag.png in Resources */,
+				72BD9E321BD3D4C40062FE44 /* world_100_border_5_6.jpg in Resources */,
+				72BD9EA21BD3D4C40062FE44 /* world_100_border_14_10.jpg in Resources */,
 				7254AFC21BC31E1000A22920 /* world_100_7_4.jpg in Resources */,
 				7254B1871BC99CA900A22920 /* KazakhstanFlag.png in Resources */,
 				7254B1891BC99CA900A22920 /* KiribatiFlag.png in Resources */,
@@ -2042,8 +2875,15 @@
 				7254AF7E1BC31E1000A22920 /* world_100_1_8.jpg in Resources */,
 				7254B1DF1BC99CAA00A22920 /* TogoFlag.png in Resources */,
 				7254B0281BC3E98000A22920 /* capitalsMiddleEast.txt in Resources */,
+				72BD9DFE1BD3D4C40062FE44 /* world_100_border_1_2.jpg in Resources */,
+				72BD9E611BD3D4C40062FE44 /* world_100_border_9_5.jpg in Resources */,
+				72BD9DF51BD3D4C40062FE44 /* world_100_border_0_5.jpg in Resources */,
 				7254B1711BC99CA900A22920 /* GreenlandFlag.png in Resources */,
+				72BD9E011BD3D4C40062FE44 /* world_100_border_1_5.jpg in Resources */,
+				72BD9EF01BD3D5170062FE44 /* world_50_border_2_3.jpg in Resources */,
+				72BD9EF51BD3D5170062FE44 /* world_50_border_3_2.jpg in Resources */,
 				7254AE201BC31DB800A22920 /* world_25_1_2.jpg in Resources */,
+				72BD9E5F1BD3D4C40062FE44 /* world_100_border_9_3.jpg in Resources */,
 				7254AF7A1BC31E1000A22920 /* world_100_1_4.jpg in Resources */,
 				7254B17A1BC99CA900A22920 /* IcelandFlag.png in Resources */,
 				7254B1961BC99CAA00A22920 /* MadagascarFlag.png in Resources */,
@@ -2056,62 +2896,101 @@
 				7254AE281BC31DB800A22920 /* world_25_0_1.jpg in Resources */,
 				7254B1561BC99CA900A22920 /* CzechRepublicFlag.png in Resources */,
 				7254AF891BC31E1000A22920 /* world_100_2_7.jpg in Resources */,
+				72BD9E301BD3D4C40062FE44 /* world_100_border_5_4.jpg in Resources */,
 				7254AFC71BC31E1000A22920 /* world_100_7_9.jpg in Resources */,
+				72BD9E701BD3D4C40062FE44 /* world_100_border_10_8.jpg in Resources */,
+				72BD9E141BD3D4C40062FE44 /* world_100_border_3_0.jpg in Resources */,
 				7254B1471BC99CA900A22920 /* CambodiaFlag.png in Resources */,
+				72BD9E631BD3D4C40062FE44 /* world_100_border_9_7.jpg in Resources */,
 				7254B16C1BC99CA900A22920 /* GambiaFlag.png in Resources */,
 				7254B12D1BC99CA900A22920 /* AfghanistanFlag.png in Resources */,
 				7254B1341BC99CA900A22920 /* AustriaFlag.png in Resources */,
 				7254AF661BC31E1000A22920 /* world_100_15_8.jpg in Resources */,
 				7254B15B1BC99CA900A22920 /* DominicanRepublicFlag.png in Resources */,
 				7254B13E1BC99CA900A22920 /* BhutanFlag.png in Resources */,
+				72BD9F281BD3D5530062FE44 /* world_25_border_3_1.jpg in Resources */,
 				7254AFEE1BC31E1000A22920 /* world_100_11_0.jpg in Resources */,
 				7254AFCD1BC31E1000A22920 /* world_100_8_3.jpg in Resources */,
+				72BD9E7F1BD3D4C40062FE44 /* world_100_border_11_11.jpg in Resources */,
+				72BD9E381BD3D4C40062FE44 /* world_100_border_6_0.jpg in Resources */,
 				7254AE7E1BC31DE900A22920 /* world_50_6_0.jpg in Resources */,
+				72BD9E881BD3D4C40062FE44 /* world_100_border_12_8.jpg in Resources */,
 				7254B1BE1BC99CAA00A22920 /* RomaniaFlag.png in Resources */,
 				7254AF621BC31E1000A22920 /* world_100_15_4.jpg in Resources */,
+				72BD9EAC1BD3D4C40062FE44 /* world_100_border_15_8.jpg in Resources */,
+				72BD9E651BD3D4C40062FE44 /* world_100_border_9_9.jpg in Resources */,
 				7254AF631BC31E1000A22920 /* world_100_15_5.jpg in Resources */,
 				7254B0311BC3E98000A22920 /* statesAsia.txt in Resources */,
 				7254AFFE1BC31E1000A22920 /* world_100_12_4.jpg in Resources */,
+				72BD9E211BD3D4C40062FE44 /* world_100_border_4_1.jpg in Resources */,
+				72BD9EFE1BD3D5170062FE44 /* world_50_border_4_5.jpg in Resources */,
+				72BD9EA71BD3D4C40062FE44 /* world_100_border_15_3.jpg in Resources */,
 				7254B1D21BC99CAA00A22920 /* SouthSudanFlag.png in Resources */,
+				72BD9E001BD3D4C40062FE44 /* world_100_border_1_4.jpg in Resources */,
+				72BD9E8E1BD3D4C40062FE44 /* world_100_border_13_2.jpg in Resources */,
 				7254B1851BC99CA900A22920 /* JapanFlag.png in Resources */,
 				7254B1A71BC99CAA00A22920 /* NamibiaFlag.png in Resources */,
 				7254AFC91BC31E1000A22920 /* world_100_7_11.jpg in Resources */,
 				7254AE691BC31DE900A22920 /* world_50_2_3.jpg in Resources */,
 				7254B1C81BC99CAA00A22920 /* SenegalFlag.png in Resources */,
 				7254B0271BC3E98000A22920 /* capitalsEurope.txt in Resources */,
+				72BD9E591BD3D4C40062FE44 /* world_100_border_8_9.jpg in Resources */,
 				7254AE7F1BC31DE900A22920 /* world_50_6_1.jpg in Resources */,
 				7254AE6F1BC31DE900A22920 /* world_50_3_3.jpg in Resources */,
+				72BD9E7C1BD3D4C40062FE44 /* world_100_border_11_8.jpg in Resources */,
 				7254B1371BC99CA900A22920 /* BahrainFlag.png in Resources */,
+				72BD9E251BD3D4C40062FE44 /* world_100_border_4_5.jpg in Resources */,
 				7254B0361BC3E98000A22920 /* statesOceania.txt in Resources */,
+				72BD9E4B1BD3D4C40062FE44 /* world_100_border_7_7.jpg in Resources */,
 				7254AF691BC31E1000A22920 /* world_100_15_11.jpg in Resources */,
 				7254B1941BC99CAA00A22920 /* LuxembourgFlag.png in Resources */,
+				72BD9DFB1BD3D4C40062FE44 /* world_100_border_0_11.jpg in Resources */,
 				7254AE821BC31DE900A22920 /* world_50_6_4.jpg in Resources */,
 				72424A5E1BC2C469009FED5C /* Assets.xcassets in Resources */,
+				72BD9EFF1BD3D5170062FE44 /* world_50_border_5_0.jpg in Resources */,
 				7254AE871BC31DE900A22920 /* world_50_7_3.jpg in Resources */,
+				72BD9EFD1BD3D5170062FE44 /* world_50_border_4_4.jpg in Resources */,
+				72BD9E161BD3D4C40062FE44 /* world_100_border_3_2.jpg in Resources */,
 				7254AFDB1BC31E1000A22920 /* world_100_9_5.jpg in Resources */,
 				7254B1DD1BC99CAA00A22920 /* TanzaniaFlag.png in Resources */,
+				72BD9E5D1BD3D4C40062FE44 /* world_100_border_9_1.jpg in Resources */,
 				7254B1741BC99CA900A22920 /* Guinea-BissauFlag.png in Resources */,
+				72BD9EAD1BD3D4C40062FE44 /* world_100_border_15_9.jpg in Resources */,
 				7254B1BF1BC99CAA00A22920 /* RussiaFlag.png in Resources */,
 				7254B17B1BC99CA900A22920 /* IndiaFlag.png in Resources */,
+				72BD9EE91BD3D5170062FE44 /* world_50_border_1_2.jpg in Resources */,
 				7254AFE01BC31E1000A22920 /* world_100_9_10.jpg in Resources */,
 				7254AFD51BC31E1000A22920 /* world_100_8_11.jpg in Resources */,
 				7254AE701BC31DE900A22920 /* world_50_3_4.jpg in Resources */,
 				7254AFCA1BC31E1000A22920 /* world_100_8_0.jpg in Resources */,
 				7254B0371BC3E98000A22920 /* statesSouthAmerica.txt in Resources */,
 				7254B1D41BC99CAA00A22920 /* SriLankaFlag.png in Resources */,
+				72BD9F101BD3D5170062FE44 /* world_50_border_7_5.jpg in Resources */,
 				7254AF871BC31E1000A22920 /* world_100_2_5.jpg in Resources */,
 				7254B1B81BC99CAA00A22920 /* PeruFlag.png in Resources */,
 				7254B1AC1BC99CAA00A22920 /* NewZealandFlag.png in Resources */,
 				7254AF671BC31E1000A22920 /* world_100_15_9.jpg in Resources */,
 				7254AFB11BC31E1000A22920 /* world_100_5_11.jpg in Resources */,
+				72BD9F231BD3D5530062FE44 /* world_25_border_1_2.jpg in Resources */,
 				7254AE5C1BC31DE900A22920 /* world_50_0_2.jpg in Resources */,
+				72BD9E261BD3D4C40062FE44 /* world_100_border_4_6.jpg in Resources */,
 				7254B0301BC3E98000A22920 /* statesAfrica.txt in Resources */,
+				72BD9EE81BD3D5170062FE44 /* world_50_border_1_1.jpg in Resources */,
 				7254B1E31BC99CAA00A22920 /* TurkeyFlag.png in Resources */,
 				7254B1C51BC99CAA00A22920 /* SaoTomeAndPrincipeFlag.png in Resources */,
+				72BD9E8A1BD3D4C40062FE44 /* world_100_border_12_10.jpg in Resources */,
 				7254AF651BC31E1000A22920 /* world_100_15_7.jpg in Resources */,
+				72BD9F201BD3D5530062FE44 /* world_25_border_0_2.jpg in Resources */,
+				72BD9E2D1BD3D4C40062FE44 /* world_100_border_5_1.jpg in Resources */,
 				7254B1351BC99CA900A22920 /* AzerbaijanFlag.png in Resources */,
+				72BD9E971BD3D4C40062FE44 /* world_100_border_13_11.jpg in Resources */,
+				72BD9E731BD3D4C40062FE44 /* world_100_border_10_11.jpg in Resources */,
 				7254B1A41BC99CAA00A22920 /* MoroccoFlag.png in Resources */,
+				72BD9DFD1BD3D4C40062FE44 /* world_100_border_1_1.jpg in Resources */,
 				7254AFAE1BC31E1000A22920 /* world_100_5_8.jpg in Resources */,
+				72BD9E5C1BD3D4C40062FE44 /* world_100_border_9_0.jpg in Resources */,
+				72BD9EFC1BD3D5170062FE44 /* world_50_border_4_3.jpg in Resources */,
+				72BD9E191BD3D4C40062FE44 /* world_100_border_3_5.jpg in Resources */,
 				7254AE291BC31DB800A22920 /* world_25_0_2.jpg in Resources */,
 				7254B1A91BC99CAA00A22920 /* NepalFlag.png in Resources */,
 				7254AE6A1BC31DE900A22920 /* world_50_2_4.jpg in Resources */,
@@ -2119,16 +2998,24 @@
 				7254AF531BC31E1000A22920 /* world_100_14_1.jpg in Resources */,
 				7254B1CC1BC99CAA00A22920 /* SlovakiaFlag.png in Resources */,
 				7254B0331BC3E98000A22920 /* statesEurope.txt in Resources */,
+				72BD9EEE1BD3D5170062FE44 /* world_50_border_2_1.jpg in Resources */,
 				7254B1A01BC99CAA00A22920 /* MoldovaFlag.png in Resources */,
 				7254B1401BC99CA900A22920 /* BosniaAndHerzegovinaFlag.png in Resources */,
 				7254B1D11BC99CAA00A22920 /* SouthKoreaFlag.png in Resources */,
+				72BD9E1E1BD3D4C40062FE44 /* world_100_border_3_10.jpg in Resources */,
 				7254B0031BC31E1000A22920 /* world_100_12_9.jpg in Resources */,
 				7254B1DB1BC99CAA00A22920 /* TaiwanFlag.png in Resources */,
 				7254AE621BC31DE900A22920 /* world_50_1_2.jpg in Resources */,
 				7254AFAA1BC31E1000A22920 /* world_100_5_4.jpg in Resources */,
+				72BD9DF81BD3D4C40062FE44 /* world_100_border_0_8.jpg in Resources */,
+				72BD9F241BD3D5530062FE44 /* world_25_border_2_0.jpg in Resources */,
+				72BD9E0E1BD3D4C40062FE44 /* world_100_border_2_6.jpg in Resources */,
 				7254B02C1BC3E98000A22920 /* lakes.txt in Resources */,
+				72BD9E391BD3D4C40062FE44 /* world_100_border_6_1.jpg in Resources */,
 				7254B1441BC99CA900A22920 /* BulgariaFlag.png in Resources */,
+				72BD9E9C1BD3D4C40062FE44 /* world_100_border_14_4.jpg in Resources */,
 				7254B1751BC99CA900A22920 /* GuineaFlag.png in Resources */,
+				72BD9F051BD3D5170062FE44 /* world_50_border_6_0.jpg in Resources */,
 				7254AF721BC31E1000A22920 /* world_100_0_8.jpg in Resources */,
 				7254B1511BC99CA900A22920 /* CongoFlag.png in Resources */,
 				7254AF941BC31E1000A22920 /* world_100_3_6.jpg in Resources */,
@@ -2140,22 +3027,41 @@
 				7254AF881BC31E1000A22920 /* world_100_2_6.jpg in Resources */,
 				7254B0291BC3E98000A22920 /* cities.txt in Resources */,
 				7254B1381BC99CA900A22920 /* BangladeshFlag.png in Resources */,
+				72BD9EEA1BD3D5170062FE44 /* world_50_border_1_3.jpg in Resources */,
+				72BD9E4F1BD3D4C40062FE44 /* world_100_border_7_11.jpg in Resources */,
+				72BD9E481BD3D4C40062FE44 /* world_100_border_7_4.jpg in Resources */,
 				7254AFE71BC31E1000A22920 /* world_100_10_5.jpg in Resources */,
+				72BD9E8C1BD3D4C40062FE44 /* world_100_border_13_0.jpg in Resources */,
 				7254B1801BC99CA900A22920 /* IsleOfManFlag.png in Resources */,
 				7254AF7B1BC31E1000A22920 /* world_100_1_5.jpg in Resources */,
 				7254AE611BC31DE900A22920 /* world_50_1_1.jpg in Resources */,
 				7254B1E21BC99CAA00A22920 /* TunisiaFlag.png in Resources */,
+				72BD9F091BD3D5170062FE44 /* world_50_border_6_4.jpg in Resources */,
+				72BD9E6B1BD3D4C40062FE44 /* world_100_border_10_3.jpg in Resources */,
 				7254B14C1BC99CA900A22920 /* ChadFlag.png in Resources */,
+				72BD9E201BD3D4C40062FE44 /* world_100_border_4_0.jpg in Resources */,
+				72BD9F071BD3D5170062FE44 /* world_50_border_6_2.jpg in Resources */,
 				7254B1991BC99CAA00A22920 /* MaldivesFlag.png in Resources */,
 				7254AFCB1BC31E1000A22920 /* world_100_8_1.jpg in Resources */,
+				72BD9E2A1BD3D4C40062FE44 /* world_100_border_4_10.jpg in Resources */,
 				7254AFE41BC31E1000A22920 /* world_100_10_2.jpg in Resources */,
 				7254B1B61BC99CAA00A22920 /* PanamaFlag.png in Resources */,
+				72BD9E931BD3D4C40062FE44 /* world_100_border_13_7.jpg in Resources */,
+				72BD9F031BD3D5170062FE44 /* world_50_border_5_4.jpg in Resources */,
 				7254B0071BC31E1000A22920 /* world_100_13_1.jpg in Resources */,
+				72BD9E341BD3D4C40062FE44 /* world_100_border_5_8.jpg in Resources */,
 				7254AFB01BC31E1000A22920 /* world_100_5_10.jpg in Resources */,
 				7254AFF31BC31E1000A22920 /* world_100_11_5.jpg in Resources */,
+				72BD9E601BD3D4C40062FE44 /* world_100_border_9_4.jpg in Resources */,
+				72BD9E811BD3D4C40062FE44 /* world_100_border_12_1.jpg in Resources */,
 				7254B1771BC99CA900A22920 /* HaitiFlag.png in Resources */,
+				72BD9E7A1BD3D4C40062FE44 /* world_100_border_11_6.jpg in Resources */,
 				7254B1521BC99CA900A22920 /* CostaRicaFlag.png in Resources */,
+				72BD9E071BD3D4C40062FE44 /* world_100_border_1_11.jpg in Resources */,
+				72BD9F061BD3D5170062FE44 /* world_50_border_6_1.jpg in Resources */,
+				72BD9EA91BD3D4C40062FE44 /* world_100_border_15_5.jpg in Resources */,
 				7254AF841BC31E1000A22920 /* world_100_2_2.jpg in Resources */,
+				72BD9E3E1BD3D4C40062FE44 /* world_100_border_6_6.jpg in Resources */,
 				7254AF9F1BC31E1000A22920 /* world_100_4_5.jpg in Resources */,
 				7254AE6E1BC31DE900A22920 /* world_50_3_2.jpg in Resources */,
 				7254AFAB1BC31E1000A22920 /* world_100_5_5.jpg in Resources */,
@@ -2167,13 +3073,18 @@
 				7254B14B1BC99CA900A22920 /* CentralAfricanRepublicFlag.png in Resources */,
 				7254AFEF1BC31E1000A22920 /* world_100_11_1.jpg in Resources */,
 				7254B0091BC31E1000A22920 /* world_100_13_3.jpg in Resources */,
+				72BD9E6F1BD3D4C40062FE44 /* world_100_border_10_7.jpg in Resources */,
 				7254B1D61BC99CAA00A22920 /* SurinameFlag.png in Resources */,
+				72BD9EEF1BD3D5170062FE44 /* world_50_border_2_2.jpg in Resources */,
 				7254AF821BC31E1000A22920 /* world_100_2_0.jpg in Resources */,
 				7254B18E1BC99CAA00A22920 /* LatviaFlag.png in Resources */,
 				7254B1C01BC99CAA00A22920 /* RwandaFlag.png in Resources */,
 				7254AFE21BC31E1000A22920 /* world_100_10_0.jpg in Resources */,
+				72BD9E5E1BD3D4C40062FE44 /* world_100_border_9_2.jpg in Resources */,
+				72BD9DFF1BD3D4C40062FE44 /* world_100_border_1_3.jpg in Resources */,
 				7254B02A1BC3E98000A22920 /* fjords.txt in Resources */,
 				7254AF911BC31E1000A22920 /* world_100_3_3.jpg in Resources */,
+				72BD9EA81BD3D4C40062FE44 /* world_100_border_15_4.jpg in Resources */,
 				7254B1CE1BC99CAA00A22920 /* SolomonIslandsFlag.png in Resources */,
 				7254B1D01BC99CAA00A22920 /* SouthAfricaFlag.png in Resources */,
 				7254B02E1BC3E98000A22920 /* places.txt in Resources */,
@@ -2181,32 +3092,55 @@
 				7254B1411BC99CA900A22920 /* BotswanaFlag.png in Resources */,
 				7254AF971BC31E1000A22920 /* world_100_3_9.jpg in Resources */,
 				7254AE801BC31DE900A22920 /* world_50_6_2.jpg in Resources */,
+				72BD9EA41BD3D4C40062FE44 /* world_100_border_15_0.jpg in Resources */,
 				7254B1AE1BC99CAA00A22920 /* NigerFlag.png in Resources */,
 				7254AF8E1BC31E1000A22920 /* world_100_3_0.jpg in Resources */,
 				7254AFC31BC31E1000A22920 /* world_100_7_5.jpg in Resources */,
+				72BD9E4A1BD3D4C40062FE44 /* world_100_border_7_6.jpg in Resources */,
 				7254B1B71BC99CAA00A22920 /* ParaguayFlag.png in Resources */,
+				72BD9EFB1BD3D5170062FE44 /* world_50_border_4_2.jpg in Resources */,
 				7254AFF01BC31E1000A22920 /* world_100_11_2.jpg in Resources */,
+				72BD9E791BD3D4C40062FE44 /* world_100_border_11_5.jpg in Resources */,
+				72BD9E0C1BD3D4C40062FE44 /* world_100_border_2_4.jpg in Resources */,
 				7254AFA21BC31E1000A22920 /* world_100_4_8.jpg in Resources */,
+				72BD9E511BD3D4C40062FE44 /* world_100_border_8_1.jpg in Resources */,
 				7254AF8A1BC31E1000A22920 /* world_100_2_8.jpg in Resources */,
+				72BD9E041BD3D4C40062FE44 /* world_100_border_1_8.jpg in Resources */,
 				7254B16B1BC99CA900A22920 /* GabonFlag.png in Resources */,
+				72BD9E7E1BD3D4C40062FE44 /* world_100_border_11_10.jpg in Resources */,
 				7254AFD71BC31E1000A22920 /* world_100_9_1.jpg in Resources */,
 				7254B1CB1BC99CAA00A22920 /* SierraLeoneFlag.png in Resources */,
+				72BD9E1C1BD3D4C40062FE44 /* world_100_border_3_8.jpg in Resources */,
 				7254B1A61BC99CAA00A22920 /* MyanmarFlag.png in Resources */,
 				7254AFD91BC31E1000A22920 /* world_100_9_3.jpg in Resources */,
 				7254AFE31BC31E1000A22920 /* world_100_10_1.jpg in Resources */,
+				72BD9DF11BD3D4C40062FE44 /* world_100_border_0_1.jpg in Resources */,
+				72BD9E181BD3D4C40062FE44 /* world_100_border_3_4.jpg in Resources */,
 				7254AFEC1BC31E1000A22920 /* world_100_10_10.jpg in Resources */,
+				72BD9E3D1BD3D4C40062FE44 /* world_100_border_6_5.jpg in Resources */,
 				7254B1951BC99CAA00A22920 /* MacedoniaFlag.png in Resources */,
+				72BD9E551BD3D4C40062FE44 /* world_100_border_8_5.jpg in Resources */,
+				72BD9E221BD3D4C40062FE44 /* world_100_border_4_2.jpg in Resources */,
 				7254AF581BC31E1000A22920 /* world_100_14_6.jpg in Resources */,
+				72BD9E9F1BD3D4C40062FE44 /* world_100_border_14_7.jpg in Resources */,
 				7254B1CF1BC99CAA00A22920 /* SomaliaFlag.png in Resources */,
+				72BD9F1E1BD3D5530062FE44 /* world_25_border_0_0.jpg in Resources */,
+				72BD9E981BD3D4C40062FE44 /* world_100_border_14_0.jpg in Resources */,
+				72BD9E471BD3D4C40062FE44 /* world_100_border_7_3.jpg in Resources */,
 				7254AFAD1BC31E1000A22920 /* world_100_5_7.jpg in Resources */,
 				7254AE5A1BC31DE900A22920 /* world_50_0_0.jpg in Resources */,
+				72BD9E2F1BD3D4C40062FE44 /* world_100_border_5_3.jpg in Resources */,
+				72BD9E761BD3D4C40062FE44 /* world_100_border_11_2.jpg in Resources */,
 				7254B0501BC69E1000A22920 /* GameData.plist in Resources */,
 				7254AF9A1BC31E1000A22920 /* world_100_4_0.jpg in Resources */,
+				72BD9E5A1BD3D4C40062FE44 /* world_100_border_8_10.jpg in Resources */,
 				7254B1921BC99CAA00A22920 /* LiechtensteinFlag.png in Resources */,
 				7254AE231BC31DB800A22920 /* world_25_2_2.jpg in Resources */,
+				72BD9E681BD3D4C40062FE44 /* world_100_border_10_0.jpg in Resources */,
 				7254AFBC1BC31E1000A22920 /* world_100_6_10.jpg in Resources */,
 				7254AF6F1BC31E1000A22920 /* world_100_0_5.jpg in Resources */,
 				7254B1C41BC99CAA00A22920 /* SamoaFlag.png in Resources */,
+				72BD9F261BD3D5530062FE44 /* world_25_border_2_2.jpg in Resources */,
 				7254AE7D1BC31DE900A22920 /* world_50_5_5.jpg in Resources */,
 				7254B1591BC99CA900A22920 /* DjiboutiFlag.png in Resources */,
 				7254B1AD1BC99CAA00A22920 /* NicaraguaFlag.png in Resources */,
@@ -2216,71 +3150,113 @@
 				7254B0231BC3E98000A22920 /* armsOfCoat.txt in Resources */,
 				7254B1C21BC99CAA00A22920 /* SaintLuciaFlag.png in Resources */,
 				7254B1721BC99CA900A22920 /* GrenadaFlag.png in Resources */,
+				72BD9E441BD3D4C40062FE44 /* world_100_border_7_0.jpg in Resources */,
 				7254AFF11BC31E1000A22920 /* world_100_11_3.jpg in Resources */,
 				7254AF681BC31E1000A22920 /* world_100_15_10.jpg in Resources */,
 				7254AF5F1BC31E1000A22920 /* world_100_15_1.jpg in Resources */,
 				7254AF701BC31E1000A22920 /* world_100_0_6.jpg in Resources */,
 				7254AE831BC31DE900A22920 /* world_50_6_5.jpg in Resources */,
+				72BD9DFC1BD3D4C40062FE44 /* world_100_border_1_0.jpg in Resources */,
 				7254B1881BC99CA900A22920 /* KenyaFlag.png in Resources */,
 				7254B18F1BC99CAA00A22920 /* LesothoFlag.png in Resources */,
 				7254B1EF1BC99CAA00A22920 /* VietnamFlag.png in Resources */,
 				7254B1ED1BC99CAA00A22920 /* VanuatuFlag.png in Resources */,
+				72BD9E431BD3D4C40062FE44 /* world_100_border_6_11.jpg in Resources */,
 				7254AFBE1BC31E1000A22920 /* world_100_7_0.jpg in Resources */,
 				7254B15D1BC99CA900A22920 /* EcuadorFlag.png in Resources */,
 				7254AFDC1BC31E1000A22920 /* world_100_9_6.jpg in Resources */,
 				7254AE751BC31DE900A22920 /* world_50_4_3.jpg in Resources */,
 				7254AF8D1BC31E1000A22920 /* world_100_2_11.jpg in Resources */,
 				7254B1B41BC99CAA00A22920 /* OmanFlag.png in Resources */,
+				72BD9E351BD3D4C40062FE44 /* world_100_border_5_9.jpg in Resources */,
 				7254AFC51BC31E1000A22920 /* world_100_7_7.jpg in Resources */,
+				72BD9EF21BD3D5170062FE44 /* world_50_border_2_5.jpg in Resources */,
+				72BD9EFA1BD3D5170062FE44 /* world_50_border_4_1.jpg in Resources */,
 				7254AE851BC31DE900A22920 /* world_50_7_1.jpg in Resources */,
 				7254B14A1BC99CA900A22920 /* CapeVerdeFlag.png in Resources */,
 				7254AE771BC31DE900A22920 /* world_50_4_5.jpg in Resources */,
+				72BD9E371BD3D4C40062FE44 /* world_100_border_5_11.jpg in Resources */,
+				72BD9E531BD3D4C40062FE44 /* world_100_border_8_3.jpg in Resources */,
 				7254B1B21BC99CAA00A22920 /* NorthKoreaFlag.png in Resources */,
+				72BD9E491BD3D4C40062FE44 /* world_100_border_7_5.jpg in Resources */,
+				72BD9E131BD3D4C40062FE44 /* world_100_border_2_11.jpg in Resources */,
+				72BD9F0E1BD3D5170062FE44 /* world_50_border_7_3.jpg in Resources */,
 				7254AF961BC31E1000A22920 /* world_100_3_8.jpg in Resources */,
+				72BD9E9B1BD3D4C40062FE44 /* world_100_border_14_3.jpg in Resources */,
+				72BD9E9E1BD3D4C40062FE44 /* world_100_border_14_6.jpg in Resources */,
+				72BD9E821BD3D4C40062FE44 /* world_100_border_12_2.jpg in Resources */,
+				72BD9E8D1BD3D4C40062FE44 /* world_100_border_13_1.jpg in Resources */,
 				7254AE211BC31DB800A22920 /* world_25_2_0.jpg in Resources */,
 				7254B1311BC99CA900A22920 /* AntiguaAndBarbudaFlag.png in Resources */,
 				7254B1781BC99CA900A22920 /* HondurasFlag.png in Resources */,
 				7254AE5D1BC31DE900A22920 /* world_50_0_3.jpg in Resources */,
+				72BD9EF71BD3D5170062FE44 /* world_50_border_3_4.jpg in Resources */,
+				72BD9F0C1BD3D5170062FE44 /* world_50_border_7_1.jpg in Resources */,
 				7254B1E51BC99CAA00A22920 /* TuvaluFlag.png in Resources */,
 				7254AE271BC31DB800A22920 /* world_25_0_0.jpg in Resources */,
+				72BD9EEB1BD3D5170062FE44 /* world_50_border_1_4.jpg in Resources */,
 				7254AF591BC31E1000A22920 /* world_100_14_7.jpg in Resources */,
 				7254AFF61BC31E1000A22920 /* world_100_11_8.jpg in Resources */,
 				7254B1C31BC99CAA00A22920 /* SaintVincentAndTheGrenadinesFlag.png in Resources */,
 				7254B14E1BC99CA900A22920 /* ChinaFlag.png in Resources */,
+				72BD9E861BD3D4C40062FE44 /* world_100_border_12_6.jpg in Resources */,
+				72BD9E2B1BD3D4C40062FE44 /* world_100_border_4_11.jpg in Resources */,
 				7254AF801BC31E1000A22920 /* world_100_1_10.jpg in Resources */,
+				72BD9F021BD3D5170062FE44 /* world_50_border_5_3.jpg in Resources */,
+				72BD9E461BD3D4C40062FE44 /* world_100_border_7_2.jpg in Resources */,
+				72BD9E451BD3D4C40062FE44 /* world_100_border_7_1.jpg in Resources */,
 				7254B1EE1BC99CAA00A22920 /* VenezuelaFlag.png in Resources */,
 				7254AF511BC31E1000A22920 /* world_100_13_11.jpg in Resources */,
 				7254B1E11BC99CAA00A22920 /* TrinidadAndTobagoFlag.png in Resources */,
 				7254B1811BC99CA900A22920 /* IsraelFlag.png in Resources */,
 				7254AF951BC31E1000A22920 /* world_100_3_7.jpg in Resources */,
+				72BD9DF31BD3D4C40062FE44 /* world_100_border_0_3.jpg in Resources */,
+				72BD9E111BD3D4C40062FE44 /* world_100_border_2_9.jpg in Resources */,
 				7254B1321BC99CA900A22920 /* ArgentinaFlag.png in Resources */,
 				7254AFD11BC31E1000A22920 /* world_100_8_7.jpg in Resources */,
 				7254B0061BC31E1000A22920 /* world_100_13_0.jpg in Resources */,
+				72BD9E1B1BD3D4C40062FE44 /* world_100_border_3_7.jpg in Resources */,
 				7254AF731BC31E1000A22920 /* world_100_0_9.jpg in Resources */,
+				72BD9E621BD3D4C40062FE44 /* world_100_border_9_6.jpg in Resources */,
 				7254AF8C1BC31E1000A22920 /* world_100_2_10.jpg in Resources */,
 				7254B19A1BC99CAA00A22920 /* MaliFlag.png in Resources */,
 				7254AFBD1BC31E1000A22920 /* world_100_6_11.jpg in Resources */,
 				7254B1731BC99CA900A22920 /* GuatemalaFlag.png in Resources */,
 				7254B13F1BC99CA900A22920 /* BoliviaFlag.png in Resources */,
 				7254B1641BC99CA900A22920 /* EthiopiaFlag.png in Resources */,
+				72BD9E951BD3D4C40062FE44 /* world_100_border_13_9.jpg in Resources */,
 				7254AFC41BC31E1000A22920 /* world_100_7_6.jpg in Resources */,
 				7254AFF41BC31E1000A22920 /* world_100_11_6.jpg in Resources */,
+				72BD9F0B1BD3D5170062FE44 /* world_50_border_7_0.jpg in Resources */,
 				7254AFF51BC31E1000A22920 /* world_100_11_7.jpg in Resources */,
+				72BD9E101BD3D4C40062FE44 /* world_100_border_2_8.jpg in Resources */,
+				72BD9E2C1BD3D4C40062FE44 /* world_100_border_5_0.jpg in Resources */,
 				7254B14F1BC99CA900A22920 /* ColombiaFlag.png in Resources */,
 				7254AFA51BC31E1000A22920 /* world_100_4_11.jpg in Resources */,
 				7254AFDE1BC31E1000A22920 /* world_100_9_8.jpg in Resources */,
+				72BD9E121BD3D4C40062FE44 /* world_100_border_2_10.jpg in Resources */,
 				7254AF5C1BC31E1000A22920 /* world_100_14_10.jpg in Resources */,
 				7254AF9E1BC31E1000A22920 /* world_100_4_4.jpg in Resources */,
 				7254B0641BC99C6400A22920 /* ArrowPurple.png in Resources */,
 				7254AFB31BC31E1000A22920 /* world_100_6_1.jpg in Resources */,
+				72BD9E581BD3D4C40062FE44 /* world_100_border_8_8.jpg in Resources */,
+				72BD9EAE1BD3D4C40062FE44 /* world_100_border_15_10.jpg in Resources */,
 				7254B13C1BC99CA900A22920 /* BelizeFlag.png in Resources */,
+				72BD9E4C1BD3D4C40062FE44 /* world_100_border_7_8.jpg in Resources */,
+				72BD9EA61BD3D4C40062FE44 /* world_100_border_15_2.jpg in Resources */,
 				7254AFD41BC31E1000A22920 /* world_100_8_10.jpg in Resources */,
 				7254B1B51BC99CAA00A22920 /* PakistanFlag.png in Resources */,
 				7254B1841BC99CA900A22920 /* JamaicaFlag.png in Resources */,
+				72BD9EAF1BD3D4C40062FE44 /* world_100_border_15_11.jpg in Resources */,
+				72BD9EE61BD3D5170062FE44 /* world_50_border_0_5.jpg in Resources */,
 				7254B18C1BC99CA900A22920 /* KyrgyzstanFlag.png in Resources */,
+				72BD9EA01BD3D4C40062FE44 /* world_100_border_14_8.jpg in Resources */,
 				7254AF501BC31E1000A22920 /* world_100_13_10.jpg in Resources */,
+				72BD9E1F1BD3D4C40062FE44 /* world_100_border_3_11.jpg in Resources */,
 				7254AFAF1BC31E1000A22920 /* world_100_5_9.jpg in Resources */,
+				72BD9E311BD3D4C40062FE44 /* world_100_border_5_5.jpg in Resources */,
 				7254B1581BC99CA900A22920 /* DenmarkFlag.png in Resources */,
+				72BD9EF81BD3D5170062FE44 /* world_50_border_3_5.jpg in Resources */,
 				7254AFBF1BC31E1000A22920 /* world_100_7_1.jpg in Resources */,
 				7254AFB21BC31E1000A22920 /* world_100_6_0.jpg in Resources */,
 				7254B1661BC99CA900A22920 /* FederatedStatesOfMicronesiaFlag.png in Resources */,
@@ -2288,14 +3264,20 @@
 				7254B1F01BC99CAA00A22920 /* WalesFlag.png in Resources */,
 				7254AF561BC31E1000A22920 /* world_100_14_4.jpg in Resources */,
 				7254AF741BC31E1000A22920 /* world_100_0_10.jpg in Resources */,
+				72BD9E231BD3D4C40062FE44 /* world_100_border_4_3.jpg in Resources */,
 				7254AFFF1BC31E1000A22920 /* world_100_12_5.jpg in Resources */,
+				72BD9E9A1BD3D4C40062FE44 /* world_100_border_14_2.jpg in Resources */,
 				7254B18B1BC99CA900A22920 /* KuwaitFlag.png in Resources */,
 				7254B1621BC99CA900A22920 /* EritreaFlag.png in Resources */,
 				7254AE6B1BC31DE900A22920 /* world_50_2_5.jpg in Resources */,
+				72BD9E571BD3D4C40062FE44 /* world_100_border_8_7.jpg in Resources */,
 				7254AF5E1BC31E1000A22920 /* world_100_15_0.jpg in Resources */,
+				72BD9F251BD3D5530062FE44 /* world_25_border_2_1.jpg in Resources */,
 				7254AE1F1BC31DB800A22920 /* world_25_1_1.jpg in Resources */,
 				7254AE861BC31DE900A22920 /* world_50_7_2.jpg in Resources */,
+				72BD9E6C1BD3D4C40062FE44 /* world_100_border_10_4.jpg in Resources */,
 				7254B0011BC31E1000A22920 /* world_100_12_7.jpg in Resources */,
+				72BD9E061BD3D4C40062FE44 /* world_100_border_1_10.jpg in Resources */,
 				7254AFE51BC31E1000A22920 /* world_100_10_3.jpg in Resources */,
 				7254AF4C1BC31E1000A22920 /* world_100_13_6.jpg in Resources */,
 				7254B1431BC99CA900A22920 /* BruneiFlag.png in Resources */,
@@ -2305,16 +3287,23 @@
 				7254AF601BC31E1000A22920 /* world_100_15_2.jpg in Resources */,
 				7254B1A11BC99CAA00A22920 /* MonacoFlag.png in Resources */,
 				7254B1501BC99CA900A22920 /* ComorosFlag.png in Resources */,
+				72BD9DF21BD3D4C40062FE44 /* world_100_border_0_2.jpg in Resources */,
 				7254AFB71BC31E1000A22920 /* world_100_6_5.jpg in Resources */,
 				7254B1A21BC99CAA00A22920 /* MongoliaFlag.png in Resources */,
 				7254B1A81BC99CAA00A22920 /* NauruFlag.png in Resources */,
 				7254B05C1BC7279100A22920 /* 100MaskLand.png in Resources */,
+				72BD9F0D1BD3D5170062FE44 /* world_50_border_7_2.jpg in Resources */,
+				72BD9E871BD3D4C40062FE44 /* world_100_border_12_7.jpg in Resources */,
 				7254B1F31BC99CAA00A22920 /* ZimbabweFlag.png in Resources */,
+				72BD9E281BD3D4C40062FE44 /* world_100_border_4_8.jpg in Resources */,
 				7254AE5E1BC31DE900A22920 /* world_50_0_4.jpg in Resources */,
+				72BD9E841BD3D4C40062FE44 /* world_100_border_12_4.jpg in Resources */,
 				7254AFA81BC31E1000A22920 /* world_100_5_2.jpg in Resources */,
 				7254AFE11BC31E1000A22920 /* world_100_9_11.jpg in Resources */,
 				7254AFD21BC31E1000A22920 /* world_100_8_8.jpg in Resources */,
 				7254B1BC1BC99CAA00A22920 /* PuertoRicoFlag.png in Resources */,
+				72BD9EE51BD3D5170062FE44 /* world_50_border_0_4.jpg in Resources */,
+				72BD9E501BD3D4C40062FE44 /* world_100_border_8_0.jpg in Resources */,
 				7254AF4A1BC31E1000A22920 /* world_100_13_4.jpg in Resources */,
 				7254B1BD1BC99CAA00A22920 /* QatarFlag.png in Resources */,
 				7254AF981BC31E1000A22920 /* world_100_3_10.jpg in Resources */,
@@ -2324,15 +3313,26 @@
 				7254AF6E1BC31E1000A22920 /* world_100_0_4.jpg in Resources */,
 				7254AF4B1BC31E1000A22920 /* world_100_13_5.jpg in Resources */,
 				7254B1C11BC99CAA00A22920 /* SaintKittsAndNevisFlag.png in Resources */,
+				72BD9EEC1BD3D5170062FE44 /* world_50_border_1_5.jpg in Resources */,
 				7254B1AB1BC99CAA00A22920 /* NewGuineaFlag.png in Resources */,
+				72BD9E411BD3D4C40062FE44 /* world_100_border_6_9.jpg in Resources */,
 				7254B15C1BC99CA900A22920 /* EastTimorFlag.png in Resources */,
+				72BD9E3B1BD3D4C40062FE44 /* world_100_border_6_3.jpg in Resources */,
+				72BD9F011BD3D5170062FE44 /* world_50_border_5_2.jpg in Resources */,
+				72BD9EAA1BD3D4C40062FE44 /* world_100_border_15_6.jpg in Resources */,
 				7254AF8F1BC31E1000A22920 /* world_100_3_1.jpg in Resources */,
+				72BD9E8B1BD3D4C40062FE44 /* world_100_border_12_11.jpg in Resources */,
+				72BD9E151BD3D4C40062FE44 /* world_100_border_3_1.jpg in Resources */,
 				7254AF921BC31E1000A22920 /* world_100_3_4.jpg in Resources */,
+				72BD9E091BD3D4C40062FE44 /* world_100_border_2_1.jpg in Resources */,
 				7254AF7F1BC31E1000A22920 /* world_100_1_9.jpg in Resources */,
 				7254AE631BC31DE900A22920 /* world_50_1_3.jpg in Resources */,
 				7254B02F1BC3E98000A22920 /* QuestionDocumentation.txt in Resources */,
+				72BD9E0A1BD3D4C40062FE44 /* world_100_border_2_2.jpg in Resources */,
+				72BD9E081BD3D4C40062FE44 /* world_100_border_2_0.jpg in Resources */,
 				7254AF861BC31E1000A22920 /* world_100_2_4.jpg in Resources */,
 				7254AFC61BC31E1000A22920 /* world_100_7_8.jpg in Resources */,
+				72BD9EE21BD3D5170062FE44 /* world_50_border_0_1.jpg in Resources */,
 				7254B0351BC3E98000A22920 /* statesNorthAmerica.txt in Resources */,
 				7254AE811BC31DE900A22920 /* world_50_6_3.jpg in Resources */,
 				7254AE6C1BC31DE900A22920 /* world_50_3_0.jpg in Resources */,
@@ -2340,26 +3340,39 @@
 				7254B1DA1BC99CAA00A22920 /* SyriaFlag.png in Resources */,
 				7254B1D91BC99CAA00A22920 /* SwitzerlandFlag.png in Resources */,
 				7254B0001BC31E1000A22920 /* world_100_12_6.jpg in Resources */,
+				72BD9DFA1BD3D4C40062FE44 /* world_100_border_0_10.jpg in Resources */,
 				7254AFCC1BC31E1000A22920 /* world_100_8_2.jpg in Resources */,
 				7254B05D1BC7279100A22920 /* 100MaskWater.png in Resources */,
 				7254B0081BC31E1000A22920 /* world_100_13_2.jpg in Resources */,
 				7254B1451BC99CA900A22920 /* BurkinaFasoFlag.png in Resources */,
+				72BD9EF11BD3D5170062FE44 /* world_50_border_2_4.jpg in Resources */,
 				7254B05A1BC7279100A22920 /* 50MaskLand.png in Resources */,
 				7254B1481BC99CA900A22920 /* CameroonFlag.png in Resources */,
+				72BD9E3C1BD3D4C40062FE44 /* world_100_border_6_4.jpg in Resources */,
 				7254AFBA1BC31E1000A22920 /* world_100_6_8.jpg in Resources */,
 				7254B02D1BC3E98000A22920 /* pictureQuestions.txt in Resources */,
+				72BD9F211BD3D5530062FE44 /* world_25_border_1_0.jpg in Resources */,
 				7254B1761BC99CA900A22920 /* GuyanaFlag.png in Resources */,
+				72BD9E751BD3D4C40062FE44 /* world_100_border_11_1.jpg in Resources */,
 				7254B1BB1BC99CAA00A22920 /* PortugalFlag.png in Resources */,
+				72BD9DF41BD3D4C40062FE44 /* world_100_border_0_4.jpg in Resources */,
 				7254AF6C1BC31E1000A22920 /* world_100_0_2.jpg in Resources */,
 				7254AFFC1BC31E1000A22920 /* world_100_12_2.jpg in Resources */,
+				72BD9E3F1BD3D4C40062FE44 /* world_100_border_6_7.jpg in Resources */,
+				72BD9E901BD3D4C40062FE44 /* world_100_border_13_4.jpg in Resources */,
 				7254AFAC1BC31E1000A22920 /* world_100_5_6.jpg in Resources */,
 				7254AF4E1BC31E1000A22920 /* world_100_13_8.jpg in Resources */,
+				72BD9E4E1BD3D4C40062FE44 /* world_100_border_7_10.jpg in Resources */,
+				72BD9E4D1BD3D4C40062FE44 /* world_100_border_7_9.jpg in Resources */,
 				7254B19D1BC99CAA00A22920 /* MauritaniaFlag.png in Resources */,
 				7254AE221BC31DB800A22920 /* world_25_2_1.jpg in Resources */,
 				7254AF521BC31E1000A22920 /* world_100_14_0.jpg in Resources */,
 				7254AE641BC31DE900A22920 /* world_50_1_4.jpg in Resources */,
+				72BD9E781BD3D4C40062FE44 /* world_100_border_11_4.jpg in Resources */,
 				7254AF991BC31E1000A22920 /* world_100_3_11.jpg in Resources */,
 				7254B0321BC3E98000A22920 /* statesEastAsia.txt in Resources */,
+				72BD9F221BD3D5530062FE44 /* world_25_border_1_1.jpg in Resources */,
+				72BD9EE41BD3D5170062FE44 /* world_50_border_0_3.jpg in Resources */,
 				7254AF9D1BC31E1000A22920 /* world_100_4_3.jpg in Resources */,
 				7254B0241BC3E98000A22920 /* capitalsAfrica.txt in Resources */,
 				7254B0341BC3E98000A22920 /* statesMiddleEast.txt in Resources */,
@@ -2374,11 +3387,15 @@
 				7254B1C91BC99CAA00A22920 /* SerbiaFlag.png in Resources */,
 				7254B1F11BC99CAA00A22920 /* YemenFlag.png in Resources */,
 				7254B19F1BC99CAA00A22920 /* MexicoFlag.png in Resources */,
+				72BD9E1D1BD3D4C40062FE44 /* world_100_border_3_9.jpg in Resources */,
 				7254B16A1BC99CA900A22920 /* FrenchGuianaFlag.png in Resources */,
 				7254B14D1BC99CA900A22920 /* ChileFlag.png in Resources */,
 				7254AF6A1BC31E1000A22920 /* world_100_0_0.jpg in Resources */,
+				72BD9EAB1BD3D4C40062FE44 /* world_100_border_15_7.jpg in Resources */,
 				7254AF9C1BC31E1000A22920 /* world_100_4_2.jpg in Resources */,
 				7254B1F21BC99CAA00A22920 /* ZambiaFlag.png in Resources */,
+				72BD9E521BD3D4C40062FE44 /* world_100_border_8_2.jpg in Resources */,
+				72BD9E7D1BD3D4C40062FE44 /* world_100_border_11_9.jpg in Resources */,
 				7254B1571BC99CA900A22920 /* DemocraticRepublicOfTheCongoFlag.png in Resources */,
 				7254B0581BC7279100A22920 /* 25MaskLand.png in Resources */,
 				7254B1DC1BC99CAA00A22920 /* TajikistanFlag.png in Resources */,
@@ -2386,26 +3403,39 @@
 				7254AE7C1BC31DE900A22920 /* world_50_5_4.jpg in Resources */,
 				7254B1D51BC99CAA00A22920 /* SudanFlag.png in Resources */,
 				7254AE7B1BC31DE900A22920 /* world_50_5_3.jpg in Resources */,
+				72BD9F291BD3D5530062FE44 /* world_25_border_3_2.jpg in Resources */,
+				72BD9E421BD3D4C40062FE44 /* world_100_border_6_10.jpg in Resources */,
 				7254AE6D1BC31DE900A22920 /* world_50_3_1.jpg in Resources */,
 				7254AF6D1BC31E1000A22920 /* world_100_0_3.jpg in Resources */,
+				72BD9E891BD3D4C40062FE44 /* world_100_border_12_9.jpg in Resources */,
 				7254AE711BC31DE900A22920 /* world_50_3_5.jpg in Resources */,
+				72BD9E941BD3D4C40062FE44 /* world_100_border_13_8.jpg in Resources */,
 				7254AFDD1BC31E1000A22920 /* world_100_9_7.jpg in Resources */,
 				7254AE721BC31DE900A22920 /* world_50_4_0.jpg in Resources */,
 				7254B1491BC99CA900A22920 /* CanadaFlag.png in Resources */,
 				7254AF751BC31E1000A22920 /* world_100_0_11.jpg in Resources */,
+				72BD9EE11BD3D5170062FE44 /* world_50_border_0_0.jpg in Resources */,
 				7254B05F1BC80B4A00A22920 /* 25MaskLandAlpha.png in Resources */,
+				72BD9DF91BD3D4C40062FE44 /* world_100_border_0_9.jpg in Resources */,
 				7254AF771BC31E1000A22920 /* world_100_1_1.jpg in Resources */,
 				7254AFB41BC31E1000A22920 /* world_100_6_2.jpg in Resources */,
 				7254B1361BC99CA900A22920 /* BahamasFlag.png in Resources */,
+				72BD9E241BD3D4C40062FE44 /* world_100_border_4_4.jpg in Resources */,
 				7254AFC01BC31E1000A22920 /* world_100_7_2.jpg in Resources */,
 				7254B0381BC3E98000A22920 /* waterRegions.txt in Resources */,
 				7254B1301BC99CA900A22920 /* AngolaFlag.png in Resources */,
+				72BD9DF01BD3D4C40062FE44 /* world_100_border_0_0.jpg in Resources */,
 				7254B1E81BC99CAA00A22920 /* UnitedArabEmiratesFlag.png in Resources */,
 				7254B1BA1BC99CAA00A22920 /* PolandFlag.png in Resources */,
 				7254B1541BC99CA900A22920 /* CubaFlag.png in Resources */,
 				7254AE841BC31DE900A22920 /* world_50_7_0.jpg in Resources */,
+				72BD9F0A1BD3D5170062FE44 /* world_50_border_6_5.jpg in Resources */,
+				72BD9E691BD3D4C40062FE44 /* world_100_border_10_1.jpg in Resources */,
+				72BD9E961BD3D4C40062FE44 /* world_100_border_13_10.jpg in Resources */,
+				72BD9E331BD3D4C40062FE44 /* world_100_border_5_7.jpg in Resources */,
 				7254AF9B1BC31E1000A22920 /* world_100_4_1.jpg in Resources */,
 				7254B1B01BC99CAA00A22920 /* NiueFlag.png in Resources */,
+				72BD9E851BD3D4C40062FE44 /* world_100_border_12_5.jpg in Resources */,
 				7254B1821BC99CA900A22920 /* ItalyFlag.png in Resources */,
 				72424A591BC2C469009FED5C /* Main.storyboard in Resources */,
 				7254AE791BC31DE900A22920 /* world_50_5_1.jpg in Resources */,
@@ -2416,6 +3446,8 @@
 				7254AE661BC31DE900A22920 /* world_50_2_0.jpg in Resources */,
 				7254AFF91BC31E1000A22920 /* world_100_11_11.jpg in Resources */,
 				7254B1981BC99CAA00A22920 /* MalaysiaFlag.png in Resources */,
+				72BD9F041BD3D5170062FE44 /* world_50_border_5_5.jpg in Resources */,
+				72BD9E6E1BD3D4C40062FE44 /* world_100_border_10_6.jpg in Resources */,
 				7254AF791BC31E1000A22920 /* world_100_1_3.jpg in Resources */,
 				7254B1791BC99CA900A22920 /* HungaryFlag.png in Resources */,
 				7254B1CD1BC99CAA00A22920 /* SloveniaFlag.png in Resources */,

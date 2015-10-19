@@ -23,6 +23,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     var usersToChallengeScrollView:UserScrollView!
     var challengeScrollView:ChallengeScrollView!
     var gametype:gameType!
+    var drawBorders:Bool = false
     
     var playButton:UIButton!
     var backButton = UIButton()
@@ -460,6 +461,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             {
                 svc.usersIdsToChallenge = self.usersToChallenge
                 svc.numOfQuestionsForRound = self.numOfQuestionsForRound
+                svc.drawBorders = drawBorders
             }
             else if self.gametype == gameType.takingChallenge
             {

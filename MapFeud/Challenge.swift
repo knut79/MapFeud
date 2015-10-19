@@ -16,6 +16,7 @@ class Challenge {
     var questionIds:[Int] = []
     var pointsToBeat:Int
     var correctAnswersToBeat:Int
+    var usingBorders:Int
     var title:String
     let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
     
@@ -26,6 +27,7 @@ class Challenge {
         fbIdToBeat = values["fbIdToBeat"] as! String
         pointsToBeat = values["pointsToBeat"] as! Int
         correctAnswersToBeat = values["correctAnswersToBeat"] as! Int
+        usingBorders = values["usingBorders"] as! Int
         let questionsStringFormat = values["questionsStringFormat"] as! String
         
         let questionIdsStringFormat = questionsStringFormat.componentsSeparatedByString(",")

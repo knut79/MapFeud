@@ -723,10 +723,12 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         if (segue.identifier == "segueFromMainMenuToPlay") {
             let svc = segue!.destinationViewController as! PlayViewController
+            print("\(levelSlider.upperValue)")
             svc.levelLow = Int(levelSlider.lowerValue)
             svc.levelHigh = Int(levelSlider.upperValue)
             svc.tags = self.tags
             svc.gametype = gametype
+            svc.drawBorders = borderSwitch.on
         }
         
         if (segue.identifier == "segueFromMainMenuToChallenge") {
@@ -736,6 +738,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             svc.passingTags = self.tags
             svc.numOfQuestionsForRound = self.numOfQuestionsForRound
             svc.gametype = self.gametype
+            svc.drawBorders = borderSwitch.on
         }
     }
     

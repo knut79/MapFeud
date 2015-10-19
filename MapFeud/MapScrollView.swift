@@ -29,7 +29,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     let maximumResolution:Int = 1
     var resolution:Int = -2
     var playerSymbol:UIImageView!
-    
+    var drawBorders:Bool = false
     let coordinateHelper = CoordinateHelper()
     
     var delegate:MapDelegate?
@@ -40,8 +40,9 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
     }
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, drawBorders:Bool = false) {
         super.init(frame: frame)
+        self.drawBorders = drawBorders
         tileContainerView = TileContainerView(frame: CGRectZero)
 
         //overlayDrawView.backgroundColor = UIColor.clearColor()
@@ -218,6 +219,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     var overlayDrawView:TileContainerOverlayLayer?
     var placesToDraw:[[LinePoint]] = []
     var placesToExcludeDraw:[[LinePoint]] = []
+    var placeTypeToDraw:PlaceType?
     func drawPlace(place:Place)
     {
         let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
@@ -244,16 +246,26 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
                 placesToExcludeDraw.append(ep.sortedPoints)
             }
         }
-        
+        placeTypeToDraw = PlaceType(rawValue: Int(place.type))
         
         //overlayDrawView?.resolutionPercentage = resolutionPercentage
         overlayDrawView?.exludedRegions = placesToExcludeDraw
         overlayDrawView?.regions = placesToDraw
+        overlayDrawView?.placeType = placeTypeToDraw
 
         overlayDrawView?.setNeedsDisplay()
-        
 
         //overlayDrawView.drawLines(regions,excludedRegions: excludedRegions, resolutionPercentage: CGFloat(resolutionPercentage), zoomScale: scrollView.zoomScale)
+    }
+    
+    func clearDrawing()
+    {
+        overlayDrawView?.exludedRegions = []
+        overlayDrawView?.regions = []
+        overlayDrawView?.fromPoint = nil
+        overlayDrawView?.toPoint = nil
+        playerSymbol.alpha = 0
+        overlayDrawView?.setNeedsDisplay()
     }
     
     func setupTiles()
@@ -289,7 +301,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             for var col = -1 ; col <= maxColumn ; col++
             {
                 let pictureCol = col < 0 ? maxColumn - 1 : (col % maxColumn)
-                let imageName = "world_\(Int(resolutionPercentage))_\(pictureCol)_\(row).jpg"
+                let borderFix = drawBorders ? "border_" : ""
+                let imageName = "world_\(Int(resolutionPercentage))_\(borderFix)\(pictureCol)_\(row).jpg"
                 
                 let tileImage = UIImage(named: imageName)
 
@@ -322,6 +335,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         overlayDrawView!.resolutionPercentage = CGFloat(resolutionPercentage)
         overlayDrawView?.fromPoint = realMapCordsPlayerPoint
         overlayDrawView?.toPoint = realMapCordsNearestPoint
+        overlayDrawView?.placeType = placeTypeToDraw
         
         
         overlayDrawView!.setNeedsDisplay()

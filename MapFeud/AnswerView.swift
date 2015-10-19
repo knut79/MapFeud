@@ -31,11 +31,11 @@ class AnswerView: UIView {
         singleTapGestureRecognizer.cancelsTouchesInView = false
         self.addGestureRecognizer(singleTapGestureRecognizer)
 
-        infoText = UILabel(frame: CGRectMake(0, 0, self.bounds.width, self.bounds.height  * 4))
+        infoText = UILabel(frame: CGRectMake(self.bounds.width * 0.1, 0, self.bounds.width * 0.8, self.bounds.height  * 4))
         infoText.adjustsFontSizeToFitWidth = true
-        infoText.textAlignment = NSTextAlignment.Center
-        infoText.numberOfLines = 3
-        infoText.font = UIFont.boldSystemFontOfSize(24)
+        infoText.textAlignment = NSTextAlignment.Left
+        infoText.numberOfLines = 6
+        infoText.font = UIFont.boldSystemFontOfSize(18)
         infoText.textColor = UIColor.blackColor()
         self.addSubview(infoText)
         

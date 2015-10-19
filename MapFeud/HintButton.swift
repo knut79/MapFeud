@@ -13,6 +13,8 @@ class HintButton: UIButton {
     
     var innerView:UILabel!
     var numberOfHints:UILabel!
+    var orgFrame:CGRect!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -43,5 +45,27 @@ class HintButton: UIButton {
         self.addSubview(numberOfHints)
         //innerView.center = CGPointMake(margin + (hintButton.frame.width / 2) , UIScreen.mainScreen().bounds.height * 0.33)
         
+    }
+    
+    func setHintsLeft(hints:Int)
+    {
+        numberOfHints.text = "hints"
+    }
+    
+    func isVisible() -> Bool
+    {
+        return self.frame == orgFrame
+    }
+    
+    func hide(hide:Bool = true)
+    {
+        if hide
+        {
+            self.center = CGPointMake(self.frame.maxX * -1, self.center.y)
+        }
+        else
+        {
+            self.frame = self.orgFrame
+        }
     }
 }

@@ -87,7 +87,7 @@ class QuestionView: UIView {
     func setQuestion(question:Question)
     {
         print("setQueston called")
-        questionText.text = question.text
+        questionText.text = "\(question.text)?"
         if question.image != ""
         {
             if let image = UIImage(named: question.image)

@@ -17,10 +17,12 @@ class PlayViewController: UIViewController , MapDelegate {
     var magnifyingGlassLeftPos:CGPoint!
     var magnifyingGlassRightPos:CGPoint!
     var questionView:QuestionView!
+    var questionViewOrgFrame:CGRect!
     var answerView:AnswerView!
     var currentQuestion:Question!
     
     var distanceView:DistanceView!
+    var distanceViewOrgFrame:CGRect!
     
     var levelHigh:Int = 1
     var levelLow:Int = 1
@@ -35,12 +37,22 @@ class PlayViewController: UIViewController , MapDelegate {
     
     var hintButton:HintButton!
     var okButton:UIButton!
+    var okButtonOrgFrame:CGRect!
+    var nextButton:UIButton!
+    var nextButtonVisibleOrigin:CGPoint!
+    var nextButtonHiddenOrigin:CGPoint!
     
+    var backButton:UIButton?
+    var backButtonOrgFrame:CGRect?
+    var backButtonVisibleOrigin:CGPoint!
+    var backButtonHiddenOrigin:CGPoint!
+    
+    var drawBorders:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        map = MapScrollView(frame: UIScreen.mainScreen().bounds)
+        map = MapScrollView(frame: UIScreen.mainScreen().bounds, drawBorders: drawBorders)
         map.delegate = self
         
         playerIcon = PlayerIconView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width * 0.12, UIScreen.mainScreen().bounds.width * 0.12))
@@ -50,7 +62,6 @@ class PlayViewController: UIViewController , MapDelegate {
         
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
 
-        
         
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapMap:")
         singleTapGestureRecognizer.numberOfTapsRequired = 1
@@ -71,15 +82,18 @@ class PlayViewController: UIViewController , MapDelegate {
         magnifyingGlass.alpha = 0
         self.view.addSubview(magnifyingGlass)
         
-        distanceView = DistanceView(frame: CGRectMake(0, map.bounds.maxY - questonViewHeight, UIScreen.mainScreen().bounds.width, questonViewHeight))
+        distanceView = DistanceView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width * 0.66, questonViewHeight))
+        distanceView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, map.bounds.maxY - (questonViewHeight / 2))
         distanceView.alpha = 1
         self.view.addSubview(distanceView)
+        distanceViewOrgFrame = distanceView.frame
         
         setupButtons()
         
         questionView = QuestionView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, questonViewHeight))
         questionView.alpha = 0
         self.view.addSubview(questionView)
+        questionViewOrgFrame = questionView.frame
         
         answerView = AnswerView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, questonViewHeight))
         answerView.alpha = 0
@@ -107,6 +121,8 @@ class PlayViewController: UIViewController , MapDelegate {
         hintButton.center = CGPointMake(margin + (hintButton.frame.width / 2) , UIScreen.mainScreen().bounds.height * 0.33)
         hintButton.addTarget(self, action: "useHintAction", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(hintButton)
+        //_?
+        hintButton.orgFrame = hintButton.frame
 
         
         okButton = UIButton(frame: CGRectMake(0, 0, buttonSide, buttonSide))
@@ -118,17 +134,90 @@ class PlayViewController: UIViewController , MapDelegate {
         okButton.layer.cornerRadius = okButton.bounds.size.width / 2
         okButton.layer.masksToBounds = true
         self.view.addSubview(okButton)
+        okButtonOrgFrame = okButton.frame
+            
+        nextButton = UIButton(frame: okButtonOrgFrame)
+        nextButton.addTarget(self, action: "nextAction", forControlEvents: UIControlEvents.TouchUpInside)
+        nextButton.setTitle("⏩", forState: UIControlState.Normal)
+        nextButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        nextButton.layer.borderWidth = 2
+        nextButton.layer.cornerRadius = nextButton.bounds.size.width / 2
+        nextButton.layer.masksToBounds = true
+        self.view.addSubview(nextButton)
+        nextButtonVisibleOrigin = nextButton.center
+        //initially hide next button
+        nextButtonHiddenOrigin = CGPointMake(UIScreen.mainScreen().bounds.maxX + nextButton.frame.width, nextButton.center.y)
+        nextButton.center = nextButtonHiddenOrigin
+        
+        if gametype == gameType.training
+        {
+            backButton = UIButton(frame: CGRectMake(margin, UIScreen.mainScreen().bounds.maxY - buttonSide - margin, buttonSide, buttonSide))
+            backButton!.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
+            backButton!.setTitle("⏪", forState: UIControlState.Normal)
+            backButton!.layer.borderColor = UIColor.lightGrayColor().CGColor
+            backButton!.layer.borderWidth = 2
+            backButton!.layer.cornerRadius = backButton!.bounds.size.width / 2
+            backButton!.layer.masksToBounds = true
+            self.view.addSubview(backButton!)
+            backButtonVisibleOrigin = backButton!.center
+            //initially hide next button
+            backButtonHiddenOrigin = CGPointMake(backButton!.frame.width * -1 , backButton!.center.y)
+            //backButton!.center = backButtonHiddenOrigin
+            backButtonOrgFrame = backButton!.frame
+        }
+
     }
 
-    
+    var hintsLeftOnQuestion = 2
     func useHintAction()
     {
+        var hintText:String?
+        if hintsLeftOnQuestion >= 2
+        {
+            hintText = currentQuestion.place.hint1
+        }
+        else if hintsLeftOnQuestion >= 1
+        {
+            hintText = currentQuestion.place.hint2
+        }
 
+        if let text = hintText
+        {
+            hintsLeftOnQuestion--
+            let numberPrompt = UIAlertController(title: "Hint",
+                message: text,
+                preferredStyle: .Alert)
+            
+            
+            numberPrompt.addAction(UIAlertAction(title: "Ok",
+                style: .Default,
+                handler: { (action) -> Void in
+                    
+            }))
+            
+            
+            self.presentViewController(numberPrompt,
+                animated: true,
+                completion: nil)
+        }
+    }
+    
+    func backAction()
+    {
+        self.performSegueWithIdentifier("segueFromPlayToMainMenu", sender: nil)
     }
     
     func okAction()
     {
-        setPoint()
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            //self.hideHintButton()
+            self.hintButton.hide()
+            self.hideOkButton()
+            }, completion: { (value: Bool) in
+                self.setPoint()
+                
+        })
+        
     }
     
     func setPoint()
@@ -150,12 +239,19 @@ class PlayViewController: UIViewController , MapDelegate {
             qv.setAnswer(currentQuestion, distance: distance)
         }
         showAnswer({() -> Void in
-            self.animateDistanceToAdd(distance)
+            self.animateDistanceToAdd(distance,completion: {() -> Void in
+                
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.hideNextButton(false)
+                    })
+                
+
+            })
         })
 
     }
     
-    func animateDistanceToAdd(distance:Int)
+    func animateDistanceToAdd(distance:Int,completion: (() -> (Void)))
     {
         let tempIconAnimateLabel = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width / 2, 50))
         tempIconAnimateLabel.center = CGPointMake( UIScreen.mainScreen().bounds.midX, UIScreen.mainScreen().bounds.midY)
@@ -196,6 +292,9 @@ class PlayViewController: UIViewController , MapDelegate {
                         tempDisctanceAnimateLabel.removeFromSuperview()
                         tempIconAnimateLabel.removeFromSuperview()
                         self.distanceView.addDistance(distance)
+                        
+                        completion()
+                        
                 })
 
         })
@@ -248,13 +347,27 @@ class PlayViewController: UIViewController , MapDelegate {
                         
                         self.answerView.answerText.textColor = UIColor.blackColor()
                         completion()
-                        //self.setNextQuestion()
-                        //self.playerIcon.alpha = 1
+
                         
                 })
             })
     }
     
+    func nextAction()
+    {
+
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            //self.hideHintButton(false)
+            self.hintButton.hide(false)
+            self.hideOkButton(false)
+            self.hideNextButton()
+            }, completion: { (value: Bool) in
+                self.setNextQuestion()
+                self.playerIcon.alpha = 1
+        })
+
+        
+    }
     
     var questionindex = 0
     func startGame()
@@ -264,6 +377,7 @@ class PlayViewController: UIViewController , MapDelegate {
     
     func setNextQuestion()
     {
+        map.clearDrawing()
         self.answerView.userInteractionEnabled = false
         currentQuestion = datactrl.questionItems[questionindex % datactrl.questionItems.count]
         questionindex++
@@ -285,7 +399,7 @@ class PlayViewController: UIViewController , MapDelegate {
         self.questionView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
         self.questionView.transform = CGAffineTransformScale(self.questionView.transform, 0.1, 0.1)
         UIView.animateWithDuration(0.50, animations: { () -> Void in
-            
+            self.answerView.alpha = 0
             self.questionView.alpha = 1
             self.questionView.transform = CGAffineTransformIdentity
             }, completion: { (value: Bool) in
@@ -331,24 +445,99 @@ class PlayViewController: UIViewController , MapDelegate {
         let touch = touches.first //touches.anyObject()
         let touchLocation = touch!.locationInView(self.view)
         let isInnView = CGRectContainsPoint(playerIcon.frame,touchLocation)
-        let isInnMagnifyingView = CGRectContainsPoint(magnifyingGlass.frame,touchLocation)
         
-        if(isInnMagnifyingView)
+        if(isInnView)
         {
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
-                if self.magnifyingGlass.center == self.magnifyingGlassLeftPos
-                {
-                    self.magnifyingGlass.center = self.magnifyingGlassRightPos
-                }
-                else
-                {
-                    self.magnifyingGlass.center = self.magnifyingGlassLeftPos
-                }
+            let isInnHintButtonView = CGRectContainsPoint(self.hintButton.orgFrame, touchLocation)
+            let isInnOkButtonView = CGRectContainsPoint(okButtonOrgFrame, touchLocation)
+            let isInnMagnifyingView = CGRectContainsPoint(magnifyingGlass.frame,touchLocation)
+            let isInnQuestionView = CGRectContainsPoint(questionViewOrgFrame,touchLocation)
+            let isInnDistanceView = CGRectContainsPoint(distanceViewOrgFrame, touchLocation)
+            let isInnBackButtonView = backButton != nil ? CGRectContainsPoint(self.backButtonOrgFrame!, touchLocation) : false
+            if(isInnMagnifyingView)
+            {
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    if self.magnifyingGlass.center == self.magnifyingGlassLeftPos
+                    {
+                        self.magnifyingGlass.center = self.magnifyingGlassRightPos
+                    }
+                    else
+                    {
+                        self.magnifyingGlass.center = self.magnifyingGlassLeftPos
+                    }
                 })
+            }
+            else if isInnHintButtonView || isInnQuestionView || isInnOkButtonView || isInnDistanceView || isInnBackButtonView
+            {
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    /*
+                    if self.hintButton.frame == self.hintButtonOrgFrame && isInnHintButtonView
+                    {
+                        self.hideHintButton()
+                    }
+                    */
+                    if self.hintButton.isVisible() && isInnHintButtonView
+                    {
+                        self.hintButton.hide()
+                    }
+                    if self.questionView.frame == self.questionViewOrgFrame && isInnQuestionView
+                    {
+                        self.questionView.center = CGPointMake(self.questionView.center.x, self.questionView.frame.maxY * -1)
+                    }
+                    if self.okButton.frame == self.okButtonOrgFrame && isInnOkButtonView
+                    {
+                        self.hideOkButton()
+                    }
+                    if let button = self.backButton
+                    {
+                        if isInnBackButtonView && button.frame == self.backButtonOrgFrame
+                        {
+                            self.hideBackButton()
+                        }
+                    }
+                    
+                    
+                    if self.distanceView.frame == self.distanceViewOrgFrame && isInnDistanceView
+                    {
+                        self.distanceView.center = CGPointMake(self.distanceView.center.x, self.map.frame.maxY + self.distanceView.frame.height)
+                    }
 
-        }
-        else if(isInnView)
-        {
+                })
+            }
+            else
+            {
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    /*
+                    if self.hintButton.frame != self.hintButtonOrgFrame
+                    {
+                        self.hideHintButton(false)
+                    }*/
+                    if !self.hintButton.isVisible()
+                    {
+                        self.hintButton.hide(false)
+                    }
+                    if self.questionView.frame != self.questionViewOrgFrame
+                    {
+                        self.questionView.frame = self.questionViewOrgFrame
+                    }
+                    if self.okButton.frame != self.okButtonOrgFrame
+                    {
+                        self.hideOkButton(false)
+                    }
+                    if let button = self.backButton
+                    {
+                        if button.frame != self.backButtonOrgFrame
+                        {
+                            self.hideBackButton(false)
+                        }
+                    }
+                    if self.distanceView.frame != self.distanceViewOrgFrame
+                    {
+                        self.distanceView.frame = self.distanceViewOrgFrame
+                    }
+                })
+            }
+            
             playerIcon.alpha = 0
             magnifyingGlass.setTouchPoint(touchLocation)
             magnifyingGlass.setNeedsDisplay()
@@ -369,7 +558,55 @@ class PlayViewController: UIViewController , MapDelegate {
                 }, completion: { (value: Bool) in
             })
         }
-
+    }
+    /*
+    func hideHintButton(hide:Bool = true)
+    {
+        if hide
+        {
+            self.hintButton.center = CGPointMake(self.hintButton.frame.maxX * -1, self.hintButton.center.y)
+        }
+        else
+        {
+            self.hintButton.frame = self.hintButtonOrgFrame
+        }
+    }
+    */
+    
+    func hideOkButton(hide:Bool = true)
+    {
+        if hide
+        {
+            self.okButton.center = CGPointMake(UIScreen.mainScreen().bounds.maxX + self.okButton.frame.width, self.okButton.center.y)
+        }
+        else
+        {
+            self.okButton.frame = self.okButtonOrgFrame
+        }
+    }
+    
+    func hideNextButton(hide:Bool = true)
+    {
+        if hide
+        {
+            self.nextButton.center = nextButtonHiddenOrigin
+        }
+        else
+        {
+            self.nextButton.center = nextButtonVisibleOrigin
+        }
+    }
+    
+    func hideBackButton(hide:Bool = true)
+    {
+        if hide
+        {
+            self.backButton?.center = self.backButtonHiddenOrigin
+        }
+        else
+        {
+            self.backButton?.center = self.backButtonVisibleOrigin
+        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

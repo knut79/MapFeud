@@ -94,7 +94,8 @@ class DataHandler
                                 addDefaultQuestion = true
                                 let level = elements[4]
                                 intStringLevel = level.substringFromIndex(level.startIndex.advancedBy(level.characters.count - 1))//String(level.characters.last)
-                                info = elements[5]
+                                let infoElements = elements[5].componentsSeparatedByString("#")
+                                info = infoElements[0]
                                 
                                 let hintElements = elements[6].componentsSeparatedByString("#")
                                 
@@ -260,10 +261,10 @@ class DataHandler
     func populateData(completePopulating: (() -> (Void))?)
     {
 
-        //readTxtFile("statesAfrica")
-        //readTxtFile("statesAsia")
-        //readTxtFile("statesNorthAmerica")
-        //readTxtFile("statesAsia")
+        readTxtFile("statesAfrica")
+        readTxtFile("statesAsia")
+        readTxtFile("statesNorthAmerica")
+        readTxtFile("statesAsia")
         readTxtFile("capitalsAmerica")
         
 

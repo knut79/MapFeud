@@ -26,16 +26,8 @@ class TileContainerOverlayLayer: CALayer {
     var resolutionPercentage:CGFloat = 100
     var zoomScale:CGFloat = 1
     
-    /*
-    func drawLines(regions:[[LinePoint]],excludedRegions:[[LinePoint]], resolutionPercentage:CGFloat, zoomScale:CGFloat)
-    {
-        self.regions = regions
-        self.exludedRegions = excludedRegions
-        self.resolutionPercentage = resolutionPercentage
-        self.zoomScale = zoomScale
-        self.setNeedsDisplay()
-    }
-    */
+    var placeType:PlaceType?
+    
 
     override func drawInContext(ctx: CGContext)
     {
@@ -72,7 +64,15 @@ class TileContainerOverlayLayer: CALayer {
     func drawMask(context:CGContext)
     {
         //let maskImage = UIImage(named: "25MaskWater.png" )
-        let maskImage = UIImage(named: "25MaskLand.png" )
+        var useLandMask = true
+        if let pt = placeType
+        {
+            if pt == PlaceType.Lake || pt == PlaceType.UnDefWaterRegion
+            {
+                useLandMask = false
+            }
+        }
+        let maskImage = UIImage(named: useLandMask ? "25MaskLand.png" : "25MaskWater.png")
         //let maskImageScaled = UIImage(CGImage: maskImage!.CGImage!, scale: zoomScale, orientation: UIImageOrientation.Up)
         let sacleSize = CGSizeMake(maskImage!.size.width * zoomScale, maskImage!.size.height * zoomScale)
         UIGraphicsBeginImageContextWithOptions(sacleSize, false, 0.0);
