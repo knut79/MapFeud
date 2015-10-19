@@ -14,6 +14,7 @@ class DistanceView: UIView {
     
     var distance:Int = 0
     var distanceLabel:UILabel!
+    var orgFrame:CGRect!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -49,6 +50,22 @@ class DistanceView: UIView {
         
     }
 
+    func isVisible() -> Bool
+    {
+        return self.frame == orgFrame
+    }
+    
+    func hide(hide:Bool = true)
+    {
+        if hide
+        {
+            self.center = CGPointMake(self.center.x, UIScreen.mainScreen().bounds.maxY + self.frame.height)
+        }
+        else
+        {
+            self.frame = self.orgFrame
+        }
+    }
     
 }
 

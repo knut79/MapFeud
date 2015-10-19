@@ -14,14 +14,17 @@ class HintButton: UIButton {
     var innerView:UILabel!
     var numberOfHints:UILabel!
     var orgFrame:CGRect!
+    var hintsLeftOnQuestion:Int = 2
+    var hintsLeftOnAccount:Int!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, hintsLeftOnAccount:Int) {
         super.init(frame: frame)
         
+        self.hintsLeftOnAccount = hintsLeftOnQuestion
         innerView = UILabel(frame: CGRectMake(self.bounds.width * 0.1 ,self.bounds.width * 0.1, self.bounds.width * 0.8,self.bounds.width * 0.8))
         innerView.text = "❕"
         innerView.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -33,7 +36,16 @@ class HintButton: UIButton {
         
         
         numberOfHints = UILabel(frame: CGRectMake(self.bounds.width * 0.6 ,self.bounds.width * 0.6, self.bounds.width * 0.4,self.bounds.width * 0.4))
-        numberOfHints.text = "2"
+        let hintsMiniIcon = hintsLeftOnAccount >= 2 ? "2" : "\(hintsLeftOnAccount)"
+        if hintsLeftOnAccount == 0
+        {
+            numberOfHints.text = "+"
+        }
+        else
+        {
+            numberOfHints.text = "\(hintsMiniIcon)"
+        }
+        
         numberOfHints.backgroundColor = UIColor.blueColor()
         numberOfHints.adjustsFontSizeToFitWidth = true
         numberOfHints.textColor = UIColor.whiteColor()
@@ -47,9 +59,29 @@ class HintButton: UIButton {
         
     }
     
-    func setHintsLeft(hints:Int)
+
+    func deductHints()
     {
-        numberOfHints.text = "hints"
+        hintsLeftOnAccount!--
+        hintsLeftOnQuestion--
+        
+        let hintsMiniIcon = hintsLeftOnAccount >= hintsLeftOnQuestion ? "\(hintsLeftOnQuestion)" : "\(hintsLeftOnAccount)"
+        if hintsLeftOnAccount == 0
+        {
+            numberOfHints.text = "+"
+        }
+        else
+        {
+            numberOfHints.text = "\(hintsMiniIcon)"
+        }
+        
+        numberOfHints.text = "\(hintsLeftOnQuestion)"
+    }
+    
+    func restoreHints()
+    {
+        hintsLeftOnQuestion = 2
+        numberOfHints.text = "\(hintsLeftOnQuestion)"
     }
     
     func isVisible() -> Bool

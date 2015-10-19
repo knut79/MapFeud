@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/PlayViewController.swift"
-            timestampString = "466905284.094743"
+            timestampString = "466909655.181968"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "useHintAction()"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "setupButtons()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

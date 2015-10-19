@@ -63,7 +63,7 @@ class QuestionView: UIView {
         }
         else
         {
-            orgFrame = self.frame
+            //orgFrame = self.frame
             orgImageFrame = imageView.frame
             orgTextPosition = questionText.center
             let widthRatio = (UIScreen.mainScreen().bounds.width - 20) / imageView.frame.width
@@ -104,6 +104,23 @@ class QuestionView: UIView {
             imageView.alpha = 0
             questionText.frame = CGRectMake(3, 0, self.bounds.width - 6, self.bounds.height)
         }
-
+    }
+    
+    func isVisible() -> Bool
+    {
+        return self.frame == orgFrame
+    }
+    
+    func hide(hide:Bool = true)
+    {
+        if hide
+        {
+            self.center = CGPointMake(self.center.x, self.frame.maxY * -1)
+        }
+        else
+        {
+            self.frame = self.orgFrame
+        }
+        
     }
 }

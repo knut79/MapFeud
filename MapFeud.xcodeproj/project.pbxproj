@@ -788,6 +788,7 @@
 		72BD9F271BD3D5530062FE44 /* world_25_border_3_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F1B1BD3D5530062FE44 /* world_25_border_3_0.jpg */; settings = {ASSET_TAGS = (); }; };
 		72BD9F281BD3D5530062FE44 /* world_25_border_3_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F1C1BD3D5530062FE44 /* world_25_border_3_1.jpg */; settings = {ASSET_TAGS = (); }; };
 		72BD9F291BD3D5530062FE44 /* world_25_border_3_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72BD9F1D1BD3D5530062FE44 /* world_25_border_3_2.jpg */; settings = {ASSET_TAGS = (); }; };
+		72BD9F2B1BD4747E0062FE44 /* OkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD9F2A1BD4747E0062FE44 /* OkButton.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1596,6 +1597,7 @@
 		72BD9F1B1BD3D5530062FE44 /* world_25_border_3_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_3_0.jpg; sourceTree = "<group>"; };
 		72BD9F1C1BD3D5530062FE44 /* world_25_border_3_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_3_1.jpg; sourceTree = "<group>"; };
 		72BD9F1D1BD3D5530062FE44 /* world_25_border_3_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_25_border_3_2.jpg; sourceTree = "<group>"; };
+		72BD9F2A1BD4747E0062FE44 /* OkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2335,6 +2337,7 @@
 				7254B1F61BC9E4F900A22920 /* MagnifyingGlassView.swift */,
 				7254B1F81BCB27AD00A22920 /* HintButton.swift */,
 				72BD9D2D1BD2FEF60062FE44 /* DistanceView.swift */,
+				72BD9F2A1BD4747E0062FE44 /* OkButton.swift */,
 			);
 			name = Play;
 			sourceTree = "<group>";
@@ -3482,6 +3485,7 @@
 				7254B2121BD08A8200A22920 /* Colors.swift in Sources */,
 				7254B2231BD08D5600A22920 /* UserScrollView.swift in Sources */,
 				7254B04A1BC5708700A22920 /* MapFeud.xcdatamodeld in Sources */,
+				72BD9F2B1BD4747E0062FE44 /* OkButton.swift in Sources */,
 				7254B20D1BD08A7A00A22920 /* RectangleLayer.swift in Sources */,
 				72424A561BC2C468009FED5C /* PlayViewController.swift in Sources */,
 				7254B0431BC40E6800A22920 /* DataHandler.swift in Sources */,
