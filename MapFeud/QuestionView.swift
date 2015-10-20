@@ -115,7 +115,10 @@ class QuestionView: UIView {
     {
         if hide
         {
-            self.center = CGPointMake(self.center.x, self.frame.maxY * -1)
+            if isVisible()
+            {
+                self.center = CGPointMake(self.center.x, self.frame.maxY * -1)
+            }
         }
         else
         {

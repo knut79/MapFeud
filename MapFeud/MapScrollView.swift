@@ -160,7 +160,9 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         let zoomRectWidth = scrollView.frame.width
         let zoomRectHeight = scrollView.frame.height
         
+        print("x pos \(xPos) y pos \(yPos)")
         scrollView.zoomToRect(CGRectMake(xPos - (zoomRectWidth / 2), yPos - (zoomRectHeight / 2), zoomRectWidth , zoomRectHeight), animated: true)
+
         
         overlayDrawView?.fromPoint = realMapCordsPlayerPoint
         overlayDrawView?.toPoint = realMapCordsNearestPoint

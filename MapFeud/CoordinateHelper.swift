@@ -62,11 +62,11 @@ class CoordinateHelper {
                     }
                     if vertices[i].y < minY
                     {
-                        minX = vertices[i].y
+                        minY = vertices[i].y
                     }
                     if vertices[i].y > maxY
                     {
-                        maxX = vertices[i].y
+                        maxY = vertices[i].y
                     }
                 }
             }

@@ -59,7 +59,10 @@ class DistanceView: UIView {
     {
         if hide
         {
-            self.center = CGPointMake(self.center.x, UIScreen.mainScreen().bounds.maxY + self.frame.height)
+            if isVisible()
+            {
+                self.center = CGPointMake(self.center.x, UIScreen.mainScreen().bounds.maxY + self.frame.height)
+            }
         }
         else
         {

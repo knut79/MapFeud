@@ -30,9 +30,12 @@ class OkButton: UIButton {
     
     func hide(hide:Bool = true)
     {
-        if hide
+        if hide 
         {
-            self.center = CGPointMake(UIScreen.mainScreen().bounds.maxX + self.frame.width, self.center.y)
+            if isVisible()
+            {
+                self.center = CGPointMake(UIScreen.mainScreen().bounds.maxX + self.frame.width, self.center.y)
+            }
         }
         else
         {

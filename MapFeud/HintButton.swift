@@ -15,16 +15,16 @@ class HintButton: UIButton {
     var numberOfHints:UILabel!
     var orgFrame:CGRect!
     var hintsLeftOnQuestion:Int = 2
-    var hintsLeftOnAccount:Int!
+    var hintsLeftOnAccount:Int = 0
+    let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    init(frame: CGRect, hintsLeftOnAccount:Int) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.hintsLeftOnAccount = hintsLeftOnQuestion
         innerView = UILabel(frame: CGRectMake(self.bounds.width * 0.1 ,self.bounds.width * 0.1, self.bounds.width * 0.8,self.bounds.width * 0.8))
         innerView.text = "❕"
         innerView.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -34,7 +34,7 @@ class HintButton: UIButton {
         innerView.layer.masksToBounds = true
         self.addSubview(innerView)
         
-        
+        hintsLeftOnAccount = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
         numberOfHints = UILabel(frame: CGRectMake(self.bounds.width * 0.6 ,self.bounds.width * 0.6, self.bounds.width * 0.4,self.bounds.width * 0.4))
         let hintsMiniIcon = hintsLeftOnAccount >= 2 ? "2" : "\(hintsLeftOnAccount)"
         if hintsLeftOnAccount == 0
@@ -62,9 +62,15 @@ class HintButton: UIButton {
 
     func deductHints()
     {
-        hintsLeftOnAccount!--
-        hintsLeftOnQuestion--
+        hintsLeftOnAccount = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
+        hintsLeftOnAccount--
         
+        hintsLeftOnQuestion--
+
+        NSUserDefaults.standardUserDefaults().setInteger(hintsLeftOnQuestion, forKey: "hintsLeftOnAccount")
+        datactrl.hintsValue = hintsLeftOnAccount
+        datactrl.saveGameData()
+
         let hintsMiniIcon = hintsLeftOnAccount >= hintsLeftOnQuestion ? "\(hintsLeftOnQuestion)" : "\(hintsLeftOnAccount)"
         if hintsLeftOnAccount == 0
         {
@@ -75,7 +81,17 @@ class HintButton: UIButton {
             numberOfHints.text = "\(hintsMiniIcon)"
         }
         
+        
+        if hintsLeftOnQuestion <= 0
+        {
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.hide()
+            })
+        }
+        
         numberOfHints.text = "\(hintsLeftOnQuestion)"
+        
+        
     }
     
     func restoreHints()
@@ -93,11 +109,17 @@ class HintButton: UIButton {
     {
         if hide
         {
-            self.center = CGPointMake(self.frame.maxX * -1, self.center.y)
+            if isVisible()
+            {
+                self.center = CGPointMake(self.frame.width * -1, self.center.y)
+            }
         }
         else
         {
-            self.frame = self.orgFrame
+            if hintsLeftOnQuestion > 0
+            {
+                self.frame = self.orgFrame
+            }
         }
     }
 }

@@ -217,12 +217,9 @@ class PlayViewController: UIViewController , MapDelegate {
     {
         playerIcon.alpha = 0
         map.setPoint(playerIcon.center)
-        //let southAfricaTestExcluded = datactrl.fetchPlace("South Africa")
-        //let southAfricaTestExcluded = datactrl.fetchPlace("Usa")
-        //let southAfricaTestExcluded = datactrl.fetchPlace("Japan")
-        let southAfricaTestExcluded = currentQuestion.place
+        let questionPlace = currentQuestion.place
 
-        map.animateAnswer(southAfricaTestExcluded)
+        map.animateAnswer(questionPlace)
     }
     
     func finishedAnimatingAnswer(distance:Int)
@@ -236,6 +233,8 @@ class PlayViewController: UIViewController , MapDelegate {
                 
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.hideNextButton(false)
+                    self.hintButton.hide()
+                    self.playerIcon.alpha = 0
                     })
                 
 
@@ -374,6 +373,7 @@ class PlayViewController: UIViewController , MapDelegate {
         map.clearDrawing()
         self.answerView.userInteractionEnabled = false
         currentQuestion = datactrl.questionItems[questionindex % datactrl.questionItems.count]
+        //currentQuestion = datactrl.fetchPlace("Japan")!.questions.allObjects[0] as! Question
         questionindex++
         if let qv = questionView
         {

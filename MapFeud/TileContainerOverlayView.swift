@@ -37,7 +37,7 @@ class TileContainerOverlayLayer: CALayer {
         CGContextSetLineJoin(ctx, CGLineJoin.Round)
         CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 1)
         CGContextSetRGBFillColor(ctx, 1.0, 0.0, 0.0, 1.0)
-        CGContextSetFillColorWithColor(ctx, UIColor.blackColor().CGColor)
+        CGContextSetFillColorWithColor(ctx, UIColor.redColor().CGColor)
         
 
         //test
