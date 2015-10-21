@@ -26,7 +26,7 @@ class TagCheckView: UIView
         super.init(coder: aDecoder)
     }
     
-    init(frame: CGRect, tagTitle:String, checked:Bool = true) {
+    init(frame: CGRect, tagTitle:String, checked:Bool = true, enable:Bool = true) {
         super.init(frame: frame)
         
         self.checked = checked
@@ -39,7 +39,6 @@ class TagCheckView: UIView
         {
             checkBoxView.setTitle("◽️", forState: UIControlState.Normal)
         }
-        checkBoxView.addTarget(self, action: "toggleSelect:", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.addSubview(checkBoxView)
         
@@ -47,6 +46,18 @@ class TagCheckView: UIView
         titleLabel = UILabel(frame: CGRectMake(checkBoxView.frame.maxX, 0, frame.width * 0.66, frame.height))
         titleLabel.text = tagTitle
         self.addSubview(titleLabel)
+        
+        if enable
+        {
+            checkBoxView.addTarget(self, action: "toggleSelect:", forControlEvents: UIControlEvents.TouchUpInside)
+        }
+        else
+        {
+            titleLabel.alpha = 0.5
+            checkBoxView.alpha = 0.5
+        }
+        
+
         
     }
     

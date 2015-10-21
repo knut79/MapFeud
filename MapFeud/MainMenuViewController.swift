@@ -766,10 +766,10 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             return
         }
         
-        if self.tags.count < 3
+        if self.tags.count < 1
         {
-            let numberPrompt = UIAlertController(title: "Pick 3",
-                message: "Select at least 3 tags",
+            let numberPrompt = UIAlertController(title: "Pick 1",
+                message: "Select at least 1 tags",
                 preferredStyle: .Alert)
             
             

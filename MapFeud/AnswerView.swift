@@ -39,7 +39,7 @@ class AnswerView: UIView {
         infoText.textColor = UIColor.blackColor()
         self.addSubview(infoText)
         
-        answerText = UILabel(frame: CGRectMake(0, 0, self.bounds.width, self.bounds.height))
+        answerText = UILabel(frame: CGRectMake(self.bounds.width * 0.05, 0, self.bounds.width * 0.9, self.bounds.height))
         answerText.adjustsFontSizeToFitWidth = true
         answerText.textAlignment = NSTextAlignment.Center
         answerText.font = UIFont.boldSystemFontOfSize(24)

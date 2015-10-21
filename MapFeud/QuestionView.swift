@@ -22,7 +22,7 @@ class QuestionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
-        questionText = UILabel(frame: CGRectMake(0, 0, self.bounds.width, self.bounds.height))
+        questionText = UILabel(frame: CGRectMake(self.bounds.width * 0.05, 0, self.bounds.width * 0.9, self.bounds.height))
         questionText.adjustsFontSizeToFitWidth = true
         questionText.textAlignment = NSTextAlignment.Center
         questionText.font = UIFont.boldSystemFontOfSize(24)
@@ -102,7 +102,7 @@ class QuestionView: UIView {
         else
         {
             imageView.alpha = 0
-            questionText.frame = CGRectMake(3, 0, self.bounds.width - 6, self.bounds.height)
+            questionText.frame = CGRectMake(self.bounds.width * 0.05, 0, self.bounds.width * 0.9, self.bounds.height)
         }
     }
     

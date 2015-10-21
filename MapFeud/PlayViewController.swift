@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayViewController: UIViewController , MapDelegate {
+class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
 
     var datactrl:DataHandler!
     var map:MapScrollView!
@@ -24,6 +24,7 @@ class PlayViewController: UIViewController , MapDelegate {
     var levelHigh:Int = 1
     var levelLow:Int = 1
     var tags:[String] = []
+    
     var gametype:gameType!
     var usersIdsToChallenge:[String] = []
     var completedQuestionsIds:[String] = []
@@ -44,6 +45,9 @@ class PlayViewController: UIViewController , MapDelegate {
     var backButtonHiddenOrigin:CGPoint!
     
     var drawBorders:Bool = false
+    
+    var clock:ClockView!
+    var orgClockCenter:CGPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,15 +100,20 @@ class PlayViewController: UIViewController , MapDelegate {
         self.view.addSubview(answerView)
         
 
+        clock = ClockView(frame: CGRectMake(0, 0, magnifyingSide, magnifyingSide))
+        orgClockCenter = magnifyingGlassRightPos
+        clock.center = orgClockCenter
+        clock.delegate = self
+        view.addSubview(clock)
         
-        datactrl.fetchData()
+        datactrl.fetchData(tags,fromLevel:levelLow,toLevel: levelHigh)
         datactrl.shuffleQuestions()
         datactrl.orderOnUsed()
-        
-        
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         startGame()
-
-
     }
     
     func setupButtons()
@@ -202,8 +211,13 @@ class PlayViewController: UIViewController , MapDelegate {
     
     func okAction()
     {
+        clock.stop()
+        self.clock.alpha = 0
+        self.clock.transform = CGAffineTransformIdentity
+        self.clock.center = orgClockCenter
+        
+        self.playerIcon.alpha = 0
         UIView.animateWithDuration(0.5, animations: { () -> Void in
-            //self.hideHintButton()
             self.hintButton.hide()
             self.okButton.hide()
             }, completion: { (value: Bool) in
@@ -234,7 +248,7 @@ class PlayViewController: UIViewController , MapDelegate {
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.hideNextButton(false)
                     self.hintButton.hide()
-                    self.playerIcon.alpha = 0
+
                     })
                 
 
@@ -347,15 +361,21 @@ class PlayViewController: UIViewController , MapDelegate {
     
     func nextAction()
     {
-
+        
+        
+        map.clearDrawing()
+        self.answerView.userInteractionEnabled = false
+        self.hintButton.restoreHints()
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             //self.hideHintButton(false)
             self.hintButton.hide(false)
             self.okButton.hide(false)
+            
             self.hideNextButton()
             }, completion: { (value: Bool) in
                 self.setNextQuestion()
                 self.playerIcon.alpha = 1
+                //self.clock.start(10.0)
         })
 
         
@@ -369,9 +389,7 @@ class PlayViewController: UIViewController , MapDelegate {
     
     func setNextQuestion()
     {
-        self.hintButton.restoreHints()
-        map.clearDrawing()
-        self.answerView.userInteractionEnabled = false
+        
         currentQuestion = datactrl.questionItems[questionindex % datactrl.questionItems.count]
         //currentQuestion = datactrl.fetchPlace("Japan")!.questions.allObjects[0] as! Question
         questionindex++
@@ -407,6 +425,8 @@ class PlayViewController: UIViewController , MapDelegate {
                     }, completion: { (value: Bool) in
                         
                         self.questionView.questionText.textColor = UIColor.blackColor()
+                        self.clock.alpha = 1
+                        self.clock.start(10.0)
                         
                 })
                 
@@ -454,10 +474,12 @@ class PlayViewController: UIViewController , MapDelegate {
                     if self.magnifyingGlass.center == self.magnifyingGlassLeftPos
                     {
                         self.magnifyingGlass.center = self.magnifyingGlassRightPos
+                        self.clock.center = self.magnifyingGlassRightPos
                     }
                     else
                     {
                         self.magnifyingGlass.center = self.magnifyingGlassLeftPos
+                        self.clock.center = self.magnifyingGlassLeftPos
                     }
                 })
             }
@@ -547,8 +569,35 @@ class PlayViewController: UIViewController , MapDelegate {
             })
         }
     }
-
     
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first
+        let touchLocation = touch!.locationInView(self.view)
+        
+
+        
+        let isInnView = CGRectContainsPoint(self.playerIcon!.frame,touchLocation)
+        if(isInnView)
+        {
+            
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                
+                //_? wont this happen when we look at the result
+                self.playerIcon.alpha = 1
+                self.okButton.hide(false)
+                self.hintButton.hide(false)
+                self.questionView.hide(false)
+                self.distanceView.hide(false)
+                
+                self.magnifyingGlass.alpha = 0
+                self.magnifyingGlass.center = touchLocation
+                self.magnifyingGlass.transform = CGAffineTransformScale(self.magnifyingGlass.transform, 0.1, 0.1)
+                self.playerIcon.transform = CGAffineTransformIdentity
+                }, completion: { (value: Bool) in
+            })
+        }
+    }
+
     func hideNextButton(hide:Bool = true)
     {
         if hide
@@ -573,23 +622,7 @@ class PlayViewController: UIViewController , MapDelegate {
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let touch = touches.first//touches.anyObject()
-        let touchLocation = touch!.locationInView(self.view)
-        playerIcon.alpha = 1
-        let isInnView = CGRectContainsPoint(self.playerIcon!.frame,touchLocation)
-        if(isInnView)
-        {
-            
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
-                self.magnifyingGlass.alpha = 0
-                self.magnifyingGlass.center = touchLocation
-                self.magnifyingGlass.transform = CGAffineTransformScale(self.magnifyingGlass.transform, 0.1, 0.1)
-                self.playerIcon.transform = CGAffineTransformIdentity
-                }, completion: { (value: Bool) in
-            })
-        }
-    }
+    
     
     func tapMap(gesture:UITapGestureRecognizer)
     {
@@ -600,6 +633,54 @@ class PlayViewController: UIViewController , MapDelegate {
         UIView.animateWithDuration(0.25, animations: { () -> Void in
             self.playerIcon.transform = CGAffineTransformIdentity
             }, completion: { (value: Bool) in
+        })
+    }
+    
+    func timeup()
+    {
+        print("timeup")
+        
+        animateTimeup({() -> Void in
+        
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.hintButton.hide()
+                self.okButton.hide()
+            }, completion: { (value: Bool) in
+                self.setPoint()
+            })
+
+        
+        })
+        //clock.stop()
+    }
+    
+    func animateTimeup(completion: (() -> (Void)))
+    {
+        let midscreen = CGPointMake(UIScreen.mainScreen().bounds.midX, UIScreen.mainScreen().bounds.midY)
+        let label = UILabel(frame: CGRectMake(0, 0, 100, 40))
+        label.textAlignment = NSTextAlignment.Center
+        label.font = UIFont.boldSystemFontOfSize(20)
+        label.adjustsFontSizeToFitWidth = true
+        label.backgroundColor = UIColor.clearColor()
+        label.textColor = UIColor.whiteColor()
+        label.text = "Time is up"
+        label.alpha = 0
+        label.center = midscreen
+        label.transform = CGAffineTransformScale(label.transform, 0.1, 0.1)
+        self.view.addSubview(label)
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                label.alpha = 1
+                label.transform = CGAffineTransformIdentity
+                self.clock.center = midscreen
+                self.clock.transform = CGAffineTransformScale(self.clock.transform, 1.5, 1.5)
+            }, completion: { (value: Bool) in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                        self.clock.alpha = 0
+                        label.alpha = 0
+                    }, completion: { (value: Bool) in
+                        label.removeFromSuperview()
+                        completion()
+                })
         })
     }
     

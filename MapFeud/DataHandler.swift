@@ -29,7 +29,7 @@ class DataHandler
         questionItems = []
     }
     
-    func readTxtFile(name:String)
+    func readTxtFile(name:String, tags:String = "")
     {
         
         if let path = NSBundle.mainBundle().pathForResource(name, ofType: "txt"){
@@ -63,9 +63,18 @@ class DataHandler
                             let level = questionElements[2]
                             let intStringLevel = level.substringFromIndex(level.startIndex.advancedBy(level.characters.count - 1))
                             let image = questionElements[3]
+                            
+                            //tag hack
+                            var tagsForNonDefaultQuestion = tags
+                            if image != ""
+                            {
+                                tagsForNonDefaultQuestion = "\(tagsForNonDefaultQuestion)#flag"
+                            }
+                            
                             let englishText = questionElements[4]
                             
-                            let question = Question.createInManagedObjectContext(self.managedObjectContext, text: englishText, level:Int(intStringLevel)!, image:image,answerTemplate: "from $")
+                            print("tags for default question: \(tagsForNonDefaultQuestion)")
+                            let question = Question.createInManagedObjectContext(self.managedObjectContext, text: englishText, level:Int(intStringLevel)!, image:image,answerTemplate: "from $",tags: tagsForNonDefaultQuestion)
                             questions.append(question)
                             
                         }
@@ -89,6 +98,7 @@ class DataHandler
                             var excludePlaces = ""
                             var includePlaces = ""
                             var addDefaultQuestion = false
+                            var tagsForDefaultQuestion = tags
                             if elements[4] != "notUsed"
                             {
                                 addDefaultQuestion = true
@@ -110,6 +120,10 @@ class DataHandler
                                         includePlaces = elements[8]
                                     }
                                 }
+                                if elements.count > 9
+                                {
+                                    tagsForDefaultQuestion = "\(tagsForDefaultQuestion)\(elements[9] as String)"
+                                }
                             }
                             
                             let typeInt = Int16(typeStringToEnum(type).rawValue)
@@ -118,7 +132,7 @@ class DataHandler
                             
                             if addDefaultQuestion
                             {
-                                addDefaultQuestionForPlace(place,level: Int(intStringLevel)!, overrideQuestionText: overrideQuestionTemplateText)
+                                addDefaultQuestionForPlace(place,level: Int(intStringLevel)!, overrideQuestionText: overrideQuestionTemplateText,tags: tagsForDefaultQuestion)
                             }
                             
                             
@@ -153,7 +167,7 @@ class DataHandler
                             
                         }
                     
-                    print(textline)
+                    //print(textline)
                 }
                 save()
             
@@ -215,7 +229,7 @@ class DataHandler
     }
 
     
-    func addDefaultQuestionForPlace(place:Place, level:Int, overrideQuestionText:String?)
+    func addDefaultQuestionForPlace(place:Place, level:Int, overrideQuestionText:String?, tags:String)
     {
         var questionText = "Where is \(place.name) located"
         var answerText = "from $"
@@ -252,21 +266,35 @@ class DataHandler
         {
             questionText = "\(qtext) \(place.name)"
         }
-        
-        let question = Question.createInManagedObjectContext(self.managedObjectContext, text: questionText, level:level, image:"", answerTemplate:answerText)
+        print("tags for default question: \(tags)")
+        let question = Question.createInManagedObjectContext(self.managedObjectContext, text: questionText, level:level, image:"", answerTemplate:answerText,tags: tags)
         place.addQuestion(question)
     }
     
     
     func populateData(completePopulating: (() -> (Void))?)
     {
-
-        readTxtFile("statesAfrica")
-        readTxtFile("statesAsia")
-        readTxtFile("statesNorthAmerica")
-        readTxtFile("statesAsia")
-        readTxtFile("capitalsAmerica")
         
+        readTxtFile("statesAfrica",tags: "#africa")
+        readTxtFile("statesAsia",tags: "#asia")
+        readTxtFile("statesEastAsia",tags: "#asia")
+        readTxtFile("statesEurope",tags: "#europe")
+        readTxtFile("statesSouthAmerica",tags: "#southamerica#america")
+        readTxtFile("statesNorthAmerica",tags: "#northamerica#america")
+        readTxtFile("statesOceania",tags: "#oceania")
+        
+        readTxtFile("lakes",tags: "#water")
+        readTxtFile("waterRegions",tags: "#water")
+        
+        readTxtFile("capitalsAfrica",tags: "#capital#africa#city")
+        readTxtFile("capitalsAsia",tags: "#capital#asia#city")
+        readTxtFile("capitalsMiddleEast",tags: "#capital#asia#city")
+        readTxtFile("capitalsEurope",tags: "#capital#europe#city")
+        readTxtFile("capitalsSouthAmerica",tags: "#capital#america#city")
+        
+        readTxtFile("places")
+        readTxtFile("islands",tags: "#island")
+        readTxtFile("cities",tags: "#city")
 
 
         //savePeriodesFromCollection(dataToPopulate)
@@ -319,7 +347,7 @@ class DataHandler
         //fetchRequest.sortDescriptors = [sortDescriptor]
         
 
-        /*
+        
         var predicateTags:String = ""
         if tags.count > 0
         {
@@ -332,10 +360,13 @@ class DataHandler
             }
             predicateTags.removeAtIndex(predicateTags.startIndex)
         }
-        
+        /*
         let predicate = NSPredicate(format: "periods.@count > 0 AND level >= \(fromLevel) AND level <= \(toLevel) AND tags  MATCHES '.*(\(predicateTags)).*'")//
         fetchEvents.predicate = predicate
         */
+        let predicate = NSPredicate(format: "level >= \(fromLevel) AND level <= \(toLevel) AND tags  MATCHES '.*(\(predicateTags)).*'")//
+        fetchEvents.predicate = predicate
+        
         if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Question] {
             questionItems = fetchResults
         }

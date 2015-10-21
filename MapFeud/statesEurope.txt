@@ -2473,6 +2473,10 @@ inf;State;Isle of Man;10;level5;A self-governing British Crown dependency locate
 2006;1357
 qst;coaItaly##level1#ItalyFlag.png#What county is represented by this flag##spn#fra#ger##
 inf;State;Italy;10;level1;The sovereign states of San Marino and the Vatican City are enclaves within Italy. It is considered to be a major European power able to exert its influence on a global scale. Capital: Rome##spn#fra#ger;Europe#Southern Europe
+2062;1357
+2062;1358
+2061;1358
+inf;State;San Marino;10;level5;Is an enclaved microstate surrounded by Italy, situated on the Italian Peninsula on the north-eastern side of the Apennine Mountains. Its size is just over 61 km2 with an estimated population of over 30,000.#nor#spn#fra#ger;Europe#Italia
 1823;745
 1823;748
 1818;750

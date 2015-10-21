@@ -23,6 +23,7 @@ class TagCheckScrollView: UIView , UIScrollViewDelegate, TagCheckItemProtocol{
     
     var tagCheckItems:[TagCheckView]!
     var tags:[String]!
+    var tagsDisabled:[String]!
     var scrollView:UIScrollView!
     var closeButton:UIButton!
     var delegate:TagCheckViewProtocol!
@@ -36,6 +37,7 @@ class TagCheckScrollView: UIView , UIScrollViewDelegate, TagCheckItemProtocol{
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.tags = []
+        self.tagsDisabled = []
         tagCheckItems = []
         
         
@@ -57,37 +59,51 @@ class TagCheckScrollView: UIView , UIScrollViewDelegate, TagCheckItemProtocol{
         self.layer.borderWidth = 2.0
         
         
-        tags.append("#war")
-        tags.append("#headOfState")
-        tags.append("#science")
-        tags.append("#discovery")
-        tags.append("#invention")
-        tags.append("#sport")
-        tags.append("#miscellaneous")
-        
+        tags.append("#capital")
+        tags.append("#city")
+        tags.append("#flag")
+        tags.append("#northamerica")
+        tags.append("#southamerica")
+        tags.append("#america")
+        tags.append("#asia")
+        tags.append("#africa")
+        tags.append("#europe")
+        tags.append("#oceania")
+        tags.append("#island")
+        tags.append("#water")
+        /*
+        tagsDisabled.append("#northamerica")
+        tagsDisabled.append("#southamerica")
+        tagsDisabled.append("#america")
+        tagsDisabled.append("#asia")
+        tagsDisabled.append("#africa")
+        tagsDisabled.append("#europe")
+        tagsDisabled.append("#oceania")
+        tagsDisabled.append("#island")
+        tagsDisabled.append("#water")
+        */
         
         let itemheight:CGFloat = 40
         
         selectedInfoLabel = UILabel(frame: CGRectMake(0, 0, self.frame.width - closeButton.frame.width, itemheight))
         selectedInfoLabel.textAlignment = NSTextAlignment.Center
         selectedInfoLabel.text = "\(tags.count) tags selected"
-        /*
-        let unselectBoxButton = UIButton(frame: CGRectMake(0, 0, itemheight, itemheight))
-        unselectBoxButton.setTitle("◽️", forState: UIControlState.Normal)
-        unselectBoxButton.addTarget(self, action: "unselectAllTags", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        let unselectTitleLabel = UILabel(frame: CGRectMake(unselectBoxButton.frame.maxX, 0, frame.width * 0.66, itemheight))
-        unselectTitleLabel.text = "Unselect all"
-        
-        scrollView.addSubview(unselectBoxButton)
-        scrollView.addSubview(unselectTitleLabel)
-        */
+
         
         var contentHeight:CGFloat = 0
         var i:CGFloat = 0
         for tagItem in tags
         {
             let newTagCheckItem = TagCheckView(frame: CGRectMake(0, itemheight * i, self.frame.width, itemheight), tagTitle: tagItem)
+            newTagCheckItem.delegate = self
+            tagCheckItems.append(newTagCheckItem)
+            scrollView.addSubview(newTagCheckItem)
+            contentHeight = newTagCheckItem.frame.maxY
+            i++
+        }
+        for tagItem in tagsDisabled
+        {
+            let newTagCheckItem = TagCheckView(frame: CGRectMake(0, itemheight * i, self.frame.width, itemheight), tagTitle: tagItem, checked:false, enable:false)
             newTagCheckItem.delegate = self
             tagCheckItems.append(newTagCheckItem)
             scrollView.addSubview(newTagCheckItem)

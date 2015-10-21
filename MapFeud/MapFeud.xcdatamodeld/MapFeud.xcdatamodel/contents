@@ -22,6 +22,7 @@
         <attribute name="answerTemplate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="used" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="questions" inverseEntity="Place" syncable="YES"/>
@@ -29,6 +30,6 @@
     <elements>
         <element name="LinePoint" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Place" positionX="-36" positionY="27" width="128" height="195"/>
-        <element name="Question" positionX="0" positionY="108" width="128" height="135"/>
+        <element name="Question" positionX="0" positionY="108" width="128" height="150"/>
     </elements>
 </model>

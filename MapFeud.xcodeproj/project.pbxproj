@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722D8B331BD6A3CC00C2EABA /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		722D8B351BD6A46800C2EABA /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B341BD6A46800C2EABA /* ClockView.swift */; settings = {ASSET_TAGS = (); }; };
 		72424A541BC2C468009FED5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72424A531BC2C468009FED5C /* AppDelegate.swift */; };
 		72424A561BC2C468009FED5C /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72424A551BC2C468009FED5C /* PlayViewController.swift */; };
 		72424A591BC2C469009FED5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72424A571BC2C469009FED5C /* Main.storyboard */; };
@@ -269,7 +271,7 @@
 		7254B0091BC31E1000A22920 /* world_100_13_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7254AF491BC31E1000A22920 /* world_100_13_3.jpg */; settings = {ASSET_TAGS = (); }; };
 		7254B0231BC3E98000A22920 /* armsOfCoat.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7254B00D1BC3E98000A22920 /* armsOfCoat.txt */; settings = {ASSET_TAGS = (); }; };
 		7254B0241BC3E98000A22920 /* capitalsAfrica.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7254B00E1BC3E98000A22920 /* capitalsAfrica.txt */; settings = {ASSET_TAGS = (); }; };
-		7254B0251BC3E98000A22920 /* capitalsAmerica.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7254B00F1BC3E98000A22920 /* capitalsAmerica.txt */; settings = {ASSET_TAGS = (); }; };
+		7254B0251BC3E98000A22920 /* capitalsSouthAmerica.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7254B00F1BC3E98000A22920 /* capitalsSouthAmerica.txt */; settings = {ASSET_TAGS = (); }; };
 		7254B0261BC3E98000A22920 /* capitalsAsia.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0101BC3E98000A22920 /* capitalsAsia.txt */; settings = {ASSET_TAGS = (); }; };
 		7254B0271BC3E98000A22920 /* capitalsEurope.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0111BC3E98000A22920 /* capitalsEurope.txt */; settings = {ASSET_TAGS = (); }; };
 		7254B0281BC3E98000A22920 /* capitalsMiddleEast.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0121BC3E98000A22920 /* capitalsMiddleEast.txt */; settings = {ASSET_TAGS = (); }; };
@@ -809,6 +811,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
+		722D8B341BD6A46800C2EABA /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		72424A501BC2C468009FED5C /* MapFeud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapFeud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72424A531BC2C468009FED5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72424A551BC2C468009FED5C /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
@@ -1077,7 +1081,7 @@
 		7254AF491BC31E1000A22920 /* world_100_13_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = world_100_13_3.jpg; sourceTree = "<group>"; };
 		7254B00D1BC3E98000A22920 /* armsOfCoat.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = armsOfCoat.txt; sourceTree = "<group>"; };
 		7254B00E1BC3E98000A22920 /* capitalsAfrica.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitalsAfrica.txt; sourceTree = "<group>"; };
-		7254B00F1BC3E98000A22920 /* capitalsAmerica.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitalsAmerica.txt; sourceTree = "<group>"; };
+		7254B00F1BC3E98000A22920 /* capitalsSouthAmerica.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitalsSouthAmerica.txt; sourceTree = "<group>"; };
 		7254B0101BC3E98000A22920 /* capitalsAsia.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitalsAsia.txt; sourceTree = "<group>"; };
 		7254B0111BC3E98000A22920 /* capitalsEurope.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitalsEurope.txt; sourceTree = "<group>"; };
 		7254B0121BC3E98000A22920 /* capitalsMiddleEast.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capitalsMiddleEast.txt; sourceTree = "<group>"; };
@@ -1628,6 +1632,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		722D8B311BD6A3B700C2EABA /* Finish */ = {
+			isa = PBXGroup;
+			children = (
+				722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */,
+			);
+			name = Finish;
+			sourceTree = "<group>";
+		};
 		72424A471BC2C468009FED5C = {
 			isa = PBXGroup;
 			children = (
@@ -1651,6 +1663,7 @@
 		72424A521BC2C468009FED5C /* MapFeud */ = {
 			isa = PBXGroup;
 			children = (
+				722D8B311BD6A3B700C2EABA /* Finish */,
 				72BD9D2A1BD2AD9C0062FE44 /* Play */,
 				72BD9D221BD27A070062FE44 /* Frameworks */,
 				7254B2271BD08F3200A22920 /* Result */,
@@ -1989,7 +2002,7 @@
 			children = (
 				7254B00D1BC3E98000A22920 /* armsOfCoat.txt */,
 				7254B00E1BC3E98000A22920 /* capitalsAfrica.txt */,
-				7254B00F1BC3E98000A22920 /* capitalsAmerica.txt */,
+				7254B00F1BC3E98000A22920 /* capitalsSouthAmerica.txt */,
 				7254B0101BC3E98000A22920 /* capitalsAsia.txt */,
 				7254B0111BC3E98000A22920 /* capitalsEurope.txt */,
 				7254B0121BC3E98000A22920 /* capitalsMiddleEast.txt */,
@@ -2327,6 +2340,7 @@
 		72BD9D2A1BD2AD9C0062FE44 /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				722D8B341BD6A46800C2EABA /* ClockView.swift */,
 				72424A551BC2C468009FED5C /* PlayViewController.swift */,
 				7254B1FA1BCBC8FE00A22920 /* QuestionView.swift */,
 				7254B2001BD0581800A22920 /* AnswerView.swift */,
@@ -2791,7 +2805,7 @@
 				7254AFC81BC31E1000A22920 /* world_100_7_10.jpg in Resources */,
 				7254AFD01BC31E1000A22920 /* world_100_8_6.jpg in Resources */,
 				72BD9E0B1BD3D4C40062FE44 /* world_100_border_2_3.jpg in Resources */,
-				7254B0251BC3E98000A22920 /* capitalsAmerica.txt in Resources */,
+				7254B0251BC3E98000A22920 /* capitalsSouthAmerica.txt in Resources */,
 				72424A611BC2C469009FED5C /* LaunchScreen.storyboard in Resources */,
 				7254AFF71BC31E1000A22920 /* world_100_11_9.jpg in Resources */,
 				7254AFA41BC31E1000A22920 /* world_100_4_10.jpg in Resources */,
@@ -3504,11 +3518,13 @@
 				7254B21B1BD08B4A00A22920 /* RangeSliderTrackLayer.swift in Sources */,
 				7254B0471BC55C7E00A22920 /* Question.swift in Sources */,
 				7254B2071BD08A1B00A22920 /* TagCheckScrollview.swift in Sources */,
+				722D8B331BD6A3CC00C2EABA /* FinishedViewController.swift in Sources */,
 				7254B20E1BD08A7A00A22920 /* ArcLayer.swift in Sources */,
 				7254B2261BD08D5600A22920 /* ChallengeViewController.swift in Sources */,
 				72BD9D2E1BD2FEF60062FE44 /* DistanceView.swift in Sources */,
 				7254B1FB1BCBC8FE00A22920 /* QuestionView.swift in Sources */,
 				7254B22C1BD08F4200A22920 /* ResultsScrollView.swift in Sources */,
+				722D8B351BD6A46800C2EABA /* ClockView.swift in Sources */,
 				7254B2241BD08D5600A22920 /* RadiobuttonItemView.swift in Sources */,
 				7254B21A1BD08B4A00A22920 /* RangeSliderThumbLayer.swift in Sources */,
 				7254B22D1BD08F4200A22920 /* ResultItemView.swift in Sources */,
