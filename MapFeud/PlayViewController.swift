@@ -286,7 +286,7 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
             tempIconAnimateLabel.transform = CGAffineTransformScale(tempIconAnimateLabel.transform, 3, 3)
             tempIconAnimateLabel.frame.offsetInPlace(dx: 0, dy: UIScreen.mainScreen().bounds.height * 0.1)
             tempDisctanceAnimateLabel.transform = CGAffineTransformScale(tempDisctanceAnimateLabel.transform, 2, 2)
-            tempDisctanceAnimateLabel.frame.offsetInPlace(dx: 0, dy: UIScreen.mainScreen().bounds.height * 25)
+            tempDisctanceAnimateLabel.frame.offsetInPlace(dx: 0, dy: UIScreen.mainScreen().bounds.height * 0.25)
             tempDisctanceAnimateLabel.alpha = 1
             }, completion: { (value: Bool) in
                 

@@ -35,6 +35,12 @@ class MagnifyingGlassView: UIView {
         self.scale = kACMagnifyingGlassDefaultScale;
         self.mapToMagnify = nil
         self.scaleAtTouchPoint = true
+        
+        let image = UIImage(named: "ArrowGreen.png")
+        let playerSymbol = UIImageView(image:image)
+        playerSymbol.center = self.center
+        playerSymbol.transform = CGAffineTransformMakeScale(0.25, 0.25)
+        self.addSubview(playerSymbol)
     }
     
     func setTouchPoint(point:CGPoint)

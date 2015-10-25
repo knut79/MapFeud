@@ -15,6 +15,10 @@ class QuestionView: UIView {
     var questionText:UILabel!
     var imageView:UIImageView!
     
+    var orgFrame:CGRect!
+    var orgImageFrame:CGRect!
+    var orgTextPosition:CGPoint!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -46,6 +50,9 @@ class QuestionView: UIView {
         imageView.addGestureRecognizer(singleTapGestureRecognizerImage)
         self.addSubview(imageView)
         
+        self.orgFrame = self.frame
+
+        
     }
     
     func tapQuestion(gesture:UITapGestureRecognizer)
@@ -60,9 +67,7 @@ class QuestionView: UIView {
         }
     }
     
-    var orgFrame:CGRect!
-    var orgImageFrame:CGRect!
-    var orgTextPosition:CGPoint!
+
     func tapFlag(gesture:UITapGestureRecognizer)
     {
         let midscreen = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
@@ -74,7 +79,9 @@ class QuestionView: UIView {
                 self.imageView.frame = self.orgImageFrame
                 self.questionText.center = self.orgTextPosition
                 }, completion: { (value: Bool) in
-                    
+                    self.frame = self.orgFrame
+                    self.imageView.frame = self.orgImageFrame
+                    self.questionText.center = self.orgTextPosition
                     
             })
             
@@ -82,8 +89,7 @@ class QuestionView: UIView {
         else
         {
             //orgFrame = self.frame
-            orgImageFrame = imageView.frame
-            orgTextPosition = questionText.center
+
             let widthRatio = (UIScreen.mainScreen().bounds.width - 20) / imageView.frame.width
             let imageWidth = UIScreen.mainScreen().bounds.width - 20
             let imageheight = imageView.frame.height * widthRatio
@@ -93,7 +99,10 @@ class QuestionView: UIView {
                     self.imageView.center = midscreen
                     self.questionText.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, self.questionText.center.y)
                 }, completion: { (value: Bool) in
-                    
+                    self.frame = UIScreen.mainScreen().bounds
+                    self.imageView.frame = CGRectMake(0, 0, imageWidth, imageheight)
+                    self.imageView.center = midscreen
+                    self.questionText.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, self.questionText.center.y)
                     
             })
         }
@@ -122,6 +131,9 @@ class QuestionView: UIView {
             imageView.alpha = 0
             questionText.frame = CGRectMake(self.bounds.width * 0.05, 0, self.bounds.width * 0.9, self.bounds.height)
         }
+        orgImageFrame = imageView.frame
+        print("img orgframe \(orgImageFrame.origin.x) \(orgImageFrame.origin.y) \(orgImageFrame.width) \(orgImageFrame.height)")
+        orgTextPosition = questionText.center
     }
     
     func isVisible() -> Bool
