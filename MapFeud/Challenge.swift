@@ -9,40 +9,62 @@
 import Foundation
 
 class Challenge {
+    
+    var questionIds:[String] = []
+    var challengeIds:String?
+    var title:String?
+
+    
+    init()
+    {
+        questionIds = []
+    }
+}
+
+class TakingChallenge: Challenge {
 
     var id:String!
     var fbIdToBeat:String!
-    //var questions:[[HistoricEvent]]!
-    var questionIds:[Int] = []
-    var pointsToBeat:Int
-    var correctAnswersToBeat:Int
-    var usingBorders:Int
-    var title:String
+    var distanceToBeat:Int!
+    var usingBorders:Int!
+
+    
     let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
     
     init(values:NSDictionary)
     {
-        title = values["title"] as! String
+        super.init()
+        
+        title = values["title"] as? String
         id = values["challengeId"] as! String
         fbIdToBeat = values["fbIdToBeat"] as! String
-        pointsToBeat = values["pointsToBeat"] as! Int
-        correctAnswersToBeat = values["correctAnswersToBeat"] as! Int
+        distanceToBeat = values["distanceToBeat"] as! Int
         usingBorders = values["usingBorders"] as! Int
         let questionsStringFormat = values["questionsStringFormat"] as! String
         
         let questionIdsStringFormat = questionsStringFormat.componentsSeparatedByString(",")
         for item in questionIdsStringFormat
         {
-            let idAsNumber = NSNumberFormatter().numberFromString(item)
-            questionIds.append(idAsNumber!.integerValue)
+            questionIds.append(item as String)
         }
     }
     
-    func getNextQuestionId() -> Int?
+    func getNextQuestionId() -> String?
     {
-        return questionIds.count == 0 ? nil : questionIds.removeLast()
+        return questionIds.count == 0 ? nil : questionIds.removeLast() as String?
     }
+}
 
+class MakingChallenge: Challenge {
+    
+    
+    init(challengesName:String, questionIds:[String], challengeIds:String)
+    {
+        super.init()
+        self.title = challengesName
+        self.questionIds = questionIds
+        self.challengeIds = challengeIds
+    }
 }
 
 

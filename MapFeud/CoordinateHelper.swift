@@ -139,24 +139,39 @@ class CoordinateHelper {
     
     
     
-    func getDistanceInKm(point1:CGPoint, point2:CGPoint) -> Int
+    func getDistanceInKm(point1:CGPoint, point2:CGPoint?, placeType:PlaceType) -> Int
     {
         //float distance = [self GetDistance:point1 andPoint2:point2] ;
-    
-        let convertedPoint1:CGPoint = self.convertPointToLatLong(point1)
-        let convertedPoint2:CGPoint = self.convertPointToLatLong(point2)
-    
-        //haversine
-        let distance:CGFloat = self.haversineCalulationDistance(convertedPoint1,pos2: convertedPoint2)
-        /*
-        test
-        CGPoint oslo = CGPointMake(10.75,59.95);
-        CGPoint washington = CGPointMake(-77.033333,38.883333);
-        float distanceTest = [self HaversineCalulationDistance:washington andPost2:oslo];
-        */
-    
-        return lrintf(Float(distance))
+        if let toPoint = point2
+        {
+            let convertedPoint1:CGPoint = self.convertPointToLatLong(point1)
+            let convertedPoint2:CGPoint = self.convertPointToLatLong(toPoint)
+        
+            //haversine
+            let distance:CGFloat = self.haversineCalulationDistance(convertedPoint1,pos2: convertedPoint2)
+            /*
+            test
+            CGPoint oslo = CGPointMake(10.75,59.95);
+            CGPoint washington = CGPointMake(-77.033333,38.883333);
+            float distanceTest = [self HaversineCalulationDistance:washington andPost2:oslo];
+            */
+            if placeType == PlaceType.City || placeType == PlaceType.UnDefPlace || placeType == PlaceType.Mountain
+            {
+                let pointKmRadiusWindow = 50
+                let newDistance = lrintf(Float(distance)) - pointKmRadiusWindow
+                return newDistance < 0 ? 0 : newDistance
+            }
+            else
+            {
+                return lrintf(Float(distance))
+            }
+        }
+        else
+        {
+            return 0
+        }
     }
+    
     
     func haversineCalulationDistance(pos1:CGPoint,pos2:CGPoint) -> CGFloat
     {

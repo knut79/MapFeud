@@ -53,7 +53,11 @@ class DataHandler
                         else if type == "qst" // additional question
                         {
                             let questionElements = elements[1].componentsSeparatedByString("#")
-                            //let id = questionElements[0]
+                            let uniqueId = questionElements[0]
+                            if uniqueId == ""
+                            {
+                                fatalError("No unique id for question")
+                            }
                             //_?
                             let hmmm1 = questionElements[1]
                             if hmmm1 != ""
@@ -74,7 +78,7 @@ class DataHandler
                             let englishText = questionElements[4]
                             
                             print("tags for default question: \(tagsForNonDefaultQuestion)")
-                            let question = Question.createInManagedObjectContext(self.managedObjectContext, text: englishText, level:Int(intStringLevel)!, image:image,answerTemplate: "from $",tags: tagsForNonDefaultQuestion)
+                            let question = Question.createInManagedObjectContext(self.managedObjectContext,uniqueId:uniqueId, text: englishText, level:Int(intStringLevel)!, image:image,answerTemplate: "from $",tags: tagsForNonDefaultQuestion)
                             questions.append(question)
                             
                         }
@@ -267,7 +271,7 @@ class DataHandler
             questionText = "\(qtext) \(place.name)"
         }
         print("tags for default question: \(tags)")
-        let question = Question.createInManagedObjectContext(self.managedObjectContext, text: questionText, level:level, image:"", answerTemplate:answerText,tags: tags)
+        let question = Question.createInManagedObjectContext(self.managedObjectContext,uniqueId: place.name, text: questionText, level:level, image:"", answerTemplate:answerText,tags: tags)
         place.addQuestion(question)
     }
     
@@ -337,6 +341,17 @@ class DataHandler
         questionItems = questionItems.sort { $0.used < $1.used }
     }
     
+    func getXNumberOfQuestionIds(numQuestions:Int) -> [String]
+    {
+        var questionIds:[String] = []
+        for var i = 0 ; i < numQuestions ; i++
+        {
+            questionIds.append(questionItems[i].uniqueId)
+            //questionItems[i].
+        }
+        return questionIds
+    }
+    
     func fetchData(tags:[String] = [],fromLevel:Int = 1,toLevel:Int = 1) {
         
         // Create a new fetch request using the LogItem entity
@@ -381,6 +396,23 @@ class DataHandler
         fetchEvents.predicate = predicate
 
         if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Place] {
+            return fetchResults.first
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
+    
+    func fetchQuestion(idRef:String) -> Question?
+    {
+        let fetchEvents = NSFetchRequest(entityName: "Question")
+        
+        let predicate = NSPredicate(format: "uniqueId = '\(idRef)'")
+        fetchEvents.predicate = predicate
+        
+        if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Question] {
             return fetchResults.first
         }
         else

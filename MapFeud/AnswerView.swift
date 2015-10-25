@@ -34,7 +34,7 @@ class AnswerView: UIView {
         infoText = UILabel(frame: CGRectMake(self.bounds.width * 0.1, 0, self.bounds.width * 0.8, self.bounds.height  * 4))
         infoText.adjustsFontSizeToFitWidth = true
         infoText.textAlignment = NSTextAlignment.Left
-        infoText.numberOfLines = 6
+        infoText.numberOfLines = 12
         infoText.font = UIFont.boldSystemFontOfSize(18)
         infoText.textColor = UIColor.blackColor()
         self.addSubview(infoText)
@@ -100,7 +100,7 @@ class AnswerView: UIView {
     {
         print("setQueston called")
         let template = question.answerTemplate.stringByReplacingOccurrencesOfString("$", withString: question.place.name, options: NSStringCompareOptions.LiteralSearch, range: nil)
-        answerText.text = "\(distance) km \(template)"
+        answerText.text = distance > 0 ? "\(distance) km \(template)" : "Correct location of \(question.place.name)"
         
         
         infoText.text = question.place.info

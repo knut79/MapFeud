@@ -16,13 +16,14 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     var passingLevelHigh:Int!
     var passingTags:[String] = []
     
-    var usersToChallenge:[String] = []
+
     var userId:String!
     var userName:String!
     
+    var usersToChallenge:[String] = []
     var usersToChallengeScrollView:UserScrollView!
     var challengeScrollView:ChallengeScrollView!
-    var gametype:gameType!
+    var gametype:GameType!
     var drawBorders:Bool = false
     
     var playButton:UIButton!
@@ -31,6 +32,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     var addRandomUserButton:UIButton!
     var titleLabel:UILabel!
     var numOfQuestionsForRound:Int!
+
+    var challengeIdsCommaSeparated:String!
     
     var client: MSClient?
     
@@ -45,11 +48,11 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             //self.performSegueWithIdentifier("segueFromLoginToPlay", sender: nil)
             
             initUserData({() -> Void in
-                if self.gametype == gameType.makingChallenge
+                if self.gametype == GameType.makingChallenge
                 {
                     self.initUserFriends()
                 }
-                if self.gametype == gameType.takingChallenge
+                if self.gametype == GameType.takingChallenge
                 {
                     self.initChallenges()
                 }
@@ -103,11 +106,11 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             {
                 // Do work
                 initUserData({() -> Void in
-                    if self.gametype == gameType.makingChallenge
+                    if self.gametype == GameType.makingChallenge
                     {
                         self.initUserFriends()
                     }
-                    if self.gametype == gameType.takingChallenge
+                    if self.gametype == GameType.takingChallenge
                     {
                         self.initChallenges()
                     }
@@ -177,9 +180,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 let friendObjects = result.valueForKey("data") as! [NSDictionary]
 
                 self.initForNewChallenge(friendObjects)
-                
-                
-                
+
                 result
             }
         })
@@ -204,19 +205,6 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         activityLabel.center = CGPointMake(UIScreen.mainScreen().bounds.size.width / 2, UIScreen.mainScreen().bounds.size.height / 2)
         activityLabel.textAlignment = NSTextAlignment.Center
         activityLabel.adjustsFontSizeToFitWidth = true
-
-        
-/*
-        let backButtonMargin:CGFloat = 15
-        backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - smallButtonSide - backButtonMargin, backButtonMargin, smallButtonSide, smallButtonSide)
-        backButton.backgroundColor = UIColor.whiteColor()
-        backButton.layer.borderColor = UIColor.grayColor().CGColor
-        backButton.layer.borderWidth = 1
-        backButton.layer.cornerRadius = 5
-        backButton.layer.masksToBounds = true
-        backButton.setTitle("🔙", forState: UIControlState.Normal)
-        backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
-  */
     }
     
     func initForNewChallenge(friendObjects:[NSDictionary])
@@ -354,8 +342,6 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     var randomUsersAdded = 0
     func addRandomUserAction()
     {
-        //activityLabel.alpha = 1
-        //activityLabel.text = "Collecting random user..."
         addRandomUser(nil)
     }
     
@@ -364,7 +350,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         activityLabel.alpha = 1
         activityLabel.text = "Collecting random user..."
         randomUsersAdded++
-        if randomUsersAdded > 2
+        if randomUsersAdded > 1
         {
             activityLabel.alpha = 0
             addRandomUserButton.alpha = 0
@@ -406,12 +392,99 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             self.activityLabel.alpha = 0
             completionClosure?()
         })
+    }
+    
+    var questionIds:String?
+    var challengeName:String!
+    func sendChallengeMakingStart()
+    {
+        challengeName = "\(userName) \(passingLevelLow)-\(passingLevelHigh)"
+        questionIds = questionsToCommaseparated()
+        let toIds:String = usersToCommaseparated()
+        
+        print("fbid:\(userId) chname:\(challengeName) toIdsPar:\(toIds) questionIds:\(questionIds)")
+        let borders:String = drawBorders ? "1" : "0"
+        let jsonDictionary = ["fbid":userId,"chname":challengeName,"toIdsPar":toIds,"questionIdsPar":questionIds,"borders":borders]
+        
+        self.client!.invokeAPI("startmakingchallenge", data: nil, HTTPMethod: "POST", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+            
+            if error != nil
+            {
+                print("\(error)")
+            }
+            if result != nil
+            {
+                print(result)
+                self.challengeIdsCommaSeparated = String(NSString(data: result, encoding:NSUTF8StringEncoding))
+                self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
+            }
+            if response != nil
+            {
+                print("\(response)")
+            }
+
+        })
+        
+    }
+    
+    func sendChallengeTakenStart()
+    {
+
+        let values = self.challengeScrollView.getSelectedValue()
+        let challengeId = values!["challengeId"] as! String
+
+        print("challengeId:\(challengeId)")
+        let jsonDictionary = ["chid":challengeId]
+        
+        self.client!.invokeAPI("starttakingchallenge", data: nil, HTTPMethod: "POST", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+            
+            if error != nil
+            {
+                print("\(error)")
+            }
+            if result != nil
+            {
+                print(result)
+                self.challengeIdsCommaSeparated = String(NSString(data: result, encoding:NSUTF8StringEncoding))
+                self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
+            }
+            if response != nil
+            {
+                print("\(response)")
+            }
+            
+        })
+        
+    }
+    
+    func usersToCommaseparated() -> String
+    {
+        var returnString:String = ""
+        for item in usersToChallenge
+        {
+            returnString += item + ","
+            
+        }
+        return String(returnString.characters.dropLast())
+    }
+    
+    func questionsToCommaseparated() -> String
+    {
+        let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+        let questonIds = datactrl.getXNumberOfQuestionIds(numOfQuestionsForRound)
+
+        var returnString:String = ""
+        for questionId in questonIds
+        {
+            returnString += questionId + ","
+        }
+        return String(returnString.characters.dropLast())
         
     }
     
     func playAction()
     {
-        if self.gametype == gameType.makingChallenge
+        if self.gametype == GameType.makingChallenge
         {
             usersToChallenge = self.usersToChallengeScrollView.getCheckedItemsValueAsArray()
             
@@ -435,12 +508,14 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             }
             else
             {
-                self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
+                sendChallengeMakingStart()
+                //self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
             }
         }
-        else if self.gametype == gameType.takingChallenge
+        else if self.gametype == GameType.takingChallenge
         {
-            self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
+            sendChallengeTakenStart()
+            //self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
         }
         
     }
@@ -452,21 +527,23 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
         if (segue.identifier == "segueFromChallengeToPlay") {
+
             let svc = segue!.destinationViewController as! PlayViewController
-            svc.levelLow = passingLevelLow
-            svc.levelHigh = passingLevelHigh
-            svc.tags = passingTags
+
             svc.gametype = gametype
-            if self.gametype == gameType.makingChallenge
+            if self.gametype == GameType.makingChallenge
             {
-                svc.usersIdsToChallenge = self.usersToChallenge
-                svc.numOfQuestionsForRound = self.numOfQuestionsForRound
+
                 svc.drawBorders = drawBorders
+                let makingChallenge = MakingChallenge(challengesName: challengeName, questionIds: questionIds!.componentsSeparatedByString(","), challengeIds: challengeIdsCommaSeparated)
+                svc.challenge = makingChallenge
+                //questionIds
+                //questionIds
             }
-            else if self.gametype == gameType.takingChallenge
+            else if self.gametype == GameType.takingChallenge
             {
                 let values = self.challengeScrollView.getSelectedValue()
-                svc.challenge = Challenge(values: values!)
+                svc.challenge = TakingChallenge(values: values!)
             }
             
             svc.myIdAndName = (self.userId,self.userName)

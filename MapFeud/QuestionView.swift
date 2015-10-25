@@ -27,19 +27,37 @@ class QuestionView: UIView {
         questionText.textAlignment = NSTextAlignment.Center
         questionText.font = UIFont.boldSystemFontOfSize(24)
         questionText.textColor = UIColor.whiteColor()
+        questionText.userInteractionEnabled = true
+        let singleTapGestureRecognizerText = UITapGestureRecognizer(target: self, action: "tapQuestion:")
+        singleTapGestureRecognizerText.numberOfTapsRequired = 1
+        singleTapGestureRecognizerText.enabled = true
+        singleTapGestureRecognizerText.cancelsTouchesInView = false
+        questionText.addGestureRecognizer(singleTapGestureRecognizerText)
         self.addSubview(questionText)
         
         imageView = UIImageView(frame: CGRectZero)
         imageView.layer.borderWidth = 0.5
         imageView.layer.borderColor = UIColor.lightGrayColor().CGColor
         imageView.userInteractionEnabled = true
-        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapFlag:")
-        singleTapGestureRecognizer.numberOfTapsRequired = 1
-        singleTapGestureRecognizer.enabled = true
-        singleTapGestureRecognizer.cancelsTouchesInView = false
-        imageView.addGestureRecognizer(singleTapGestureRecognizer)
+        let singleTapGestureRecognizerImage = UITapGestureRecognizer(target: self, action: "tapFlag:")
+        singleTapGestureRecognizerImage.numberOfTapsRequired = 1
+        singleTapGestureRecognizerImage.enabled = true
+        singleTapGestureRecognizerImage.cancelsTouchesInView = false
+        imageView.addGestureRecognizer(singleTapGestureRecognizerImage)
         self.addSubview(imageView)
         
+    }
+    
+    func tapQuestion(gesture:UITapGestureRecognizer)
+    {
+        if questionText.numberOfLines == 1
+        {
+            questionText.numberOfLines = 2
+        }
+        else
+        {
+            questionText.numberOfLines = 1
+        }
     }
     
     var orgFrame:CGRect!

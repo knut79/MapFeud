@@ -49,7 +49,7 @@ struct GlobalConstants {
     static let smallButtonSide:CGFloat = 32
 }
 
-enum gameType: Int
+enum GameType: Int
 {
     case training = 0, makingChallenge = 1, takingChallenge = 2
 }
@@ -67,3 +67,5 @@ enum PlaceType: Int
     Peninsula = 8,
     UnDefRegion = 9
 }
+
+

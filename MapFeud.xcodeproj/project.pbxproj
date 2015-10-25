@@ -1663,11 +1663,11 @@
 		72424A521BC2C468009FED5C /* MapFeud */ = {
 			isa = PBXGroup;
 			children = (
+				7254B21C1BD08D4800A22920 /* Challenge */,
 				722D8B311BD6A3B700C2EABA /* Finish */,
 				72BD9D2A1BD2AD9C0062FE44 /* Play */,
 				72BD9D221BD27A070062FE44 /* Frameworks */,
 				7254B2271BD08F3200A22920 /* Result */,
-				7254B21C1BD08D4800A22920 /* Challenge */,
 				7254B2131BD08B1B00A22920 /* Slider */,
 				7254B2091BD08A4B00A22920 /* LoadScreen */,
 				7254B2021BD0893800A22920 /* MainMenu */,
@@ -2340,8 +2340,8 @@
 		72BD9D2A1BD2AD9C0062FE44 /* Play */ = {
 			isa = PBXGroup;
 			children = (
-				722D8B341BD6A46800C2EABA /* ClockView.swift */,
 				72424A551BC2C468009FED5C /* PlayViewController.swift */,
+				722D8B341BD6A46800C2EABA /* ClockView.swift */,
 				7254B1FA1BCBC8FE00A22920 /* QuestionView.swift */,
 				7254B2001BD0581800A22920 /* AnswerView.swift */,
 				72424A841BC2F319009FED5C /* MapScrollView.swift */,

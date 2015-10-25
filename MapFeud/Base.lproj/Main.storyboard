@@ -43,10 +43,14 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueFromChallengeToMainMenu" id="hgf-jJ-01d"/>
+                        <segue destination="qL5-du-KSU" kind="presentation" identifier="segueFromChallengeToPlay" id="S5b-Eh-ggR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCx-o0-EwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="957" y="162"/>
+            <point key="canvasLocation" x="681" y="217"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="t8u-LB-aJR">
@@ -62,10 +66,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueFromResultsToMainMenu" id="Snb-Jy-ACp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3W-ir-UYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="998"/>
+            <point key="canvasLocation" x="199" y="1097"/>
         </scene>
         <!--Play View Controller-->
         <scene sceneID="WaS-gK-f2r">
@@ -83,11 +90,38 @@
                     </view>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueFromPlayToMainMenu" id="NWb-Hk-wHx"/>
+                        <segue destination="6xX-Tn-zwg" kind="presentation" identifier="segueFromPlayToFinished" id="HSr-fz-lj8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kdh-V9-OGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="680"/>
+            <point key="canvasLocation" x="1390" y="286"/>
+        </scene>
+        <!--Finished View Controller-->
+        <scene sceneID="edZ-bw-gst">
+            <objects>
+                <viewController id="6xX-Tn-zwg" customClass="FinishedViewController" customModule="MapFeud" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lqo-5B-PZs"/>
+                        <viewControllerLayoutGuide type="bottom" id="ovH-0T-p5i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8z1-kn-OoM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueFromFinishedToMainMenu" id="2mL-Rh-odm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rD3-Eh-P02" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623" y="661"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NWb-Hk-wHx"/>
+        <segue reference="S5b-Eh-ggR"/>
+    </inferredMetricsTieBreakers>
 </document>

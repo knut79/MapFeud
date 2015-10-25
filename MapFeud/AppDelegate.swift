@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstlaunch")
         datactrl = DataHandler()
         application.statusBarHidden = true
-        self.client = MSClient(applicationURLString:"https://timeit.azure-mobile.net/",
-            applicationKey:"vaiqQlesvGTZKGRIgNIcUvTdzjCGrn65")
+        self.client = MSClient(applicationURLString:"https://mapfaud.azure-mobile.net/",
+            applicationKey:"PYwzAMqgrSvfJEQAHoDVZFCQAedobx62")
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -64,6 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
 
     // MARK: - Core Data stack

@@ -37,13 +37,22 @@ class TileContainerOverlayLayer: CALayer {
         CGContextSetLineJoin(ctx, CGLineJoin.Round)
         CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 1)
         CGContextSetRGBFillColor(ctx, 1.0, 0.0, 0.0, 1.0)
+        
         CGContextSetFillColorWithColor(ctx, UIColor.redColor().CGColor)
+        if let pt = placeType
+        {
+            if pt == PlaceType.Lake || pt == PlaceType.UnDefWaterRegion
+            {
+                CGContextSetFillColorWithColor(ctx, UIColor.blueColor().CGColor)
+            }
+        }
+        
         
 
         //test
         //drawMask(ctx)
         //end test
-        if let _ = fromPoint
+        if fromPoint != nil && toPoint != nil
         {
             drawLine(ctx)
         }

@@ -21,11 +21,12 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
     var currentQuestion:Question!
     var distanceView:DistanceView!
     
+    /*
     var levelHigh:Int = 1
     var levelLow:Int = 1
     var tags:[String] = []
-    
-    var gametype:gameType!
+    */
+    var gametype:GameType!
     var usersIdsToChallenge:[String] = []
     var completedQuestionsIds:[String] = []
     var numOfQuestionsForRound:Int!
@@ -46,7 +47,7 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
     
     var drawBorders:Bool = false
     
-    var clock:ClockView!
+    var clock:ClockView?
     var orgClockCenter:CGPoint!
     
     override func viewDidLoad() {
@@ -100,15 +101,18 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         self.view.addSubview(answerView)
         
 
-        clock = ClockView(frame: CGRectMake(0, 0, magnifyingSide, magnifyingSide))
-        orgClockCenter = magnifyingGlassRightPos
-        clock.center = orgClockCenter
-        clock.delegate = self
-        view.addSubview(clock)
+        if gametype != GameType.training
+        {
+            clock = ClockView(frame: CGRectMake(0, 0, magnifyingSide, magnifyingSide))
+            orgClockCenter = magnifyingGlassRightPos
+            clock?.center = orgClockCenter
+            clock?.delegate = self
+            view.addSubview(clock!)
+        }
         
-        datactrl.fetchData(tags,fromLevel:levelLow,toLevel: levelHigh)
-        datactrl.shuffleQuestions()
-        datactrl.orderOnUsed()
+        //datactrl.fetchData(tags,fromLevel:levelLow,toLevel: levelHigh)
+        //datactrl.shuffleQuestions()
+        //datactrl.orderOnUsed()
 
     }
     
@@ -148,7 +152,7 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         nextButtonHiddenOrigin = CGPointMake(UIScreen.mainScreen().bounds.maxX + nextButton.frame.width, nextButton.center.y)
         nextButton.center = nextButtonHiddenOrigin
         
-        if gametype == gameType.training
+        if gametype == GameType.training
         {
             backButton = UIButton(frame: CGRectMake(margin, UIScreen.mainScreen().bounds.maxY - buttonSide - margin, buttonSide, buttonSide))
             backButton!.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
@@ -211,10 +215,8 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
     
     func okAction()
     {
-        clock.stop()
-        self.clock.alpha = 0
-        self.clock.transform = CGAffineTransformIdentity
-        self.clock.center = orgClockCenter
+        clock?.stop()
+        clock?.alpha = 0
         
         self.playerIcon.alpha = 0
         UIView.animateWithDuration(0.5, animations: { () -> Void in
@@ -272,7 +274,7 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
 
         tempDisctanceAnimateLabel.center = CGPointMake( UIScreen.mainScreen().bounds.midX, UIScreen.mainScreen().bounds.midY)
         tempDisctanceAnimateLabel.alpha = 0
-        tempDisctanceAnimateLabel.text = "\(distance) km"
+        tempDisctanceAnimateLabel.text = distance > 0 ? "\(distance) km" : "Correct location"
         
         tempIconAnimateLabel.text = getEmojiOnMissedDistance(distance)
         tempIconAnimateLabel.alpha = 0
@@ -281,23 +283,37 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
             
             tempIconAnimateLabel.alpha = 1
             tempIconAnimateLabel.transform = CGAffineTransformIdentity
-            tempIconAnimateLabel.transform = CGAffineTransformScale(tempIconAnimateLabel.transform, 2, 2)
+            tempIconAnimateLabel.transform = CGAffineTransformScale(tempIconAnimateLabel.transform, 3, 3)
             tempIconAnimateLabel.frame.offsetInPlace(dx: 0, dy: UIScreen.mainScreen().bounds.height * 0.1)
+            tempDisctanceAnimateLabel.transform = CGAffineTransformScale(tempDisctanceAnimateLabel.transform, 2, 2)
+            tempDisctanceAnimateLabel.frame.offsetInPlace(dx: 0, dy: UIScreen.mainScreen().bounds.height * 25)
             tempDisctanceAnimateLabel.alpha = 1
             }, completion: { (value: Bool) in
                 
                 UIView.animateWithDuration(1, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                    tempIconAnimateLabel.transform = CGAffineTransformIdentity
-                    tempIconAnimateLabel.transform = CGAffineTransformScale(tempIconAnimateLabel.transform, 0.5, 0.5)
+                    //tempIconAnimateLabel.transform = CGAffineTransformIdentity
+                    tempIconAnimateLabel.transform = CGAffineTransformScale(tempIconAnimateLabel.transform, 6, 6)
                     tempIconAnimateLabel.alpha = 0
 
-                    
-                    tempDisctanceAnimateLabel.center = self.distanceView.center
+                    if distance > 0
+                    {
+                        tempDisctanceAnimateLabel.center = self.distanceView.center
+                        tempDisctanceAnimateLabel.transform = CGAffineTransformIdentity
+                    }
+                    else
+                    {
+                        tempDisctanceAnimateLabel.center = self.view.center
+                        tempDisctanceAnimateLabel.transform = CGAffineTransformScale(tempDisctanceAnimateLabel.transform, 2, 2)
+                        tempDisctanceAnimateLabel.alpha = 0
+                    }
                     
                     }, completion: { (value: Bool) in
                         tempDisctanceAnimateLabel.removeFromSuperview()
                         tempIconAnimateLabel.removeFromSuperview()
-                        self.distanceView.addDistance(distance)
+                        if distance > 0
+                        {
+                            self.distanceView.addDistance(distance)
+                        }
                         
                         completion()
                         
@@ -366,6 +382,8 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         map.clearDrawing()
         self.answerView.userInteractionEnabled = false
         self.hintButton.restoreHints()
+        self.clock?.transform = CGAffineTransformIdentity
+        self.clock?.center = orgClockCenter
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             //self.hideHintButton(false)
             self.hintButton.hide(false)
@@ -389,17 +407,41 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
     
     func setNextQuestion()
     {
-        
-        currentQuestion = datactrl.questionItems[questionindex % datactrl.questionItems.count]
-        //currentQuestion = datactrl.fetchPlace("Japan")!.questions.allObjects[0] as! Question
-        questionindex++
-        if let qv = questionView
+        if self.gametype == GameType.training
         {
-            qv.setQuestion(currentQuestion)
+            currentQuestion = datactrl.questionItems[questionindex % datactrl.questionItems.count]
+            questionindex++
+        }
+        else
+        {
+            if challenge.questionIds.count > 0
+            {
+                let questionID = challenge.questionIds.removeLast()
+                currentQuestion = datactrl.fetchQuestion(questionID)
+            }
+            else
+            {
+                currentQuestion = nil
+            }
+        }
+        //currentQuestion = datactrl.fetchPlace("Japan")!.questions.allObjects[0] as! Question
+        
+        
+        if let q = currentQuestion
+        {
+            if let qv = questionView
+            {
+                qv.setQuestion(q)
+            }
+            showQuestion()
+        }
+        else
+        {
+            //end game 
+            self.performSegueWithIdentifier("segueFromPlayToFinished", sender: nil)
+            
         }
         
-        
-        showQuestion()
     }
     
     func showQuestion()
@@ -425,8 +467,8 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
                     }, completion: { (value: Bool) in
                         
                         self.questionView.questionText.textColor = UIColor.blackColor()
-                        self.clock.alpha = 1
-                        self.clock.start(10.0)
+                        self.clock?.alpha = 1
+                        self.clock?.start(10.0)
                         
                 })
                 
@@ -474,12 +516,12 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
                     if self.magnifyingGlass.center == self.magnifyingGlassLeftPos
                     {
                         self.magnifyingGlass.center = self.magnifyingGlassRightPos
-                        self.clock.center = self.magnifyingGlassRightPos
+                        self.clock?.center = self.magnifyingGlassRightPos
                     }
                     else
                     {
                         self.magnifyingGlass.center = self.magnifyingGlassLeftPos
-                        self.clock.center = self.magnifyingGlassLeftPos
+                        self.clock?.center = self.magnifyingGlassLeftPos
                     }
                 })
             }
@@ -641,15 +683,8 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         print("timeup")
         
         animateTimeup({() -> Void in
-        
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.hintButton.hide()
-                self.okButton.hide()
-            }, completion: { (value: Bool) in
-                self.setPoint()
-            })
 
-        
+            self.setPoint()
         })
         //clock.stop()
     }
@@ -669,19 +704,51 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         label.transform = CGAffineTransformScale(label.transform, 0.1, 0.1)
         self.view.addSubview(label)
         UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.clock?.center = midscreen
+                self.hintButton.hide()
+                self.okButton.hide()
+            }, completion: { (value: Bool) in
+                
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+
+                
                 label.alpha = 1
                 label.transform = CGAffineTransformIdentity
-                self.clock.center = midscreen
-                self.clock.transform = CGAffineTransformScale(self.clock.transform, 1.5, 1.5)
-            }, completion: { (value: Bool) in
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                        self.clock.alpha = 0
+                
+                self.clock?.transform = CGAffineTransformScale(self.clock!.transform, 3, 3)
+                }, completion: { (value: Bool) in
+                    UIView.animateWithDuration(0.5, animations: { () -> Void in
+                        self.clock?.alpha = 0
                         label.alpha = 0
-                    }, completion: { (value: Bool) in
-                        label.removeFromSuperview()
-                        completion()
-                })
+                        }, completion: { (value: Bool) in
+                            label.removeFromSuperview()
+                            completion()
+                    })
+            })
         })
+    }
+    
+    override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
+
+        if (segue.identifier == "segueFromPlayToFinished") {
+            let svc = segue!.destinationViewController as! FinishedViewController
+            svc.completedQuestionsIds = completedQuestionsIds
+            svc.usersIdsToChallenge = usersIdsToChallenge
+            svc.userFbId = myIdAndName.0
+            svc.distance = self.distanceView.distance
+            svc.gametype = gametype
+            if gametype == GameType.takingChallenge
+            {
+                svc.challenge = challenge
+            }
+            /*
+            else if gametype == gameType.makingChallenge
+            {
+                svc.challengeName = "\(self.myIdAndName.1) \(self.levelLow)-\(self.levelHigh) \(self.tagsAsString())"
+            }
+            */
+        }
+        
     }
     
     override func prefersStatusBarHidden() -> Bool {
