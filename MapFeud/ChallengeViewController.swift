@@ -535,7 +535,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             {
 
                 svc.drawBorders = drawBorders
-                let makingChallenge = MakingChallenge(challengesName: challengeName, questionIds: questionIds!.componentsSeparatedByString(","), challengeIds: challengeIdsCommaSeparated)
+                let makingChallenge = MakingChallenge(challengesName: challengeName,users:usersToChallenge, questionIds: questionIds!.componentsSeparatedByString(","), challengeIds: challengeIdsCommaSeparated)
                 svc.challenge = makingChallenge
                 //questionIds
                 //questionIds

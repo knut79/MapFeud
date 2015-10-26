@@ -112,7 +112,7 @@ class TileContainerOverlayLayer: CALayer {
         CGContextMoveToPoint(context, CGFloat(fromPoint!.x) * (resolutionPercentage / 100.0), CGFloat(fromPoint!.y) * (resolutionPercentage / 100.0))
         CGContextAddLineToPoint(context, CGFloat(toPoint!.x) * (resolutionPercentage / 100.0) , CGFloat(toPoint!.y) * (resolutionPercentage / 100.0))
         CGContextStrokePath(context)
-        CGContextClosePath(context)
+        //CGContextClosePath(context)
  
         if toPoint!.x > GlobalConstants.constMapWidth
         {
@@ -120,7 +120,7 @@ class TileContainerOverlayLayer: CALayer {
             CGContextMoveToPoint(context, CGFloat(fromPoint!.x - GlobalConstants.constMapWidth) * (resolutionPercentage / 100.0), CGFloat(fromPoint!.y) * (resolutionPercentage / 100.0))
             CGContextAddLineToPoint(context, CGFloat(toPoint!.x - GlobalConstants.constMapWidth) * (resolutionPercentage / 100.0) , CGFloat(toPoint!.y) * (resolutionPercentage / 100.0))
             CGContextStrokePath(context)
-            CGContextClosePath(context)
+            //CGContextClosePath(context)
         }
         if toPoint!.x < 0
         {
@@ -128,7 +128,7 @@ class TileContainerOverlayLayer: CALayer {
             CGContextMoveToPoint(context, CGFloat(fromPoint!.x + GlobalConstants.constMapWidth) * (resolutionPercentage / 100.0), CGFloat(fromPoint!.y) * (resolutionPercentage / 100.0))
             CGContextAddLineToPoint(context, CGFloat(toPoint!.x + GlobalConstants.constMapWidth) * (resolutionPercentage / 100.0) , CGFloat(toPoint!.y) * (resolutionPercentage / 100.0))
             CGContextStrokePath(context)
-            CGContextClosePath(context)
+            //CGContextClosePath(context)
         }
         
 
@@ -153,17 +153,10 @@ class TileContainerOverlayLayer: CALayer {
                 //CGContextAddLineToPoint(context, CGFloat(line.x) * (resolutionPercentage / 100.0) * zoomScale, CGFloat(line.y) * (resolutionPercentage / 100.0) * zoomScale)
             }
             
-            //CGContextStrokePath(context)
-            //CGContextDrawPath(context, CGPathDrawingMode.FillStroke)
             
             CGPathCloseSubpath(pathRef)
             CGContextAddPath(context, pathRef)
             
-            //CGPathAddPath(pathRef, nil, <#T##path2: CGPath?##CGPath?#>)
-            
-            //CGContextClosePath(context)
-            //CGContextFillPath(context)
-            //break
         }
 
         for lines in exludedRegions

@@ -146,8 +146,9 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.view.addSubview(self.resultsScrollView)
         
         
-        activityLabel = UILabel(frame: CGRectMake(0, 0, 400, 50))
+        activityLabel = UILabel(frame: CGRectMake(UIScreen.mainScreen().bounds.size.width * 0.1, 0, UIScreen.mainScreen().bounds.size.width * 0.8, 50))
         activityLabel.center = CGPointMake(UIScreen.mainScreen().bounds.size.width / 2, UIScreen.mainScreen().bounds.size.height / 2)
+        activityLabel.adjustsFontSizeToFitWidth = true
         activityLabel.textAlignment = NSTextAlignment.Center
         activityLabel.text = "Collecting new results..."
         self.view.addSubview(activityLabel)
@@ -219,12 +220,10 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
                 {
                     print("\(arrayOfValues[i])")
                 }
-                let myCorrectAnswers = NSNumberFormatter().numberFromString(arrayOfValues[0] )
-                let myPoints = NSNumberFormatter().numberFromString(arrayOfValues[1] )
-                let name = arrayOfValues[2] 
-                let opponentCorrectAnswers = NSNumberFormatter().numberFromString(arrayOfValues[3] )
-                let opponentPoints = NSNumberFormatter().numberFromString(arrayOfValues[4] )
-                resultsScrollView.addItem(myCorrectAnswers!.integerValue, myPoints: myPoints!.integerValue, opponentName: name, opponentCS: opponentCorrectAnswers!.integerValue, opponentPoints: opponentPoints!.integerValue)
+                let myDistance = NSNumberFormatter().numberFromString(arrayOfValues[0] )
+                let name = arrayOfValues[1]
+                let opponentDistance = NSNumberFormatter().numberFromString(arrayOfValues[3] )
+                resultsScrollView.addItem( myDistance!.integerValue, opponentName: name, opponentDistance: opponentDistance!.integerValue)
                 
                 noValues = false
             }
@@ -242,12 +241,10 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
     {
         for item in values
         {
-            let myCorrectAnswers = item["mycorrectanswers"] as! Int
-            let myPoints = item["mypoints"] as! Int
+            let myDistance = item["mydistance"] as! Int
             let name = item["opponentname"] as! String
-            let opponentCorrectAnswers = item["opponentcorrectanswers"] as! Int
-            let opponentPoints = item["opponentpoints"] as! Int
-            let valuesStringFormat:String = "\(myCorrectAnswers),\(myPoints),\(name),\(opponentCorrectAnswers),\(opponentPoints)"
+            let opponentDistance = item["opponentdistance"] as! Int
+            let valuesStringFormat:String = "\(myDistance),\(name),\(opponentDistance)"
             datactrl.addRecordToGameResults(valuesStringFormat)
         }
         datactrl.saveGameData()

@@ -57,13 +57,14 @@ class TakingChallenge: Challenge {
 
 class MakingChallenge: Challenge {
     
-    
-    init(challengesName:String, questionIds:[String], challengeIds:String)
+    var usersToChallenge:[String] = []
+    init(challengesName:String,users:[String], questionIds:[String], challengeIds:String)
     {
         super.init()
         self.title = challengesName
         self.questionIds = questionIds
         self.challengeIds = challengeIds
+        self.usersToChallenge = users
     }
 }
 

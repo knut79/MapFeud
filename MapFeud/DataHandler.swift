@@ -434,11 +434,7 @@ class DataHandler
             fetchEvents.predicate = predicate
             
             if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Place] {
-                
-                for item in fetchResults
-                {
-                    print("--TEST-- \(item.name)")
-                }
+
                 return fetchResults
             }
         }

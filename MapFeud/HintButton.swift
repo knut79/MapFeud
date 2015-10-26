@@ -64,15 +64,13 @@ class HintButton: UIButton {
     {
         hintsLeftOnAccount = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
         hintsLeftOnAccount--
-        
+        NSUserDefaults.standardUserDefaults().setInteger(hintsLeftOnAccount, forKey: "hintsLeftOnAccount")
         hintsLeftOnQuestion--
-
-        NSUserDefaults.standardUserDefaults().setInteger(hintsLeftOnQuestion, forKey: "hintsLeftOnAccount")
         datactrl.hintsValue = hintsLeftOnAccount
         datactrl.saveGameData()
 
         let hintsMiniIcon = hintsLeftOnAccount >= hintsLeftOnQuestion ? "\(hintsLeftOnQuestion)" : "\(hintsLeftOnAccount)"
-        if hintsLeftOnAccount == 0
+        if hintsLeftOnAccount <= 0
         {
             numberOfHints.text = "+"
         }
@@ -89,7 +87,7 @@ class HintButton: UIButton {
             })
         }
         
-        numberOfHints.text = "\(hintsLeftOnQuestion)"
+        //numberOfHints.text = "\(hintsLeftOnQuestion)"
         
         
     }
@@ -97,7 +95,15 @@ class HintButton: UIButton {
     func restoreHints()
     {
         hintsLeftOnQuestion = 2
-        numberOfHints.text = "\(hintsLeftOnQuestion)"
+        let hintsMiniIcon = hintsLeftOnAccount >= hintsLeftOnQuestion ? "\(hintsLeftOnQuestion)" : "\(hintsLeftOnAccount)"
+        if hintsLeftOnAccount <= 0
+        {
+            numberOfHints.text = "+"
+        }
+        else
+        {
+            numberOfHints.text = "\(hintsMiniIcon)"
+        }
     }
     
     func isVisible() -> Bool

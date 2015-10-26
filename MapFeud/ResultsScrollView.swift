@@ -40,41 +40,31 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
         opponentsScoreLabel.text = "Opponent score"
         self.addSubview(opponentsScoreLabel)
         
-        let secondLevelTitleWidth:CGFloat = (self.bounds.width - ( margin * 2)) / 6
+        let secondLevelTitleWidth:CGFloat = (self.bounds.width - ( margin * 2)) / 4
         
         let myStateLabel = ResultTitleLabel(frame: CGRectMake(margin , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
         myStateLabel.textAlignment = NSTextAlignment.Center
         myStateLabel.text = "Result"
         self.addSubview(myStateLabel)
         
-        let myScoreCorrectSequenceLabel = ResultTitleLabel(frame: CGRectMake(myStateLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
-        myScoreCorrectSequenceLabel.textAlignment = NSTextAlignment.Center
-        myScoreCorrectSequenceLabel.text = "Correct\nsequence"
-        myScoreCorrectSequenceLabel.numberOfLines = 2
-        self.addSubview(myScoreCorrectSequenceLabel)
         
-        let myScorePointsLabel = ResultTitleLabel(frame: CGRectMake(myScoreCorrectSequenceLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
-        myScorePointsLabel.textAlignment = NSTextAlignment.Center
-        myScorePointsLabel.text = "Points"
-        self.addSubview(myScorePointsLabel)
+        let myDistanceLabel = ResultTitleLabel(frame: CGRectMake(myStateLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
+        myDistanceLabel.textAlignment = NSTextAlignment.Center
+        myDistanceLabel.text = "Distance"
+        self.addSubview(myDistanceLabel)
         
         
         
-        let opponentNameLabel = ResultTitleLabel(frame: CGRectMake(myScorePointsLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
+        let opponentNameLabel = ResultTitleLabel(frame: CGRectMake(myDistanceLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
         opponentNameLabel.textAlignment = NSTextAlignment.Center
         opponentNameLabel.text = "Name"
         self.addSubview(opponentNameLabel)
         
-        let opponentScoreCorrectSequenceLabel = ResultTitleLabel(frame: CGRectMake(opponentNameLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
-        opponentScoreCorrectSequenceLabel.textAlignment = NSTextAlignment.Center
-        opponentScoreCorrectSequenceLabel.text = "Correct\nsequence"
-        opponentScoreCorrectSequenceLabel.numberOfLines = 2
-        self.addSubview(opponentScoreCorrectSequenceLabel)
         
-        let opponentScorePointsLabel = ResultTitleLabel(frame: CGRectMake(opponentScoreCorrectSequenceLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
-        opponentScorePointsLabel.textAlignment = NSTextAlignment.Center
-        opponentScorePointsLabel.text = "Points"
-        self.addSubview(opponentScorePointsLabel)
+        let opponentDistanceLabel = ResultTitleLabel(frame: CGRectMake(opponentNameLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
+        opponentDistanceLabel.textAlignment = NSTextAlignment.Center
+        opponentDistanceLabel.text = "Distance"
+        self.addSubview(opponentDistanceLabel)
         
         
         
@@ -93,7 +83,7 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
         
         
         
-        scrollView = UIScrollView(frame: CGRectMake(0, opponentScorePointsLabel.frame.maxY, self.bounds.width, self.bounds.height - opponentScorePointsLabel.frame.maxY - totalResultLabel.frame.height))
+        scrollView = UIScrollView(frame: CGRectMake(0, opponentDistanceLabel.frame.maxY, self.bounds.width, self.bounds.height - opponentDistanceLabel.frame.maxY - totalResultLabel.frame.height))
         
         
         self.backgroundColor = UIColor.whiteColor()
@@ -112,12 +102,12 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
     }
     
     
-    func addItem(myCS:Int,myPoints:Int,opponentName:String,opponentCS:Int,opponentPoints:Int)
+    func addItem(myDistance:Int,opponentName:String,opponentDistance:Int)
     {
         let itemheight:CGFloat = 40
         var contentHeight:CGFloat = 0
         
-        let newItem = ResultItemView(frame: CGRectMake(0, 0, self.frame.width, itemheight), myCS: myCS,myPoints:myPoints,opponentName:opponentName,opponentCS:opponentCS,opponentPoints:opponentPoints)
+        let newItem = ResultItemView(frame: CGRectMake(0, 0, self.frame.width, itemheight),myDistance:myDistance,opponentName:opponentName,opponentDistance:opponentDistance)
         items.insert(newItem, atIndex: 0)
         scrollView.addSubview(newItem)
         

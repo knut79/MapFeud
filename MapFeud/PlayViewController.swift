@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import iAd
 
-class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
+class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, ClockProtocol {
 
     var datactrl:DataHandler!
     var map:MapScrollView!
@@ -50,10 +51,28 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
     var clock:ClockView?
     var orgClockCenter:CGPoint!
     
+    var bannerView:ADBannerView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        map = MapScrollView(frame: UIScreen.mainScreen().bounds, drawBorders: drawBorders)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        
+        let adFree = NSUserDefaults.standardUserDefaults().boolForKey("adFree")
+        if !adFree
+        {
+            self.canDisplayBannerAds = true
+            bannerView = ADBannerView(frame: CGRectZero)
+            bannerView!.center = CGPoint(x: bannerView!.center.x, y: self.view.bounds.size.height - bannerView!.frame.size.height / 2)
+            self.view.addSubview(bannerView!)
+            self.bannerView?.delegate = self
+            self.bannerView?.hidden = false
+        }
+        let mapHeight = adFree ? UIScreen.mainScreen().bounds.height : UIScreen.mainScreen().bounds.height - bannerView!.frame.height
+        map = MapScrollView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, mapHeight), drawBorders: drawBorders)
         map.delegate = self
         
         playerIcon = PlayerIconView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width * 0.12, UIScreen.mainScreen().bounds.width * 0.12))
@@ -62,7 +81,7 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         map.addSubview(playerIcon)
         
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
-
+        
         
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapMap:")
         singleTapGestureRecognizer.numberOfTapsRequired = 1
@@ -100,7 +119,7 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         answerView.alpha = 0
         self.view.addSubview(answerView)
         
-
+        
         if gametype != GameType.training
         {
             clock = ClockView(frame: CGRectMake(0, 0, magnifyingSide, magnifyingSide))
@@ -110,13 +129,6 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
             view.addSubview(clock!)
         }
         
-        //datactrl.fetchData(tags,fromLevel:levelLow,toLevel: levelHigh)
-        //datactrl.shuffleQuestions()
-        //datactrl.orderOnUsed()
-
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         startGame()
     }
     
@@ -134,7 +146,7 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
 
         
         okButton = OkButton(frame: CGRectMake(0, 0, buttonSide, buttonSide))
-        okButton.center = CGPointMake(UIScreen.mainScreen().bounds.width - (okButton.frame.width / 2) - margin , UIScreen.mainScreen().bounds.height - (okButton.frame.height / 2) - margin)
+        okButton.center = CGPointMake(map.bounds.width - (okButton.frame.width / 2) - margin , map.bounds.height - (okButton.frame.height / 2) - margin)
         okButton.addTarget(self, action: "okAction", forControlEvents: UIControlEvents.TouchUpInside)
                 self.view.addSubview(okButton)
         okButton.orgFrame = okButton.frame
@@ -154,7 +166,7 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         
         if gametype == GameType.training
         {
-            backButton = UIButton(frame: CGRectMake(margin, UIScreen.mainScreen().bounds.maxY - buttonSide - margin, buttonSide, buttonSide))
+            backButton = UIButton(frame: CGRectMake(margin, map.bounds.maxY - buttonSide - margin, buttonSide, buttonSide))
             backButton!.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
             backButton!.setTitle("⏪", forState: UIControlState.Normal)
             backButton!.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -174,22 +186,25 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
     func useHintAction()
     {
         var hintText:String?
-        if self.hintButton.hintsLeftOnQuestion >= 2
+        if self.hintButton.hintsLeftOnAccount == 0
+        {
+            hintText = "Add more hints from main menu"
+        }
+        else if self.hintButton.hintsLeftOnQuestion >= 2
         {
             hintText = currentQuestion.place.hint1
+            self.hintButton.deductHints()
         }
         else if self.hintButton.hintsLeftOnQuestion >= 1
         {
             hintText = currentQuestion.place.hint2
+            self.hintButton.deductHints()
         }
-        else if self.hintButton.hintsLeftOnAccount == 0
-        {
-             hintText = "Buy more hints"
-        }
+        
 
         if let text = hintText
         {
-            self.hintButton.deductHints()
+            
             let numberPrompt = UIAlertController(title: "Hint",
                 message: text,
                 preferredStyle: .Alert)
@@ -732,21 +747,12 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
 
         if (segue.identifier == "segueFromPlayToFinished") {
             let svc = segue!.destinationViewController as! FinishedViewController
-            svc.completedQuestionsIds = completedQuestionsIds
-            svc.usersIdsToChallenge = usersIdsToChallenge
+
             svc.userFbId = myIdAndName.0
             svc.distance = self.distanceView.distance
             svc.gametype = gametype
-            if gametype == GameType.takingChallenge
-            {
-                svc.challenge = challenge
-            }
-            /*
-            else if gametype == gameType.makingChallenge
-            {
-                svc.challengeName = "\(self.myIdAndName.1) \(self.levelLow)-\(self.levelHigh) \(self.tagsAsString())"
-            }
-            */
+            svc.challenge = challenge
+
         }
         
     }
@@ -761,7 +767,19 @@ class PlayViewController: UIViewController , MapDelegate, ClockProtocol {
         // Dispose of any resources that can be recreated.
     }
     
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        let adFree = NSUserDefaults.standardUserDefaults().boolForKey("adFree")
+        self.bannerView?.hidden = adFree
+    }
     
+    func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool {
+        return willLeave
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        let adFree = NSUserDefaults.standardUserDefaults().boolForKey("adFree")
+        self.bannerView?.hidden = adFree
+    }
 
 
 }

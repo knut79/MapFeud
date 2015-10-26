@@ -10,10 +10,7 @@ import Foundation
 import UIKit
 
 class FinishedViewController:UIViewController {
-    
-    var usersIdsToChallenge:[String] = []
-    var completedQuestionsIds:[String] = []
-    
+
     var userFbId:String!
     var gametype:GameType!
     var challenge:Challenge!
@@ -65,8 +62,7 @@ class FinishedViewController:UIViewController {
                 activityLabel.text = "Sending challenge\n\(makingChallenge.title)..."
             }
         }
-        
-        if gametype == GameType.takingChallenge
+        else if gametype == GameType.takingChallenge
         {
             if let takingChallenge = challenge as? TakingChallenge
             {
@@ -92,10 +88,7 @@ class FinishedViewController:UIViewController {
                 resultLabel.layer.masksToBounds = true
                 resultLabel.layer.borderWidth = 5.0
                 self.view.addSubview(resultLabel)
-                
 
-
-                
                 //sending result
                 
                 if distance > takingChallenge.distanceToBeat
@@ -112,6 +105,11 @@ class FinishedViewController:UIViewController {
                 }
             }
         }
+        else
+        {
+            print("invalid GameType")
+        }
+        
         self.view.addSubview(self.backToMenuButton)
     }
     
@@ -170,8 +168,8 @@ class FinishedViewController:UIViewController {
     
     func finishMakingChallenge()
     {
-        
-        let challengeIds = "dummy,dummy"
+        let makingChallenge = challenge as! MakingChallenge
+        let challengeIds:String = makingChallenge.challengeIds!
 
         let jsonDictionary = ["chidspar":challengeIds,"fromId":userFbId,"fromResultDistance":distance]
         self.client!.invokeAPI("finishmakingchallenge", data: nil, HTTPMethod: "POST", parameters: jsonDictionary as! [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
@@ -186,9 +184,10 @@ class FinishedViewController:UIViewController {
                 print("\(result)")
                 
                 self.backToMenuButton.alpha = 1
-                //self.activityLabel.alpha = 0
                 
-                self.activityLabel.text = self.usersIdsToChallenge.count > 1 ? "Challenge sendt to \(self.usersIdsToChallenge.count) users" : "Challenge sendt to \(self.usersIdsToChallenge.count) user"
+                let numUsersChallenged = makingChallenge.usersToChallenge.count
+                
+                self.activityLabel.text = numUsersChallenged > 1 ? "Challenge sendt to \(numUsersChallenged) users" : "Challenge sendt to \(numUsersChallenged) user"
             }
             if response != nil
             {
