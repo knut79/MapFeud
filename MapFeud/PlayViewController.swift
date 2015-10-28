@@ -409,7 +409,6 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
             }, completion: { (value: Bool) in
                 self.setNextQuestion()
                 self.playerIcon.alpha = 1
-                //self.clock.start(10.0)
         })
 
         
@@ -484,6 +483,12 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                         
                         self.questionView.questionText.textColor = UIColor.blackColor()
                         self.clock?.alpha = 1
+                        let timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
+                        var time:CGFloat = 10
+                        for var i = 1 ; i <= timeBonus; i++
+                        {
+                           time = time * 1.1
+                        }
                         self.clock?.start(10.0)
                         
                 })

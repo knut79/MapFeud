@@ -30,33 +30,6 @@ class ClockView:UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
         
-        /*
-        clockHandLayer.frame = self.bounds
-        let secondPath = CGPathCreateMutable()
-        CGPathMoveToPoint(secondPath, nil, CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
-        //CGPathAddLineToPoint(secondPath, nil, time.s.x, time.s.y)
-        CGPathAddLineToPoint(secondPath, nil, self.frame.width / 2, self.frame.minY + (self.frame.height * 0.165))
-
-        clockHandLayer.path = secondPath
-        clockHandLayer.lineWidth = 1
-        clockHandLayer.lineCap = kCALineCapRound
-        clockHandLayer.strokeColor = UIColor.blackColor().CGColor
-        clockHandLayer.rasterizationScale = UIScreen.mainScreen().scale
-        clockHandLayer.shouldRasterize = true
-        self.layer.addSublayer(clockHandLayer)
-        
-        
-
-        let centerPiece = CAShapeLayer()
-        let circle = UIBezierPath(arcCenter: CGPoint(x:CGRectGetMidX(self.bounds),y:CGRectGetMidX(self.bounds)), radius: 4.5, startAngle: 0, endAngle: endAngle, clockwise: true)
-        centerPiece.path = circle.CGPath
-        centerPiece.fillColor = UIColor.blackColor().CGColor
-        self.layer.addSublayer(centerPiece)
-        */
-        
-        
-        
-        //let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.width - 10)/2, startAngle: 0.0, endAngle: CGFloat(M_PI * 2.0), clockwise: false)
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.width - 10)/2, startAngle: CGFloat(M_PI) * 90.0/180, endAngle: CGFloat(M_PI) * 90.1/180, clockwise: false)
         
         circleLayer.path = circlePath.CGPath
@@ -66,31 +39,24 @@ class ClockView:UIView {
         
         circleLayer.strokeEnd = 0.0
         
-        // Add the circleLayer to the view's layer's sublayers
         layer.addSublayer(circleLayer)
     }
     
     func start(duration: NSTimeInterval)
     {
-        //println("clock started")
-        //let time = timeCoords(CGRectGetMidX(self.bounds), y: CGRectGetMidY(self.bounds), time: ctime(),radius: 500)
         self.animateCircle(duration)
         forceStop = false
-        //rotateLayer(clockHandLayer,dur: 10)
 
     }
     
     func stop()
     {
-        //println("clock stopped")
         forceStop = true
-        //clockHandLayer.removeAllAnimations()
         circleLayer.removeAllAnimations()
     }
     
     func restart(duration: NSTimeInterval)
     {
-        //println("clock restart")
         forceStop = true
         circleLayer.removeAllAnimations()
         self.animateCircle(duration)
@@ -250,62 +216,5 @@ class ClockView:UIView {
         CGContextSetLineWidth(ctx, 3.0)
         CGContextStrokePath(ctx)
     }
-    
-    
-    /*
-    override func drawRect(rect:CGRect)
-    {
-        var startColor: UIColor = UIColor.whiteColor()
-        var endColor: UIColor = UIColor.grayColor()
-        
-        let context = UIGraphicsGetCurrentContext()
-        let colors = [startColor.CGColor, endColor.CGColor]
-        
-        //3 - set up the color space
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        
-        //4 - set up the color stops
-        let colorLocations:[CGFloat] = [0.0, 1.0]
-        
-        //5 - create the gradient
-        let gradient = CGGradientCreateWithColors(colorSpace,
-            colors,
-            colorLocations)
-        
-      
-        
-        // obtain context
-        let ctx = UIGraphicsGetCurrentContext()
-        
-        // decide on radius
-        //let rad = CGRectGetWidth(rect)/3.5
-        let rad = CGRectGetWidth(rect)/3
-        
-        
-        let endAngle = CGFloat(2*M_PI)
-        
-        // add the circle to the context
-        CGContextAddArc(ctx, CGRectGetMidX(rect), CGRectGetMidY(rect), rad, 0, endAngle, 1)
-        
-        // set fill color
-        CGContextSetFillColorWithColor(ctx,UIColor.whiteColor().CGColor)
-        
-        // set stroke color
-        CGContextSetStrokeColorWithColor(ctx,UIColor.blackColor().CGColor)
-        
-        // set line width
-        CGContextSetLineWidth(ctx, 2.0)
 
-        
-        // draw the path
-        CGContextDrawPath(ctx, kCGPathFillStroke)
-
-        
-        CGContextDrawRadialGradient(ctx, gradient, CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect)), CGFloat(1.0), CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect)), rad, 0)
-        
-        
-        //secondMarkers(ctx: ctx, x: CGRectGetMidX(rect), y: CGRectGetMidY(rect), radius: rad, sides: 60, color: UIColor.whiteColor())
-        
-    }
-    */
 }

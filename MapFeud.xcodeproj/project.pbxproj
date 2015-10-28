@@ -534,6 +534,10 @@
 		7254B22D1BD08F4200A22920 /* ResultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B2291BD08F4200A22920 /* ResultItemView.swift */; settings = {ASSET_TAGS = (); }; };
 		7254B22E1BD08F4200A22920 /* ResultTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B22A1BD08F4200A22920 /* ResultTitleLabel.swift */; settings = {ASSET_TAGS = (); }; };
 		7254B22F1BD08F4200A22920 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B22B1BD08F4200A22920 /* ResultsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		727580FF1BE0D6800026A2CC /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727580FE1BE0D6800026A2CC /* MenuButton.swift */; settings = {ASSET_TAGS = (); }; };
+		727581011BE0F7E20026A2CC /* StatusHintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581001BE0F7E20026A2CC /* StatusHintButton.swift */; settings = {ASSET_TAGS = (); }; };
+		727581031BE0FE0D0026A2CC /* StatusTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */; settings = {ASSET_TAGS = (); }; };
+		727581051BE101EB0026A2CC /* StatusDistanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581041BE101EB0026A2CC /* StatusDistanceButton.swift */; settings = {ASSET_TAGS = (); }; };
 		72BD9D261BD27A240062FE44 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		72BD9D271BD27A240062FE44 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		72BD9D281BD27A240062FE44 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */; settings = {ASSET_TAGS = (); }; };
@@ -1345,6 +1349,10 @@
 		7254B2291BD08F4200A22920 /* ResultItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultItemView.swift; sourceTree = "<group>"; };
 		7254B22A1BD08F4200A22920 /* ResultTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTitleLabel.swift; sourceTree = "<group>"; };
 		7254B22B1BD08F4200A22920 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		727580FE1BE0D6800026A2CC /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		727581001BE0F7E20026A2CC /* StatusHintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusHintButton.swift; sourceTree = "<group>"; };
+		727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTimeButton.swift; sourceTree = "<group>"; };
+		727581041BE101EB0026A2CC /* StatusDistanceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusDistanceButton.swift; sourceTree = "<group>"; };
 		72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
@@ -2274,6 +2282,10 @@
 				7254B2041BD08A1B00A22920 /* TagCheckScrollview.swift */,
 				7254B2051BD08A1B00A22920 /* TagCheckView.swift */,
 				722D8B381BDDA42300C2EABA /* StatsView.swift */,
+				727580FE1BE0D6800026A2CC /* MenuButton.swift */,
+				727581001BE0F7E20026A2CC /* StatusHintButton.swift */,
+				727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */,
+				727581041BE101EB0026A2CC /* StatusDistanceButton.swift */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -3510,6 +3522,7 @@
 				7254B03F1BC4089400A22920 /* Place.swift in Sources */,
 				72424A851BC2F319009FED5C /* MapScrollView.swift in Sources */,
 				7254B03B1BC407ED00A22920 /* LinePoint.swift in Sources */,
+				727581031BE0FE0D0026A2CC /* StatusTimeButton.swift in Sources */,
 				7254B1F71BC9E4F900A22920 /* MagnifyingGlassView.swift in Sources */,
 				72BD9D2C1BD2ADD90062FE44 /* Challenge.swift in Sources */,
 				7254B2011BD0581800A22920 /* AnswerView.swift in Sources */,
@@ -3521,8 +3534,10 @@
 				7254B1FD1BCC145500A22920 /* StaticValues.swift in Sources */,
 				7254B21B1BD08B4A00A22920 /* RangeSliderTrackLayer.swift in Sources */,
 				7254B0471BC55C7E00A22920 /* Question.swift in Sources */,
+				727581011BE0F7E20026A2CC /* StatusHintButton.swift in Sources */,
 				7254B2071BD08A1B00A22920 /* TagCheckScrollview.swift in Sources */,
 				722D8B331BD6A3CC00C2EABA /* FinishedViewController.swift in Sources */,
+				727581051BE101EB0026A2CC /* StatusDistanceButton.swift in Sources */,
 				7254B20E1BD08A7A00A22920 /* ArcLayer.swift in Sources */,
 				7254B2261BD08D5600A22920 /* ChallengeViewController.swift in Sources */,
 				72BD9D2E1BD2FEF60062FE44 /* DistanceView.swift in Sources */,
@@ -3531,6 +3546,7 @@
 				722D8B351BD6A46800C2EABA /* ClockView.swift in Sources */,
 				7254B2241BD08D5600A22920 /* RadiobuttonItemView.swift in Sources */,
 				7254B21A1BD08B4A00A22920 /* RangeSliderThumbLayer.swift in Sources */,
+				727580FF1BE0D6800026A2CC /* MenuButton.swift in Sources */,
 				7254B22D1BD08F4200A22920 /* ResultItemView.swift in Sources */,
 				7254B1F91BCB27AD00A22920 /* HintButton.swift in Sources */,
 				7254B2111BD08A8200A22920 /* HolderView.swift in Sources */,

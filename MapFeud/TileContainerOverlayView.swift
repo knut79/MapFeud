@@ -36,9 +36,19 @@ class TileContainerOverlayLayer: CALayer {
         CGContextSetLineCap(ctx, CGLineCap.Round)
         CGContextSetLineJoin(ctx, CGLineJoin.Round)
         CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 1)
-        CGContextSetRGBFillColor(ctx, 1.0, 0.0, 0.0, 1.0)
+        if toPoint == nil
+        {
+            //correct region placement
+            CGContextSetFillColorWithColor(ctx, UIColor.greenColor().CGColor)
+            
+        }
+        else
+        {
+            CGContextSetFillColorWithColor(ctx, UIColor.redColor().CGColor)
+        }
         
-        CGContextSetFillColorWithColor(ctx, UIColor.redColor().CGColor)
+        
+        
         if let pt = placeType
         {
             if pt == PlaceType.Lake || pt == PlaceType.UnDefWaterRegion
@@ -46,6 +56,8 @@ class TileContainerOverlayLayer: CALayer {
                 CGContextSetFillColorWithColor(ctx, UIColor.blueColor().CGColor)
             }
         }
+        
+
         
         
 

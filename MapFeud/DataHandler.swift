@@ -457,6 +457,7 @@ class DataHandler
     let GameResultsKey = "GameResults"
     let AdFreeKey = "AdFree"
     let HintsKey = "Hints"
+    let TimeBonusKey = "TimeBonus"
     
     var dataPopulatedValue:AnyObject = 0
     var okScoreValue:AnyObject = 0
@@ -467,6 +468,7 @@ class DataHandler
     var eventsUpdateValue:AnyObject = 0
     var adFreeValue:AnyObject = 0
     var hintsValue:AnyObject = 0
+    var timeBounusValue:AnyObject = 0
     var gameResultsValues:[AnyObject] = []
 
     func loadGameData() {
@@ -510,6 +512,8 @@ class DataHandler
             NSUserDefaults.standardUserDefaults().setBool(adFreeValue as! NSNumber == 1 ? true : false, forKey: "adFree")
             hintsValue = dict.objectForKey(AdFreeKey)!
             NSUserDefaults.standardUserDefaults().setInteger(Int(hintsValue as! NSNumber), forKey: "hintsLeftOnAccount")
+            timeBounusValue = dict.objectForKey(TimeBonusKey)!
+            NSUserDefaults.standardUserDefaults().setInteger(Int(timeBounusValue as! NSNumber), forKey: "timeBonus")
             gameResultsValues = dict.objectForKey(GameResultsKey)! as! [AnyObject]
         } else {
             print("WARNING: Couldn't create dictionary from GameData.plist! Default values will be used!")
@@ -531,7 +535,7 @@ class DataHandler
         dict.setObject(eventsUpdateValue, forKey: EventsUpdateKey)
         dict.setObject(adFreeValue, forKey: AdFreeKey)
         dict.setObject(hintsValue, forKey: HintsKey)
-        
+        dict.setObject(timeBounusValue, forKey: TimeBonusKey)
         dict.setObject(gameResultsValues, forKey: GameResultsKey)
         //writing to GameData.plist
         dict.writeToFile(path, atomically: false)
