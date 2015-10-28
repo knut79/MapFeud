@@ -12,13 +12,16 @@ class OkButton: UIButton {
         super.init(coder: aDecoder)
     }
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, rightMargin:CGFloat,bottomMargin:CGFloat) {
         super.init(frame: frame)
-        self.setTitle("🆗", forState: UIControlState.Normal)
-        self.layer.borderColor = UIColor.lightGrayColor().CGColor
-        self.layer.borderWidth = 2
-        self.layer.cornerRadius = self.bounds.size.width / 2
-        self.layer.masksToBounds = true
+        let label = UILabel(frame: CGRectMake(0, 0, frame.width - rightMargin, frame.height - bottomMargin))
+        label.text = "🆗"
+        label.textAlignment = NSTextAlignment.Center
+        label.layer.borderColor = UIColor.lightGrayColor().CGColor
+        label.layer.borderWidth = 2
+        label.layer.cornerRadius = label.bounds.size.width / 2
+        label.layer.masksToBounds = true
+        self.addSubview(label)
 
     }
     

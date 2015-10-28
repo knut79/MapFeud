@@ -144,14 +144,15 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         self.view.addSubview(hintButton)
         hintButton.orgFrame = hintButton.frame
 
-        
-        okButton = OkButton(frame: CGRectMake(0, 0, buttonSide, buttonSide))
-        okButton.center = CGPointMake(map.bounds.width - (okButton.frame.width / 2) - margin , map.bounds.height - (okButton.frame.height / 2) - margin)
+        let okButtonSide = buttonSide + margin
+        okButton = OkButton(frame: CGRectMake(map.bounds.width - okButtonSide , map.bounds.height - okButtonSide , okButtonSide, okButtonSide),rightMargin: margin,bottomMargin: margin)
+       // okButton.center = CGPointMake(map.bounds.width - (okButton.frame.width / 2) - margin , map.bounds.height - (okButton.frame.height / 2) - margin)
         okButton.addTarget(self, action: "okAction", forControlEvents: UIControlEvents.TouchUpInside)
                 self.view.addSubview(okButton)
         okButton.orgFrame = okButton.frame
             
-        nextButton = UIButton(frame: okButton.orgFrame)
+        nextButton = UIButton(frame: CGRectMake(0, 0, buttonSide, buttonSide))
+        nextButton.center = CGPointMake(map.bounds.width - (nextButton.frame.width / 2) - margin , map.bounds.height - (nextButton.frame.height / 2) - margin)
         nextButton.addTarget(self, action: "nextAction", forControlEvents: UIControlEvents.TouchUpInside)
         nextButton.setTitle("⏩", forState: UIControlState.Normal)
         nextButton.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -516,7 +517,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         let touch = touches.first //touches.anyObject()
         let touchLocation = touch!.locationInView(self.view)
         let isInnView = CGRectContainsPoint(playerIcon.frame,touchLocation)
-        
+
         if(isInnView)
         {
             let isInnHintButtonView = CGRectContainsPoint(hintButton.orgFrame, touchLocation)
@@ -615,15 +616,19 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         }
         else
         {
+            let isInnAnswerView = CGRectContainsPoint(self.answerView.frame,touchLocation)
+            if(!isInnAnswerView)
+            {
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.playerIcon.alpha = 1
+                    self.magnifyingGlass.alpha = 0
+                    self.magnifyingGlass.center = touchLocation
+                    self.magnifyingGlass.transform = CGAffineTransformScale(self.magnifyingGlass.transform, 0.1, 0.1)
+                    self.playerIcon.transform = CGAffineTransformIdentity
+                    }, completion: { (value: Bool) in
+                })
+            }
 
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
-                self.playerIcon.alpha = 1
-                self.magnifyingGlass.alpha = 0
-                self.magnifyingGlass.center = touchLocation
-                self.magnifyingGlass.transform = CGAffineTransformScale(self.magnifyingGlass.transform, 0.1, 0.1)
-                self.playerIcon.transform = CGAffineTransformIdentity
-                }, completion: { (value: Bool) in
-            })
         }
     }
     
