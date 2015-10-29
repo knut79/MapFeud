@@ -514,7 +514,7 @@ class DataHandler
             NSUserDefaults.standardUserDefaults().setBool(adFreeValue as! NSNumber == 1 ? true : false, forKey: "adFree")
             useKmValue = dict.objectForKey(UseKmKey)!
             NSUserDefaults.standardUserDefaults().setBool(adFreeValue as! NSNumber == 1 ? true : false, forKey: "useKm")
-            hintsValue = dict.objectForKey(AdFreeKey)!
+            hintsValue = dict.objectForKey(HintsKey)!
             NSUserDefaults.standardUserDefaults().setInteger(Int(hintsValue as! NSNumber), forKey: "hintsLeftOnAccount")
             timeBounusValue = dict.objectForKey(TimeBonusKey)!
             NSUserDefaults.standardUserDefaults().setInteger(Int(timeBounusValue as! NSNumber), forKey: "timeBonus")

@@ -11,8 +11,8 @@ import UIKit
 
 protocol StatsViewProtocol
 {
-    func buyHints()
-    func buyTime()
+    func requestBuyHints()
+    func requestBuyTime()
 }
 
 class StatsView: UIView {
@@ -62,16 +62,13 @@ class StatsView: UIView {
     
     func addHints()
     {
-        delegate?.buyHints()
+        delegate?.requestBuyHints()
 
     }
     
     func addTime()
     {
-        delegate?.buyTime()
-        
-
-
+        delegate?.requestBuyTime()
     }
 
 }

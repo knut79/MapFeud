@@ -17,7 +17,10 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
 
     //payment
     var product: SKProduct?
-    var productID = "TimelineFeudAddFree1234"
+    var productList:[SKProduct] = []
+    let productIdAdFree = "MapFeudAdFree"
+    let productIdAddHints = "MapFeudAddHints"
+    var productIDs:NSSet = NSSet(objects: "MapFeudAdFree","MapFeudAddHints")
     
     //buttons
     var challengeUsersButton:UIButton!
@@ -92,6 +95,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         if !adFree
         {
             removeAdsButton = UIButton(frame: CGRectMake(0, 0, practiceButton.frame.width * 0.66,  practiceButton.frame.height))
+            removeAdsButton?.addTarget(self, action: "requestBuyAdFree", forControlEvents: UIControlEvents.TouchUpInside)
             removeAdsButton?.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2,resultsButton.frame.maxY)
             removeAdsButton?.setTitle("Remove ads ☂ ", forState: UIControlState.Normal)
             removeAdsButton?.backgroundColor = UIColor.blueColor()
@@ -328,12 +332,13 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         //test _?
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
-        datactrl.adFreeValue = 0
-        datactrl.timeBounusValue = 0
+        datactrl.adFreeValue = 1
+        datactrl.timeBounusValue = 2
+        datactrl.hintsValue = 15
         datactrl.saveGameData()
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "adFree")
-        NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "timeBonus")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        //NSUserDefaults.standardUserDefaults().setBool(false, forKey: "adFree")
+        //NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "timeBonus")
+        //NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     func populateDataIfNeeded()
@@ -763,55 +768,79 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     //MARK: Buy
     
-    
-    func buyAdFree()
+    func requestBuyAdFree()
     {
- 
         let adFreePrompt = UIAlertController(title: "Remove ads",
             message: "",
             preferredStyle: .Alert)
-
-
+        
+        
         adFreePrompt.addAction(UIAlertAction(title: "Buy",
             style: .Default,
             handler: { (action) -> Void in
-                self.buyProductAction()
+                self.buyAdFree()
         }))
         adFreePrompt.addAction(UIAlertAction(title: "Restore purchase",
             style: .Default,
             handler: { (action) -> Void in
                 
-                self.buyProductAction()
-                
+                self.buyAdFree()
         }))
-   
         
         self.presentViewController(adFreePrompt,
             animated: true,
             completion: nil)
+    }
+    func buyAdFree()
+    {
 
+        for p in productList
+        {
+            let productId = p.productIdentifier
+            if productId == productIdAdFree
+            {
+                product = p
+                buyProductAction()
+                break
+            }
+        }
+
+    }
+    
+    func requestBuyHints()
+    {
+        let adFreePrompt = UIAlertController(title: "Buy hints",
+            message: "Buy 20 hints. In addition to beeing used as hints\n they can also be used to expand time",
+            preferredStyle: .Alert)
         
-        removeAdsButton!.removeFromSuperview()
-        datactrl.adFreeValue = 1
-        datactrl.saveGameData()
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "adFree")
-        NSUserDefaults.standardUserDefaults().synchronize()
         
-        bannerView?.frame.offsetInPlace(dx: 0, dy: bannerView!.frame.height)
+        adFreePrompt.addAction(UIAlertAction(title: "Buy",
+            style: .Default,
+            handler: { (action) -> Void in
+                self.buyHints()
+        }))
+        
+        self.presentViewController(adFreePrompt,
+            animated: true,
+            completion: nil)
     }
     
     func buyHints()
     {
-        var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
-        hints = hints + 20
-        statsView.hintsButton.sHints(hints)
-        NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        datactrl.hintsValue = hints
-        datactrl.saveGameData()
+        for p in productList
+        {
+            let productId = p.productIdentifier
+            if productId == productIdAddHints
+            {
+                product = p
+                buyProductAction()
+                break
+            }
+        }
+
     }
     
-    func buyTime()
+    func requestBuyTime()
     {
         var timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
         if timeBonus  >= 10
@@ -881,18 +910,20 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                 completion: nil)
         }
     }
-    
+
     //MARK: Payment
     
     func requestProductData()
     {
+        /*
         let adFree = NSUserDefaults.standardUserDefaults().boolForKey("adFree")
         if adFree
         {
             return
         }
+        */
         if SKPaymentQueue.canMakePayments() {
-            let request = SKProductsRequest(productIdentifiers:  NSSet(objects: self.productID) as! Set<String>)
+            let request = SKProductsRequest(productIdentifiers:  self.productIDs as! Set<String>)
             request.delegate = self
             request.start()
         } else {
@@ -919,10 +950,17 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         var products = response.products
         
         if (products.count != 0) {
+            
+            
             product = products[0]
             
         } else {
             //productTitle.text = "Product not found"
+        }
+        
+        for product in products
+        {
+            productList.append(product)
         }
         
         let invalidProducts = response.invalidProductIdentifiers
@@ -948,10 +986,24 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             switch transaction.transactionState {
                 
             case SKPaymentTransactionState.Purchased:
-                self.removeAds()
+                
+                let prodID = product?.productIdentifier
+                if prodID == productIdAdFree
+                {
+                    self.removeAds()
+                }
+                else if prodID == productIdAddHints
+                {
+                    self.addHints()
+                }
                 SKPaymentQueue.defaultQueue().finishTransaction(transaction)
             case SKPaymentTransactionState.Restored:
-                self.removeAds()
+                let prodID = product?.productIdentifier
+                if prodID == productIdAdFree
+                {
+                    self.removeAds()
+                }
+                
                 SKPaymentQueue.defaultQueue().finishTransaction(transaction)
             case SKPaymentTransactionState.Failed:
                 SKPaymentQueue.defaultQueue().finishTransaction(transaction)
@@ -963,12 +1015,25 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func removeAds() {
         
+        removeAdsButton!.removeFromSuperview()
         datactrl.adFreeValue = 1
         datactrl.saveGameData()
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "adFree")
+        NSUserDefaults.standardUserDefaults().synchronize()
         self.bannerView?.delegate = nil
         self.bannerView?.hidden = true
         bannerView?.frame.offsetInPlace(dx: 0, dy: bannerView!.frame.height)
+    }
+    
+    func addHints()
+    {
+        var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
+        hints = hints + 20
+        statsView.hintsButton.sHints(hints)
+        NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        datactrl.hintsValue = hints
+        datactrl.saveGameData()
     }
 
     var allowRotate = false
