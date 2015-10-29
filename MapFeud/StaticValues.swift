@@ -48,6 +48,7 @@ struct GlobalConstants {
     
     static let smallButtonSide:CGFloat = 32
     static let timeBonusMultiplier:CGFloat = 1.2
+    static let hintCostForTimeBonus:Int = 5
 }
 
 

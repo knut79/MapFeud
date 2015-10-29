@@ -53,6 +53,8 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     
     var bannerView:ADBannerView?
     
+    var usingKm:Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -60,7 +62,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     
     override func viewDidAppear(animated: Bool) {
         
-        
+        usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
         let adFree = NSUserDefaults.standardUserDefaults().boolForKey("adFree")
         if !adFree
         {
@@ -102,7 +104,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         magnifyingGlass.alpha = 0
         self.view.addSubview(magnifyingGlass)
         
-        distanceView = DistanceView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width * 0.66, questonViewHeight))
+        distanceView = DistanceView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width * 0.66, questonViewHeight),usingKm:self.usingKm)
         distanceView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, map.bounds.maxY - (questonViewHeight / 2))
         distanceView.alpha = 1
         self.view.addSubview(distanceView)
@@ -290,7 +292,8 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
 
         tempDisctanceAnimateLabel.center = CGPointMake( UIScreen.mainScreen().bounds.midX, UIScreen.mainScreen().bounds.midY)
         tempDisctanceAnimateLabel.alpha = 0
-        tempDisctanceAnimateLabel.text = distance > 0 ? "\(distance) km" : "Correct location"
+        let distanceText = usingKm ? "\(distance) km" : "\(Int(CGFloat(distance) * 0.621371)) miles"
+        tempDisctanceAnimateLabel.text = distance > 0 ? distanceText : "Correct location"
         
         tempIconAnimateLabel.text = getEmojiOnMissedDistance(distance)
         tempIconAnimateLabel.alpha = 0

@@ -42,6 +42,7 @@ class StatusHintButton:UIButton {
         let hintsLabelSide = label.frame.height * 0.6
         hintsLabel = UILabel(frame: CGRectMake(frame.width - hintsLabelSide, frame.height * 0.5,hintsLabelSide, hintsLabelSide))
         hintsLabel.text = "0"
+        hintsLabel.adjustsFontSizeToFitWidth = true
         hintsLabel.textAlignment = NSTextAlignment.Center
         //label.layer.borderColor = UIColor.lightGrayColor().CGColor
         hintsLabel.backgroundColor = UIColor.whiteColor()

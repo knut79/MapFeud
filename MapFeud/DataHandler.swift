@@ -458,6 +458,7 @@ class DataHandler
     let AdFreeKey = "AdFree"
     let HintsKey = "Hints"
     let TimeBonusKey = "TimeBonus"
+    let UseKmKey = "UseKm"
     
     var dataPopulatedValue:AnyObject = 0
     var okScoreValue:AnyObject = 0
@@ -469,6 +470,7 @@ class DataHandler
     var adFreeValue:AnyObject = 0
     var hintsValue:AnyObject = 0
     var timeBounusValue:AnyObject = 0
+    var useKmValue:AnyObject = 1
     var gameResultsValues:[AnyObject] = []
 
     func loadGameData() {
@@ -510,6 +512,8 @@ class DataHandler
             eventsUpdateValue = dict.objectForKey(EventsUpdateKey)!
             adFreeValue = dict.objectForKey(AdFreeKey)!
             NSUserDefaults.standardUserDefaults().setBool(adFreeValue as! NSNumber == 1 ? true : false, forKey: "adFree")
+            useKmValue = dict.objectForKey(UseKmKey)!
+            NSUserDefaults.standardUserDefaults().setBool(adFreeValue as! NSNumber == 1 ? true : false, forKey: "useKm")
             hintsValue = dict.objectForKey(AdFreeKey)!
             NSUserDefaults.standardUserDefaults().setInteger(Int(hintsValue as! NSNumber), forKey: "hintsLeftOnAccount")
             timeBounusValue = dict.objectForKey(TimeBonusKey)!
@@ -534,13 +538,14 @@ class DataHandler
         dict.setObject(levelValue, forKey: LevelKey)
         dict.setObject(eventsUpdateValue, forKey: EventsUpdateKey)
         dict.setObject(adFreeValue, forKey: AdFreeKey)
+        dict.setObject(useKmValue, forKey: UseKmKey)
         dict.setObject(hintsValue, forKey: HintsKey)
         dict.setObject(timeBounusValue, forKey: TimeBonusKey)
         dict.setObject(gameResultsValues, forKey: GameResultsKey)
         //writing to GameData.plist
         dict.writeToFile(path, atomically: false)
-        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
-        print("Saved GameData.plist file is --> \(resultDictionary?.description)")
+       // let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+        //print("Saved GameData.plist file is --> \(resultDictionary?.description)")
     }
     
     func getMaxTimeLimit(year: Double) -> Double

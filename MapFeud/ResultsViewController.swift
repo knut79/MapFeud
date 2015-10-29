@@ -207,6 +207,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
     {
         var noValues = true
         datactrl.loadGameData()
+        let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
         for record in datactrl.gameResultsValues
         {
             let arrayOfValues = record.componentsSeparatedByString(",")
@@ -221,9 +222,11 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("\(arrayOfValues[i])")
                 }
                 let myDistance = NSNumberFormatter().numberFromString(arrayOfValues[0] )
+                let myDistanceRightMeasure =  usingKm ? myDistance!.integerValue : Int(CGFloat(myDistance!.integerValue) * 0.621371)
                 let name = arrayOfValues[1]
                 let opponentDistance = NSNumberFormatter().numberFromString(arrayOfValues[3] )
-                resultsScrollView.addItem( myDistance!.integerValue, opponentName: name, opponentDistance: opponentDistance!.integerValue)
+                let opponentDistanceRightMeasure =  usingKm ? opponentDistance!.integerValue : Int(CGFloat(opponentDistance!.integerValue) * 0.62137)
+                resultsScrollView.addItem( myDistanceRightMeasure, opponentName: name, opponentDistance: opponentDistanceRightMeasure)
                 
                 noValues = false
             }

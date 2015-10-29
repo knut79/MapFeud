@@ -26,7 +26,7 @@ class StatusDistanceButton:UIButton {
         self.backgroundColor = UIColor.clearColor()
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        
+        km = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
         let margin = frame.height * 0.1
         distanceLabel = UILabel(frame: CGRectMake(margin, margin, frame.width - (margin * 2), frame.height * 0.8))
         distanceLabel.text = km ? "Km" : "Miles"
@@ -60,5 +60,6 @@ class StatusDistanceButton:UIButton {
         slideInFromRightTransition.fillMode = kCAFillModeRemoved
         km = !km
         distanceLabel.text = km ? "Km" : "Miles"
+        NSUserDefaults.standardUserDefaults().setBool(km, forKey: "useKm")
     }
 }

@@ -11,7 +11,8 @@ import UIKit
 
 protocol StatsViewProtocol
 {
-    func removeAds()
+    func buyHints()
+    func buyTime()
 }
 
 class StatsView: UIView {
@@ -61,26 +62,16 @@ class StatsView: UIView {
     
     func addHints()
     {
-        var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
-        hints++
-        hintsButton.sHints(hints)
-        NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        datactrl.hintsValue = hints
-        datactrl.saveGameData()
+        delegate?.buyHints()
+
     }
     
     func addTime()
     {
+        delegate?.buyTime()
         
-        var timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
-        timeBonus++
 
-        timeButton.sTime(timeBonus)
-        NSUserDefaults.standardUserDefaults().setInteger(timeBonus, forKey: "timeBonus")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        datactrl.timeBounusValue = timeBonus
-        datactrl.saveGameData()
+
     }
 
 }
