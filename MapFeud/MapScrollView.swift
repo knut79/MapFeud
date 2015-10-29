@@ -264,10 +264,13 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     
     func clearDrawing()
     {
-        overlayDrawView?.exludedRegions = []
-        overlayDrawView?.regions = []
-        overlayDrawView?.fromPoint = nil
-        overlayDrawView?.toPoint = nil
+
+        placesToDraw = []
+        placesToExcludeDraw = []
+        realMapCordsPlayerPoint = nil
+        realMapCordsNearestPoint = nil
+        overlayDrawView?.clearDrawing()
+        
         playerSymbol.alpha = 0
         overlayDrawView?.setNeedsDisplay()
     }

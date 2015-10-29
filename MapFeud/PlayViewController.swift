@@ -107,6 +107,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         distanceView = DistanceView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width * 0.66, questonViewHeight),usingKm:self.usingKm)
         distanceView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, map.bounds.maxY - (questonViewHeight / 2))
         distanceView.alpha = 1
+        distanceView.userInteractionEnabled = false
         self.view.addSubview(distanceView)
         distanceView.orgFrame = distanceView.frame
         
@@ -386,7 +387,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                     
                     }, completion: { (value: Bool) in
                         
-                        self.answerView.answerText.textColor = UIColor.blackColor()
+                        self.answerView.finishedAnimating()
                         completion()
 
                         

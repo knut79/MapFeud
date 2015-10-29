@@ -42,8 +42,8 @@ class DistanceView: UIView {
         self.distance = self.distance + dist
         
         var distanceInRightMeasure:String =  usingKm ? "\(distance)" : "\(Int(CGFloat(distance) * 0.621371))"
-        distanceInRightMeasure = distanceInRightMeasure.characters.count > 6 ? distanceInRightMeasure.insertC(" ", ind: 6)  : distanceInRightMeasure
-        distanceInRightMeasure = distanceInRightMeasure.characters.count > 3 ? distanceInRightMeasure.insertC(" ", ind: 3)  : distanceInRightMeasure
+        distanceInRightMeasure = distanceInRightMeasure.characters.count > 6 ? distanceInRightMeasure.insertC(" ", ind: distanceInRightMeasure.characters.count - 6)  : distanceInRightMeasure
+        distanceInRightMeasure = distanceInRightMeasure.characters.count > 3 ? distanceInRightMeasure.insertC(" ", ind: distanceInRightMeasure.characters.count - 3)  : distanceInRightMeasure
         let distanceText = usingKm ? "\(distanceInRightMeasure) km" : "\(distanceInRightMeasure) miles"
         self.distanceLabel.text = distanceText
         

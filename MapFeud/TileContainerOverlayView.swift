@@ -82,6 +82,15 @@ class TileContainerOverlayLayer: CALayer {
         self.shouldRasterize = true
     }
     
+    func clearDrawing()
+    {
+        self.exludedRegions = []
+        self.regions = []
+        self.fromPoint = nil
+        self.toPoint = nil
+        self.setNeedsDisplay()
+    }
+    
     func drawMask(context:CGContext)
     {
         //let maskImage = UIImage(named: "25MaskWater.png" )

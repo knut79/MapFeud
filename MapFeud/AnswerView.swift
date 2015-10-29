@@ -15,6 +15,7 @@ class AnswerView: UIView {
     var answerText:UILabel!
     var infoText:UILabel!
     var infoButton:UILabel!
+    var informationIcon:UILabel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -46,21 +47,11 @@ class AnswerView: UIView {
         answerText.textColor = UIColor.whiteColor()
         self.addSubview(answerText)
         
-        /*
-        infoButton = UILabel(frame: CGRectMake( self.answerText.frame.maxX ,self.bounds.width * 0.01, self.bounds.width * 0.1,self.bounds.width * 0.1))
-        infoButton.text = "ℹ"
-        infoButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-        infoButton.textAlignment = NSTextAlignment.Center
-        infoButton.layer.borderWidth = 2
-        infoButton.layer.cornerRadius = infoButton.bounds.size.width / 2
-        infoButton.layer.masksToBounds = true
-        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapAnswer:")
-        singleTapGestureRecognizer.numberOfTapsRequired = 1
-        singleTapGestureRecognizer.enabled = true
-        singleTapGestureRecognizer.cancelsTouchesInView = false
-        infoButton.addGestureRecognizer(singleTapGestureRecognizer)
-        self.addSubview(infoButton)
-        */
+        let informationIconSide = self.bounds.height * 0.5
+        informationIcon = UILabel(frame: CGRectMake(self.bounds.width - informationIconSide, 0, informationIconSide, informationIconSide))
+        informationIcon.text = "ℹ"
+        informationIcon.alpha = 0
+        self.addSubview(informationIcon)
     }
     
     var orgFrame:CGRect!
@@ -70,11 +61,13 @@ class AnswerView: UIView {
         let midscreen = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
         if self.center == midscreen
         {
+            
             //let heightRatio = imageView.image!.size.height / (self.bounds.height - 3)
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.infoText.alpha = 0
                 self.frame = self.orgFrame
                 self.infoText.frame = self.orgInfoFrame
+                self.informationIcon.alpha = 1
                 }, completion: { (value: Bool) in
             })
             
@@ -83,10 +76,11 @@ class AnswerView: UIView {
         {
             orgFrame = self.frame
             orgInfoFrame = infoText.frame
-
+            
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.frame = UIScreen.mainScreen().bounds
                 self.infoText.alpha = 1
+                self.informationIcon.alpha = 0
                 self.infoText.center = midscreen
                 }, completion: { (value: Bool) in
             })
@@ -100,11 +94,20 @@ class AnswerView: UIView {
     {
         print("setQueston called")
         let template = question.answerTemplate.stringByReplacingOccurrencesOfString("$", withString: question.place.name, options: NSStringCompareOptions.LiteralSearch, range: nil)
-        answerText.text = distance > 0 ? "\(distance) km \(template)" : "Correct location of \(question.place.name)"
+        
+        let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
+        let distanceInRightMeasure:String =  usingKm ? "\(distance)" : "\(Int(CGFloat(distance) * 0.621371))"
+        let measurement = usingKm ? "km" : "miles"
+        answerText.text = distance > 0 ? "\(distanceInRightMeasure) \(measurement) \(template)" : "Correct location of \(question.place.name)"
         
         
         infoText.text = question.place.info
         infoText.alpha = 0
-        
+    }
+    
+    func finishedAnimating()
+    {
+        self.answerText.textColor = UIColor.blackColor()
+        self.informationIcon.alpha = 1
     }
 }
