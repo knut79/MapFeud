@@ -264,99 +264,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
 
     }
     
-    
-    func buyAdFree()
-    {
-        removeAdsButton!.removeFromSuperview()
-        datactrl.adFreeValue = 1
-        datactrl.saveGameData()
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "adFree")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-        bannerView?.frame.offsetInPlace(dx: 0, dy: bannerView!.frame.height)
-    }
-    
-    func buyHints()
-    {
-        var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
-        hints = hints + 20
-        statsView.hintsButton.sHints(hints)
-        NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        datactrl.hintsValue = hints
-        datactrl.saveGameData()
-    }
-    
-    func buyTime()
-    {
-        var timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
-        if timeBonus  >= 10
-        {
-            let maxTimePrompt = UIAlertController(title: "Max time",
-                message: "Time is streched far enough",
-                preferredStyle: .Alert)
-            maxTimePrompt.addAction(UIAlertAction(title: "Ok",
-                style: .Default,
-                handler: { (action) -> Void in
-                    
-            }))
-            self.presentViewController(maxTimePrompt,
-                animated: true,
-                completion: nil)
-        }
-        else
-        {
-            let expandTimePrompt = UIAlertController(title: "Expand time",
-                message: "Use \(GlobalConstants.hintCostForTimeBonus) hints and expand time by 15%",
-                preferredStyle: .Alert)
-            
-            
-            expandTimePrompt.addAction(UIAlertAction(title: "Ok",
-                style: .Default,
-                handler: { (action) -> Void in
-                    var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
-                    if hints >= GlobalConstants.hintCostForTimeBonus
-                    {
-            
-                        timeBonus++
-                        hints = hints - GlobalConstants.hintCostForTimeBonus
-                        self.statsView.timeButton.sTime(timeBonus)
-                        self.statsView.hintsButton.sHints(hints)
-                        NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
-                        NSUserDefaults.standardUserDefaults().setInteger(timeBonus, forKey: "timeBonus")
-                        NSUserDefaults.standardUserDefaults().synchronize()
-                        self.datactrl.hintsValue = hints
-                        self.datactrl.timeBounusValue = timeBonus
-                        self.datactrl.saveGameData()
-                    }
-                    else
-                    {
-                        let toFewHintsPrompt = UIAlertController(title: "Too few hints",
-                            message: "Must have more than \(GlobalConstants.hintCostForTimeBonus) hints to expand time",
-                            preferredStyle: .Alert)
-                        toFewHintsPrompt.addAction(UIAlertAction(title: "Ok",
-                            style: .Default,
-                            handler: { (action) -> Void in
-                                
-                        }))
-                        self.presentViewController(toFewHintsPrompt,
-                            animated: true,
-                            completion: nil)
-                    }
-                    
-            }))
-            expandTimePrompt.addAction(UIAlertAction(title: "Cancel",
-                style: .Default,
-                handler: { (action) -> Void in
-                    
-            }))
-            
-            
-            self.presentViewController(expandTimePrompt,
-                animated: true,
-                completion: nil)
-        }
-    }
+
     
     func borderStateChanged(switchState: UISwitch) {
         if switchState.on {
@@ -853,8 +761,128 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
     }
     
+    //MARK: Buy
     
-    //MARK addRemove
+    
+    func buyAdFree()
+    {
+ 
+        let adFreePrompt = UIAlertController(title: "Remove ads",
+            message: "",
+            preferredStyle: .Alert)
+
+
+        adFreePrompt.addAction(UIAlertAction(title: "Buy",
+            style: .Default,
+            handler: { (action) -> Void in
+                self.buyProductAction()
+        }))
+        adFreePrompt.addAction(UIAlertAction(title: "Restore purchase",
+            style: .Default,
+            handler: { (action) -> Void in
+                
+                self.buyProductAction()
+                
+        }))
+   
+        
+        self.presentViewController(adFreePrompt,
+            animated: true,
+            completion: nil)
+
+        
+        removeAdsButton!.removeFromSuperview()
+        datactrl.adFreeValue = 1
+        datactrl.saveGameData()
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "adFree")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        bannerView?.frame.offsetInPlace(dx: 0, dy: bannerView!.frame.height)
+    }
+    
+    func buyHints()
+    {
+        var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
+        hints = hints + 20
+        statsView.hintsButton.sHints(hints)
+        NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        datactrl.hintsValue = hints
+        datactrl.saveGameData()
+    }
+    
+    func buyTime()
+    {
+        var timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
+        if timeBonus  >= 10
+        {
+            let maxTimePrompt = UIAlertController(title: "Max time",
+                message: "Time is streched far enough",
+                preferredStyle: .Alert)
+            maxTimePrompt.addAction(UIAlertAction(title: "Ok",
+                style: .Default,
+                handler: { (action) -> Void in
+                    
+            }))
+            self.presentViewController(maxTimePrompt,
+                animated: true,
+                completion: nil)
+        }
+        else
+        {
+            let expandTimePrompt = UIAlertController(title: "Expand time",
+                message: "Use \(GlobalConstants.hintCostForTimeBonus) hints and expand time by 15%",
+                preferredStyle: .Alert)
+            
+            
+            expandTimePrompt.addAction(UIAlertAction(title: "Ok",
+                style: .Default,
+                handler: { (action) -> Void in
+                    var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
+                    if hints >= GlobalConstants.hintCostForTimeBonus
+                    {
+                        
+                        timeBonus++
+                        hints = hints - GlobalConstants.hintCostForTimeBonus
+                        self.statsView.timeButton.sTime(timeBonus)
+                        self.statsView.hintsButton.sHints(hints)
+                        NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
+                        NSUserDefaults.standardUserDefaults().setInteger(timeBonus, forKey: "timeBonus")
+                        NSUserDefaults.standardUserDefaults().synchronize()
+                        self.datactrl.hintsValue = hints
+                        self.datactrl.timeBounusValue = timeBonus
+                        self.datactrl.saveGameData()
+                    }
+                    else
+                    {
+                        let toFewHintsPrompt = UIAlertController(title: "Too few hints",
+                            message: "Must have more than \(GlobalConstants.hintCostForTimeBonus) hints to expand time",
+                            preferredStyle: .Alert)
+                        toFewHintsPrompt.addAction(UIAlertAction(title: "Ok",
+                            style: .Default,
+                            handler: { (action) -> Void in
+                                
+                        }))
+                        self.presentViewController(toFewHintsPrompt,
+                            animated: true,
+                            completion: nil)
+                    }
+                    
+            }))
+            expandTimePrompt.addAction(UIAlertAction(title: "Cancel",
+                style: .Default,
+                handler: { (action) -> Void in
+                    
+            }))
+            
+            
+            self.presentViewController(expandTimePrompt,
+                animated: true,
+                completion: nil)
+        }
+    }
+    
+    //MARK: Payment
     
     func requestProductData()
     {
@@ -904,6 +932,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             print("Product not found: \(product)")
         }
     }
+    
+    
     
     func buyProductAction() {
 
