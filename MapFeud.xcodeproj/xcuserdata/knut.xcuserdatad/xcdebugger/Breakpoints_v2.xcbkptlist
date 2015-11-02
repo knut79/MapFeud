@@ -6,16 +6,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MapFeud/PlayViewController.swift"
-            timestampString = "467820039.147115"
+            filePath = "MapFeud/ChallengeViewController.swift"
+            timestampString = "468115885.358476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "429"
-            endingLineNumber = "429"
-            landmarkName = "setNextQuestion()"
+            startingLineNumber = "529"
+            endingLineNumber = "529"
+            landmarkName = "playAction()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/ChallengeViewController.swift"
+            timestampString = "468115885.358476"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "557"
+            endingLineNumber = "557"
+            landmarkName = "playAction()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MapFeud/TileContainerOverlayView.swift"
-            timestampString = "467820577.066785"
+            filePath = "MapFeud/ChallengeScrollView.swift"
+            timestampString = "468114365.558138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "drawInContext(_:)"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "addItem(_:value:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,29 +57,109 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MapFeud/MapScrollView.swift"
-            timestampString = "467820786.26182"
+            filePath = "MapFeud/ChallengeViewController.swift"
+            timestampString = "468115885.358476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "clearDrawing()"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "initChallenges()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MapFeud/MapScrollView.swift"
-            timestampString = "467820640.655117"
+            filePath = "MapFeud/FinishedViewController.swift"
+            timestampString = "468115056.270264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "drawPlace(_:)"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "finishTakingChallenge(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapFeud.FinishedViewController.finishTakingChallenge (MapFeud.FinishedViewController)(MapFeud.TakingChallenge) -&gt; ()"
+                  moduleName = "MapFeud"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/knut/Documents/repositories/MapFeud/MapFeud/FinishedViewController.swift"
+                  timestampString = "468115885.50474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "1052">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapFeud.FinishedViewController.(finishTakingChallenge (MapFeud.FinishedViewController) -&gt; (MapFeud.TakingChallenge) -&gt; ()).(closure #1)"
+                  moduleName = "MapFeud"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/knut/Documents/repositories/MapFeud/MapFeud/FinishedViewController.swift"
+                  timestampString = "468115885.504886"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "205"
+                  endingLineNumber = "205"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/FinishedViewController.swift"
+            timestampString = "468116036.634027"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "finishTakingChallenge(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/FinishedViewController.swift"
+            timestampString = "468116038.692063"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "finishTakingChallenge(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/FinishedViewController.swift"
+            timestampString = "468116040.502126"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "finishTakingChallenge(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -54,6 +54,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     var bannerView:ADBannerView?
     
     var usingKm:Bool = true
+    var questonsLeft:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     
     override func viewDidAppear(animated: Bool) {
         
+
         usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
         let adFree = NSUserDefaults.standardUserDefaults().boolForKey("adFree")
         if !adFree
@@ -421,6 +423,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     var questionindex = 0
     func startGame()
     {
+        questonsLeft = GlobalConstants.numberOfQuestionsForChallenge
         setNextQuestion()
     }
     
@@ -433,6 +436,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         }
         else
         {
+            
             if challenge.questionIds.count > 0
             {
                 let questionID = challenge.questionIds.removeLast()
@@ -488,16 +492,50 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                         self.questionView.questionText.textColor = UIColor.blackColor()
                         self.clock?.alpha = 1
                         let timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
-                        var time:CGFloat = 10
+                        var time:Double = GlobalConstants.timeStart
                         for var i = 1 ; i <= timeBonus; i++
                         {
-                           time = time * 1.1
+                           time = time * GlobalConstants.timeBonusMultiplier
                         }
-                        self.clock?.start(10.0)
+                        self.clock?.start(time)
+                        self.showQuestionsLeft()
                         
                 })
                 
         })
+    }
+    
+    func showQuestionsLeft()
+    {
+        if gametype != GameType.training
+        {
+            let questionsLeft = UILabel(frame: CGRectMake(clock!.frame.minX, clock!.frame.minY, clock!.frame.width, clock!.frame.height * 0.66))
+            questionsLeft.text = questonsLeft <= 1 ? "Last" : "\(questonsLeft)"
+            questionsLeft.font = UIFont.boldSystemFontOfSize(50)
+            questionsLeft.textAlignment = NSTextAlignment.Center
+            questionsLeft.adjustsFontSizeToFitWidth = true
+            questionsLeft.textColor = UIColor.whiteColor()
+            self.view.addSubview(questionsLeft)
+            
+            let textLeft = UILabel(frame: CGRectMake(questionsLeft.frame.minX, questionsLeft.frame.maxY, questionsLeft.frame.width, clock!.frame.height * 0.33))
+            textLeft.text = questonsLeft <= 1 ? "question" : "questions\nleft"
+            textLeft.font = UIFont.boldSystemFontOfSize(20)
+            textLeft.textAlignment = NSTextAlignment.Center
+            textLeft.numberOfLines = 2
+            textLeft.adjustsFontSizeToFitWidth = true
+            textLeft.textColor = UIColor.whiteColor()
+            self.view.addSubview(textLeft)
+            
+            UIView.animateWithDuration(4, animations: { () -> Void in
+                
+                questionsLeft.alpha = 0
+                textLeft.alpha = 0
+                }, completion: { (value: Bool) in
+                    questionsLeft.removeFromSuperview()
+                    textLeft.removeFromSuperview()
+                    self.questonsLeft!--
+            })
+        }
     }
     
     
@@ -635,6 +673,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                     self.magnifyingGlass.transform = CGAffineTransformScale(self.magnifyingGlass.transform, 0.1, 0.1)
                     self.playerIcon.transform = CGAffineTransformIdentity
                     }, completion: { (value: Bool) in
+
                 })
             }
 
@@ -646,14 +685,12 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         let touchLocation = touch!.locationInView(self.view)
         
 
-        
         let isInnView = CGRectContainsPoint(self.playerIcon!.frame,touchLocation)
         if(isInnView)
         {
             
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 
-                //_? wont this happen when we look at the result
                 self.playerIcon.alpha = 1
                 self.okButton.hide(false)
                 self.hintButton.hide(false)
@@ -665,6 +702,9 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                 self.magnifyingGlass.transform = CGAffineTransformScale(self.magnifyingGlass.transform, 0.1, 0.1)
                 self.playerIcon.transform = CGAffineTransformIdentity
                 }, completion: { (value: Bool) in
+                    self.playerIcon.alpha = 1
+                    self.magnifyingGlass.alpha = 0
+                    self.playerIcon.transform = CGAffineTransformIdentity
             })
         }
     }

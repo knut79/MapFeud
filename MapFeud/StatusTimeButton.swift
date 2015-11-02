@@ -47,7 +47,7 @@ class StatusTimeButton:UIButton {
         let timeLabelWidth = timeLabelHeight * 1.5
         timeLabel = UILabel(frame: CGRectMake(frame.width - timeLabelWidth, frame.height * 0.5,timeLabelWidth, timeLabelHeight))
         let timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
-        var time:CGFloat = 10
+        var time:Double = GlobalConstants.timeStart
         for var i = 1 ; i <= timeBonus; i++
         {
             time = time * GlobalConstants.timeBonusMultiplier
@@ -77,7 +77,7 @@ class StatusTimeButton:UIButton {
         clockEmojiIndex = (clockEmojiIndex + 1) % clockEmoji.count
         
         label.text = "Time\(clockEmoji[clockEmojiIndex])  ."
-        var time:CGFloat = 10
+        var time:Double = GlobalConstants.timeStart
         for var i = 1 ; i <= timeBonus; i++
         {
             time = time * GlobalConstants.timeBonusMultiplier

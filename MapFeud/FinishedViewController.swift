@@ -169,9 +169,9 @@ class FinishedViewController:UIViewController {
     func finishMakingChallenge()
     {
         let makingChallenge = challenge as! MakingChallenge
-        let challengeIds:String = makingChallenge.challengeIds!
+        let challengeIds = makingChallenge.challengeIds
 
-        let jsonDictionary = ["chidspar":challengeIds,"fromId":userFbId,"fromResultDistance":distance]
+        let jsonDictionary = ["chidspar":challengeIds!,"fromId":userFbId,"fromResultDistance":distance]
         self.client!.invokeAPI("finishmakingchallenge", data: nil, HTTPMethod: "POST", parameters: jsonDictionary as! [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
             
             if error != nil
@@ -181,6 +181,7 @@ class FinishedViewController:UIViewController {
             }
             if result != nil
             {
+
                 print("\(result)")
                 
                 self.backToMenuButton.alpha = 1

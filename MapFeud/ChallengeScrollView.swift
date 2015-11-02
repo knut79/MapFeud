@@ -54,7 +54,7 @@ class ChallengeScrollView: UIView , UIScrollViewDelegate, RadiobuttonItemProtoco
         
     }
     
-    init(frame: CGRect, initialValues:[String:NSDictionary] = [:], itemsName:String = "item", itemsChecked:Bool = true) {
+    init(frame: CGRect, initialValues:[String:NSDictionary] = [:], itemsName:String = "item") {
         super.init(frame: frame)
         
         let itemheight:CGFloat = 40
@@ -74,7 +74,7 @@ class ChallengeScrollView: UIView , UIScrollViewDelegate, RadiobuttonItemProtoco
         var i:CGFloat = 0
         for tagItem in items
         {
-            let newTagCheckItem = RadiobuttonItemView(frame: CGRectMake(0, itemheight * i, self.frame.width, itemheight), title: tagItem.0, value:tagItem.1 ,checked:itemsChecked)
+            let newTagCheckItem = RadiobuttonItemView(frame: CGRectMake(0, itemheight * i, self.frame.width, itemheight), title: tagItem.0, value:tagItem.1)
             newTagCheckItem.delegate = self
             radiobuttonItems.append(newTagCheckItem)
             scrollView.addSubview(newTagCheckItem)
@@ -99,7 +99,7 @@ class ChallengeScrollView: UIView , UIScrollViewDelegate, RadiobuttonItemProtoco
         let itemheight:CGFloat = 40
         var contentHeight:CGFloat = 0
         
-        let newTagCheckItem = RadiobuttonItemView(frame: CGRectMake(0, 0, self.frame.width, itemheight), title: title, value:value ,checked:true)
+        let newTagCheckItem = RadiobuttonItemView(frame: CGRectMake(0, 0, self.frame.width, itemheight), title: title, value:value )
         newTagCheckItem.delegate = self
         radiobuttonItems.append(newTagCheckItem)
         scrollView.addSubview(newTagCheckItem)

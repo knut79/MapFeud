@@ -33,7 +33,7 @@ class HolderView: UIView {
     logo1.textColor = UIColor.whiteColor()
     logo1.font = UIFont.boldSystemFontOfSize(25)
     logo1.alpha = 0
-    logo1.text = "Map "
+    logo1.text = "Geo "
     
     self.addSubview(logo1)
     

@@ -47,8 +47,10 @@ struct GlobalConstants {
     static let maxLevel:Int = 5
     
     static let smallButtonSide:CGFloat = 32
-    static let timeBonusMultiplier:CGFloat = 1.2
+    static let timeBonusMultiplier:Double = 1.2
     static let hintCostForTimeBonus:Int = 5
+    static let timeStart:Double = 20
+    static let numberOfQuestionsForChallenge:Int = 3
 }
 
 

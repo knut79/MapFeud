@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721EA6781BE6E37D000415D3 /* 54008__domingus__yeah-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6671BE6E37D000415D3 /* 54008__domingus__yeah-2.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA6791BE6E37D000415D3 /* 189068__donnieozone__yeah1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6681BE6E37D000415D3 /* 189068__donnieozone__yeah1.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA67A1BE6E37D000415D3 /* yeah.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6691BE6E37D000415D3 /* yeah.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA67B1BE6E37D000415D3 /* sigh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA66A1BE6E37D000415D3 /* sigh.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA67C1BE6E37D000415D3 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA66B1BE6E37D000415D3 /* wrong.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA67D1BE6E37D000415D3 /* yeah-long-and-laugh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 721EA66C1BE6E37D000415D3 /* yeah-long-and-laugh.mp3 */; settings = {ASSET_TAGS = (); }; };
+		721EA67E1BE6E37D000415D3 /* yeah-short.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 721EA66D1BE6E37D000415D3 /* yeah-short.mp3 */; settings = {ASSET_TAGS = (); }; };
+		721EA67F1BE6E37D000415D3 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA66E1BE6E37D000415D3 /* correct.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA6801BE6E37D000415D3 /* dealingCard.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA66F1BE6E37D000415D3 /* dealingCard.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA6811BE6E37D000415D3 /* fanfare1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6701BE6E37D000415D3 /* fanfare1.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA6821BE6E37D000415D3 /* fanfare2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6711BE6E37D000415D3 /* fanfare2.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA6831BE6E37D000415D3 /* fanfare3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6721BE6E37D000415D3 /* fanfare3.wav */; settings = {ASSET_TAGS = (); }; };
+		721EA6841BE6E37D000415D3 /* clock-ticking-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6731BE6E37D000415D3 /* clock-ticking-2.mp3 */; settings = {ASSET_TAGS = (); }; };
+		721EA6851BE6E37D000415D3 /* clockFast.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6741BE6E37D000415D3 /* clockFast.mp3 */; settings = {ASSET_TAGS = (); }; };
+		721EA6861BE6E37D000415D3 /* clockNorm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6751BE6E37D000415D3 /* clockNorm.mp3 */; settings = {ASSET_TAGS = (); }; };
+		721EA6871BE6E37D000415D3 /* timeUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6761BE6E37D000415D3 /* timeUp.mp3 */; settings = {ASSET_TAGS = (); }; };
+		721EA6881BE6E37D000415D3 /* lostChallenge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6771BE6E37D000415D3 /* lostChallenge.mp3 */; settings = {ASSET_TAGS = (); }; };
 		722D8B331BD6A3CC00C2EABA /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		722D8B351BD6A46800C2EABA /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B341BD6A46800C2EABA /* ClockView.swift */; settings = {ASSET_TAGS = (); }; };
 		722D8B391BDDA42300C2EABA /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B381BDDA42300C2EABA /* StatsView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -816,6 +833,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		721EA6671BE6E37D000415D3 /* 54008__domingus__yeah-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "54008__domingus__yeah-2.wav"; sourceTree = "<group>"; };
+		721EA6681BE6E37D000415D3 /* 189068__donnieozone__yeah1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 189068__donnieozone__yeah1.wav; sourceTree = "<group>"; };
+		721EA6691BE6E37D000415D3 /* yeah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = yeah.wav; sourceTree = "<group>"; };
+		721EA66A1BE6E37D000415D3 /* sigh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sigh.wav; sourceTree = "<group>"; };
+		721EA66B1BE6E37D000415D3 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		721EA66C1BE6E37D000415D3 /* yeah-long-and-laugh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "yeah-long-and-laugh.mp3"; sourceTree = "<group>"; };
+		721EA66D1BE6E37D000415D3 /* yeah-short.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "yeah-short.mp3"; sourceTree = "<group>"; };
+		721EA66E1BE6E37D000415D3 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		721EA66F1BE6E37D000415D3 /* dealingCard.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dealingCard.wav; sourceTree = "<group>"; };
+		721EA6701BE6E37D000415D3 /* fanfare1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fanfare1.wav; sourceTree = "<group>"; };
+		721EA6711BE6E37D000415D3 /* fanfare2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fanfare2.wav; sourceTree = "<group>"; };
+		721EA6721BE6E37D000415D3 /* fanfare3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fanfare3.wav; sourceTree = "<group>"; };
+		721EA6731BE6E37D000415D3 /* clock-ticking-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "clock-ticking-2.mp3"; sourceTree = "<group>"; };
+		721EA6741BE6E37D000415D3 /* clockFast.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clockFast.mp3; sourceTree = "<group>"; };
+		721EA6751BE6E37D000415D3 /* clockNorm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = clockNorm.mp3; sourceTree = "<group>"; };
+		721EA6761BE6E37D000415D3 /* timeUp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timeUp.mp3; sourceTree = "<group>"; };
+		721EA6771BE6E37D000415D3 /* lostChallenge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lostChallenge.mp3; sourceTree = "<group>"; };
 		722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		722D8B341BD6A46800C2EABA /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		722D8B381BDDA42300C2EABA /* StatsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -1642,6 +1676,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		721EA6661BE6E369000415D3 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				721EA6671BE6E37D000415D3 /* 54008__domingus__yeah-2.wav */,
+				721EA6681BE6E37D000415D3 /* 189068__donnieozone__yeah1.wav */,
+				721EA6691BE6E37D000415D3 /* yeah.wav */,
+				721EA66A1BE6E37D000415D3 /* sigh.wav */,
+				721EA66B1BE6E37D000415D3 /* wrong.wav */,
+				721EA66C1BE6E37D000415D3 /* yeah-long-and-laugh.mp3 */,
+				721EA66D1BE6E37D000415D3 /* yeah-short.mp3 */,
+				721EA66E1BE6E37D000415D3 /* correct.wav */,
+				721EA66F1BE6E37D000415D3 /* dealingCard.wav */,
+				721EA6701BE6E37D000415D3 /* fanfare1.wav */,
+				721EA6711BE6E37D000415D3 /* fanfare2.wav */,
+				721EA6721BE6E37D000415D3 /* fanfare3.wav */,
+				721EA6731BE6E37D000415D3 /* clock-ticking-2.mp3 */,
+				721EA6741BE6E37D000415D3 /* clockFast.mp3 */,
+				721EA6751BE6E37D000415D3 /* clockNorm.mp3 */,
+				721EA6761BE6E37D000415D3 /* timeUp.mp3 */,
+				721EA6771BE6E37D000415D3 /* lostChallenge.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		722D8B311BD6A3B700C2EABA /* Finish */ = {
 			isa = PBXGroup;
 			children = (
@@ -1673,6 +1731,7 @@
 		72424A521BC2C468009FED5C /* MapFeud */ = {
 			isa = PBXGroup;
 			children = (
+				721EA6661BE6E369000415D3 /* Sounds */,
 				7254B21C1BD08D4800A22920 /* Challenge */,
 				722D8B311BD6A3B700C2EABA /* Finish */,
 				72BD9D2A1BD2AD9C0062FE44 /* Play */,
@@ -2786,6 +2845,7 @@
 				72BD9E7B1BD3D4C40062FE44 /* world_100_border_11_7.jpg in Resources */,
 				72BD9E561BD3D4C40062FE44 /* world_100_border_8_6.jpg in Resources */,
 				72BD9E991BD3D4C40062FE44 /* world_100_border_14_1.jpg in Resources */,
+				721EA67F1BE6E37D000415D3 /* correct.wav in Resources */,
 				7254AE781BC31DE900A22920 /* world_50_5_0.jpg in Resources */,
 				7254AF5B1BC31E1000A22920 /* world_100_14_9.jpg in Resources */,
 				7254B0261BC3E98000A22920 /* capitalsAsia.txt in Resources */,
@@ -2822,10 +2882,12 @@
 				72BD9E0B1BD3D4C40062FE44 /* world_100_border_2_3.jpg in Resources */,
 				7254B0251BC3E98000A22920 /* capitalsSouthAmerica.txt in Resources */,
 				72424A611BC2C469009FED5C /* LaunchScreen.storyboard in Resources */,
+				721EA6841BE6E37D000415D3 /* clock-ticking-2.mp3 in Resources */,
 				7254AFF71BC31E1000A22920 /* world_100_11_9.jpg in Resources */,
 				7254AFA41BC31E1000A22920 /* world_100_4_10.jpg in Resources */,
 				7254AE241BC31DB800A22920 /* world_25_3_0.jpg in Resources */,
 				72BD9EED1BD3D5170062FE44 /* world_50_border_2_0.jpg in Resources */,
+				721EA6781BE6E37D000415D3 /* 54008__domingus__yeah-2.wav in Resources */,
 				7254AF611BC31E1000A22920 /* world_100_15_3.jpg in Resources */,
 				7254B1D71BC99CAA00A22920 /* SwazilandFlag.png in Resources */,
 				7254AFA71BC31E1000A22920 /* world_100_5_1.jpg in Resources */,
@@ -3018,6 +3080,7 @@
 				72BD9E971BD3D4C40062FE44 /* world_100_border_13_11.jpg in Resources */,
 				72BD9E731BD3D4C40062FE44 /* world_100_border_10_11.jpg in Resources */,
 				7254B1A41BC99CAA00A22920 /* MoroccoFlag.png in Resources */,
+				721EA67C1BE6E37D000415D3 /* wrong.wav in Resources */,
 				72BD9DFD1BD3D4C40062FE44 /* world_100_border_1_1.jpg in Resources */,
 				7254AFAE1BC31E1000A22920 /* world_100_5_8.jpg in Resources */,
 				72BD9E5C1BD3D4C40062FE44 /* world_100_border_9_0.jpg in Resources */,
@@ -3079,6 +3142,7 @@
 				7254AFE41BC31E1000A22920 /* world_100_10_2.jpg in Resources */,
 				7254B1B61BC99CAA00A22920 /* PanamaFlag.png in Resources */,
 				72BD9E931BD3D4C40062FE44 /* world_100_border_13_7.jpg in Resources */,
+				721EA67A1BE6E37D000415D3 /* yeah.wav in Resources */,
 				72BD9F031BD3D5170062FE44 /* world_50_border_5_4.jpg in Resources */,
 				7254B0071BC31E1000A22920 /* world_100_13_1.jpg in Resources */,
 				72BD9E341BD3D4C40062FE44 /* world_100_border_5_8.jpg in Resources */,
@@ -3111,6 +3175,7 @@
 				7254AF821BC31E1000A22920 /* world_100_2_0.jpg in Resources */,
 				7254B18E1BC99CAA00A22920 /* LatviaFlag.png in Resources */,
 				7254B1C01BC99CAA00A22920 /* RwandaFlag.png in Resources */,
+				721EA6861BE6E37D000415D3 /* clockNorm.mp3 in Resources */,
 				7254AFE21BC31E1000A22920 /* world_100_10_0.jpg in Resources */,
 				72BD9E5E1BD3D4C40062FE44 /* world_100_border_9_2.jpg in Resources */,
 				72BD9DFF1BD3D4C40062FE44 /* world_100_border_1_3.jpg in Resources */,
@@ -3131,11 +3196,13 @@
 				72BD9E4A1BD3D4C40062FE44 /* world_100_border_7_6.jpg in Resources */,
 				7254B1B71BC99CAA00A22920 /* ParaguayFlag.png in Resources */,
 				72BD9EFB1BD3D5170062FE44 /* world_50_border_4_2.jpg in Resources */,
+				721EA6851BE6E37D000415D3 /* clockFast.mp3 in Resources */,
 				7254AFF01BC31E1000A22920 /* world_100_11_2.jpg in Resources */,
 				72BD9E791BD3D4C40062FE44 /* world_100_border_11_5.jpg in Resources */,
 				72BD9E0C1BD3D4C40062FE44 /* world_100_border_2_4.jpg in Resources */,
 				7254AFA21BC31E1000A22920 /* world_100_4_8.jpg in Resources */,
 				72BD9E511BD3D4C40062FE44 /* world_100_border_8_1.jpg in Resources */,
+				721EA6871BE6E37D000415D3 /* timeUp.mp3 in Resources */,
 				7254AF8A1BC31E1000A22920 /* world_100_2_8.jpg in Resources */,
 				72BD9E041BD3D4C40062FE44 /* world_100_border_1_8.jpg in Resources */,
 				7254B16B1BC99CA900A22920 /* GabonFlag.png in Resources */,
@@ -3147,6 +3214,7 @@
 				7254AFD91BC31E1000A22920 /* world_100_9_3.jpg in Resources */,
 				7254AFE31BC31E1000A22920 /* world_100_10_1.jpg in Resources */,
 				72BD9DF11BD3D4C40062FE44 /* world_100_border_0_1.jpg in Resources */,
+				721EA6831BE6E37D000415D3 /* fanfare3.wav in Resources */,
 				72BD9E181BD3D4C40062FE44 /* world_100_border_3_4.jpg in Resources */,
 				7254AFEC1BC31E1000A22920 /* world_100_10_10.jpg in Resources */,
 				72BD9E3D1BD3D4C40062FE44 /* world_100_border_6_5.jpg in Resources */,
@@ -3166,6 +3234,7 @@
 				7254B0501BC69E1000A22920 /* GameData.plist in Resources */,
 				7254AF9A1BC31E1000A22920 /* world_100_4_0.jpg in Resources */,
 				72BD9E5A1BD3D4C40062FE44 /* world_100_border_8_10.jpg in Resources */,
+				721EA67B1BE6E37D000415D3 /* sigh.wav in Resources */,
 				7254B1921BC99CAA00A22920 /* LiechtensteinFlag.png in Resources */,
 				7254AE231BC31DB800A22920 /* world_25_2_2.jpg in Resources */,
 				72BD9E681BD3D4C40062FE44 /* world_100_border_10_0.jpg in Resources */,
@@ -3234,16 +3303,19 @@
 				72BD9E861BD3D4C40062FE44 /* world_100_border_12_6.jpg in Resources */,
 				72BD9E2B1BD3D4C40062FE44 /* world_100_border_4_11.jpg in Resources */,
 				7254AF801BC31E1000A22920 /* world_100_1_10.jpg in Resources */,
+				721EA6811BE6E37D000415D3 /* fanfare1.wav in Resources */,
 				72BD9F021BD3D5170062FE44 /* world_50_border_5_3.jpg in Resources */,
 				72BD9E461BD3D4C40062FE44 /* world_100_border_7_2.jpg in Resources */,
 				72BD9E451BD3D4C40062FE44 /* world_100_border_7_1.jpg in Resources */,
 				7254B1EE1BC99CAA00A22920 /* VenezuelaFlag.png in Resources */,
+				721EA67D1BE6E37D000415D3 /* yeah-long-and-laugh.mp3 in Resources */,
 				7254AF511BC31E1000A22920 /* world_100_13_11.jpg in Resources */,
 				7254B1E11BC99CAA00A22920 /* TrinidadAndTobagoFlag.png in Resources */,
 				7254B1811BC99CA900A22920 /* IsraelFlag.png in Resources */,
 				7254AF951BC31E1000A22920 /* world_100_3_7.jpg in Resources */,
 				72BD9DF31BD3D4C40062FE44 /* world_100_border_0_3.jpg in Resources */,
 				72BD9E111BD3D4C40062FE44 /* world_100_border_2_9.jpg in Resources */,
+				721EA6791BE6E37D000415D3 /* 189068__donnieozone__yeah1.wav in Resources */,
 				7254B1321BC99CA900A22920 /* ArgentinaFlag.png in Resources */,
 				7254AFD11BC31E1000A22920 /* world_100_8_7.jpg in Resources */,
 				7254B0061BC31E1000A22920 /* world_100_13_0.jpg in Resources */,
@@ -3279,6 +3351,7 @@
 				7254AFD41BC31E1000A22920 /* world_100_8_10.jpg in Resources */,
 				7254B1B51BC99CAA00A22920 /* PakistanFlag.png in Resources */,
 				7254B1841BC99CA900A22920 /* JamaicaFlag.png in Resources */,
+				721EA6821BE6E37D000415D3 /* fanfare2.wav in Resources */,
 				72BD9EAF1BD3D4C40062FE44 /* world_100_border_15_11.jpg in Resources */,
 				72BD9EE61BD3D5170062FE44 /* world_50_border_0_5.jpg in Resources */,
 				7254B18C1BC99CA900A22920 /* KyrgyzstanFlag.png in Resources */,
@@ -3424,9 +3497,11 @@
 				7254B14D1BC99CA900A22920 /* ChileFlag.png in Resources */,
 				7254AF6A1BC31E1000A22920 /* world_100_0_0.jpg in Resources */,
 				72BD9EAB1BD3D4C40062FE44 /* world_100_border_15_7.jpg in Resources */,
+				721EA6801BE6E37D000415D3 /* dealingCard.wav in Resources */,
 				7254AF9C1BC31E1000A22920 /* world_100_4_2.jpg in Resources */,
 				7254B1F21BC99CAA00A22920 /* ZambiaFlag.png in Resources */,
 				72BD9E521BD3D4C40062FE44 /* world_100_border_8_2.jpg in Resources */,
+				721EA67E1BE6E37D000415D3 /* yeah-short.mp3 in Resources */,
 				72BD9E7D1BD3D4C40062FE44 /* world_100_border_11_9.jpg in Resources */,
 				7254B1571BC99CA900A22920 /* DemocraticRepublicOfTheCongoFlag.png in Resources */,
 				7254B0581BC7279100A22920 /* 25MaskLand.png in Resources */,
@@ -3438,6 +3513,7 @@
 				72BD9F291BD3D5530062FE44 /* world_25_border_3_2.jpg in Resources */,
 				72BD9E421BD3D4C40062FE44 /* world_100_border_6_10.jpg in Resources */,
 				7254AE6D1BC31DE900A22920 /* world_50_3_1.jpg in Resources */,
+				721EA6881BE6E37D000415D3 /* lostChallenge.mp3 in Resources */,
 				7254AF6D1BC31E1000A22920 /* world_100_0_3.jpg in Resources */,
 				72BD9E891BD3D4C40062FE44 /* world_100_border_12_9.jpg in Resources */,
 				7254AE711BC31DE900A22920 /* world_50_3_5.jpg in Resources */,

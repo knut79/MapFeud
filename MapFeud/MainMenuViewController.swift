@@ -59,7 +59,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     var holderView:HolderView!
     
-    var numOfQuestionsForRound:Int = 3
+    var numOfQuestionsForRound:Int = GlobalConstants.numberOfQuestionsForChallenge
     
     var removeAdsButton:UIButton?
     
@@ -419,25 +419,14 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func setupChallengeTypeButtons()
     {
-        //newChallengeButton.alpha = 1
-        //pendingChallengesButton.alpha = 1
         let buttonMargin: CGFloat = 20.0
-        let orientation = UIDevice.currentDevice().orientation
         var buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.17
         var buttonHeight = buttonWidth
-        if orientation.isLandscape || orientation.isFlat
-        {
-            buttonHeight = (buttonWidth * 2) + buttonMargin
-            newChallengeButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) -  buttonWidth - (buttonMargin / 2), UIScreen.mainScreen().bounds.size.height * 0.15, buttonWidth, buttonHeight)
-            pendingChallengesButton.frame = CGRectMake(self.newChallengeButton.frame.maxX + buttonMargin, self.newChallengeButton.frame.minY, buttonWidth, buttonHeight)
-        }
-        else
-        {
+
             buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
             buttonHeight = UIScreen.mainScreen().bounds.size.height * 0.35
             newChallengeButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - ( buttonWidth / 2), UIScreen.mainScreen().bounds.size.height * 0.15,buttonWidth, buttonHeight)
             pendingChallengesButton.frame = CGRectMake(self.newChallengeButton.frame.minX, self.newChallengeButton.frame.maxY + buttonMargin, buttonWidth, buttonHeight)
-        }
     }
     
     func sliderUpperLevelText() -> String
@@ -733,12 +722,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         tagsScrollViewEnableBackground = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - bannerViewHeight))
         tagsScrollViewEnableBackground.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.5)
         tagsScrollViewEnableBackground.alpha = 0
-        var scrollViewWidth = UIScreen.mainScreen().bounds.size.width * 0.6
-        let orientation = UIDevice.currentDevice().orientation
-        if orientation == UIDeviceOrientation.LandscapeLeft || orientation == UIDeviceOrientation.LandscapeRight
-        {
-            scrollViewWidth = UIScreen.mainScreen().bounds.size.width / 2
-        }
+        let scrollViewWidth = UIScreen.mainScreen().bounds.size.width * 0.6
+
         tagsScrollView = TagCheckScrollView(frame: CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (scrollViewWidth / 2) , UIScreen.mainScreen().bounds.size.height / 4, scrollViewWidth, UIScreen.mainScreen().bounds.size.height / 2))
         tagsScrollView.delegate = self
         tagsScrollView.alpha = 0

@@ -39,7 +39,7 @@ class TakingChallenge: Challenge {
         id = values["challengeId"] as! String
         fbIdToBeat = values["fbIdToBeat"] as! String
         distanceToBeat = values["distanceToBeat"] as! Int
-        usingBorders = values["usingBorders"] as! Int
+        usingBorders = values["borders"] as! Int
         let questionsStringFormat = values["questionsStringFormat"] as! String
         
         let questionIdsStringFormat = questionsStringFormat.componentsSeparatedByString(",")

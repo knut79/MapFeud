@@ -35,11 +35,14 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
 
     var challengeIdsCommaSeparated:String!
     
+    var activityIndicator = UIActivityIndicatorView()
+    
     var client: MSClient?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         self.client = (UIApplication.sharedApplication().delegate as! AppDelegate).client
         
         if (FBSDKAccessToken.currentAccessToken() != nil)
@@ -79,6 +82,11 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         backButton.setTitle("🔙", forState: UIControlState.Normal)
         backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(backButton)
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        activityIndicator.frame = CGRect(x: UIScreen.mainScreen().bounds.width / 2, y: UIScreen.mainScreen().bounds.height / 2, width: 50, height: 50)
+        self.view.addSubview(activityIndicator)
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -276,7 +284,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
 
         let scrollViewHeight =  playButton.frame.minY - titleLabel.frame.maxY - ( margin * 2 )
         let scrollViewWidth = UIScreen.mainScreen().bounds.size.width - (margin * 2)
-        self.challengeScrollView = ChallengeScrollView(frame: CGRectMake(margin , titleLabel.frame.maxY + margin, scrollViewWidth, scrollViewHeight), itemsChecked:false)
+        self.challengeScrollView = ChallengeScrollView(frame: CGRectMake(margin , titleLabel.frame.maxY + margin, scrollViewWidth, scrollViewHeight))
         //self.challengeScrollView.delegate = self
         self.challengeScrollView.alpha = 1
         
@@ -415,7 +423,13 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if result != nil
             {
                 print(result)
-                self.challengeIdsCommaSeparated = String(NSString(data: result, encoding:NSUTF8StringEncoding))
+                print("hei hei")
+
+                ///backstabbing cock!!!.. is there really no way of escaping double quotes directly from json string...
+                
+                let temp = NSString(data: result, encoding:NSUTF8StringEncoding) as! String
+                self.challengeIdsCommaSeparated = String(temp.characters.dropLast().dropFirst())
+                
                 self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
             }
             if response != nil
@@ -444,14 +458,16 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             }
             if result != nil
             {
+                
                 print(result)
-                self.challengeIdsCommaSeparated = String(NSString(data: result, encoding:NSUTF8StringEncoding))
+                //self.challengeIdsCommaSeparated = String(NSString(data: result, encoding:NSUTF8StringEncoding))
                 self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
             }
             if response != nil
             {
                 print("\(response)")
             }
+            
             
         })
         
@@ -484,6 +500,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     
     func playAction()
     {
+        self.playButton.userInteractionEnabled = false
         if self.gametype == GameType.makingChallenge
         {
             usersToChallenge = self.usersToChallengeScrollView.getCheckedItemsValueAsArray()
@@ -508,14 +525,38 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             }
             else
             {
+                activityIndicator.startAnimating()
                 sendChallengeMakingStart()
                 //self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
             }
         }
         else if self.gametype == GameType.takingChallenge
         {
-            sendChallengeTakenStart()
-            //self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
+            let selectedValue = challengeScrollView.getSelectedValue()
+            if selectedValue == nil
+            {
+                let numberPrompt = UIAlertController(title: "Pick 1",
+                    message: "Select a challenge",
+                    preferredStyle: .Alert)
+                
+                
+                numberPrompt.addAction(UIAlertAction(title: "Ok",
+                    style: .Default,
+                    handler: { (action) -> Void in
+                        
+                }))
+                
+                
+                self.presentViewController(numberPrompt,
+                    animated: true,
+                    completion: nil)
+            }
+            else
+            {
+                activityIndicator.startAnimating()
+                sendChallengeTakenStart()
+                //self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
+            }
         }
         
     }
@@ -528,6 +569,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
         if (segue.identifier == "segueFromChallengeToPlay") {
 
+            self.activityIndicator.stopAnimating()
             let svc = segue!.destinationViewController as! PlayViewController
 
             svc.gametype = gametype
@@ -535,7 +577,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             {
 
                 svc.drawBorders = drawBorders
-                let makingChallenge = MakingChallenge(challengesName: challengeName,users:usersToChallenge, questionIds: questionIds!.componentsSeparatedByString(","), challengeIds: challengeIdsCommaSeparated)
+                let makingChallenge = MakingChallenge(challengesName: challengeName,users:usersToChallenge, questionIds: questionIds!.componentsSeparatedByString(","), challengeIds: challengeIdsCommaSeparated!)
                 svc.challenge = makingChallenge
                 //questionIds
                 //questionIds

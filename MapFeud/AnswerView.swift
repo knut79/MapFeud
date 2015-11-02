@@ -92,6 +92,7 @@ class AnswerView: UIView {
     
     func setAnswer(question:Question, distance:Int)
     {
+        informationIcon.alpha = 0
         print("setQueston called")
         let template = question.answerTemplate.stringByReplacingOccurrencesOfString("$", withString: question.place.name, options: NSStringCompareOptions.LiteralSearch, range: nil)
         

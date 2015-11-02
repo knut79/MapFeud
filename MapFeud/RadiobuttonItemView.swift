@@ -27,19 +27,12 @@ class RadiobuttonItemView: UIView
         super.init(coder: aDecoder)
     }
     
-    init(frame: CGRect, title:String,value:NSDictionary, checked:Bool = true) {
+    init(frame: CGRect, title:String,value:NSDictionary) {
         super.init(frame: frame)
         
-        self.checked = checked
+        self.checked = false
         radiobutton = UIButton(frame: CGRectMake(0, 0, frame.width * 0.33, frame.height))
-        if self.checked
-        {
-            radiobutton.setTitle("🔘", forState: UIControlState.Normal)
-        }
-        else
-        {
-            radiobutton.setTitle("⚪️", forState: UIControlState.Normal)
-        }
+        radiobutton.setTitle("⚪️", forState: UIControlState.Normal)
         radiobutton.addTarget(self, action: "toggleSelect:", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.addSubview(radiobutton)
