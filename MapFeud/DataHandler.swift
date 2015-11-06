@@ -77,7 +77,7 @@ class DataHandler
                             
                             let englishText = questionElements[4]
                             
-                            print("tags for default question: \(tagsForNonDefaultQuestion)")
+                            //print("tags for default question: \(tagsForNonDefaultQuestion)")
                             let question = Question.createInManagedObjectContext(self.managedObjectContext,uniqueId:uniqueId, text: englishText, level:Int(intStringLevel)!, image:image,answerTemplate: "from $",tags: tagsForNonDefaultQuestion)
                             questions.append(question)
                             
@@ -89,11 +89,13 @@ class DataHandler
                             let overrideQuestionTemplateText:String? = typeAndQuestonOverrideElements.count > 1 ? typeAndQuestonOverrideElements[1] : nil
                             let name = elements[2]
                             //_?
+                            /*
                             let hmmm2 = elements[3]
                             if hmmm2 != ""
                             {
                                 print("hmmm2 = \(hmmm2)")
                             }
+                            */
                             
                             var intStringLevel = "0"
                             var info = ""
@@ -270,7 +272,7 @@ class DataHandler
         {
             questionText = "\(qtext) \(place.name)"
         }
-        print("tags for default question: \(tags)")
+        //print("tags for default question: \(tags)")
         let question = Question.createInManagedObjectContext(self.managedObjectContext,uniqueId: place.name, text: questionText, level:level, image:"", answerTemplate:answerText,tags: tags)
         place.addQuestion(question)
     }

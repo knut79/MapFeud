@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>DeviceToken</key>
-	<string>0</string>
+	<string></string>
 	<key>UseKm</key>
 	<integer>1</integer>
 	<key>TimeBonus</key>

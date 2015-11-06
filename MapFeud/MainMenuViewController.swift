@@ -267,6 +267,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             requestProductData()
             //setupAfterPopulateData()
         }
+        
+        updateBadges()
 
         //setupAfterPopulateData()
         
@@ -283,21 +285,28 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func enterForground()
     {
+        updateBadges()
+    }
+    
+    func updateBadges()
+    {
         /*
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            // do some task
-            dispatch_async(dispatch_get_main_queue()) {
-                // update some UI
-            }
+        // do some task
+        dispatch_async(dispatch_get_main_queue()) {
+        // update some UI
+        }
         }
         */
-        recieveNumberOfResultsNotDownloaded()
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            self.recieveNumberOfResultsNotDownloaded()
+        }
         
-        recieveNumberOfPendingChallenges()
-
-        
-        
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            self.recieveNumberOfPendingChallenges()
+        }
     }
     
     func borderStateChanged(switchState: UISwitch) {
@@ -1086,25 +1095,37 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         let currentbadge = NSUserDefaults.standardUserDefaults().integerForKey("resultsBadge")
         if currentbadge == 0
         {
-            if let fbId = NSUserDefaults.standardUserDefaults().stringForKey("fbid")
+            if let token = NSUserDefaults.standardUserDefaults().stringForKey("deviceToken")
             {
+                if token == ""
+                {
+                    return
+                }
                 let client = (UIApplication.sharedApplication().delegate as! AppDelegate).client
-                let jsonDictionaryHandle = ["id":fbId]
+                let jsonDictionaryHandle = ["token":token]
                 client!.invokeAPI("idleresults", data: nil, HTTPMethod: "GET", parameters: jsonDictionaryHandle as [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
                     
                     
                     if error != nil
                     {
                         print("\(error)")
+                        let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                        alert.show()
                     }
                     if result != nil
                     {
-                        print(result)
+                        var resultsBadge = NSString(data: result, encoding:NSUTF8StringEncoding) as! String
+                        resultsBadge = String(resultsBadge.characters.dropLast().dropFirst())
+                        print(resultsBadge)
+                        let resultsBadgeInt = Int(resultsBadge)
+                        /*
                         var resultsBadgeInt: NSInteger = 0
                         result.getBytes(&resultsBadgeInt, length: sizeof(NSInteger))
                         NSUserDefaults.standardUserDefaults().setInteger(resultsBadgeInt, forKey: "resultsBadge")
-                        
-                        self.resultsButton.setbadge(resultsBadgeInt)
+                        */
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.resultsButton.setbadge(resultsBadgeInt!)
+                        }
 
                     }
                     if response != nil
@@ -1116,6 +1137,12 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                 })
             }
         }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.resultsButton.setbadge(currentbadge)
+            }
+        }
         
     }
     
@@ -1125,26 +1152,41 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         let currentbadge = NSUserDefaults.standardUserDefaults().integerForKey("challengesBadge")
         if currentbadge == 0
         {
-            if let fbId = NSUserDefaults.standardUserDefaults().stringForKey("fbid")
+            if let token = NSUserDefaults.standardUserDefaults().stringForKey("deviceToken")
             {
+                if token == ""
+                {
+                    return
+                }
+                
                 let client = (UIApplication.sharedApplication().delegate as! AppDelegate).client
-                let jsonDictionaryHandle = ["id":fbId]
+                let jsonDictionaryHandle = ["token":token]
                 client!.invokeAPI("pendingchallenges", data: nil, HTTPMethod: "GET", parameters: jsonDictionaryHandle as [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
                     
                     
                     if error != nil
                     {
                         print("\(error)")
+                        let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                        alert.show()
                     }
                     if result != nil
                     {
-                        print(result)
+
+                        /*
                         var resultsBadgeInt: NSInteger = 0
                         result.getBytes(&resultsBadgeInt, length: sizeof(NSInteger))
                         NSUserDefaults.standardUserDefaults().setInteger(resultsBadgeInt, forKey: "challengesBadge")
+                        */
+                        var resultsBadge = NSString(data: result, encoding:NSUTF8StringEncoding) as! String
+                        resultsBadge = String(resultsBadge.characters.dropLast().dropFirst())
                         
-                        self.challengeUsersButton.setbadge(resultsBadgeInt)
-                        self.pendingChallengesButton.setbadge(resultsBadgeInt)
+                        let resultsBadgeInt = Int(resultsBadge)
+                        print(resultsBadgeInt)
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.challengeUsersButton.setbadge(resultsBadgeInt!)
+                            self.pendingChallengesButton.setbadge(resultsBadgeInt!)
+                        }
                     }
                     if response != nil
                     {
@@ -1153,6 +1195,13 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                     
                     
                 })
+            }
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.challengeUsersButton.setbadge(currentbadge)
+                self.pendingChallengesButton.setbadge(currentbadge)
             }
         }
         

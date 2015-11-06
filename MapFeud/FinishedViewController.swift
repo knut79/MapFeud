@@ -177,7 +177,8 @@ class FinishedViewController:UIViewController {
             if error != nil
             {
                 self.backToMenuButton.alpha = 1
-                self.activityLabel.text = "\(error)"
+                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             if result != nil
             {
@@ -205,7 +206,8 @@ class FinishedViewController:UIViewController {
             if error != nil
             {
                 self.backToMenuButton.alpha = 1
-                self.activityLabel.text = "\(error)"
+                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             if result != nil
             {

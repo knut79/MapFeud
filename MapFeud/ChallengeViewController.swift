@@ -316,20 +316,16 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     {
         activityLabel.alpha = 1
         activityLabel.text = "Update user..."
-        randomUsersAdded++
-        if randomUsersAdded > 1
-        {
-            activityLabel.alpha = 0
-            addRandomUserButton.alpha = 0
-        }
-        let deviceToken = NSUserDefaults.standardUserDefaults().valueForKey("deviceToken") as! String
+        let deviceToken = NSUserDefaults.standardUserDefaults().stringForKey("deviceToken")
         let jsonDictionary = ["fbid":userId,"name":userName,"token":deviceToken]
         
-        self.client!.invokeAPI("updateuser", data: nil, HTTPMethod: "GET", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+        self.client!.invokeAPI("updateuser", data: nil, HTTPMethod: "POST", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
             
             if error != nil
             {
                 print("\(error)")
+                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             /*
             if result != nil
@@ -356,11 +352,13 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             
             if error != nil
             {
-                self.activityLabel.text = "\(error)"
+                print("\(error)")
+                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             if result != nil
             {
-                self.activityIndicator.stopAnimating()
+                
                 //Note ! root json object is not a dictionary but an array
                 
                 do{
@@ -380,6 +378,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                         }
                         if jsonArray?.count == 0
                         {
+                            self.activityLabel.alpha = 1
                             self.activityLabel.text = "No pending challenges from other users😒"
                         }
                         
@@ -389,6 +388,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 {
                     self.activityLabel.text = "\(error)"
                 }
+                self.activityIndicator.stopAnimating()
                 
                 
             }
@@ -432,6 +432,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
+                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             if result != nil
             {
@@ -478,6 +480,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
+                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             if result != nil
             {
@@ -512,12 +516,13 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
+                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             if result != nil
             {
                 
                 print(result)
-                //self.challengeIdsCommaSeparated = String(NSString(data: result, encoding:NSUTF8StringEncoding))
                 self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
             }
             if response != nil

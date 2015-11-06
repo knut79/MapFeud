@@ -192,6 +192,8 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
             if error != nil
             {
                 print("\(error)")
+                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             if result != nil
             {

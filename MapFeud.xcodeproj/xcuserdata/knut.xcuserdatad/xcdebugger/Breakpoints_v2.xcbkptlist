@@ -9,13 +9,125 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "MapFeud/ChallengeViewController.swift"
+            timestampString = "468516244.064456"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "429"
+            endingLineNumber = "429"
+            landmarkName = "addRandomUser(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapFeud.ChallengeViewController.addRandomUser (MapFeud.ChallengeViewController)(Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "MapFeud"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/knut/Documents/repositories/MapFeud/MapFeud/ChallengeViewController.swift"
+                  timestampString = "468523254.990332"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "430"
+                  endingLineNumber = "430"
+                  offsetFromSymbolStart = "2020">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MapFeud.ChallengeViewController.(addRandomUser (MapFeud.ChallengeViewController) -&gt; (Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "MapFeud"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/knut/Documents/repositories/MapFeud/MapFeud/ChallengeViewController.swift"
+                  timestampString = "468523254.990541"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "432"
+                  endingLineNumber = "432"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/ChallengeViewController.swift"
+            timestampString = "468516244.064456"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
+            landmarkName = "addRandomUser(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
             filePath = "MapFeud/MainMenuViewController.swift"
-            timestampString = "468504207.002005"
+            timestampString = "468523254.886001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1140"
-            endingLineNumber = "1140"
-            landmarkName = "recieveNumberOfPendingChallenges()"
+            startingLineNumber = "1095"
+            endingLineNumber = "1095"
+            landmarkName = "recieveNumberOfResultsNotDownloaded()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/MainMenuViewController.swift"
+            timestampString = "468523254.886001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1108"
+            endingLineNumber = "1108"
+            landmarkName = "recieveNumberOfResultsNotDownloaded()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/MainMenuViewController.swift"
+            timestampString = "468523254.886001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1112"
+            endingLineNumber = "1112"
+            landmarkName = "recieveNumberOfResultsNotDownloaded()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/MainMenuViewController.swift"
+            timestampString = "468523254.886001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1117"
+            endingLineNumber = "1117"
+            landmarkName = "recieveNumberOfResultsNotDownloaded()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,45 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "468509203.087879"
+            filePath = "MapFeud/MainMenuViewController.swift"
+            timestampString = "468522855.097892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
-            landmarkName = "addRandomUser()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "468509203.571084"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "380"
-            endingLineNumber = "380"
-            landmarkName = "addRandomUser()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "468509906.795512"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "330"
-            endingLineNumber = "330"
-            landmarkName = "updateUser(_:)"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "enterForground()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
