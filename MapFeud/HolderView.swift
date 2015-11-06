@@ -116,13 +116,13 @@ class HolderView: UIView {
     dLabel.font = UIFont.boldSystemFontOfSize(40)
     dLabel.text = "D"
     
-    let dLabel2 = UILabel(frame: CGRectMake(0, 0, 50, 50))
+    let dLabel2 = UILabel(frame: CGRectMake(0, 0, 100, 50))
     dLabel2.center = CGPointMake(box.bounds.width / 2, box.bounds.height / 2)
     dLabel2.frame.offsetInPlace(dx: 10, dy: 10)
     dLabel2.textColor = UIColor.blueColor()
     dLabel2.textAlignment = NSTextAlignment.Center
     dLabel2.font = UIFont.boldSystemFontOfSize(40)
-    dLabel2.text = "D"
+    dLabel2.text = "D🌐"
     box.addSubview(dLabel)
     box.addSubview(dLabel2)
     

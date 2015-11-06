@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MenuButton:UIButton {
+class ChallengeButton:UIButton {
     
     var label:UILabel!
     var badgeLabel:UILabel!
@@ -20,15 +20,14 @@ class MenuButton:UIButton {
     
     init(frame: CGRect, title:String) {
         super.init(frame: frame)
-
+        
         self.backgroundColor = UIColor.whiteColor()
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        self.layer.borderColor = UIColor.blueColor().CGColor
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = 0
         
-        let margin = frame.height * 0.1
-        label = UILabel(frame: CGRectMake(margin, margin, frame.width - (margin * 2), frame.height * 0.8))
+        let margin = frame.height * 0.05
+        label = UILabel(frame: CGRectMake(margin, margin, frame.width - (margin * 2), frame.height * 0.9))
         label.text = title
         label.textAlignment = NSTextAlignment.Center
         //label.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -39,9 +38,9 @@ class MenuButton:UIButton {
         self.addSubview(label)
         
         //let hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
-        let badgeLabelSide = label.frame.height * 0.6
+        let badgeLabelSide = label.frame.height * 0.3
         badgeLabel = UILabel(frame: CGRectMake(frame.width - badgeLabelSide, frame.height - badgeLabelSide ,badgeLabelSide, badgeLabelSide))
-        badgeLabel.text = "3"
+        badgeLabel.text = "0"
         badgeLabel.adjustsFontSizeToFitWidth = true
         badgeLabel.textAlignment = NSTextAlignment.Center
         //label.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -70,5 +69,5 @@ class MenuButton:UIButton {
         
     }
     
-
+    
 }

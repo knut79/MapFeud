@@ -11,8 +11,8 @@ import Foundation
 class Challenge {
     
     var questionIds:[String] = []
-    var challengeIds:String?
-    var title:String?
+    var challengeIds:String!
+    var title:String!
 
     
     init()
@@ -35,7 +35,7 @@ class TakingChallenge: Challenge {
     {
         super.init()
         
-        title = values["title"] as? String
+        title = values["title"] as! String
         id = values["challengeId"] as! String
         fbIdToBeat = values["fbIdToBeat"] as! String
         distanceToBeat = values["distanceToBeat"] as! Int

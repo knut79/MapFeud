@@ -15,6 +15,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
     var client: MSClient?
     var activityLabel:UILabel!
     let backButton = UIButton()
+    let filterButton = UIButton()
     var titleLabel:UILabel!
     var userId:String!
     var userName:String!
@@ -44,7 +45,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.view.addSubview(loginButton)
         }
         
-        let backButtonMargin:CGFloat = 15
+        let backButtonMargin:CGFloat = 10
         backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - GlobalConstants.smallButtonSide - backButtonMargin, backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
         backButton.backgroundColor = UIColor.whiteColor()
         backButton.layer.borderColor = UIColor.grayColor().CGColor
@@ -54,6 +55,19 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         backButton.setTitle("🔙", forState: UIControlState.Normal)
         backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(backButton)
+        
+
+        /*
+        filterButton.frame = CGRectMake(backButtonMargin, backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
+        filterButton.backgroundColor = UIColor.whiteColor()
+        filterButton.layer.borderColor = UIColor.grayColor().CGColor
+        filterButton.layer.borderWidth = 1
+        filterButton.layer.borderWidth = 1
+        filterButton.layer.cornerRadius = 5
+        filterButton.setTitle("⚒", forState: UIControlState.Normal)
+        filterButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(filterButton)
+*/
     }
     
     func initUserData()
@@ -205,26 +219,31 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func collectStoredResults()
     {
+        let numberOfItemsOnGamerecordRow = 3
         var noValues = true
         datactrl.loadGameData()
         let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
         for record in datactrl.gameResultsValues
         {
             let arrayOfValues = record.componentsSeparatedByString(",")
-            if arrayOfValues.count == 5
+            if arrayOfValues.count == numberOfItemsOnGamerecordRow
             {
                 for item in arrayOfValues
                 {
                     print("\(item)")
                 }
-                for var i = 0 ; i < 5 ; i++
+                for var i = 0 ; i < numberOfItemsOnGamerecordRow ; i++
                 {
                     print("\(arrayOfValues[i])")
                 }
                 let myDistance = NSNumberFormatter().numberFromString(arrayOfValues[0] )
                 let myDistanceRightMeasure =  usingKm ? myDistance!.integerValue : Int(CGFloat(myDistance!.integerValue) * 0.621371)
-                let name = arrayOfValues[1]
-                let opponentDistance = NSNumberFormatter().numberFromString(arrayOfValues[3] )
+                var name = arrayOfValues[1]
+                if name.componentsSeparatedByString(" ").count > 1
+                {
+                    name = name.componentsSeparatedByString(" ").first!
+                }
+                let opponentDistance = NSNumberFormatter().numberFromString(arrayOfValues[2] )
                 let opponentDistanceRightMeasure =  usingKm ? opponentDistance!.integerValue : Int(CGFloat(opponentDistance!.integerValue) * 0.62137)
                 resultsScrollView.addItem( myDistanceRightMeasure, opponentName: name, opponentDistance: opponentDistanceRightMeasure)
                 

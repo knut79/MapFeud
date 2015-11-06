@@ -459,6 +459,8 @@ class DataHandler
     let HintsKey = "Hints"
     let TimeBonusKey = "TimeBonus"
     let UseKmKey = "UseKm"
+    let DeviceTokenKey = "DeviceToken"
+    
     
     var dataPopulatedValue:AnyObject = 0
     var okScoreValue:AnyObject = 0
@@ -471,6 +473,7 @@ class DataHandler
     var hintsValue:AnyObject = 0
     var timeBounusValue:AnyObject = 0
     var useKmValue:AnyObject = 1
+    var deviceTokenValue:AnyObject = 0
     var gameResultsValues:[AnyObject] = []
 
     func loadGameData() {
@@ -518,6 +521,9 @@ class DataHandler
             NSUserDefaults.standardUserDefaults().setInteger(Int(hintsValue as! NSNumber), forKey: "hintsLeftOnAccount")
             timeBounusValue = dict.objectForKey(TimeBonusKey)!
             NSUserDefaults.standardUserDefaults().setInteger(Int(timeBounusValue as! NSNumber), forKey: "timeBonus")
+            deviceTokenValue = dict.objectForKey(DeviceTokenKey)!
+            NSUserDefaults.standardUserDefaults().setValue(deviceTokenValue as! String, forKey: "deviceToken")
+            NSUserDefaults.standardUserDefaults().synchronize()
             gameResultsValues = dict.objectForKey(GameResultsKey)! as! [AnyObject]
         } else {
             print("WARNING: Couldn't create dictionary from GameData.plist! Default values will be used!")
@@ -541,6 +547,7 @@ class DataHandler
         dict.setObject(useKmValue, forKey: UseKmKey)
         dict.setObject(hintsValue, forKey: HintsKey)
         dict.setObject(timeBounusValue, forKey: TimeBonusKey)
+        dict.setObject(deviceTokenValue, forKey: DeviceTokenKey)
         dict.setObject(gameResultsValues, forKey: GameResultsKey)
         //writing to GameData.plist
         dict.writeToFile(path, atomically: false)

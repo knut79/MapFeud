@@ -23,16 +23,17 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     var productIDs:NSSet = NSSet(objects: "MapFeudAdFree","MapFeudAddHints")
     
     //buttons
-    var challengeUsersButton:UIButton!
-    var resultsButton:UIButton!
+    var challengeUsersButton:MenuButton!
+    var resultsButton:MenuButton!
+    var practiceButton:MenuButton!
     
     var practicePlayButton:UIButton!
     var challengePlayButton:UIButton!
     
     
-    var pendingChallengesButton:UIButton!
-    var newChallengeButton:UIButton!
-    var practiceButton:UIButton!
+    var pendingChallengesButton:ChallengeButton!
+    var newChallengeButton:ChallengeButton!
+    
     var selectFilterTypeButton:UIButton!
     
     var practicePlayButtonExstraLabel:UILabel!
@@ -63,21 +64,28 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     var removeAdsButton:UIButton?
     
+    var testButton:UIButton!
+    
     var bannerView:ADBannerView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForground", name: UIApplicationWillEnterForegroundNotification, object: nil)
+
         
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")
 
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
 
         let marginButtons:CGFloat = 10
-        var buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.17
-        let buttonHeight = buttonWidth
-        buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
+        var buttonHeight = UIScreen.mainScreen().bounds.size.width * 0.17
+        let buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
         
         challengeUsersButton = MenuButton(frame:CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), (UIScreen.mainScreen().bounds.size.height * 0.33) + buttonHeight + marginButtons, buttonWidth, buttonHeight),title:"Challenge")
         challengeUsersButton.addTarget(self, action: "challengeAction", forControlEvents: UIControlEvents.TouchUpInside)
+        let challengeBadge = NSUserDefaults.standardUserDefaults().integerForKey("challengesBadge")
+        challengeUsersButton.setbadge(challengeBadge)
         challengeUsersButton.alpha = 0
         
         
@@ -87,10 +95,10 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         resultsButton = MenuButton(frame:CGRectMake(practiceButton.frame.minX, practiceButton.frame.maxY + marginButtons, buttonWidth, buttonHeight),title:"Results")
         resultsButton.addTarget(self, action: "resultChallengeAction", forControlEvents: UIControlEvents.TouchUpInside)
+        let resultsBadge = NSUserDefaults.standardUserDefaults().integerForKey("resultsBadge")
+        resultsButton.setbadge(resultsBadge)
         resultsButton.alpha = 0
-        
 
-        
         let adFree = NSUserDefaults.standardUserDefaults().boolForKey("adFree")
         if !adFree
         {
@@ -119,22 +127,18 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
 
         //challenge type buttons
-        newChallengeButton = UIButton(frame:CGRectZero)
-        newChallengeButton.titleLabel?.numberOfLines = 2
-        newChallengeButton.titleLabel?.textAlignment = NSTextAlignment.Center
+        
+       
+        buttonHeight = UIScreen.mainScreen().bounds.size.height * 0.25
+        let buttonMargin: CGFloat = 20.0
+        
+        newChallengeButton = ChallengeButton(frame:CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - ( buttonWidth / 2), (UIScreen.mainScreen().bounds.size.height / 2) -  buttonHeight - (buttonMargin / 2),buttonWidth, buttonHeight),title: "Make new")
         newChallengeButton.addTarget(self, action: "newChallengeAction", forControlEvents: UIControlEvents.TouchUpInside)
-        newChallengeButton.backgroundColor = UIColor.blueColor()
-        newChallengeButton.layer.cornerRadius = 5
-        newChallengeButton.layer.masksToBounds = true
-        newChallengeButton.setTitle("New", forState: UIControlState.Normal)
         newChallengeButton.alpha = 0
         
-        pendingChallengesButton = UIButton(frame:CGRectZero)
+        pendingChallengesButton = ChallengeButton(frame:CGRectMake(self.newChallengeButton.frame.minX, self.newChallengeButton.frame.maxY + buttonMargin, buttonWidth, buttonHeight),title: "Take pending")
         pendingChallengesButton.addTarget(self, action: "pendingChallengesAction", forControlEvents: UIControlEvents.TouchUpInside)
-        pendingChallengesButton.backgroundColor = UIColor.blueColor()
-        pendingChallengesButton.layer.cornerRadius = 5
-        pendingChallengesButton.layer.masksToBounds = true
-        pendingChallengesButton.setTitle("Pending", forState: UIControlState.Normal)
+        pendingChallengesButton.setbadge(challengeBadge)
         pendingChallengesButton.alpha = 0
         
         
@@ -226,7 +230,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         loadingDataView?.frame =  CGRectMake(50, 50, 200, 50)
         setupFirstLevelMenu()
-        setupChallengeTypeButtons()
+        //setupChallengeTypeButtons()
         setupDynamicPlayButton()
         closeTagCheckView()
         
@@ -265,10 +269,36 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         }
 
         //setupAfterPopulateData()
+        
+        /*
+        testButton = UIButton(frame:CGRectMake(resultsButton.frame.minX, resultsButton.frame.maxY + marginButtons, buttonWidth, buttonHeight))
+        testButton.setTitle("TEST", forState: UIControlState.Normal)
+        testButton.addTarget(self, action: "testAction", forControlEvents: UIControlEvents.TouchUpInside)
+        testButton.backgroundColor = UIColor.blueColor()
+        testButton.alpha = 1
+        view.addSubview(testButton)
+        */
 
     }
     
+    func enterForground()
+    {
+        /*
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            dispatch_async(dispatch_get_main_queue()) {
+                // update some UI
+            }
+        }
+        */
+        recieveNumberOfResultsNotDownloaded()
+        
+        recieveNumberOfPendingChallenges()
 
+        
+        
+    }
     
     func borderStateChanged(switchState: UISwitch) {
         if switchState.on {
@@ -286,6 +316,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         bannerView?.delegate = nil
         bannerView?.removeFromSuperview()
     }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
 
@@ -331,14 +363,32 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         populateDataIfNeeded()
         
         //test _?
+        /*
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
         datactrl.adFreeValue = 1
         datactrl.timeBounusValue = 2
         datactrl.hintsValue = 15
+        
+        datactrl.addRecordToGameResults("1234,per1,54321")
+        datactrl.addRecordToGameResults("1234,per2,54321")
+        datactrl.addRecordToGameResults("1234,per3,54321")
+        datactrl.addRecordToGameResults("1234,per4,54321")
+        datactrl.addRecordToGameResults("1234,per5,54321")
+        datactrl.addRecordToGameResults("1234,per6,54321")
+        datactrl.addRecordToGameResults("1234,per7,54321")
+        datactrl.addRecordToGameResults("1234,per8,54321")
+        datactrl.addRecordToGameResults("1234,per9,54321")
+        datactrl.addRecordToGameResults("1234,per10,54321")
+        datactrl.addRecordToGameResults("1234,per11,54321")
         datactrl.saveGameData()
+        
+        datactrl.loadGameData()
+    */
         //NSUserDefaults.standardUserDefaults().setBool(false, forKey: "adFree")
         //NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "timeBonus")
         //NSUserDefaults.standardUserDefaults().synchronize()
+        
+        //end test
     }
     
     func populateDataIfNeeded()
@@ -356,10 +406,9 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             loadingDataView?.frame =  CGRectMake(50, 50, 200, 50)
         }
     }
-    
+
     
     override func viewDidLayoutSubviews() {
-
         /*
         loadingDataView?.frame =  CGRectMake(50, 50, 200, 50)
         setupFirstLevelMenu()
@@ -423,10 +472,10 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         var buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.17
         var buttonHeight = buttonWidth
 
-            buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
-            buttonHeight = UIScreen.mainScreen().bounds.size.height * 0.35
-            newChallengeButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - ( buttonWidth / 2), UIScreen.mainScreen().bounds.size.height * 0.15,buttonWidth, buttonHeight)
-            pendingChallengesButton.frame = CGRectMake(self.newChallengeButton.frame.minX, self.newChallengeButton.frame.maxY + buttonMargin, buttonWidth, buttonHeight)
+        buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
+        buttonHeight = UIScreen.mainScreen().bounds.size.height * 0.35
+        newChallengeButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - ( buttonWidth / 2), UIScreen.mainScreen().bounds.size.height * 0.15,buttonWidth, buttonHeight)
+        pendingChallengesButton.frame = CGRectMake(self.newChallengeButton.frame.minX, self.newChallengeButton.frame.maxY + buttonMargin, buttonWidth, buttonHeight)
     }
     
     func sliderUpperLevelText() -> String
@@ -576,6 +625,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func pendingChallengesAction()
     {
+        NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "challengesBadge")
         gametype = GameType.takingChallenge
         self.performSegueWithIdentifier("segueFromMainMenuToChallenge", sender: nil)
     }
@@ -619,6 +669,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func resultChallengeAction()
     {
+        NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "resultsBadge")
         self.performSegueWithIdentifier("segueFromMainMenuToChallengeResults", sender: nil)
     }
     
@@ -1028,6 +1079,173 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func canRotate () -> Void{ }
     
+    
+    func recieveNumberOfResultsNotDownloaded()
+    {
+        
+        let currentbadge = NSUserDefaults.standardUserDefaults().integerForKey("resultsBadge")
+        if currentbadge == 0
+        {
+            if let fbId = NSUserDefaults.standardUserDefaults().stringForKey("fbid")
+            {
+                let client = (UIApplication.sharedApplication().delegate as! AppDelegate).client
+                let jsonDictionaryHandle = ["id":fbId]
+                client!.invokeAPI("idleresults", data: nil, HTTPMethod: "GET", parameters: jsonDictionaryHandle as [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+                    
+                    
+                    if error != nil
+                    {
+                        print("\(error)")
+                    }
+                    if result != nil
+                    {
+                        print(result)
+                        var resultsBadgeInt: NSInteger = 0
+                        result.getBytes(&resultsBadgeInt, length: sizeof(NSInteger))
+                        NSUserDefaults.standardUserDefaults().setInteger(resultsBadgeInt, forKey: "resultsBadge")
+                        
+                        self.resultsButton.setbadge(resultsBadgeInt)
+
+                    }
+                    if response != nil
+                    {
+                        print("\(response)")
+                    }
+
+                    
+                })
+            }
+        }
+        
+    }
+    
+    func recieveNumberOfPendingChallenges()
+    {
+        
+        let currentbadge = NSUserDefaults.standardUserDefaults().integerForKey("challengesBadge")
+        if currentbadge == 0
+        {
+            if let fbId = NSUserDefaults.standardUserDefaults().stringForKey("fbid")
+            {
+                let client = (UIApplication.sharedApplication().delegate as! AppDelegate).client
+                let jsonDictionaryHandle = ["id":fbId]
+                client!.invokeAPI("pendingchallenges", data: nil, HTTPMethod: "GET", parameters: jsonDictionaryHandle as [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+                    
+                    
+                    if error != nil
+                    {
+                        print("\(error)")
+                    }
+                    if result != nil
+                    {
+                        print(result)
+                        var resultsBadgeInt: NSInteger = 0
+                        result.getBytes(&resultsBadgeInt, length: sizeof(NSInteger))
+                        NSUserDefaults.standardUserDefaults().setInteger(resultsBadgeInt, forKey: "challengesBadge")
+                        
+                        self.challengeUsersButton.setbadge(resultsBadgeInt)
+                        self.pendingChallengesButton.setbadge(resultsBadgeInt)
+                    }
+                    if response != nil
+                    {
+                        print("\(response)")
+                    }
+                    
+                    
+                })
+            }
+        }
+        
+    }
+    
+    func testAction()
+    {
+        //!!!! NOTE : devicetoken is clearly not in the right format for serverside. ???
+        
+        let handleToken = NSUserDefaults.standardUserDefaults().objectForKey("devicetoken") == nil ? "aaAAffFF" : NSUserDefaults.standardUserDefaults().objectForKey("devicetoken")!
+        //register for notification
+        let client = (UIApplication.sharedApplication().delegate as! AppDelegate).client
+        
+        let jsonDictionaryHandle = ["handle":handleToken]
+        client!.invokeAPI("registerfornotification", data: nil, HTTPMethod: "Post", parameters: jsonDictionaryHandle as [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+            
+            
+            if error != nil
+            {
+                print("\(error)")
+            }
+            if result != nil
+            {
+                print(result)
+                ///backstabbing cock!!!.. is there really no way of escaping double quotes directly from json string...
+                
+                let temp = NSString(data: result, encoding:NSUTF8StringEncoding) as! String
+                
+                let regId = String(temp.characters.dropLast().dropFirst())
+                
+                //_? self.testReg(regId,handleToken: handleToken)
+                
+                
+            }
+            if response != nil
+            {
+                print("\(response)")
+            }
+            
+            
+        })
+    }
+    
+    
+    
+    
+    func testReg(regid:String, handleToken:String)
+    {
+        var tags:[String] = []
+        tags.append("knut")
+        tags.append("dullum")
+        let jsonDictionary = ["idreg":regid,"token":handleToken,"tag":"knut"]
+        //var jsonDictionary = ["fbid":"10155943015600858","name":userName]
+        let client = (UIApplication.sharedApplication().delegate as! AppDelegate).client
+        
+        client!.invokeAPI("registerfornotification", data: nil, HTTPMethod: "PUT", parameters: jsonDictionary as [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+            
+            if error != nil
+            {
+                print("\(error)")
+            }
+            if result != nil
+            {
+                
+                do{
+                    let jsonArray = try NSJSONSerialization.JSONObjectWithData(result, options: NSJSONReadingOptions.MutableContainers) as? NSArray
+                    
+                    if let array = jsonArray
+                    {
+                        for item in array {
+                            print("item : \(item)")
+                        }
+                        if jsonArray?.count == 0
+                        {
+                            print("hmm")
+                        }
+                        
+                    }
+                }
+                catch
+                {
+                    print("\(error)")
+                }
+                
+                
+            }
+            if response != nil
+            {
+                print("\(response)")
+            }
+            
+        })
+    }
 
 }
 

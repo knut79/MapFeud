@@ -35,7 +35,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
 
     var challengeIdsCommaSeparated:String!
     
-    var activityIndicator = UIActivityIndicatorView()
+    var activityIndicator:UIActivityIndicatorView!
     
     var client: MSClient?
     
@@ -72,7 +72,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             self.view.addSubview(loginButton)
         }
         
-        let backButtonMargin:CGFloat = 15
+        let backButtonMargin:CGFloat = 10
         backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - GlobalConstants.smallButtonSide - backButtonMargin, backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
         backButton.backgroundColor = UIColor.whiteColor()
         backButton.layer.borderColor = UIColor.grayColor().CGColor
@@ -83,9 +83,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(backButton)
         
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
-        activityIndicator.frame = CGRect(x: UIScreen.mainScreen().bounds.width / 2, y: UIScreen.mainScreen().bounds.height / 2, width: 50, height: 50)
-        self.view.addSubview(activityIndicator)
+
 
     }
     
@@ -213,6 +211,11 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         activityLabel.center = CGPointMake(UIScreen.mainScreen().bounds.size.width / 2, UIScreen.mainScreen().bounds.size.height / 2)
         activityLabel.textAlignment = NSTextAlignment.Center
         activityLabel.adjustsFontSizeToFitWidth = true
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        activityIndicator.frame = CGRect(x: 0,y:0, width: 50, height: 50)
+        activityIndicator.hidesWhenStopped = true
+
     }
     
     func initForNewChallenge(friendObjects:[NSDictionary])
@@ -252,11 +255,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         view.addSubview(addRandomUserButton)
         view.addSubview(usersToChallengeScrollView)
         view.addSubview(activityLabel)
+        view.addSubview(activityIndicator)
         
         if friendObjects.count == 0
         {
             
-            addRandomUser( { () in
+            addRandomUser( {() -> Void in
                 self.activityLabel.alpha = 1
                 self.activityLabel.text = "No facebook friends with this app😢"
             })
@@ -281,6 +285,11 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
         titleLabel.text = "Pick a challenge"
         activityLabel.text = "Collecting challenges..."
+        activityIndicator.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        self.view.bringSubviewToFront(activityIndicator)
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
 
         let scrollViewHeight =  playButton.frame.minY - titleLabel.frame.maxY - ( margin * 2 )
         let scrollViewWidth = UIScreen.mainScreen().bounds.size.width - (margin * 2)
@@ -294,8 +303,53 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         view.addSubview(backButton)
         view.addSubview(challengeScrollView)
         view.addSubview(activityLabel)
+        view.addSubview(activityIndicator)
         
-        let jsonDictionary = ["fbid":userId,"name":userName]
+        self.updateUser({() -> Void in
+           self.requestChallenges()
+        })
+        
+
+    }
+    
+    func updateUser(completionClosure: (() -> Void) )
+    {
+        activityLabel.alpha = 1
+        activityLabel.text = "Update user..."
+        randomUsersAdded++
+        if randomUsersAdded > 1
+        {
+            activityLabel.alpha = 0
+            addRandomUserButton.alpha = 0
+        }
+        let deviceToken = NSUserDefaults.standardUserDefaults().valueForKey("deviceToken") as! String
+        let jsonDictionary = ["fbid":userId,"name":userName,"token":deviceToken]
+        
+        self.client!.invokeAPI("updateuser", data: nil, HTTPMethod: "GET", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+            
+            if error != nil
+            {
+                print("\(error)")
+            }
+            /*
+            if result != nil
+            {
+            
+            }
+            */
+            if response != nil
+            {
+                print("\(response)")
+            }
+            self.activityLabel.alpha = 0
+            
+            completionClosure()
+        })
+    }
+    
+    func requestChallenges()
+    {
+        let jsonDictionary = ["fbid":userId]
         //var jsonDictionary = ["fbid":"10155943015600858","name":userName]
         
         self.client!.invokeAPI("challenge", data: nil, HTTPMethod: "GET", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
@@ -306,11 +360,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             }
             if result != nil
             {
+                self.activityIndicator.stopAnimating()
                 //Note ! root json object is not a dictionary but an array
                 
                 do{
-                let jsonArray = try NSJSONSerialization.JSONObjectWithData(result, options: NSJSONReadingOptions.MutableContainers) as? NSArray
-                
+                    let jsonArray = try NSJSONSerialization.JSONObjectWithData(result, options: NSJSONReadingOptions.MutableContainers) as? NSArray
+                    
                     if let array = jsonArray
                     {
                         for item in array {
@@ -334,8 +389,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 {
                     self.activityLabel.text = "\(error)"
                 }
-
-
+                
+                
             }
             if response != nil
             {
@@ -350,10 +405,14 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     var randomUsersAdded = 0
     func addRandomUserAction()
     {
-        addRandomUser(nil)
+        updateUser({() -> Void in
+            self.addRandomUser(nil)
+        })
+        
     }
     
-    func addRandomUser(completionClosure: (() -> Void)? )
+    
+    func addRandomUser(completionClosure: (() -> Void)?)
     {
         activityLabel.alpha = 1
         activityLabel.text = "Collecting random user..."
@@ -423,8 +482,6 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if result != nil
             {
                 print(result)
-                print("hei hei")
-
                 ///backstabbing cock!!!.. is there really no way of escaping double quotes directly from json string...
                 
                 let temp = NSString(data: result, encoding:NSUTF8StringEncoding) as! String

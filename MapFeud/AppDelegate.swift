@@ -26,7 +26,88 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.client = MSClient(applicationURLString:"https://mapfaud.azure-mobile.net/",
             applicationKey:"PYwzAMqgrSvfJEQAHoDVZFCQAedobx62")
         
+        //EngagementAgent.init("Endpoint=MapFeud-Collection.device.mobileengagement.windows.net;SdkKey=a975562ee9d61925ca20b4183c9c3a7f;AppId=nem000036")
+
+        //[UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge]
+        let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge], categories:nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        print("The token is \(deviceToken)")
+        
+        //var deviceTokenString:NSString = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
+        //deviceTokenString = deviceTokenString.stringByReplacingOccurrencesOfString(" ", withString: "").uppercaseString
+        var deviceTokenString:NSString = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
+        deviceTokenString = deviceTokenString.stringByReplacingOccurrencesOfString(" ", withString: "").uppercaseString
+        
+        let hub = SBNotificationHub.init(connectionString: HUBLISTENACCESS, notificationHubPath: HUBNAME)
+
+        NSUserDefaults.standardUserDefaults().setValue(deviceTokenString, forKey: "deviceToken")
+        datactrl.deviceTokenValue = deviceTokenString
+        datactrl.saveGameData()
+        
+        let tags: Set<NSObject> = Set(["knutp",deviceTokenString])
+        hub.registerNativeWithDeviceToken(deviceToken, tags: tags, completion: {(error) -> Void in
+
+            if error != nil
+            {
+                print("Error registering for notifications: \(error)")
+            }
+            else
+            {
+                print("Registered for notifications")
+            }
+        })
+        
+        
+        
+        //TEST
+        /*
+        var deviceTokenString:NSString = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
+        deviceTokenString = deviceTokenString.stringByReplacingOccurrencesOfString(" ", withString: "").uppercaseString
+        var tagSet:[String] = []
+        tagSet.append("tag1")
+        tagSet.append("tab2")
+        
+        
+        var deviceRegistration:NSDictionary = [ "Platform":"apns", "Handle": deviceTokenString, "Tags":"tagsSet"]
+        var jsonData:NSData
+        
+        do{
+            jsonData = try NSJSONSerialization.dataWithJSONObject(deviceRegistration, options: NSJSONWritingOptions.PrettyPrinted)
+        }
+        catch
+        {
+            print("error --")
+        }
+
+        let _endpoint = "aldksjldaskf"
+        let registrationId = "sadfa"
+        
+        let endpoint:String = "\(_endpoint) /api/register/ \(registrationId)"
+        let requestURL:NSURL = NSURL(string:endpoint)!
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL:requestURL)
+        request.HTTPMethod = "PUT"
+        request.HTTPBody = jsonData
+        
+        var headerValue = "knt:psw"
+        var encodedData:NSData = headerValue.dataUsingEncoding(NSUTF8StringEncoding)!.base64EncodedDataWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithCarriageReturn)
+        //registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData encoding:NSUTF8StringEncoding];
+        
+        var authorizationHeaderValue = "Basic \(headerValue)"
+        request.setValue(authorizationHeaderValue, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField:"Content-Type")
+        
+        var dataTask:NSURLSessionDataTask = self.session dataTaskWithRequest:request
+        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+        */
+        //END TEST
+        
     }
     
     func application(application: UIApplication,
@@ -38,6 +119,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 openURL: url,
                 sourceApplication: sourceApplication,
                 annotation: annotation)
+    }
+
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+
+        var badge:Int = 0
+        if let aps = userInfo["aps"] as? NSDictionary {
+            if let b = aps["badge"] as? Int {
+                badge = b
+            }
+
+            if let alert = aps["alert"] as? NSDictionary {
+                if let title = alert["title"] as? NSString {
+                    
+                    if title == "Challenge"
+                    {
+                        NSUserDefaults.standardUserDefaults().setInteger(badge, forKey: "challengesBadge")
+                    }
+                    if title == "Result"
+                    {
+                        NSUserDefaults.standardUserDefaults().setInteger(badge, forKey: "resultsBadge")
+                    }
+                }
+            }
+            
+            
+            
+            /*else if let alert = aps["alert"] as? NSString {
+                print(alert)
+            }*/
+        }
+        
+        /*
+        if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
+        {
+            let alertMsg = info["alert"] as! String
+            var alert: UIAlertView!
+            alert = UIAlertView(title: "", message: alertMsg, delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        */
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -57,6 +181,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         //_? hmm
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         FBSDKAppEvents.activateApp()
     }
 

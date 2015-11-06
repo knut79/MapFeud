@@ -76,6 +76,10 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
             self.bannerView?.hidden = false
         }
         let mapHeight = adFree ? UIScreen.mainScreen().bounds.height : UIScreen.mainScreen().bounds.height - bannerView!.frame.height
+        if gametype == GameType.takingChallenge
+        {
+            drawBorders = (challenge as! TakingChallenge).usingBorders == 1 ? true : false
+        }
         map = MapScrollView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, mapHeight), drawBorders: drawBorders)
         map.delegate = self
         
@@ -683,8 +687,6 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first
         let touchLocation = touch!.locationInView(self.view)
-        
-
         let isInnView = CGRectContainsPoint(self.playerIcon!.frame,touchLocation)
         if(isInnView)
         {
@@ -702,10 +704,19 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                 self.magnifyingGlass.transform = CGAffineTransformScale(self.magnifyingGlass.transform, 0.1, 0.1)
                 self.playerIcon.transform = CGAffineTransformIdentity
                 }, completion: { (value: Bool) in
-                    self.playerIcon.alpha = 1
-                    self.magnifyingGlass.alpha = 0
-                    self.playerIcon.transform = CGAffineTransformIdentity
+                    
             })
+        }
+        else if magnifyingGlass.alpha == 1
+        {
+            self.playerIcon.alpha = 1
+            self.okButton.hide(false)
+            self.hintButton.hide(false)
+            self.questionView.hide(false)
+            self.distanceView.hide(false)
+            self.magnifyingGlass.alpha = 0
+            self.magnifyingGlass.transform = CGAffineTransformScale(self.magnifyingGlass.transform, 0.1, 0.1)
+            self.playerIcon.transform = CGAffineTransformIdentity
         }
     }
 

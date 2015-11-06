@@ -66,12 +66,12 @@ class FinishedViewController:UIViewController {
         {
             if let takingChallenge = challenge as? TakingChallenge
             {
-                activityLabel.text = "Sending result of\n\(takingChallenge.title)"
+                activityLabel.text = "Sending result of\n\(takingChallenge.title!)"
                 finishTakingChallenge(takingChallenge)
                 
                 let resultChallengeLabel = UILabel(frame: CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - 200, 25, 400, 50))
                 resultChallengeLabel.textAlignment = NSTextAlignment.Center
-                resultChallengeLabel.text = "Result of challenge \(takingChallenge.title)"
+                resultChallengeLabel.text = "Result of challenge \(takingChallenge.title!)"
                 resultChallengeLabel.font = UIFont.boldSystemFontOfSize(20)
                 resultChallengeLabel.adjustsFontSizeToFitWidth = true
                 self.view.addSubview(resultChallengeLabel)
@@ -91,7 +91,7 @@ class FinishedViewController:UIViewController {
 
                 //sending result
                 
-                if distance > takingChallenge.distanceToBeat
+                if distance < takingChallenge.distanceToBeat
                 {
                     youWonChallenge(takingChallenge)
                 }

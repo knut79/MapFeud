@@ -277,13 +277,6 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     
     func setupTiles()
     {
-
-        /*
-        for view in tileContainerView.subviews {
-            view.removeFromSuperview()
-        }
-        */
-        
         playerSymbol.removeFromSuperview()
         
         if tileContainerView.layer.sublayers?.count > 0
@@ -317,8 +310,9 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
                 {
                     let layer = CALayer()
                     layer.frame = CGRectMake(CGFloat(col) * maxTileSize, CGFloat(row) * maxTileSize, image.size.width, image.size.height)
-                    layer.contents = tileImage?.CGImage //UIImage(named: "star")?.CGImage
+                    layer.contents = tileImage?.CGImage
                     layer.contentsGravity = kCAGravityCenter
+                    
                     tileContainerView.layer.addSublayer(layer)
                     
                     //let tileImageView = UIImageView(image:image)

@@ -555,6 +555,8 @@
 		727581011BE0F7E20026A2CC /* StatusHintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581001BE0F7E20026A2CC /* StatusHintButton.swift */; settings = {ASSET_TAGS = (); }; };
 		727581031BE0FE0D0026A2CC /* StatusTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */; settings = {ASSET_TAGS = (); }; };
 		727581051BE101EB0026A2CC /* StatusDistanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581041BE101EB0026A2CC /* StatusDistanceButton.swift */; settings = {ASSET_TAGS = (); }; };
+		72802D5D1BE837430069F51D /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72802D5C1BE837430069F51D /* WindowsAzureMessaging.framework */; settings = {ASSET_TAGS = (); }; };
+		72802D7F1BEC2FCC0069F51D /* ChallengeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72802D7E1BEC2FCC0069F51D /* ChallengeButton.swift */; settings = {ASSET_TAGS = (); }; };
 		72BD9D261BD27A240062FE44 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		72BD9D271BD27A240062FE44 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		72BD9D281BD27A240062FE44 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */; settings = {ASSET_TAGS = (); }; };
@@ -1387,6 +1389,8 @@
 		727581001BE0F7E20026A2CC /* StatusHintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusHintButton.swift; sourceTree = "<group>"; };
 		727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTimeButton.swift; sourceTree = "<group>"; };
 		727581041BE101EB0026A2CC /* StatusDistanceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusDistanceButton.swift; sourceTree = "<group>"; };
+		72802D5C1BE837430069F51D /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
+		72802D7E1BEC2FCC0069F51D /* ChallengeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeButton.swift; sourceTree = "<group>"; };
 		72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
@@ -1656,6 +1660,7 @@
 				72BD9D281BD27A240062FE44 /* WindowsAzureMobileServices.framework in Frameworks */,
 				72BD9D271BD27A240062FE44 /* FBSDKLoginKit.framework in Frameworks */,
 				72BD9D261BD27A240062FE44 /* FBSDKCoreKit.framework in Frameworks */,
+				72802D5D1BE837430069F51D /* WindowsAzureMessaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2345,6 +2350,7 @@
 				727581001BE0F7E20026A2CC /* StatusHintButton.swift */,
 				727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */,
 				727581041BE101EB0026A2CC /* StatusDistanceButton.swift */,
+				72802D7E1BEC2FCC0069F51D /* ChallengeButton.swift */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -2404,6 +2410,7 @@
 		72BD9D221BD27A070062FE44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72802D5C1BE837430069F51D /* WindowsAzureMessaging.framework */,
 				72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */,
 				72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */,
 				72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */,
@@ -2770,6 +2777,12 @@
 				TargetAttributes = {
 					72424A4F1BC2C468009FED5C = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = A887G5EA37;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					72424A661BC2C469009FED5C = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -3610,6 +3623,7 @@
 				7254B1FD1BCC145500A22920 /* StaticValues.swift in Sources */,
 				7254B21B1BD08B4A00A22920 /* RangeSliderTrackLayer.swift in Sources */,
 				7254B0471BC55C7E00A22920 /* Question.swift in Sources */,
+				72802D7F1BEC2FCC0069F51D /* ChallengeButton.swift in Sources */,
 				727581011BE0F7E20026A2CC /* StatusHintButton.swift in Sources */,
 				7254B2071BD08A1B00A22920 /* TagCheckScrollview.swift in Sources */,
 				722D8B331BD6A3CC00C2EABA /* FinishedViewController.swift in Sources */,
@@ -3774,6 +3788,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3784,6 +3800,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.datadullum.MapFeud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MapFeud/MapFeud-Bridging-Header.h";
 			};
 			name = Debug;
@@ -3792,6 +3809,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3802,6 +3821,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.datadullum.MapFeud;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MapFeud/MapFeud-Bridging-Header.h";
 			};
 			name = Release;
