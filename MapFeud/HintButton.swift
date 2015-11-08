@@ -16,7 +16,7 @@ class HintButton: UIButton {
     var orgFrame:CGRect!
     var hintsLeftOnQuestion:Int = 2
     var hintsLeftOnAccount:Int = 0
-    let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -62,10 +62,12 @@ class HintButton: UIButton {
 
     func deductHints()
     {
+        
         hintsLeftOnAccount = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
         hintsLeftOnAccount--
         NSUserDefaults.standardUserDefaults().setInteger(hintsLeftOnAccount, forKey: "hintsLeftOnAccount")
         hintsLeftOnQuestion--
+        let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
         datactrl.hintsValue = hintsLeftOnAccount
         datactrl.saveGameData()
 

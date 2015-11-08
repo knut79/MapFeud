@@ -26,18 +26,18 @@ class ResultItemView: UIView
         let secondLevelTitleWidth:CGFloat = (self.bounds.width - ( margin * 2)) / 4
         let titleElementHeight:CGFloat = 40
         
-        var state = "Victory"
+        var state = "✅"
         stateWin = 1
         if opponentDistance < myDistance
         {
             stateWin = 0
             stateLoss = 1
-            state = "Loss"
+            state = "❌"
         }
         else if myDistance == opponentDistance
         {
             stateWin = 0
-            state = "Draw"
+            state = "➖"
         }
         
         let myStateLabel = UILabel(frame: CGRectMake(margin , 0, secondLevelTitleWidth, titleElementHeight))

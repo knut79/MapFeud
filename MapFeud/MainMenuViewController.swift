@@ -195,7 +195,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         borderSwitchLabel.font = UIFont.boldSystemFontOfSize(24)
         borderSwitchLabel.adjustsFontSizeToFitWidth = true
         borderSwitchLabel.textAlignment = NSTextAlignment.Center
-        borderSwitchLabel.text = "Without borders"
+        borderSwitchLabel.text = "No country borders❗️"
         borderSwitchLabel.alpha = 0
 
         
@@ -311,9 +311,9 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func borderStateChanged(switchState: UISwitch) {
         if switchState.on {
-            borderSwitchLabel.text = "With borders"
+            borderSwitchLabel.text = "Country borders"
         } else {
-            borderSwitchLabel.text = "Without borders"
+            borderSwitchLabel.text = "No country borders"
         }
     }
     

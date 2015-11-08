@@ -47,10 +47,11 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
         myStateLabel.text = "Result"
         self.addSubview(myStateLabel)
         
+        let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
         
         let myDistanceLabel = ResultTitleLabel(frame: CGRectMake(myStateLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
         myDistanceLabel.textAlignment = NSTextAlignment.Center
-        myDistanceLabel.text = "Distance"
+        myDistanceLabel.text = usingKm ? "Km" : "Miles"
         self.addSubview(myDistanceLabel)
         
         
@@ -63,7 +64,7 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
         
         let opponentDistanceLabel = ResultTitleLabel(frame: CGRectMake(opponentNameLabel.frame.maxX , myScoreLabel.frame.maxY, secondLevelTitleWidth, titleElementHeight))
         opponentDistanceLabel.textAlignment = NSTextAlignment.Center
-        opponentDistanceLabel.text = "Distance"
+        opponentDistanceLabel.text = usingKm ? "Km" : "Miles"
         self.addSubview(opponentDistanceLabel)
         
         

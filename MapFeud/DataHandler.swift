@@ -250,8 +250,8 @@ class DataHandler
                 questionText = "Where is the mountain \(place.name) located"
             break
             case .State:
-                questionText = "Where is the state \(place.name) located"
-                answerText = "from $ state border"
+                questionText = "Where is the country \(place.name) located"
+                answerText = "from $ border"
             break
             case .County:
                 questionText = "Where is the county \(place.name) located"
