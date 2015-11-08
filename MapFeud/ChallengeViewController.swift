@@ -467,12 +467,15 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     var challengeName:String!
     func sendChallengeMakingStart()
     {
-        challengeName = "\(userName) \(passingLevelLow)-\(passingLevelHigh)"
+        let borders:String = drawBorders ? "1" : "0"
+        let firstNameInUserName = userName.componentsSeparatedByString(" ").count > 1 ? userName.componentsSeparatedByString(" ").first : userName
+        let borderString = drawBorders ? "borders" : "no borders"
+        challengeName = "\(firstNameInUserName) \(passingLevelLow)-\(passingLevelHigh) \((borderString))"
         questionIds = questionsToCommaseparated()
         let toIds:String = usersToCommaseparated()
         
         print("fbid:\(userId) chname:\(challengeName) toIdsPar:\(toIds) questionIds:\(questionIds)")
-        let borders:String = drawBorders ? "1" : "0"
+
         let jsonDictionary = ["fbid":userId,"chname":challengeName,"toIdsPar":toIds,"questionIdsPar":questionIds,"borders":borders]
         
         self.client!.invokeAPI("startmakingchallenge", data: nil, HTTPMethod: "POST", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in

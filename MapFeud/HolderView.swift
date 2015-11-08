@@ -15,6 +15,7 @@ class HolderView: UIView {
   weak var delegate:HolderViewDelegate?
     let logo1 = UILabel()
     let logo2 = UILabel()
+    let globeLogo = UILabel()
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -34,7 +35,6 @@ class HolderView: UIView {
     logo1.font = UIFont.boldSystemFontOfSize(25)
     logo1.alpha = 0
     logo1.text = "Geo "
-    
     self.addSubview(logo1)
     
     logo2.frame = CGRectMake(logo1.frame.maxX, UIScreen.mainScreen().bounds.size.height * 0.75, 100, 50)
@@ -43,8 +43,9 @@ class HolderView: UIView {
     logo2.font = UIFont.boldSystemFontOfSize(25)
     logo2.alpha = 0
     logo2.text = "Feud"
-    
     self.addSubview(logo2)
+    
+
     
     
     let orgLogo1Center = logo1.center
@@ -109,6 +110,14 @@ class HolderView: UIView {
     box.layer.addSublayer(arcLayer)
     arcLayer.animate()
     
+    globeLogo.textAlignment = NSTextAlignment.Right
+    globeLogo.font = UIFont.boldSystemFontOfSize(20)
+    globeLogo.alpha = 0
+    globeLogo.text = "🌐"
+    globeLogo.frame = CGRectMake(0, 0, 100, 50)
+    globeLogo.center = CGPointMake(box.bounds.width / 2, box.bounds.height / 2)
+    globeLogo.frame.offsetInPlace(dx: 0, dy: 5)
+    
     let dLabel = UILabel(frame: CGRectMake(0, 0, 50, 50))
     dLabel.center = CGPointMake(box.bounds.width / 2, box.bounds.height / 2)
     dLabel.textColor = UIColor.blueColor()
@@ -122,15 +131,21 @@ class HolderView: UIView {
     dLabel2.textColor = UIColor.blueColor()
     dLabel2.textAlignment = NSTextAlignment.Center
     dLabel2.font = UIFont.boldSystemFontOfSize(40)
-    dLabel2.text = "D🌐"
+    dLabel2.text = "D"
+    box.addSubview(globeLogo)
     box.addSubview(dLabel)
     box.addSubview(dLabel2)
+
+
     
     NSTimer.scheduledTimerWithTimeInterval(0.90, target: self, selector: "expandView",
       userInfo: nil, repeats: false)
   }
 
   func expandView() {
+    
+
+    
     box.backgroundColor = Colors.white
     frame = CGRectMake(frame.origin.x - blueRectangleLayer.lineWidth,
       frame.origin.y - blueRectangleLayer.lineWidth,
