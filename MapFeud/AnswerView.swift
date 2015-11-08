@@ -32,6 +32,9 @@ class AnswerView: UIView {
         singleTapGestureRecognizer.cancelsTouchesInView = false
         self.addGestureRecognizer(singleTapGestureRecognizer)
 
+        
+        
+        
         infoText = UILabel(frame: CGRectMake(self.bounds.width * 0.1, 0, self.bounds.width * 0.8, self.bounds.height  * 4))
         infoText.adjustsFontSizeToFitWidth = true
         infoText.textAlignment = NSTextAlignment.Left
@@ -47,10 +50,11 @@ class AnswerView: UIView {
         answerText.textColor = UIColor.whiteColor()
         self.addSubview(answerText)
         
-        let informationIconSide = self.bounds.height * 0.5
-        informationIcon = UILabel(frame: CGRectMake(self.bounds.width - informationIconSide, 0, informationIconSide, informationIconSide))
+        let informationIconSide = self.bounds.height * 0.4
+        informationIcon = UILabel(frame: CGRectMake(self.bounds.width - informationIconSide, self.bounds.height - (informationIconSide * 0.75), informationIconSide, informationIconSide))
         informationIcon.text = "ℹ"
         informationIcon.alpha = 0
+        informationIcon.font = UIFont.boldSystemFontOfSize(18)
         self.addSubview(informationIcon)
     }
     
