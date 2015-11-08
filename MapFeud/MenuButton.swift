@@ -13,6 +13,7 @@ class MenuButton:UIButton {
     
     var label:UILabel!
     var badgeLabel:UILabel!
+    var borderView:UIView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -22,10 +23,18 @@ class MenuButton:UIButton {
         super.init(frame: frame)
 
         self.backgroundColor = UIColor.whiteColor()
-        self.layer.cornerRadius = 5
-        self.layer.masksToBounds = true
-        self.layer.borderColor = UIColor.blueColor().CGColor
-        self.layer.borderWidth = 2
+
+        
+        let borderMargin = frame.height * 0.05
+        borderView = UIView(frame: CGRectMake(borderMargin, borderMargin, frame.width - (borderMargin * 2), frame.height * 0.9))
+        borderView.backgroundColor = UIColor.clearColor()
+        borderView.layer.cornerRadius = 5
+        borderView.layer.masksToBounds = true
+        borderView.layer.borderColor = UIColor.blueColor().CGColor
+        borderView.layer.borderWidth = 2
+        borderView.userInteractionEnabled = false
+        self.addSubview(borderView)
+
         
         let margin = frame.height * 0.1
         label = UILabel(frame: CGRectMake(margin, margin, frame.width - (margin * 2), frame.height * 0.8))

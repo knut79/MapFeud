@@ -112,7 +112,6 @@ class HolderView: UIView {
     
     globeLogo.textAlignment = NSTextAlignment.Right
     globeLogo.font = UIFont.boldSystemFontOfSize(20)
-    globeLogo.alpha = 0
     globeLogo.text = "🌐"
     globeLogo.frame = CGRectMake(0, 0, 100, 50)
     globeLogo.center = CGPointMake(box.bounds.width / 2, box.bounds.height / 2)

@@ -810,6 +810,8 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
 
+        self.clock?.stop()
+        self.clock = nil
         if (segue.identifier == "segueFromPlayToFinished") {
             let svc = segue!.destinationViewController as! FinishedViewController
 

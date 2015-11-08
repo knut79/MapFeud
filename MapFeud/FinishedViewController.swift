@@ -22,7 +22,7 @@ class FinishedViewController:UIViewController {
     var backToMenuButton:UIButton!
     var resultLabel:UILabel!
     var audioPlayer = AVAudioPlayer()
-    
+    var passingAlert:(String,String)? = nil
     
     
     override func viewDidLoad() {
@@ -56,11 +56,13 @@ class FinishedViewController:UIViewController {
         
         if gametype == GameType.makingChallenge
         {
-            if let makingChallenge = challenge as? MakingChallenge
-            {
-                finishMakingChallenge()
-                activityLabel.text = "Sending challenge\n\(makingChallenge.title)..."
-            }
+            //fire and forget
+            let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+            let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+            dispatch_async(backgroundQueue, {
+                self.finishMakingChallenge()
+            })
+
         }
         else if gametype == GameType.takingChallenge
         {
@@ -104,13 +106,27 @@ class FinishedViewController:UIViewController {
                     youLostChallenge(takingChallenge)
                 }
             }
+            self.view.addSubview(self.backToMenuButton)
         }
         else
         {
             print("invalid GameType")
+            self.view.addSubview(self.backToMenuButton)
         }
-        
-        self.view.addSubview(self.backToMenuButton)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if gametype == GameType.makingChallenge
+        {
+
+            if let makingChallenge = challenge as? MakingChallenge
+            {
+                let numUsersChallenged = makingChallenge.usersToChallenge.count
+                let alertText = numUsersChallenged > 1 ? "Challenge sendt to \(numUsersChallenged) users" : "Challenge sendt to \(numUsersChallenged) user"
+                passingAlert = ("Sending challenge",alertText)
+                self.performSegueWithIdentifier("segueFromFinishedToMainMenu", sender: nil)
+            }
+        }
     }
     
     func youLostChallenge(takingChallenge:TakingChallenge)
@@ -142,10 +158,14 @@ class FinishedViewController:UIViewController {
         audioPlayer.numberOfLoops = 0
         audioPlayer.prepareToPlay()
         audioPlayer.play()
+        let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
+        let distanceText = usingKm ? "Km" : "Miles"
+        let myDistanceRightMeasure =  usingKm ? distance : Int(CGFloat(distance) * 0.621371)
+        let opponentDistanceRightMeasure =  usingKm ? takingChallenge.distanceToBeat : Int(CGFloat(takingChallenge.distanceToBeat) * 0.621371)
         resultLabel.text = "You won 😆\n\n" +
-        "\(distance) km" +
+        "\(myDistanceRightMeasure) \(distanceText)" +
         "\n\nagainst" +
-        "\n\n\(takingChallenge.distanceToBeat) km"
+        "\n\n\(opponentDistanceRightMeasure) \(distanceText)"
     }
     
     func youDrewChallenge(takingChallenge:TakingChallenge)
@@ -185,11 +205,12 @@ class FinishedViewController:UIViewController {
 
                 print("\(result)")
                 
+                //removed this block as we fire and forget
+                /*
                 self.backToMenuButton.alpha = 1
-                
                 let numUsersChallenged = makingChallenge.usersToChallenge.count
-                
                 self.activityLabel.text = numUsersChallenged > 1 ? "Challenge sendt to \(numUsersChallenged) users" : "Challenge sendt to \(numUsersChallenged) user"
+                */
             }
             if response != nil
             {
@@ -233,7 +254,7 @@ class FinishedViewController:UIViewController {
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
         if (segue.identifier == "segueFromFinishedToMainMenu") {
             let svc = segue!.destinationViewController as! MainMenuViewController
-
+            svc.alert = passingAlert
             svc.updateGlobalGameStats = true
             svc.newGameStatsValues = (distance,0)
         }

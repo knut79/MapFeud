@@ -227,7 +227,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
 
         let margin:CGFloat = 10
         let elementWidth:CGFloat = 200
-        let elementHeight:CGFloat = 40
+        let elementHeight:CGFloat = 60
 
         self.initCommonElements(margin,elementWidth: elementWidth,elementHeight: elementHeight)
         
@@ -279,7 +279,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
         let margin:CGFloat = 10
         let elementWidth:CGFloat = 200
-        let elementHeight:CGFloat = 40
+        let elementHeight:CGFloat = 60
 
         self.initCommonElements(margin,elementWidth: elementWidth,elementHeight: elementHeight)
         
@@ -353,6 +353,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
+                //TODO . logg all server errors to server
                 let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
             }

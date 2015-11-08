@@ -63,6 +63,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     var numOfQuestionsForRound:Int = GlobalConstants.numberOfQuestionsForChallenge
     
     var removeAdsButton:UIButton?
+    var alert:(String,String)? = nil
+    
     
     var testButton:UIButton!
     
@@ -73,7 +75,6 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillEnterForegroundNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForground", name: UIApplicationWillEnterForegroundNotification, object: nil)
 
-        
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")
 
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
@@ -339,6 +340,12 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             holderView.startAnimation()
 
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "firstlaunch")
+        }
+        
+        if let alertTexts = alert
+        {
+            let alert = UIAlertView(title: alertTexts.0, message: alertTexts.1, delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
         }
 
     }
