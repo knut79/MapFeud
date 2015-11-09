@@ -594,7 +594,10 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             }
             else
             {
+                self.view.bringSubviewToFront(activityLabel)
+                self.view.bringSubviewToFront(activityIndicator)
                 activityIndicator.startAnimating()
+                self.activityLabel.text = "Loading game.."
                 sendChallengeMakingStart()
                 //self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
             }
@@ -610,6 +613,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             }
             else
             {
+                self.view.bringSubviewToFront(activityLabel)
+                self.view.bringSubviewToFront(activityIndicator)
                 activityIndicator.startAnimating()
                 self.activityLabel.text = "Loading game.."
                 sendChallengeTakenStart()

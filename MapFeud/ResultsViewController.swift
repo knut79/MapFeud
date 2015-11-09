@@ -225,7 +225,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func collectStoredResults()
     {
-        let numberOfItemsOnGamerecordRow = 3
+        let numberOfItemsOnGamerecordRow = 5
         var noValues = true
         datactrl.loadGameData()
         let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
@@ -244,14 +244,12 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
                 }
                 let myDistance = NSNumberFormatter().numberFromString(arrayOfValues[0] )
                 let myDistanceRightMeasure =  usingKm ? myDistance!.integerValue : Int(CGFloat(myDistance!.integerValue) * 0.621371)
-                var name = arrayOfValues[1]
-                if name.componentsSeparatedByString(" ").count > 1
-                {
-                    name = name.componentsSeparatedByString(" ").first!
-                }
+                let name = arrayOfValues[1]
                 let opponentDistance = NSNumberFormatter().numberFromString(arrayOfValues[2] )
                 let opponentDistanceRightMeasure =  usingKm ? opponentDistance!.integerValue : Int(CGFloat(opponentDistance!.integerValue) * 0.62137)
-                resultsScrollView.addItem( myDistanceRightMeasure, opponentName: name, opponentDistance: opponentDistanceRightMeasure)
+                let title = arrayOfValues.count > 3 ? arrayOfValues[3] : "-"
+                let date = arrayOfValues.count > 4 ? arrayOfValues[4] : "-"
+                resultsScrollView.addItem( myDistanceRightMeasure, opponentName: name, opponentDistance: opponentDistanceRightMeasure, title:title, date:date)
                 
                 noValues = false
             }
@@ -260,6 +258,14 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         {
             self.activityLabel.alpha = 1
             self.activityLabel.text = "No results😑 Challenge other players😊"
+        }
+        else
+        {
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.resultsScrollView.layoutResult(0)
+                })
+            
+            
         }
         resultsScrollView.setResultText()
         
@@ -272,7 +278,10 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
             let myDistance = item["mydistance"] as! Int
             let name = item["opponentname"] as! String
             let opponentDistance = item["opponentdistance"] as! Int
-            let valuesStringFormat:String = "\(myDistance),\(name),\(opponentDistance)"
+            let title = item["title"] as! String
+            let date = item["date"] as! String
+            let valuesStringFormat:String = "\(myDistance),\(name),\(opponentDistance),\(title),\(date)"
+            
             datactrl.addRecordToGameResults(valuesStringFormat)
         }
         datactrl.saveGameData()

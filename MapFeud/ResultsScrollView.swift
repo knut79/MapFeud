@@ -29,7 +29,7 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
         
         let myScoreLabel = ResultTitleLabel(frame: CGRectMake(margin , margin, topLevelTitleWidth, titleElementHeight))
         myScoreLabel.textAlignment = NSTextAlignment.Center
-        myScoreLabel.text = "My score"
+        myScoreLabel.text = "Me"
 
         
         self.addSubview(myScoreLabel)
@@ -37,7 +37,7 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
         
         let opponentsScoreLabel = ResultTitleLabel(frame: CGRectMake(myScoreLabel.frame.maxX , margin, topLevelTitleWidth, titleElementHeight))
         opponentsScoreLabel.textAlignment = NSTextAlignment.Center
-        opponentsScoreLabel.text = "Opponent score"
+        opponentsScoreLabel.text = "Opponent"
         self.addSubview(opponentsScoreLabel)
         
         let secondLevelTitleWidth:CGFloat = (self.bounds.width - ( margin * 2)) / 4
@@ -103,25 +103,47 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
     }
     
     
-    func addItem(myDistance:Int,opponentName:String,opponentDistance:Int)
+    func addItem(myDistance:Int,opponentName:String,opponentDistance:Int, title:String, date:String)
     {
         let itemheight:CGFloat = 40
-        var contentHeight:CGFloat = 0
         
-        let newItem = ResultItemView(frame: CGRectMake(0, 0, self.frame.width, itemheight),myDistance:myDistance,opponentName:opponentName,opponentDistance:opponentDistance)
+        let newItem = ResultItemView(frame: CGRectMake(0, 0, self.frame.width, itemheight),myDistance:myDistance,opponentName:opponentName,opponentDistance:opponentDistance, title:title, date:date)
         items.insert(newItem, atIndex: 0)
         scrollView.addSubview(newItem)
         
-        contentHeight = newItem.frame.maxY
-        var i:CGFloat = 0
-        for item in items
-        {
-            item.frame = CGRectMake(0, itemheight * i, self.frame.width, itemheight)
-            contentHeight = item.frame.maxY
-            i++
-        }
+        
+        /*
+        contentHeight = layoutResult(0)
         
         scrollView.contentSize = CGSizeMake(scrollView.frame.width, contentHeight)
+        */
+        
+    }
+    
+    func layoutResult(var index:Int, var contentHeight:CGFloat = 0)
+    {
+        if items.count > index
+        {
+            let item = items[index]
+            /*
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                item.frame = CGRectMake(0, item.frame.height * CGFloat(index), self.frame.width, item.frame.height)
+                contentHeight = item.frame.maxY
+                }, completion: { (value: Bool) in
+                    index++
+                    self.layoutResult(index,contentHeight: contentHeight)
+            })
+            */
+            item.frame = CGRectMake(0, item.frame.height * CGFloat(index), self.frame.width, item.frame.height)
+            contentHeight = item.frame.maxY
+            index++
+            self.layoutResult(index,contentHeight: contentHeight)
+            
+        }
+        else
+        {
+            scrollView.contentSize = CGSizeMake(scrollView.frame.width, contentHeight)
+        }
         
         
     }

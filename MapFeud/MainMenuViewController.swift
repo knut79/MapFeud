@@ -373,27 +373,15 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         populateDataIfNeeded()
         
         //test _?
-        /*
+        
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
         datactrl.adFreeValue = 1
-        datactrl.timeBounusValue = 2
-        datactrl.hintsValue = 15
+        datactrl.timeBounusValue = 0
+        datactrl.hintsValue = 10
         
-        datactrl.addRecordToGameResults("1234,per1,54321")
-        datactrl.addRecordToGameResults("1234,per2,54321")
-        datactrl.addRecordToGameResults("1234,per3,54321")
-        datactrl.addRecordToGameResults("1234,per4,54321")
-        datactrl.addRecordToGameResults("1234,per5,54321")
-        datactrl.addRecordToGameResults("1234,per6,54321")
-        datactrl.addRecordToGameResults("1234,per7,54321")
-        datactrl.addRecordToGameResults("1234,per8,54321")
-        datactrl.addRecordToGameResults("1234,per9,54321")
-        datactrl.addRecordToGameResults("1234,per10,54321")
-        datactrl.addRecordToGameResults("1234,per11,54321")
         datactrl.saveGameData()
-        
         datactrl.loadGameData()
-    */
+    
         //NSUserDefaults.standardUserDefaults().setBool(false, forKey: "adFree")
         //NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "timeBonus")
         //NSUserDefaults.standardUserDefaults().synchronize()
