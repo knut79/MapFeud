@@ -63,8 +63,6 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     var numOfQuestionsForRound:Int = GlobalConstants.numberOfQuestionsForChallenge
     
     var removeAdsButton:UIButton?
-    var alert:(String,String)? = nil
-    
     
     var testButton:UIButton!
     
@@ -342,11 +340,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "firstlaunch")
         }
         
-        if let alertTexts = alert
-        {
-            let alert = UIAlertView(title: alertTexts.0, message: alertTexts.1, delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
+
 
     }
     
@@ -743,21 +737,9 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         if self.tags.count < 1
         {
-            let numberPrompt = UIAlertController(title: "Pick 1",
-                message: "Select at least 1 tags",
-                preferredStyle: .Alert)
-            
-            
-            numberPrompt.addAction(UIAlertAction(title: "Ok",
-                style: .Default,
-                handler: { (action) -> Void in
-                    
-            }))
-            
-            
-            self.presentViewController(numberPrompt,
-                animated: true,
-                completion: nil)
+            let alert = UIAlertView(title: "Pick 1", message: "Select at least 1 tags", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+
         }
         else
         {
@@ -936,17 +918,9 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                     }
                     else
                     {
-                        let toFewHintsPrompt = UIAlertController(title: "Too few hints",
-                            message: "Must have more than \(GlobalConstants.hintCostForTimeBonus) hints to expand time",
-                            preferredStyle: .Alert)
-                        toFewHintsPrompt.addAction(UIAlertAction(title: "Ok",
-                            style: .Default,
-                            handler: { (action) -> Void in
-                                
-                        }))
-                        self.presentViewController(toFewHintsPrompt,
-                            animated: true,
-                            completion: nil)
+                        let alert = UIAlertView(title: "Too few hints", message: "Must have more than \(GlobalConstants.hintCostForTimeBonus) hints to expand time", delegate: nil, cancelButtonTitle: "OK")
+                        alert.show()
+
                     }
                     
             }))
@@ -1116,8 +1090,15 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                     if error != nil
                     {
                         print("\(error)")
-                        let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                        alert.show()
+                        let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                        reportError?.reportError("\(error)")
+                        /*
+                        let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                        let alertController = reportError?.alertController("\(error)")
+                        self.presentViewController(alertController!,
+                            animated: true,
+                            completion: nil)
+                        */
                     }
                     if result != nil
                     {
@@ -1174,8 +1155,16 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                     if error != nil
                     {
                         print("\(error)")
-                        let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                        alert.show()
+                        
+                        let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                        reportError?.reportError("\(error)")
+                        /*
+                        let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                        let alertController = reportError?.alertController("\(error)")
+                        self.presentViewController(alertController!,
+                            animated: true,
+                            completion: nil)
+                        */
                     }
                     if result != nil
                     {

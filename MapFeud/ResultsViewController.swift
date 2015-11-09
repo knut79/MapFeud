@@ -164,7 +164,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         activityLabel.center = CGPointMake(UIScreen.mainScreen().bounds.size.width / 2, UIScreen.mainScreen().bounds.size.height / 2)
         activityLabel.adjustsFontSizeToFitWidth = true
         activityLabel.textAlignment = NSTextAlignment.Center
-        activityLabel.text = "Collecting new results..."
+        activityLabel.text = ""
         self.view.addSubview(activityLabel)
         
         /*
@@ -183,7 +183,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func collectNewResults()
     {
-        
+        activityLabel.text = "Collecting new results..."
         //FB LOGIN
         let jsonDictionary = ["fbid":self.userId]
         
@@ -192,8 +192,12 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
             if error != nil
             {
                 print("\(error)")
-                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+                self.activityLabel.text = "Server error"
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alertController = reportError?.alertController("\(error)")
+                self.presentViewController(alertController!,
+                    animated: true,
+                    completion: nil)
             }
             if result != nil
             {

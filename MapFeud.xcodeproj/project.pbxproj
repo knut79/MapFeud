@@ -557,6 +557,7 @@
 		727581051BE101EB0026A2CC /* StatusDistanceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581041BE101EB0026A2CC /* StatusDistanceButton.swift */; settings = {ASSET_TAGS = (); }; };
 		72802D5D1BE837430069F51D /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72802D5C1BE837430069F51D /* WindowsAzureMessaging.framework */; settings = {ASSET_TAGS = (); }; };
 		72802D7F1BEC2FCC0069F51D /* ChallengeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72802D7E1BEC2FCC0069F51D /* ChallengeButton.swift */; settings = {ASSET_TAGS = (); }; };
+		72802D811BF009220069F51D /* ReportErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72802D801BF009220069F51D /* ReportErrorHandler.swift */; settings = {ASSET_TAGS = (); }; };
 		72BD9D261BD27A240062FE44 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
 		72BD9D271BD27A240062FE44 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		72BD9D281BD27A240062FE44 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */; settings = {ASSET_TAGS = (); }; };
@@ -1391,6 +1392,7 @@
 		727581041BE101EB0026A2CC /* StatusDistanceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusDistanceButton.swift; sourceTree = "<group>"; };
 		72802D5C1BE837430069F51D /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		72802D7E1BEC2FCC0069F51D /* ChallengeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeButton.swift; sourceTree = "<group>"; };
+		72802D801BF009220069F51D /* ReportErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportErrorHandler.swift; sourceTree = "<group>"; };
 		72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
@@ -1752,10 +1754,11 @@
 				7254B1FC1BCC145500A22920 /* StaticValues.swift */,
 				72BD9D2B1BD2ADD90062FE44 /* Challenge.swift */,
 				7254B0421BC40E6800A22920 /* DataHandler.swift */,
+				72802D801BF009220069F51D /* ReportErrorHandler.swift */,
+				72424A531BC2C468009FED5C /* AppDelegate.swift */,
 				7254B0391BC407BF00A22920 /* DataClasses */,
 				7254B00C1BC3E94A00A22920 /* FlatDatafiles */,
 				72424A861BC31B6D009FED5C /* Tiles */,
-				72424A531BC2C468009FED5C /* AppDelegate.swift */,
 				72424A571BC2C469009FED5C /* Main.storyboard */,
 				72424A5D1BC2C469009FED5C /* Assets.xcassets */,
 				72424A5F1BC2C469009FED5C /* LaunchScreen.storyboard */,
@@ -3605,6 +3608,7 @@
 				7254B2231BD08D5600A22920 /* UserScrollView.swift in Sources */,
 				7254B04A1BC5708700A22920 /* MapFeud.xcdatamodeld in Sources */,
 				72BD9F2B1BD4747E0062FE44 /* OkButton.swift in Sources */,
+				72802D811BF009220069F51D /* ReportErrorHandler.swift in Sources */,
 				7254B20D1BD08A7A00A22920 /* RectangleLayer.swift in Sources */,
 				72424A561BC2C468009FED5C /* PlayViewController.swift in Sources */,
 				7254B0431BC40E6800A22920 /* DataHandler.swift in Sources */,

@@ -16,16 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var datactrl:DataHandler!
     var client: MSClient?
+    var reportErrorHandler: ReportErrorHandler?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstlaunch")
         datactrl = DataHandler()
+        
         application.statusBarHidden = true
         self.client = MSClient(applicationURLString:"https://mapfaud.azure-mobile.net/",
             applicationKey:"PYwzAMqgrSvfJEQAHoDVZFCQAedobx62")
         
+        reportErrorHandler = ReportErrorHandler()
         //EngagementAgent.init("Endpoint=MapFeud-Collection.device.mobileengagement.windows.net;SdkKey=a975562ee9d61925ca20b4183c9c3a7f;AppId=nem000036")
 
         //[UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge]
@@ -137,6 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if title == "Challenge"
                     {
                         NSUserDefaults.standardUserDefaults().setInteger(badge, forKey: "challengesBadge")
+
                     }
                     if title == "Result"
                     {
@@ -258,6 +262,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
+            }
+        }
+    }
+    
+    func backgroundThread(delay: Double = 0.0, background: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
+            if(background != nil){ background!(); }
+            
+            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+            dispatch_after(popTime, dispatch_get_main_queue()) {
+                if(completion != nil){ completion!(); }
             }
         }
     }

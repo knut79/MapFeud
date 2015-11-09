@@ -22,7 +22,6 @@ class FinishedViewController:UIViewController {
     var backToMenuButton:UIButton!
     var resultLabel:UILabel!
     var audioPlayer = AVAudioPlayer()
-    var passingAlert:(String,String)? = nil
     
     
     override func viewDidLoad() {
@@ -57,10 +56,18 @@ class FinishedViewController:UIViewController {
         if gametype == GameType.makingChallenge
         {
             //fire and forget
+            /*
             let qualityOfServiceClass = QOS_CLASS_BACKGROUND
             let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
             dispatch_async(backgroundQueue, {
                 self.finishMakingChallenge()
+            })
+            */
+            (UIApplication.sharedApplication().delegate as! AppDelegate).backgroundThread(background: {
+                    self.finishMakingChallenge()
+                },
+                completion: {
+                    // A function to run in the foreground when the background thread is complete
             })
 
         }
@@ -70,8 +77,8 @@ class FinishedViewController:UIViewController {
             {
                 activityLabel.text = "Sending result of\n\(takingChallenge.title!)"
                 finishTakingChallenge(takingChallenge)
-                
-                let resultChallengeLabel = UILabel(frame: CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - 200, 25, 400, 50))
+                let resultLabelMarigin = UIScreen.mainScreen().bounds.size.width * 0.1
+                let resultChallengeLabel = UILabel(frame: CGRectMake(resultLabelMarigin, 25, UIScreen.mainScreen().bounds.size.width - (resultLabelMarigin * 2) , 50))
                 resultChallengeLabel.textAlignment = NSTextAlignment.Center
                 resultChallengeLabel.text = "Result of challenge \(takingChallenge.title!)"
                 resultChallengeLabel.font = UIFont.boldSystemFontOfSize(20)
@@ -121,9 +128,7 @@ class FinishedViewController:UIViewController {
 
             if let makingChallenge = challenge as? MakingChallenge
             {
-                let numUsersChallenged = makingChallenge.usersToChallenge.count
-                let alertText = numUsersChallenged > 1 ? "Challenge sendt to \(numUsersChallenged) users" : "Challenge sendt to \(numUsersChallenged) user"
-                passingAlert = ("Sending challenge",alertText)
+
                 self.performSegueWithIdentifier("segueFromFinishedToMainMenu", sender: nil)
             }
         }
@@ -196,14 +201,20 @@ class FinishedViewController:UIViewController {
             
             if error != nil
             {
-                self.backToMenuButton.alpha = 1
-                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+                //_??? test this with LogErrorHandler
+                self.activityLabel.text = "Server error"
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alert = UIAlertView(title: "Server error", message: "Could not send challenge. Sorry for the annoyance.", delegate: nil, cancelButtonTitle: "OK")
+                reportError?.reportError("\(error)",alert: alert)
             }
             if result != nil
             {
 
                 print("\(result)")
+                let numUsersChallenged = makingChallenge.usersToChallenge.count
+                let alertText = numUsersChallenged > 1 ? "Challenge sendt to \(numUsersChallenged) users" : "Challenge sendt to \(numUsersChallenged) user"
+                let alert = UIAlertView(title: "Sending challenge", message: alertText, delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
                 
                 //removed this block as we fire and forget
                 /*
@@ -254,7 +265,6 @@ class FinishedViewController:UIViewController {
     override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
         if (segue.identifier == "segueFromFinishedToMainMenu") {
             let svc = segue!.destinationViewController as! MainMenuViewController
-            svc.alert = passingAlert
             svc.updateGlobalGameStats = true
             svc.newGameStatsValues = (distance,0)
         }

@@ -111,11 +111,12 @@ class HolderView: UIView {
     arcLayer.animate()
     
     globeLogo.textAlignment = NSTextAlignment.Right
-    globeLogo.font = UIFont.boldSystemFontOfSize(20)
+    globeLogo.font = UIFont.boldSystemFontOfSize(40)
     globeLogo.text = "🌐"
     globeLogo.frame = CGRectMake(0, 0, 100, 50)
     globeLogo.center = CGPointMake(box.bounds.width / 2, box.bounds.height / 2)
     globeLogo.frame.offsetInPlace(dx: 0, dy: 5)
+    globeLogo.transform = CGAffineTransformScale(globeLogo.transform, 0.45, 0.5)
     
     let dLabel = UILabel(frame: CGRectMake(0, 0, 50, 50))
     dLabel.center = CGPointMake(box.bounds.width / 2, box.bounds.height / 2)

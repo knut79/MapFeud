@@ -214,22 +214,9 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
 
         if let text = hintText
         {
-            
-            let numberPrompt = UIAlertController(title: "Hint",
-                message: text,
-                preferredStyle: .Alert)
-            
-            
-            numberPrompt.addAction(UIAlertAction(title: "Ok",
-                style: .Default,
-                handler: { (action) -> Void in
-                    
-            }))
-            
-            
-            self.presentViewController(numberPrompt,
-                animated: true,
-                completion: nil)
+            let alert = UIAlertView(title: "Hint", message: text, delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+ 
         }
     }
     
@@ -240,6 +227,8 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     
     func okAction()
     {
+        okButton.userInteractionEnabled = false
+        nextButton.userInteractionEnabled = true
         clock?.stop()
         clock?.alpha = 0
         
@@ -403,7 +392,8 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     
     func nextAction()
     {
-        
+        okButton.userInteractionEnabled = true
+        nextButton.userInteractionEnabled = false
         
         map.clearDrawing()
         self.answerView.userInteractionEnabled = false
@@ -476,6 +466,13 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         questionView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
         self.questionView.questionText.textColor = UIColor.whiteColor()
         
+        let timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
+        var time:Double = GlobalConstants.timeStart
+        for var i = 1 ; i <= timeBonus; i++
+        {
+            time = time * GlobalConstants.timeBonusMultiplier
+        }
+        self.clock?.start(time)
         
         self.questionView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
         self.questionView.transform = CGAffineTransformScale(self.questionView.transform, 0.1, 0.1)
@@ -489,12 +486,12 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                     
                     self.questionView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, self.questionView.frame.height / 2)
                     self.questionView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.9)
-                    
+                    self.clock?.alpha = 1
                     
                     }, completion: { (value: Bool) in
                         
                         self.questionView.questionText.textColor = UIColor.blackColor()
-                        self.clock?.alpha = 1
+                        /*
                         let timeBonus = NSUserDefaults.standardUserDefaults().integerForKey("timeBonus")
                         var time:Double = GlobalConstants.timeStart
                         for var i = 1 ; i <= timeBonus; i++
@@ -502,6 +499,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                            time = time * GlobalConstants.timeBonusMultiplier
                         }
                         self.clock?.start(time)
+                        */
                         self.showQuestionsLeft()
                         
                 })

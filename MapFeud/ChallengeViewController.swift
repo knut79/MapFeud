@@ -163,7 +163,9 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 //self.userId = "10155943015600858"
 
                 result
-                completion()
+                self.updateUser({() -> Void in
+                    completion()
+                })
             }
         })
     }
@@ -305,17 +307,15 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         view.addSubview(activityLabel)
         view.addSubview(activityIndicator)
         
-        self.updateUser({() -> Void in
-           self.requestChallenges()
-        })
+        
+        self.requestChallenges()
         
 
     }
     
     func updateUser(completionClosure: (() -> Void) )
     {
-        activityLabel.alpha = 1
-        activityLabel.text = "Update user..."
+
         let deviceToken = NSUserDefaults.standardUserDefaults().stringForKey("deviceToken")
         let jsonDictionary = ["fbid":userId,"name":userName,"token":deviceToken]
         
@@ -324,8 +324,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
-                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+                
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alertController = reportError?.alertController("\(error)")
+                self.presentViewController(alertController!,
+                    animated: true,
+                    completion: nil)
             }
             /*
             if result != nil
@@ -337,7 +341,6 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             {
                 print("\(response)")
             }
-            self.activityLabel.alpha = 0
             
             completionClosure()
         })
@@ -353,9 +356,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
-                //TODO . logg all server errors to server
-                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+                self.activityLabel.text = "Server error"
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alertController = reportError?.alertController("\(error)")
+                self.presentViewController(alertController!,
+                    animated: true,
+                    completion: nil)
             }
             if result != nil
             {
@@ -406,9 +412,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     var randomUsersAdded = 0
     func addRandomUserAction()
     {
-        updateUser({() -> Void in
-            self.addRandomUser(nil)
-        })
+        self.addRandomUser(nil)
         
     }
     
@@ -433,8 +437,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
-                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+                self.activityLabel.text = "Server error"
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alertController = reportError?.alertController("\(error)")
+                self.presentViewController(alertController!,
+                    animated: true,
+                    completion: nil)
             }
             if result != nil
             {
@@ -484,8 +492,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
-                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+                self.activityLabel.text = "Server error"
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alertController = reportError?.alertController("\(error)")
+                self.presentViewController(alertController!,
+                    animated: true,
+                    completion: nil)
             }
             if result != nil
             {
@@ -520,8 +532,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             if error != nil
             {
                 print("\(error)")
-                let alert = UIAlertView(title: "Server error", message: "\(error)", delegate: nil, cancelButtonTitle: "OK")
-                alert.show()
+                self.activityLabel.text = "Server error"
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alertController = reportError?.alertController("\(error)")
+                self.presentViewController(alertController!,
+                    animated: true,
+                    completion: nil)
             }
             if result != nil
             {
@@ -573,21 +589,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             
             if usersToChallenge.count < 1
             {
-            let numberPrompt = UIAlertController(title: "Pick 1",
-                message: "Select at least 1 user",
-                preferredStyle: .Alert)
-            
-            
-            numberPrompt.addAction(UIAlertAction(title: "Ok",
-                style: .Default,
-                handler: { (action) -> Void in
-                    
-            }))
-            
-            
-            self.presentViewController(numberPrompt,
-                animated: true,
-                completion: nil)
+                let alert = UIAlertView(title: "Pick 1", message: "Select at least 1 user", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
             else
             {
@@ -601,25 +604,14 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             let selectedValue = challengeScrollView.getSelectedValue()
             if selectedValue == nil
             {
-                let numberPrompt = UIAlertController(title: "Pick 1",
-                    message: "Select a challenge",
-                    preferredStyle: .Alert)
-                
-                
-                numberPrompt.addAction(UIAlertAction(title: "Ok",
-                    style: .Default,
-                    handler: { (action) -> Void in
-                        
-                }))
-                
-                
-                self.presentViewController(numberPrompt,
-                    animated: true,
-                    completion: nil)
+                let alert = UIAlertView(title: "Pick 1", message: "Select a challenge", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+
             }
             else
             {
                 activityIndicator.startAnimating()
+                self.activityLabel.text = "Loading game.."
                 sendChallengeTakenStart()
                 //self.performSegueWithIdentifier("segueFromChallengeToPlay", sender: nil)
             }
