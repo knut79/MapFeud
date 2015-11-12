@@ -758,13 +758,13 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     
     func timeup()
     {
+        okButton.userInteractionEnabled = false
+        nextButton.userInteractionEnabled = true
         print("timeup")
-        
         animateTimeup({() -> Void in
 
             self.setPoint()
         })
-        //clock.stop()
     }
     
     func animateTimeup(completion: (() -> (Void)))

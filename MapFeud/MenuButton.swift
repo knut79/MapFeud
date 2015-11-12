@@ -14,6 +14,7 @@ class MenuButton:UIButton {
     var label:UILabel!
     var badgeLabel:UILabel!
     var borderView:UIView!
+    var orgCenter:CGPoint!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

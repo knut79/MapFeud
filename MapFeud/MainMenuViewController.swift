@@ -58,11 +58,14 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     var gametype:GameType!
     var tags:[String] = []
     
+    var backButton:UIButton!
+    
     var holderView:HolderView!
     
     var numOfQuestionsForRound:Int = GlobalConstants.numberOfQuestionsForChallenge
     
     var removeAdsButton:UIButton?
+    var orgRemoveAdsButtonCenter:CGPoint!
     
     var testButton:UIButton!
     
@@ -108,6 +111,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             removeAdsButton?.backgroundColor = UIColor.blueColor()
             removeAdsButton?.layer.cornerRadius = 3 //label.bounds.size.width / 2
             removeAdsButton?.layer.masksToBounds = true
+            orgRemoveAdsButtonCenter = removeAdsButton?.center
             removeAdsButton?.alpha = 0
             self.view.addSubview(removeAdsButton!)
             
@@ -203,11 +207,24 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         selectFilterTypeButton.layer.borderColor = UIColor.blueColor().CGColor
         selectFilterTypeButton.addTarget(self, action: "openFilterList", forControlEvents: UIControlEvents.TouchUpInside)
         selectFilterTypeButton.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
-
+        
+        let backButtonMargin:CGFloat = 10
+        backButton = UIButton(frame: CGRectZero)
+        backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - GlobalConstants.smallButtonSide - backButtonMargin, self.statsView.frame.maxY + backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
+        backButton.backgroundColor = UIColor.whiteColor()
+        backButton.layer.borderColor = UIColor.grayColor().CGColor
+        backButton.layer.borderWidth = 1
+        backButton.layer.cornerRadius = 5
+        backButton.layer.masksToBounds = true
+        backButton.setTitle("🔙", forState: UIControlState.Normal)
+        backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(backButton)
+ 
         practicePlayButton.alpha = 0
         challengePlayButton.alpha = 0
         levelSlider.alpha = 0
         selectFilterTypeButton.alpha = 0
+        backButton.alpha = 0
 
         self.view.addSubview(challengeUsersButton)
         self.view.addSubview(practiceButton)
@@ -424,9 +441,11 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
 
         buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
         challengeUsersButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), UIScreen.mainScreen().bounds.size.height * 0.33, buttonWidth, buttonHeight)
+        challengeUsersButton.orgCenter = challengeUsersButton.center
         practiceButton.frame = CGRectMake(challengeUsersButton.frame.minX, challengeUsersButton.frame.maxY + marginButtons, buttonWidth, buttonHeight)
-        
+        practiceButton.orgCenter = practiceButton.center
         resultsButton.frame = CGRectMake(challengeUsersButton.frame.minX, practiceButton.frame.maxY + marginButtons, buttonWidth, buttonHeight)
+        resultsButton.orgCenter = resultsButton.center
     }
     
     func setupDynamicPlayButton()
@@ -503,6 +522,40 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         }
     }
     
+    func backAction()
+    {
+        backButton.alpha = 0
+        
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.challengeUsersButton.center = self.challengeUsersButton.orgCenter
+            self.challengeUsersButton.alpha = 1
+            self.challengeUsersButton.transform = CGAffineTransformIdentity
+            self.practiceButton.center = self.practiceButton.orgCenter
+            self.practiceButton.alpha = 1
+            self.practiceButton.transform = CGAffineTransformIdentity
+            self.resultsButton.center = self.resultsButton.orgCenter
+            self.resultsButton.alpha = 1
+            self.resultsButton.transform = CGAffineTransformIdentity
+            self.removeAdsButton?.center = self.orgRemoveAdsButtonCenter
+            self.removeAdsButton?.alpha = 1
+            self.removeAdsButton?.transform = CGAffineTransformIdentity
+            
+            self.practicePlayButton.alpha = 0
+            self.levelSlider.alpha = 0
+            self.selectFilterTypeButton.alpha = 0
+            self.borderSwitchLabel.alpha = 0
+            self.borderSwitch.alpha = 0
+            
+            self.newChallengeButton.alpha = 0
+            self.pendingChallengesButton.alpha = 0
+            
+            self.challengePlayButton.alpha = 0
+            }, completion: { (value: Bool) in
+                
+                
+        })
+    }
+    
     func playPracticeAction()
     {
         datactrl.fetchData(self.tags,fromLevel:Int(levelSlider.lowerValue),toLevel: Int(levelSlider.upperValue))
@@ -538,6 +591,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             self.resultsButton.transform = CGAffineTransformScale(self.resultsButton.transform, 0.1, 0.1)
             self.removeAdsButton?.center = centerScreen
             self.removeAdsButton?.transform = CGAffineTransformScale(self.removeAdsButton!.transform, 0.1, 0.1)
+            
+            self.backButton.alpha = 1
             
             }, completion: { (value: Bool) in
                 
@@ -636,6 +691,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         let centerScreen = CGPointMake(UIScreen.mainScreen().bounds.size.width / 2, UIScreen.mainScreen().bounds.size.height / 2)
         UIView.animateWithDuration(0.2, animations: { () -> Void in
 
+            self.backButton.alpha = 1
             
             self.challengeUsersButton.center = centerScreen
             self.challengeUsersButton.transform = CGAffineTransformScale(self.challengeUsersButton.transform, 0.1, 0.1)
