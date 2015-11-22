@@ -108,6 +108,7 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
     {
         
         borderBackgroudView.alpha = 0
+        borderBackgroudView.transform = CGAffineTransformScale(borderBackgroudView.transform, 0.1, 0.1)
         
         let margin:CGFloat = 0
         let secondLevelTitleWidth:CGFloat = (self.bounds.width - ( margin * 2)) / 4
@@ -129,6 +130,7 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
         myStateLabel.frame = CGRectMake(margin , 0, secondLevelTitleWidth, titleElementHeight)
         myStateLabel.text = "\(state)"
 
+        borderBackgroudView.center = myStateLabel.center
         myDistancePointsLabel.font = opponentDistanceLabel.font
         myDistancePointsLabel.frame = CGRectMake(myStateLabel.frame.maxX , 0, secondLevelTitleWidth, titleElementHeight)
         myDistancePointsLabel.text = "\(myDistanceInt)"
@@ -141,7 +143,9 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
     func detailLayout()
     {
         let margin = frame.width * 0.2
+        borderBackgroudView.transform = CGAffineTransformIdentity
         borderBackgroudView.frame = CGRectMake(margin, margin, self.superview!.bounds.width - (margin * 2), self.superview!.bounds.height - (margin * 2))
+        
         borderBackgroudView.alpha = 1
         
         var state = "You won against"
@@ -174,6 +178,7 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
     func tapForDetails(gesture:UITapGestureRecognizer)
     {
         self.superview?.bringSubviewToFront(self)
+        borderBackgroudView.center = self.center
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             if !self.expandedForDetails
             {
