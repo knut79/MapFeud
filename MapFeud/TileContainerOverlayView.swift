@@ -56,14 +56,7 @@ class TileContainerOverlayLayer: CALayer {
                 CGContextSetFillColorWithColor(ctx, UIColor.blueColor().CGColor)
             }
         }
-        
 
-        
-        
-
-        //test
-        //drawMask(ctx)
-        //end test
         if fromPoint != nil && toPoint != nil
         {
             drawLine(ctx)
@@ -75,8 +68,15 @@ class TileContainerOverlayLayer: CALayer {
         }
         else
         {
+
             drawMask(ctx)
             drawPlace(ctx)
+            /*
+            CGContextSetFillColorWithColor(ctx, UIColor.greenColor().colorWithAlphaComponent(0.5).CGColor)
+            
+            //TODO ... if you want to scale a path ... do this and use midpoint in regular scale ... and extract new midpoint of the ofset scaled path
+            drawPlace(ctx,scaleAll:  1.25)
+            */
         }
         //_?
         self.shouldRasterize = true
@@ -104,9 +104,9 @@ class TileContainerOverlayLayer: CALayer {
         }
         let maskImage = UIImage(named: useLandMask ? "25MaskLand.png" : "25MaskWater.png")
         //let maskImageScaled = UIImage(CGImage: maskImage!.CGImage!, scale: zoomScale, orientation: UIImageOrientation.Up)
-        let sacleSize = CGSizeMake(maskImage!.size.width * zoomScale, maskImage!.size.height * zoomScale)
-        UIGraphicsBeginImageContextWithOptions(sacleSize, false, 0.0);
-        maskImage!.drawInRect(CGRectMake(0, 0, sacleSize.width, sacleSize.height))
+        let scaleSize = CGSizeMake(maskImage!.size.width * zoomScale, maskImage!.size.height * zoomScale)
+        UIGraphicsBeginImageContextWithOptions(scaleSize, false, 0.0);
+        maskImage!.drawInRect(CGRectMake(0, 0, scaleSize.width, scaleSize.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext()
         
@@ -155,7 +155,7 @@ class TileContainerOverlayLayer: CALayer {
 
     }
     
-    func drawPlace(context:CGContext)
+    func drawPlace(context:CGContext, scaleAll:CGFloat = 1.0)
     {
         
         for lines in regions
@@ -163,17 +163,19 @@ class TileContainerOverlayLayer: CALayer {
             //CGContextBeginPath(context)
             
             let pathRef:CGMutablePathRef = CGPathCreateMutable()
+            
+            
+            
             let firstPoint = lines[0]
-            CGPathMoveToPoint(pathRef,nil, CGFloat(firstPoint.x) * (resolutionPercentage / 100.0) , CGFloat(firstPoint.y) * (resolutionPercentage / 100.0) )
+            CGPathMoveToPoint(pathRef,nil, CGFloat(firstPoint.x) * (resolutionPercentage / 100.0) * scaleAll , CGFloat(firstPoint.y) * (resolutionPercentage / 100.0) * scaleAll )
             
             for var i = 1 ; i < lines.count ; i++
             {
                 let line = lines[i] //as! LinePoint
                 //print("x \(line.x)  y \(line.y)")
-                CGPathAddLineToPoint(pathRef, nil, CGFloat(line.x) * (resolutionPercentage / 100.0) , CGFloat(line.y) * (resolutionPercentage / 100.0) )
+                CGPathAddLineToPoint(pathRef, nil, CGFloat(line.x) * (resolutionPercentage / 100.0) * scaleAll , CGFloat(line.y) * (resolutionPercentage / 100.0) * scaleAll)
                 //CGContextAddLineToPoint(context, CGFloat(line.x) * (resolutionPercentage / 100.0) * zoomScale, CGFloat(line.y) * (resolutionPercentage / 100.0) * zoomScale)
             }
-            
             
             CGPathCloseSubpath(pathRef)
             CGContextAddPath(context, pathRef)

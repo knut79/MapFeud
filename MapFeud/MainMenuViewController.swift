@@ -19,8 +19,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     var product: SKProduct?
     var productList:[SKProduct] = []
     let productIdAdFree = "MapFeudAdFree"
-    let productIdAddHints = "MapFeudAddHints"
-    var productIDs:NSSet = NSSet(objects: "MapFeudAdFree","MapFeudAddHints")
+    let productIdAddHints = "MapFeudAddHints123"
+    var productIDs:NSSet = NSSet(objects: "MapFeudAdFree","MapFeudAddHints123")
     
     //buttons
     var challengeUsersButton:MenuButton!
@@ -72,6 +72,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     var bannerView:ADBannerView?
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillEnterForegroundNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForground", name: UIApplicationWillEnterForegroundNotification, object: nil)
@@ -364,8 +365,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     func loadScreenFinished() {
         
         self.view.backgroundColor = UIColor.whiteColor()
-        //_?
-        //holderView.removeFromSuperview()
+
         holderView.hidden = true
         allowRotate = true
         
@@ -390,14 +390,20 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         populateDataIfNeeded()
         
         //test _?
-        
+        /*
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
         datactrl.adFreeValue = 1
         datactrl.timeBounusValue = 0
         datactrl.hintsValue = 10
+    
+        //datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+        //datactrl.addRecordToGameResults("999,newest,234,new,,4321")
+        //datactrl.addRecordToGameResults("222,Hans pettersen,444,abc,,1111")
+        //datactrl.addRecordToGameResults("222,per,444,abc,,4321")
         
         datactrl.saveGameData()
         datactrl.loadGameData()
+        */
     
         //NSUserDefaults.standardUserDefaults().setBool(false, forKey: "adFree")
         //NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "timeBonus")
@@ -629,8 +635,6 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         self.challengePlayButton.transform = CGAffineTransformScale(self.challengePlayButton.transform, 0.1, 0.1)
         self.levelSlider.alpha = 0
         self.levelSlider.transform = CGAffineTransformScale(self.levelSlider.transform, 0.1, 0.1)
-        //self.selectFilterTypeButton.alpha = 0
-        //self.selectFilterTypeButton.transform = CGAffineTransformScale(self.selectFilterTypeButton.transform, 0.1, 0.1)
         self.borderSwitchLabel.alpha = 0
         self.borderSwitchLabel.transform = CGAffineTransformScale(self.borderSwitchLabel.transform, 0.1, 0.1)
         self.borderSwitch.alpha = 0
@@ -888,7 +892,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     func requestBuyHints()
     {
         let adFreePrompt = UIAlertController(title: "Buy hints",
-            message: "Buy 20 hints. In addition to beeing used as hints\n they can also be used to expand time",
+            message: "Buy \(GlobalConstants.numberOfHintsPrBuy) hints. In addition to beeing used as hints\n they can also be used to expand time",
             preferredStyle: .Alert)
         
         
@@ -1098,7 +1102,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     func addHints()
     {
         var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
-        hints = hints + 20
+        hints = hints + GlobalConstants.numberOfHintsPrBuy
         statsView.hintsButton.sHints(hints)
         NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
         NSUserDefaults.standardUserDefaults().synchronize()

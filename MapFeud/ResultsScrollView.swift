@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class ResultsScrollView: UIView , UIScrollViewDelegate{
+class ResultsScrollView: UIView , UIScrollViewDelegate, UserFilterViewProtocol{
     
     var items:[ResultItemView]!
     var scrollView:UIScrollView!
     var totalResultLabel:UILabel!
+    var userFilterScrollView:UserFilterScrollView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,6 +39,12 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
         let opponentsScoreLabel = ResultTitleLabel(frame: CGRectMake(myScoreLabel.frame.maxX , margin, topLevelTitleWidth, titleElementHeight))
         opponentsScoreLabel.textAlignment = NSTextAlignment.Center
         opponentsScoreLabel.text = "Opponent"
+        opponentsScoreLabel.userInteractionEnabled = true
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapForOpponentFilter:")
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.enabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        opponentsScoreLabel.addGestureRecognizer(singleTapGestureRecognizer)
         self.addSubview(opponentsScoreLabel)
         
         let secondLevelTitleWidth:CGFloat = (self.bounds.width - ( margin * 2)) / 4
@@ -103,50 +110,116 @@ class ResultsScrollView: UIView , UIScrollViewDelegate{
     }
     
     
-    func addItem(myDistance:Int,opponentName:String,opponentDistance:Int, title:String, date:String)
+    func addItem(myDistance:Int,opponentName:String,opponentId:String, opponentDistance:Int, title:String, date:String, newRecord:Bool)
     {
         let itemheight:CGFloat = 40
         
-        let newItem = ResultItemView(frame: CGRectMake(0, 0, self.frame.width, itemheight),myDistance:myDistance,opponentName:opponentName,opponentDistance:opponentDistance, title:title, date:date)
+        let newItem = ResultItemView(frame: CGRectMake(0, 0, self.frame.width, itemheight),myDistance:myDistance,opponentName:opponentName,opponentId:opponentId,opponentDistance:opponentDistance, title:title, date:date,newRecord: newRecord)
         items.insert(newItem, atIndex: 0)
+        newItem.hidden = true
         scrollView.addSubview(newItem)
-        
-        
-        /*
-        contentHeight = layoutResult(0)
-        
-        scrollView.contentSize = CGSizeMake(scrollView.frame.width, contentHeight)
-        */
-        
     }
     
-    func layoutResult(var index:Int, var contentHeight:CGFloat = 0)
+    func layoutResult(var index:Int, var numItemsLayedOut:Int = 0, var contentHeight:CGFloat = 0)
     {
         if items.count > index
         {
             let item = items[index]
-            /*
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                item.frame = CGRectMake(0, item.frame.height * CGFloat(index), self.frame.width, item.frame.height)
+            if filteredUsers.contains(item.opponentFullName)
+            {
+                item.frame = CGRectMake(0, item.frame.height * CGFloat(numItemsLayedOut), self.frame.width, item.frame.height)
+                item.hidden = false
                 contentHeight = item.frame.maxY
-                }, completion: { (value: Bool) in
-                    index++
-                    self.layoutResult(index,contentHeight: contentHeight)
-            })
-            */
-            item.frame = CGRectMake(0, item.frame.height * CGFloat(index), self.frame.width, item.frame.height)
-            contentHeight = item.frame.maxY
+                numItemsLayedOut++
+            }
+            else
+            {
+                item.hidden = true
+                
+            }
             index++
-            self.layoutResult(index,contentHeight: contentHeight)
+            self.layoutResult(index,contentHeight: contentHeight,numItemsLayedOut:numItemsLayedOut)
             
         }
         else
         {
             scrollView.contentSize = CGSizeMake(scrollView.frame.width, contentHeight)
         }
-        
-        
     }
+    
+    func tapForOpponentFilter(gesture:UITapGestureRecognizer)
+    {
+        
+        let rightLocation = userFilterScrollView.center
+        userFilterScrollView.transform = CGAffineTransformScale(userFilterScrollView.transform, 0.1, 0.1)
+        self.userFilterScrollView.alpha = 1
+        userFilterScrollView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
+        UIView.animateWithDuration(0.25, animations: { () -> Void in
+            
+            self.userFilterScrollView.transform = CGAffineTransformIdentity
+            
+            self.userFilterScrollView.center = rightLocation
+            }, completion: { (value: Bool) in
+                self.userFilterScrollView.transform = CGAffineTransformIdentity
+                self.userFilterScrollView.alpha = 1
+                self.userFilterScrollView.center = rightLocation
+                self.listClosed = false
+        })
+
+
+    }
+    
+    func setFilter(distinctUsers:[String])
+    {
+        filteredUsers = distinctUsers
+        let margin:CGFloat = 10
+        let scrollViewWidth = self.bounds.size.width - (margin * 2)
+        userFilterScrollView = UserFilterScrollView(frame: CGRectMake((self.bounds.size.width / 2) - (scrollViewWidth / 2) , self.bounds.size.height / 4, scrollViewWidth, self.bounds.size.height / 2),initialValues:distinctUsers)
+        userFilterScrollView.delegate = self
+        
+        userFilterScrollView.alpha = 0
+        self.addSubview(userFilterScrollView!)
+    }
+    
+    var listClosed = true
+    var filteredUsers:[String]!
+    func closeFilter(users:[String])
+    {
+        if listClosed
+        {
+            return
+        }
+        
+        if users.count < 1
+        {
+            let alert = UIAlertView(title: "Pick 1", message: "Select at least 1 user", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+            
+        }
+        else
+        {
+           filteredUsers = users
+            let rightLocation = userFilterScrollView.center
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                
+                self.userFilterScrollView.transform = CGAffineTransformScale(self.userFilterScrollView.transform, 0.1, 0.1)
+                
+                self.userFilterScrollView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
+                }, completion: { (value: Bool) in
+                    self.userFilterScrollView.transform = CGAffineTransformScale(self.userFilterScrollView.transform, 0.1, 0.1)
+                    self.userFilterScrollView.alpha = 0
+                    self.userFilterScrollView.center = rightLocation
+                    self.listClosed = true
+                    self.userFilterScrollView.alpha = 0
+            })
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.layoutResult(0)
+            })
+            self.setResultText()
+
+        }
+    }
+    
     
     func setResultText()
     {

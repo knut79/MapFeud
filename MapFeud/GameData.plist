@@ -9,7 +9,7 @@
 	<key>TimeBonus</key>
 	<integer>10</integer>
 	<key>Hints</key>
-	<integer>20</integer>
+	<integer>12</integer>
 	<key>GameResults</key>
 	<array/>
 	<key>AdFree</key>

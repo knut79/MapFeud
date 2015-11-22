@@ -23,25 +23,29 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
     let opponentDistanceLabel = UILabel(frame: CGRectZero)
     var opponentFullName:String!
     var opponentFirstName:String!
+    var opponentId:String!
     var dateString:String!
     var titleString:String!
     var opponentDistanceInt:Int!
     var myDistanceInt:Int!
+    var newRecord:Bool = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    init(frame: CGRect,myDistance:Int,opponentName:String,opponentDistance:Int, title:String, date:String) {
+    init(frame: CGRect,myDistance:Int,opponentName:String,opponentId:String,opponentDistance:Int, title:String, date:String, newRecord:Bool = false) {
         super.init(frame: frame)
 
         self.backgroundColor = UIColor.clearColor()
 
+        self.newRecord = newRecord
         dateString = date
         titleString = title
         
         borderBackgroudView.layer.borderWidth = 2
         borderBackgroudView.alpha = 1
+        
         borderBackgroudView.layer.cornerRadius = 5
         borderBackgroudView.layer.masksToBounds = true
         borderBackgroudView.layer.borderColor = UIColor.blueColor().CGColor
@@ -86,6 +90,7 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
         self.addSubview(myDistancePointsLabel)
         
 
+        self.opponentId = opponentId
         
         opponentNameLabel.textAlignment = NSTextAlignment.Center
         opponentNameLabel.adjustsFontSizeToFitWidth = true
@@ -117,8 +122,13 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
         {
             state = "➖"
         }
+        if newRecord
+        {
+            state = "\(state)🆕"
+        }
         myStateLabel.frame = CGRectMake(margin , 0, secondLevelTitleWidth, titleElementHeight)
         myStateLabel.text = "\(state)"
+
         myDistancePointsLabel.font = opponentDistanceLabel.font
         myDistancePointsLabel.frame = CGRectMake(myStateLabel.frame.maxX , 0, secondLevelTitleWidth, titleElementHeight)
         myDistancePointsLabel.text = "\(myDistanceInt)"

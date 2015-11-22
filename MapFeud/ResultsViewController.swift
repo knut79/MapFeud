@@ -181,13 +181,15 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     }
     
+
     func collectNewResults()
     {
+        let oldNumerbOfRecords = datactrl.gameResultsValues.count
         activityLabel.text = "Collecting new results..."
         //FB LOGIN
         let jsonDictionary = ["fbid":self.userId]
         
-        self.client!.invokeAPI("collectchallenges", data: nil, HTTPMethod: "GET", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+        self.client!.invokeAPI("collectchallengesV2", data: nil, HTTPMethod: "GET", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
             
             if error != nil
             {
@@ -213,7 +215,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print(error)
                 }
                 self.activityLabel.alpha = 0
-                self.collectStoredResults()
+                self.collectStoredResults(2)
                 
             }
             if response != nil
@@ -223,37 +225,51 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         })
     }
     
-    func collectStoredResults()
+    
+    func collectStoredResults(oldNumerbOfRecords:Int)
     {
-        let numberOfItemsOnGamerecordRow = 5
+        var distinctUsers:[String] = []
+        let minNumberOfItemsOnGamerecordRow = 5
         var noValues = true
         datactrl.loadGameData()
         let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
+        var index = 0
         for record in datactrl.gameResultsValues
         {
             let arrayOfValues = record.componentsSeparatedByString(",")
-            if arrayOfValues.count == numberOfItemsOnGamerecordRow
+            if arrayOfValues.count >= minNumberOfItemsOnGamerecordRow
             {
+                /*
                 for item in arrayOfValues
                 {
                     print("\(item)")
                 }
-                for var i = 0 ; i < numberOfItemsOnGamerecordRow ; i++
-                {
-                    print("\(arrayOfValues[i])")
-                }
+                */
+                let newRecord = oldNumerbOfRecords < index
+                index++
+                
+                
+                
+                
                 let myDistance = NSNumberFormatter().numberFromString(arrayOfValues[0] )
                 let myDistanceRightMeasure =  usingKm ? myDistance!.integerValue : Int(CGFloat(myDistance!.integerValue) * 0.621371)
                 let name = arrayOfValues[1]
+                if !distinctUsers.contains(name)
+                {
+                    distinctUsers.append(name)
+                }
                 let opponentDistance = NSNumberFormatter().numberFromString(arrayOfValues[2] )
                 let opponentDistanceRightMeasure =  usingKm ? opponentDistance!.integerValue : Int(CGFloat(opponentDistance!.integerValue) * 0.62137)
                 let title = arrayOfValues.count > 3 ? arrayOfValues[3] : "-"
                 let date = arrayOfValues.count > 4 ? arrayOfValues[4] : "-"
-                resultsScrollView.addItem( myDistanceRightMeasure, opponentName: name, opponentDistance: opponentDistanceRightMeasure, title:title, date:date)
+                let opponentId = arrayOfValues.count > 5 ? arrayOfValues[5] : ""
+                resultsScrollView.addItem( myDistanceRightMeasure, opponentName: name, opponentId: opponentId, opponentDistance: opponentDistanceRightMeasure, title:title, date:date, newRecord: newRecord)
                 
                 noValues = false
             }
         }
+        
+        resultsScrollView.setFilter(distinctUsers)
         if noValues
         {
             self.activityLabel.alpha = 1
@@ -264,12 +280,11 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.resultsScrollView.layoutResult(0)
                 })
-            
-            
         }
         resultsScrollView.setResultText()
-        
+
     }
+
     
     func saveChallengeToPlist(values:[NSDictionary])
     {
@@ -280,7 +295,8 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
             let opponentDistance = item["opponentdistance"] as! Int
             let title = item["title"] as! String
             let date = item["date"] as! String
-            let valuesStringFormat:String = "\(myDistance),\(name),\(opponentDistance),\(title),\(date)"
+            let opponentId = item["opponentid"] as! String
+            let valuesStringFormat:String = "\(myDistance),\(name),\(opponentDistance),\(title),\(date),\(opponentId)"
             
             datactrl.addRecordToGameResults(valuesStringFormat)
         }

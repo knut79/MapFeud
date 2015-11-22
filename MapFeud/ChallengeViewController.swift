@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 import FBSDKLoginKit
+import FBSDKShareKit
 
-class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserViewProtocol {
+
+class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserViewProtocol,FBSDKAppInviteDialogDelegate,FBSDKSharingDelegate {
     
     var passingLevelLow:Int!
     var passingLevelHigh:Int!
@@ -30,6 +32,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     var backButton = UIButton()
     var activityLabel:UILabel!
     var addRandomUserButton:UIButton!
+    //var inviteFriendsButton:UIButton!
     var titleLabel:UILabel!
     var numOfQuestionsForRound:Int!
 
@@ -42,13 +45,29 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        activityLabel = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width - 40, 50))
+        activityLabel.center = CGPointMake(UIScreen.mainScreen().bounds.size.width / 2, UIScreen.mainScreen().bounds.size.height / 2)
+        activityLabel.textAlignment = NSTextAlignment.Center
+        activityLabel.adjustsFontSizeToFitWidth = true
+        activityLabel.alpha = 0
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        activityIndicator.frame = CGRect(x: 0,y:0, width: 50, height: 50)
+        activityIndicator.hidesWhenStopped = true
+        
+        view.addSubview(activityLabel)
+        view.addSubview(activityIndicator)
         
         self.client = (UIApplication.sharedApplication().delegate as! AppDelegate).client
         
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
+
             // User is already logged in, do work such as go to next view controller.
             //self.performSegueWithIdentifier("segueFromLoginToPlay", sender: nil)
+            activityLabel.text = "Loading.."
+            activityLabel.alpha = 1
+            activityIndicator.startAnimating()
             
             initUserData({() -> Void in
                 if self.gametype == GameType.makingChallenge
@@ -61,6 +80,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 }
             })
             
+            
         }
         else
         {
@@ -71,6 +91,9 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             loginButton.readPermissions = ["public_profile", "user_friends"]
             self.view.addSubview(loginButton)
         }
+        
+
+        
         
         let backButtonMargin:CGFloat = 10
         backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - GlobalConstants.smallButtonSide - backButtonMargin, backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
@@ -106,6 +129,9 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             // Handle cancellations
         }
         else {
+            activityLabel.alpha = 1
+            activityLabel.text = "Loading.."
+            activityIndicator.startAnimating()
             // If you ask for multiple permissions at once, you
             // should check if specific permissions missing
             if result.grantedPermissions.contains("user_friends")
@@ -164,6 +190,10 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
 
                 result
                 self.updateUser({() -> Void in
+                    
+                    self.activityLabel.alpha = 0
+                    self.activityIndicator.stopAnimating()
+                    
                     completion()
                 })
             }
@@ -209,14 +239,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         self.playButton.setTitle("Play", forState: UIControlState.Normal)
         
         
-        activityLabel = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width - 40, 50))
-        activityLabel.center = CGPointMake(UIScreen.mainScreen().bounds.size.width / 2, UIScreen.mainScreen().bounds.size.height / 2)
-        activityLabel.textAlignment = NSTextAlignment.Center
-        activityLabel.adjustsFontSizeToFitWidth = true
-        
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
-        activityIndicator.frame = CGRect(x: 0,y:0, width: 50, height: 50)
-        activityIndicator.hidesWhenStopped = true
+
 
     }
     
@@ -227,6 +250,37 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             initialValues.updateValue(friendObject.valueForKey("id") as! String, forKey: friendObject.valueForKey("name") as! String )
         }
 
+        let minNumberOfItemsOnGamerecordRow = 6
+        let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+        datactrl.loadGameData()
+        for record in datactrl.gameResultsValues
+        {
+            let arrayOfValues = record.componentsSeparatedByString(",")
+            if arrayOfValues.count == minNumberOfItemsOnGamerecordRow
+            {
+
+                
+                let name = arrayOfValues[1]
+                let opponentId = arrayOfValues[5]
+                
+                var found = false
+                for item in initialValues
+                {
+                    if item.1 == opponentId
+                    {
+                        found = true
+                        break;
+                    }
+                }
+                
+                
+                if !found
+                {
+                    initialValues.updateValue(opponentId,forKey: name)
+                }
+            }
+        }
+
         let margin:CGFloat = 10
         let elementWidth:CGFloat = 200
         let elementHeight:CGFloat = 60
@@ -235,7 +289,37 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
         titleLabel.text = "Challenge users"
         
+        /*
+        let content = FBSDKShareLinkContent()
+        content.contentURL = NSURL(string:"https://www.facebook.com/FacebookDevelopers")
+        let inviteFriendsButton = FBSDKShareButton()
+        inviteFriendsButton.shareContent = content
+        inviteFriendsButton.frame = CGRectMake(titleLabel.frame.minX, playButton.frame.minY - (margin * 2) - (elementHeight * 2), elementWidth , elementHeight)
+        */
         
+        
+        let content = FBSDKShareLinkContent()
+        content.contentURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+        content.imageURL = NSURL(string: "https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-xtp1/t39.2081-0/p128x128/12057212_936552496419899_597891191_n.png")
+        content.contentDescription = "Test this iOS geography game"
+        content.contentTitle = "Map feud"
+        
+        let inviteFriendsButton = FBSDKSendButton()
+        inviteFriendsButton.frame = CGRectMake(titleLabel.frame.minX, playButton.frame.minY - (margin * 2) - (elementHeight * 2), elementWidth , elementHeight)
+        inviteFriendsButton.shareContent = content
+        //self.inviteFriendsButton.addTarget(self, action: "inviteFriendsAction", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        //self.inviteFriendsButton.backgroundColor = UIColor.blueColor()
+        inviteFriendsButton.layer.cornerRadius = 5
+        inviteFriendsButton.layer.masksToBounds = true
+        inviteFriendsButton.setTitle("Invite friends", forState: UIControlState.Normal)
+        
+        /*
+        let likeButton = FBSDKLikeControl()
+        likeButton.objectID = "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8"
+        likeButton.center = CGPointMake(inviteFriendsButton.frame.maxX + margin, inviteFriendsButton.center.y)
+        self.view.addSubview(likeButton)
+        */
         
         addRandomUserButton = UIButton(frame:CGRectMake(titleLabel.frame.minX, playButton.frame.minY - margin - elementHeight, elementWidth , elementHeight))
         self.addRandomUserButton.addTarget(self, action: "addRandomUserAction", forControlEvents: UIControlEvents.TouchUpInside)
@@ -245,7 +329,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         self.addRandomUserButton.setTitle("Add random user", forState: UIControlState.Normal)
 
         
-        let scrollViewHeight =  addRandomUserButton.frame.minY - titleLabel.frame.maxY - ( margin * 2 )
+        let scrollViewHeight =  inviteFriendsButton.frame.minY - titleLabel.frame.maxY - ( margin * 2 )
         let scrollViewWidth = UIScreen.mainScreen().bounds.size.width - (margin * 2)
         self.usersToChallengeScrollView = UserScrollView(frame: CGRectMake(margin , titleLabel.frame.maxY + margin, scrollViewWidth, scrollViewHeight),initialValues:initialValues, itemsChecked:false)
         self.usersToChallengeScrollView.delegate = self
@@ -253,11 +337,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
         view.addSubview(titleLabel)
         view.addSubview(playButton)
+        view.addSubview(inviteFriendsButton)
         //view.addSubview(backButton)
         view.addSubview(addRandomUserButton)
         view.addSubview(usersToChallengeScrollView)
-        view.addSubview(activityLabel)
-        view.addSubview(activityIndicator)
+        self.view.bringSubviewToFront(activityLabel)
+        self.view.bringSubviewToFront(activityIndicator)
         
         if friendObjects.count == 0
         {
@@ -413,9 +498,73 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     func addRandomUserAction()
     {
         self.addRandomUser(nil)
+    }
+    
+    func inviteFriendsAction()
+    {
+        let content = FBSDKShareLinkContent()
+        content.contentURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+        content.imageURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+        content.contentDescription = "bla bla description"
+        content.contentTitle = "bla bla title"
+        //content.appInvitePreviewImageURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+
+        let messageDialog = FBSDKMessageDialog()
+        messageDialog.delegate = self
+        messageDialog.shareContent = content
+        
+        if messageDialog.canShow()
+        {
+            messageDialog.show()
+        }
+        else
+        {
+            var message = "Facebook messenger not installed"
+            if UIDevice.currentDevice().model == "IPad"
+            {
+                message = "Cant redirect to messenger from IPad"
+            }
+
+            let alert = UIAlertView(title: "\(UIDevice.currentDevice().model) Could not send invite", message: message, delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+            
+        }
+        
+        //FBSDKMessageDialog.showWithContent(content, delegate: self)
+        
+        //replace http:// with itms:// or itms-apps:// to avoid redirects.
+        /*
+        let content = FBSDKAppInviteContent()
+        //content.appLinkURL = NSURL(string: "itms-apps://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+        content.appLinkURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+        content.appInvitePreviewImageURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+        FBSDKAppInviteDialog.showFromViewController(self, withContent: content, delegate: self) //.showWithContent(content, delegate: self)
+*/
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        
+        let temp = results
+        for item in temp
+        {
+            print(item)
+        }
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+        print(error)
+    }
+    
+    func sharerDidCancel(sharer: FBSDKSharing!) {
         
     }
     
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        //TODO
+    }
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
+        print(error)
+    }
     
     func addRandomUser(completionClosure: (() -> Void)?)
     {

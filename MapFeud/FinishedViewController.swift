@@ -125,12 +125,7 @@ class FinishedViewController:UIViewController {
     override func viewDidAppear(animated: Bool) {
         if gametype == GameType.makingChallenge
         {
-
-            if let makingChallenge = challenge as? MakingChallenge
-            {
-
-                self.performSegueWithIdentifier("segueFromFinishedToMainMenu", sender: nil)
-            }
+            self.performSegueWithIdentifier("segueFromFinishedToMainMenu", sender: nil)
         }
     }
     
@@ -196,7 +191,7 @@ class FinishedViewController:UIViewController {
         let makingChallenge = challenge as! MakingChallenge
         let challengeIds = makingChallenge.challengeIds
 
-        let jsonDictionary = ["chidspar":challengeIds!,"fromId":userFbId,"fromResultDistance":distance]
+        let jsonDictionary = ["chidspar":challengeIds!,"fromId":userFbId,"fromResultDistance":distance,"answerpoints":"not implemented"]
         self.client!.invokeAPI("finishmakingchallenge", data: nil, HTTPMethod: "POST", parameters: jsonDictionary as! [NSObject : AnyObject], headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
             
             if error != nil

@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         datactrl.deviceTokenValue = deviceTokenString
         datactrl.saveGameData()
         
-        let tags: Set<NSObject> = Set(["knutp",deviceTokenString])
+        let tags: Set<NSObject> = Set([deviceTokenString])
         hub.registerNativeWithDeviceToken(deviceToken, tags: tags, completion: {(error) -> Void in
 
             if error != nil
