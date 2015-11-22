@@ -627,8 +627,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     {
         let borders:String = drawBorders ? "1" : "0"
         let firstNameInUserName = userName.componentsSeparatedByString(" ").count > 1 ? userName.componentsSeparatedByString(" ").first : userName
-        let borderString = drawBorders ? "borders" : "no borders"
-        challengeName = "\(firstNameInUserName) \(passingLevelLow)-\(passingLevelHigh) \((borderString))"
+        let borderString = drawBorders ? "bord." : "no bord."
+        challengeName = "\(passingLevelLow)-\(passingLevelHigh) \((borderString)) from \(firstNameInUserName)"
         questionIds = questionsToCommaseparated()
         let toIds:String = usersToCommaseparated()
         

@@ -48,6 +48,13 @@ class QuestionView: UIView {
         singleTapGestureRecognizerImage.enabled = true
         singleTapGestureRecognizerImage.cancelsTouchesInView = false
         imageView.addGestureRecognizer(singleTapGestureRecognizerImage)
+        
+        let swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "tapFlag:")
+        swipeUpGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
+        swipeUpGestureRecognizer.enabled = true
+        swipeUpGestureRecognizer.cancelsTouchesInView = false
+        imageView.addGestureRecognizer(swipeUpGestureRecognizer)
+        
         self.addSubview(imageView)
         
         self.orgFrame = self.frame

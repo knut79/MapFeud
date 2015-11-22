@@ -395,15 +395,15 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         datactrl.adFreeValue = 1
         datactrl.timeBounusValue = 0
         datactrl.hintsValue = 10
-    
-        //datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
-        //datactrl.addRecordToGameResults("999,newest,234,new,,4321")
+    */
+        datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+        datactrl.addRecordToGameResults("22,newest,234,1-3 no bord from Elizabethhhh,,4321")
         //datactrl.addRecordToGameResults("222,Hans pettersen,444,abc,,1111")
         //datactrl.addRecordToGameResults("222,per,444,abc,,4321")
-        
+      
         datactrl.saveGameData()
         datactrl.loadGameData()
-        */
+        
     
         //NSUserDefaults.standardUserDefaults().setBool(false, forKey: "adFree")
         //NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "timeBonus")

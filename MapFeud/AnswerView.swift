@@ -32,6 +32,11 @@ class AnswerView: UIView {
         singleTapGestureRecognizer.cancelsTouchesInView = false
         self.addGestureRecognizer(singleTapGestureRecognizer)
 
+        let swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "tapAnswer:")
+        swipeUpGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Up
+        swipeUpGestureRecognizer.enabled = true
+        swipeUpGestureRecognizer.cancelsTouchesInView = false
+        self.addGestureRecognizer(swipeUpGestureRecognizer)
         
         
         

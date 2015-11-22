@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
-            landmarkName = "layoutResult(_:contentHeight:)"
+            landmarkName = "layoutResult(_:numItemsLayedOut:contentHeight:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -79,7 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
             endingLineNumber = "127"
-            landmarkName = "layoutResult(_:contentHeight:)"
+            landmarkName = "layoutResult(_:numItemsLayedOut:contentHeight:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -215,7 +215,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print(error)
                 }
                 self.activityLabel.alpha = 0
-                self.collectStoredResults(2)
+                self.collectStoredResults(oldNumerbOfRecords)
                 
             }
             if response != nil
@@ -245,7 +245,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("\(item)")
                 }
                 */
-                let newRecord = oldNumerbOfRecords < index
+                let newRecord = oldNumerbOfRecords <= index
                 index++
                 
                 

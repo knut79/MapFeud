@@ -41,7 +41,7 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
 
         self.newRecord = newRecord
         dateString = date
-        titleString = title
+        titleString = title.componentsSeparatedByString("from")[0]
         
         borderBackgroudView.layer.borderWidth = 2
         borderBackgroudView.alpha = 1
