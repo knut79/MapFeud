@@ -55,8 +55,6 @@ class UserFilterScrollView: UIView , UIScrollViewDelegate, CheckItemProtocol{
         closeButton = UIButton(frame: CGRectMake(frame.width - 40, 0, 40, 40))
         closeButton.setTitle("❌", forState: UIControlState.Normal)
         closeButton.addTarget(self, action: "closeAction", forControlEvents: UIControlEvents.TouchUpInside)
-        closeButton.layer.borderColor = UIColor.blackColor().CGColor
-        closeButton.layer.borderWidth = 2.0
         
         let itemheight:CGFloat = 40
         selectedInfoLabel = UILabel(frame: CGRectMake(0, 0, self.bounds.width, itemheight))

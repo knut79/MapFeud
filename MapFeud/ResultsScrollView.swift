@@ -38,7 +38,7 @@ class ResultsScrollView: UIView , UIScrollViewDelegate, UserFilterViewProtocol{
         
         let opponentsScoreLabel = ResultTitleLabel(frame: CGRectMake(myScoreLabel.frame.maxX , margin, topLevelTitleWidth, titleElementHeight))
         opponentsScoreLabel.textAlignment = NSTextAlignment.Center
-        opponentsScoreLabel.text = "Opponent"
+        opponentsScoreLabel.text = " Opponent👆"
         opponentsScoreLabel.userInteractionEnabled = true
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapForOpponentFilter:")
         singleTapGestureRecognizer.numberOfTapsRequired = 1
