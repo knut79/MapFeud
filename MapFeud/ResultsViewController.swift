@@ -239,27 +239,26 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
             let arrayOfValues = record.componentsSeparatedByString(",")
             if arrayOfValues.count >= minNumberOfItemsOnGamerecordRow
             {
-                /*
-                for item in arrayOfValues
-                {
-                    print("\(item)")
-                }
-                */
                 let newRecord = oldNumerbOfRecords <= index
                 index++
                 
-                
-                
-                
                 let myDistance = NSNumberFormatter().numberFromString(arrayOfValues[0] )
-                let myDistanceRightMeasure =  usingKm ? myDistance!.integerValue : Int(CGFloat(myDistance!.integerValue) * 0.621371)
+                var myDistanceRightMeasure =  usingKm ? myDistance!.integerValue : Int(CGFloat(myDistance!.integerValue) * 0.621371)
+                if myDistance!.integerValue == GlobalConstants.bailedValue
+                {
+                    myDistanceRightMeasure = GlobalConstants.bailedValue
+                }
                 let name = arrayOfValues[1]
                 if !distinctUsers.contains(name)
                 {
                     distinctUsers.append(name)
                 }
                 let opponentDistance = NSNumberFormatter().numberFromString(arrayOfValues[2] )
-                let opponentDistanceRightMeasure =  usingKm ? opponentDistance!.integerValue : Int(CGFloat(opponentDistance!.integerValue) * 0.62137)
+                var opponentDistanceRightMeasure =  usingKm ? opponentDistance!.integerValue : Int(CGFloat(opponentDistance!.integerValue) * 0.62137)
+                if opponentDistance!.integerValue == GlobalConstants.bailedValue
+                {
+                    opponentDistanceRightMeasure = GlobalConstants.bailedValue
+                }
                 let title = arrayOfValues.count > 3 ? arrayOfValues[3] : "-"
                 let date = arrayOfValues.count > 4 ? arrayOfValues[4] : "-"
                 let opponentId = arrayOfValues.count > 5 ? arrayOfValues[5] : ""

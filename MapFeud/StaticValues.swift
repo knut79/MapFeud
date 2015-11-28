@@ -52,6 +52,11 @@ struct GlobalConstants {
     static let timeStart:Double = 16
     static let numberOfQuestionsForChallenge:Int = 7
     static let numberOfHintsPrBuy:Int = 12
+    
+    static let bailedValue = 9999999
+    
+    static let indexOfOpponentNameInGamerecordRow = 1
+    static let indexOfOpponentIdInGamerecordRow = 5
 }
 
 

@@ -133,11 +133,11 @@ class ResultItemView: UIView,UIGestureRecognizerDelegate
         borderBackgroudView.center = myStateLabel.center
         myDistancePointsLabel.font = opponentDistanceLabel.font
         myDistancePointsLabel.frame = CGRectMake(myStateLabel.frame.maxX , 0, secondLevelTitleWidth, titleElementHeight)
-        myDistancePointsLabel.text = "\(myDistanceInt)"
+        myDistancePointsLabel.text = myDistanceInt ==  GlobalConstants.bailedValue ? "Bailed❗" : "\(myDistanceInt)"
         opponentNameLabel.frame = CGRectMake(myDistancePointsLabel.frame.maxX , 0, secondLevelTitleWidth, titleElementHeight)
         opponentNameLabel.text = "\(opponentFirstName)"
         opponentDistanceLabel.frame = CGRectMake(opponentNameLabel.frame.maxX , 0, secondLevelTitleWidth, titleElementHeight)
-        opponentDistanceLabel.text = "\(opponentDistanceInt)"
+        opponentDistanceLabel.text = opponentDistanceInt ==  GlobalConstants.bailedValue ? "Bailed❗" : "\(opponentDistanceInt)"
     }
     
     func detailLayout()

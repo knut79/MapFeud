@@ -185,8 +185,6 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 let userId2 = result.valueForKey("id") as! String
                 print("UserId2 is: \(userId2)")
                 self.userId = userId2
-                //self.userId = "1492605914370841"
-                //self.userId = "10155943015600858"
 
                 result
                 self.updateUser({() -> Void in
@@ -210,13 +208,17 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 // Process error
                 print("Error: \(error)")
                 
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alertController = reportError?.alertController("\(error)")
+                self.presentViewController(alertController!,
+                    animated: true,
+                    completion: nil)
+                
             }
             else
             {
                 print("fetched friends result: \(result)")
-
                 let friendObjects = result.valueForKey("data") as! [NSDictionary]
-
                 self.initForNewChallenge(friendObjects)
 
                 result
@@ -237,10 +239,6 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         self.playButton.layer.cornerRadius = 5
         self.playButton.layer.masksToBounds = true
         self.playButton.setTitle("Play", forState: UIControlState.Normal)
-        
-        
-
-
     }
     
     func initForNewChallenge(friendObjects:[NSDictionary])
@@ -260,8 +258,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             {
 
                 
-                let name = arrayOfValues[1]
-                let opponentId = arrayOfValues[5]
+                let name = arrayOfValues[GlobalConstants.indexOfOpponentNameInGamerecordRow]
+                let opponentId = arrayOfValues[GlobalConstants.indexOfOpponentIdInGamerecordRow]
                 
                 var found = false
                 for item in initialValues
@@ -313,13 +311,6 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         inviteFriendsButton.layer.cornerRadius = 5
         inviteFriendsButton.layer.masksToBounds = true
         inviteFriendsButton.setTitle("Invite friends", forState: UIControlState.Normal)
-        
-        /*
-        let likeButton = FBSDKLikeControl()
-        likeButton.objectID = "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8"
-        likeButton.center = CGPointMake(inviteFriendsButton.frame.maxX + margin, inviteFriendsButton.center.y)
-        self.view.addSubview(likeButton)
-        */
         
         addRandomUserButton = UIButton(frame:CGRectMake(titleLabel.frame.minX, playButton.frame.minY - margin - elementHeight, elementWidth , elementHeight))
         self.addRandomUserButton.addTarget(self, action: "addRandomUserAction", forControlEvents: UIControlEvents.TouchUpInside)
@@ -492,14 +483,14 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         })
     }
     
-    
-    
+
     var randomUsersAdded = 0
     func addRandomUserAction()
     {
         self.addRandomUser(nil)
     }
     
+    //OBSOLETE
     func inviteFriendsAction()
     {
         let content = FBSDKShareLinkContent()
@@ -701,7 +692,6 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             
             
         })
-        
     }
     
     func usersToCommaseparated() -> String

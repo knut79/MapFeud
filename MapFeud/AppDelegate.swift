@@ -113,6 +113,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        NSUserDefaults.standardUserDefaults().setValue("", forKey: "deviceToken")
+    }
+    
     func application(application: UIApplication,
         openURL url: NSURL,
         sourceApplication: String?,

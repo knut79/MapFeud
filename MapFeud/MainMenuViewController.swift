@@ -33,6 +33,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     var pendingChallengesButton:ChallengeButton!
     var newChallengeButton:ChallengeButton!
+    var orgNewChallengeButtonCenter:CGPoint!
+    var orgPendingChallengesButtonCenter:CGPoint!
     
     var selectFilterTypeButton:UIButton!
     
@@ -145,8 +147,9 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         pendingChallengesButton.setbadge(challengeBadge)
         pendingChallengesButton.alpha = 0
         
+        orgNewChallengeButtonCenter = newChallengeButton.center
+        orgPendingChallengesButtonCenter = pendingChallengesButton.center
         
-        // Do any additional setup after loading the view, typically from a nib.
         practicePlayButton = UIButton(frame:CGRectZero)
         practicePlayButton.setTitle("Practice", forState: UIControlState.Normal)
         practicePlayButton.addTarget(self, action: "playPracticeAction", forControlEvents: UIControlEvents.TouchUpInside)
@@ -178,8 +181,6 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         practicePlayButtonExstraLabel.textAlignment = NSTextAlignment.Center
         practicePlayButton.addSubview(practicePlayButtonExstraLabel)
 
-        
-        
         
         levelSlider.addTarget(self, action: "rangeSliderValueChanged:", forControlEvents: .ValueChanged)
         levelSlider.curvaceousness = 0.0
@@ -247,8 +248,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         loadingDataView?.frame =  CGRectMake(50, 50, 200, 50)
         setupFirstLevelMenu()
-        //setupChallengeTypeButtons()
-        setupDynamicPlayButton()
+        setupPlayButton()
         closeTagCheckView()
         
         if firstLaunch
@@ -454,7 +454,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         resultsButton.orgCenter = resultsButton.center
     }
     
-    func setupDynamicPlayButton()
+    func setupPlayButton()
     {
         let margin: CGFloat = 20.0
         let sliderAndFilterbuttonHeight:CGFloat = 31.0
@@ -554,7 +554,9 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             
             self.newChallengeButton.alpha = 0
             self.pendingChallengesButton.alpha = 0
-            
+            self.newChallengeButton.center = self.orgNewChallengeButtonCenter
+            self.pendingChallengesButton.center = self.orgPendingChallengesButtonCenter
+                
             self.challengePlayButton.alpha = 0
             }, completion: { (value: Bool) in
                 
@@ -740,10 +742,6 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         if (segue.identifier == "segueFromMainMenuToPlay") {
             let svc = segue!.destinationViewController as! PlayViewController
-            //print("\(levelSlider.upperValue)")
-            //svc.levelLow = Int(levelSlider.lowerValue)
-            //svc.levelHigh = Int(levelSlider.upperValue)
-            //svc.tags = self.tags
             svc.gametype = gametype
             svc.drawBorders = borderSwitch.on
         }

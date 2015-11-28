@@ -18,7 +18,7 @@ class RadiobuttonItemView: UIView
 {
     var radiobutton:UIButton!
     var titleLabel:UILabel!
-    var checked = true
+    var checked = false
     var title:String!
     var value:NSDictionary!
     var delegate:RadiobuttonItemProtocol!
