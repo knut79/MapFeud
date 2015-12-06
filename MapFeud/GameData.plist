@@ -7,9 +7,9 @@
 	<key>UseKm</key>
 	<integer>1</integer>
 	<key>TimeBonus</key>
-	<integer>10</integer>
+	<integer>1</integer>
 	<key>Hints</key>
-	<integer>12</integer>
+	<integer>8</integer>
 	<key>GameResults</key>
 	<array/>
 	<key>AdFree</key>
@@ -23,7 +23,7 @@
 	<key>GoodScore</key>
 	<integer>0</integer>
 	<key>OkScore</key>
-	<integer>44</integer>
+	<integer>0</integer>
 	<key>EventsUpdate</key>
 	<date>2015-08-02T15:57:33Z</date>
 	<key>DataPopulated</key>

@@ -65,56 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             {
                 print("Registered for notifications")
             }
+            
         })
-        
-        
-        
-        //TEST
-        /*
-        var deviceTokenString:NSString = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
-        deviceTokenString = deviceTokenString.stringByReplacingOccurrencesOfString(" ", withString: "").uppercaseString
-        var tagSet:[String] = []
-        tagSet.append("tag1")
-        tagSet.append("tab2")
-        
-        
-        var deviceRegistration:NSDictionary = [ "Platform":"apns", "Handle": deviceTokenString, "Tags":"tagsSet"]
-        var jsonData:NSData
-        
-        do{
-            jsonData = try NSJSONSerialization.dataWithJSONObject(deviceRegistration, options: NSJSONWritingOptions.PrettyPrinted)
-        }
-        catch
-        {
-            print("error --")
-        }
-
-        let _endpoint = "aldksjldaskf"
-        let registrationId = "sadfa"
-        
-        let endpoint:String = "\(_endpoint) /api/register/ \(registrationId)"
-        let requestURL:NSURL = NSURL(string:endpoint)!
-        let request:NSMutableURLRequest = NSMutableURLRequest(URL:requestURL)
-        request.HTTPMethod = "PUT"
-        request.HTTPBody = jsonData
-        
-        var headerValue = "knt:psw"
-        var encodedData:NSData = headerValue.dataUsingEncoding(NSUTF8StringEncoding)!.base64EncodedDataWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithCarriageReturn)
-        //registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData encoding:NSUTF8StringEncoding];
-        
-        var authorizationHeaderValue = "Basic \(headerValue)"
-        request.setValue(authorizationHeaderValue, forHTTPHeaderField: "Authorization")
-        request.setValue("application/json", forHTTPHeaderField:"Content-Type")
-        
-        var dataTask:NSURLSessionDataTask = self.session dataTaskWithRequest:request
-        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-        */
-        //END TEST
         
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        NSUserDefaults.standardUserDefaults().setValue("", forKey: "deviceToken")
+        //NSUserDefaults.standardUserDefaults().setValue("", forKey: "deviceToken")
     }
     
     func application(application: UIApplication,
