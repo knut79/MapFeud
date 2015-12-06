@@ -552,6 +552,7 @@
 		7254B22D1BD08F4200A22920 /* ResultItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B2291BD08F4200A22920 /* ResultItemView.swift */; };
 		7254B22E1BD08F4200A22920 /* ResultTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B22A1BD08F4200A22920 /* ResultTitleLabel.swift */; };
 		7254B22F1BD08F4200A22920 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B22B1BD08F4200A22920 /* ResultsViewController.swift */; };
+		727445221C149FA300E16F6C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727445211C149FA300E16F6C /* StoreKit.framework */; };
 		727580FF1BE0D6800026A2CC /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727580FE1BE0D6800026A2CC /* MenuButton.swift */; };
 		727581011BE0F7E20026A2CC /* StatusHintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581001BE0F7E20026A2CC /* StatusHintButton.swift */; };
 		727581031BE0FE0D0026A2CC /* StatusTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */; };
@@ -1389,6 +1390,7 @@
 		7254B2291BD08F4200A22920 /* ResultItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultItemView.swift; sourceTree = "<group>"; };
 		7254B22A1BD08F4200A22920 /* ResultTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTitleLabel.swift; sourceTree = "<group>"; };
 		7254B22B1BD08F4200A22920 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		727445211C149FA300E16F6C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		727580FE1BE0D6800026A2CC /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		727581001BE0F7E20026A2CC /* StatusHintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusHintButton.swift; sourceTree = "<group>"; };
 		727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTimeButton.swift; sourceTree = "<group>"; };
@@ -1666,6 +1668,7 @@
 				72BD9D281BD27A240062FE44 /* WindowsAzureMobileServices.framework in Frameworks */,
 				72BD9D271BD27A240062FE44 /* FBSDKLoginKit.framework in Frameworks */,
 				728555D41BFC95480009006F /* FBSDKShareKit.framework in Frameworks */,
+				727445221C149FA300E16F6C /* StoreKit.framework in Frameworks */,
 				72BD9D261BD27A240062FE44 /* FBSDKCoreKit.framework in Frameworks */,
 				72802D5D1BE837430069F51D /* WindowsAzureMessaging.framework in Frameworks */,
 			);
@@ -1723,6 +1726,7 @@
 		72424A471BC2C468009FED5C = {
 			isa = PBXGroup;
 			children = (
+				727445211C149FA300E16F6C /* StoreKit.framework */,
 				72424A521BC2C468009FED5C /* MapFeud */,
 				72424A6A1BC2C469009FED5C /* MapFeudTests */,
 				72424A751BC2C469009FED5C /* MapFeudUITests */,
@@ -2789,6 +2793,9 @@
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = A887G5EA37;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};

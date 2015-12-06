@@ -198,7 +198,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/AppDelegate.swift"
@@ -234,7 +234,7 @@
                   moduleName = "MapFeud"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/knut/Documents/repositories/MapFeud/MapFeud/ChallengeViewController.swift"
-                  timestampString = "471113095.607215"
+                  timestampString = "471120253.742651"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "398"
@@ -249,7 +249,7 @@
                   moduleName = "MapFeud"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/knut/Documents/repositories/MapFeud/MapFeud/ChallengeViewController.swift"
-                  timestampString = "471113095.607557"
+                  timestampString = "471120253.743026"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "400"
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/MainMenuViewController.swift"
-            timestampString = "471111369.707502"
+            timestampString = "471120252.672768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1125"
-            endingLineNumber = "1125"
+            startingLineNumber = "1122"
+            endingLineNumber = "1122"
             landmarkName = "recieveNumberOfResultsNotDownloaded()"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,12 +330,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/MainMenuViewController.swift"
-            timestampString = "471112841.513566"
+            timestampString = "471120252.672768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1127"
-            endingLineNumber = "1127"
+            startingLineNumber = "1124"
+            endingLineNumber = "1124"
             landmarkName = "recieveNumberOfResultsNotDownloaded()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/MainMenuViewController.swift"
+            timestampString = "471117099.096261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -83,6 +83,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
 
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
 
+
         let marginButtons:CGFloat = 10
         var buttonHeight = UIScreen.mainScreen().bounds.size.width * 0.17
         let buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
@@ -246,20 +247,22 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         setupCheckboxView()
         
-        loadingDataView?.frame =  CGRectMake(50, 50, 200, 50)
+        
         setupFirstLevelMenu()
         setupPlayButton()
         closeTagCheckView()
         
         if firstLaunch
         {
-            if Int(datactrl.dataPopulatedValue as! NSNumber) <= 0
+
+           if Int(datactrl.dataPopulatedValue as! NSNumber) <= 0
             {
-                loadingDataLabel = UILabel(frame: CGRectMake(0, 0, 200, 50))
+                loadingDataView = UIView(frame: self.view.frame)
+                loadingDataView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
+                loadingDataLabel = UILabel(frame: CGRectMake(loadingDataView.frame.midX - 100, loadingDataView.frame.midY - 25, 200, 50))
                 loadingDataLabel.text = "Loading data.."
                 loadingDataLabel.textAlignment = NSTextAlignment.Center
-                loadingDataView = UIView(frame: CGRectMake(50, 50, 200, 50))
-                loadingDataView.backgroundColor = UIColor.redColor()
+                loadingDataLabel.backgroundColor = UIColor.blueColor()
                 loadingDataView.addSubview(loadingDataLabel)
                 self.view.addSubview(loadingDataView)
                 
@@ -270,7 +273,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                 pulseAnimation.autoreverses = true
                 pulseAnimation.repeatCount = 100
                 pulseAnimation.delegate = self
-                loadingDataView.layer.addAnimation(pulseAnimation, forKey: "asd")
+                loadingDataLabel.layer.addAnimation(pulseAnimation, forKey: "asd")
             }
         }
         else
@@ -385,9 +388,10 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             self.removeAdsButton?.transform = CGAffineTransformIdentity
             }, completion: { (value: Bool) in
                 self.view.backgroundColor = UIColor.whiteColor()
+                self.requestProductData()
+                self.populateDataIfNeeded()
         })
-        requestProductData()
-        populateDataIfNeeded()
+        
         
         //test _?
         /*
@@ -423,20 +427,13 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                 self.loadingDataView.alpha = 0
                 self.loadingDataView.layer.removeAllAnimations()
             })
-            
-            loadingDataView?.frame =  CGRectMake(50, 50, 200, 50)
         }
+        
     }
-
+    
     
     override func viewDidLayoutSubviews() {
-        /*
-        loadingDataView?.frame =  CGRectMake(50, 50, 200, 50)
-        setupFirstLevelMenu()
-        setupChallengeTypeButtons()
-        setupDynamicPlayButton()
-        closeTagCheckView()
-        */
+
     }
     
     func setupFirstLevelMenu()

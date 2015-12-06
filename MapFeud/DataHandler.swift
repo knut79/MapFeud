@@ -308,7 +308,6 @@ class DataHandler
         save()
         dataPopulatedValue = 1
         saveGameData()
-
         completePopulating?()
     }
     
