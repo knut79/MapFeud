@@ -442,6 +442,28 @@ class DataHandler
         return nil
     }
     
+    func fetchAllCountries() -> [Place]?
+    {
+
+            //PlaceType.State.rawValue
+
+        let fetchEvents = NSFetchRequest(entityName: "Place")
+
+        
+        //let predicate = NSPredicate(format: "refId MATCHES '.*(\(idRefsRightFormat)).*'")
+        let predicate = NSPredicate(format: "type == (\(PlaceType.State.rawValue))")
+        fetchEvents.predicate = predicate
+        
+        if let fetchResults = (try? managedObjectContext.executeFetchRequest(fetchEvents)) as? [Place] {
+            
+            return fetchResults
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
     func addRecordToGameResults(value:String)
     {
         //self.gameResultsValue.insertObject(value, atIndex: 0)

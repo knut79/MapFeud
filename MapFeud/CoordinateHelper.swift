@@ -75,6 +75,15 @@ class CoordinateHelper {
         
     }
     
+    func isPointInsidePolygon(point:CGPoint,polygon:[LinePoint]) -> Bool
+    {
+        var wrappingArray:[[LinePoint]] = []
+        wrappingArray.append(polygon)
+        let includedPointCollections = convertFromLinePointsToPoints(wrappingArray)
+        let inside = point.isInsidePolygons(includedPointCollections)
+        return inside
+    }
+    
     //Returns nil if correct answer
     func getNearestPoint(point:CGPoint,includedRegions:[[LinePoint]], excludedRegions:[[LinePoint]]) -> CGPoint?
     {

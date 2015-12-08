@@ -61,6 +61,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     var tags:[String] = []
     
     var backButton:UIButton!
+    var resultMapButton:UIButton!
     
     var holderView:HolderView!
     
@@ -222,12 +223,24 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         backButton.setTitle("🔙", forState: UIControlState.Normal)
         backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(backButton)
+        
+        resultMapButton = UIButton(frame: CGRectZero)
+        resultMapButton.frame = CGRectMake(backButtonMargin, self.statsView.frame.maxY + backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
+        resultMapButton.backgroundColor = UIColor.whiteColor()
+        resultMapButton.layer.borderColor = UIColor.blueColor().CGColor
+        resultMapButton.layer.borderWidth = 3
+        resultMapButton.layer.cornerRadius = resultMapButton.frame.height / 2
+        resultMapButton.layer.masksToBounds = true
+        resultMapButton.setTitle("🌐", forState: UIControlState.Normal)
+        resultMapButton.addTarget(self, action: "resultMapAction", forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(resultMapButton)
  
         practicePlayButton.alpha = 0
         challengePlayButton.alpha = 0
         levelSlider.alpha = 0
         selectFilterTypeButton.alpha = 0
         backButton.alpha = 0
+        resultMapButton.alpha = 0
 
         self.view.addSubview(challengeUsersButton)
         self.view.addSubview(practiceButton)
@@ -283,6 +296,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             self.practiceButton.alpha = 1
             self.resultsButton.alpha = 1
             self.removeAdsButton?.alpha = 1
+            self.resultMapButton.alpha = 1
             
             requestProductData()
             //setupAfterPopulateData()
@@ -295,7 +309,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         /*
         testButton = UIButton(frame:CGRectMake(resultsButton.frame.minX, resultsButton.frame.maxY + marginButtons, buttonWidth, buttonHeight))
         testButton.setTitle("TEST", forState: UIControlState.Normal)
-        testButton.addTarget(self, action: "testAction", forControlEvents: UIControlEvents.TouchUpInside)
+        testButton.addTarget(self, action: "testAction2", forControlEvents: UIControlEvents.TouchUpInside)
         testButton.backgroundColor = UIColor.blueColor()
         testButton.alpha = 1
         view.addSubview(testButton)
@@ -376,16 +390,19 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         practiceButton.transform = CGAffineTransformScale(practiceButton.transform, 0.1, 0.1)
         resultsButton.transform = CGAffineTransformScale(resultsButton.transform, 0.1, 0.1)
         removeAdsButton?.transform = CGAffineTransformScale(removeAdsButton!.transform, 0.1, 0.1)
+        resultMapButton?.transform = CGAffineTransformScale(resultMapButton!.transform, 0.1, 0.1)
         
         UIView.animateWithDuration(0.25, animations: { () -> Void in
             self.challengeUsersButton.alpha = 1
             self.practiceButton.alpha = 1
             self.resultsButton.alpha = 1
             self.removeAdsButton?.alpha = 1
+            self.resultMapButton?.alpha = 1
             self.challengeUsersButton.transform = CGAffineTransformIdentity
             self.practiceButton.transform = CGAffineTransformIdentity
             self.resultsButton.transform = CGAffineTransformIdentity
             self.removeAdsButton?.transform = CGAffineTransformIdentity
+            self.resultMapButton?.transform = CGAffineTransformIdentity
             }, completion: { (value: Bool) in
                 self.view.backgroundColor = UIColor.whiteColor()
                 self.requestProductData()
@@ -542,6 +559,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             self.removeAdsButton?.center = self.orgRemoveAdsButtonCenter
             self.removeAdsButton?.alpha = 1
             self.removeAdsButton?.transform = CGAffineTransformIdentity
+            self.resultMapButton?.alpha = 1
+            self.resultMapButton?.transform = CGAffineTransformIdentity
             
             self.practicePlayButton.alpha = 0
             self.levelSlider.alpha = 0
@@ -559,6 +578,11 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                 
                 
         })
+    }
+    
+    func resultMapAction()
+    {
+        self.performSegueWithIdentifier("segueFromMainMenuToResultMap", sender: nil)
     }
     
     func playPracticeAction()
@@ -596,6 +620,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             self.resultsButton.transform = CGAffineTransformScale(self.resultsButton.transform, 0.1, 0.1)
             self.removeAdsButton?.center = centerScreen
             self.removeAdsButton?.transform = CGAffineTransformScale(self.removeAdsButton!.transform, 0.1, 0.1)
+            self.resultMapButton?.transform = CGAffineTransformScale(self.resultMapButton!.transform, 0.1, 0.1)
             
             self.backButton.alpha = 1
             
@@ -605,6 +630,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                 self.practiceButton.alpha = 0
                 self.resultsButton.alpha = 0
                 self.removeAdsButton?.alpha = 0
+                self.resultMapButton.alpha = 0
                 
                 self.practicePlayButton.alpha = 1
                 self.levelSlider.alpha = 1
@@ -644,7 +670,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             self.newChallengeButton.center = centerScreen
             self.newChallengeButton.transform = CGAffineTransformScale(self.challengeUsersButton.transform, 0.1, 0.1)
             self.pendingChallengesButton.center = centerScreen
-            self.pendingChallengesButton.transform = CGAffineTransformScale(self.practiceButton.transform, 0.1, 0.1)
+            self.pendingChallengesButton.transform = CGAffineTransformScale(self.pendingChallengesButton.transform, 0.1, 0.1)
             
             }, completion: { (value: Bool) in
                 
@@ -1245,6 +1271,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         }
         
     }
+
     
     func testAction()
     {

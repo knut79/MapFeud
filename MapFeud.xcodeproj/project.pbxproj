@@ -553,6 +553,11 @@
 		7254B22E1BD08F4200A22920 /* ResultTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B22A1BD08F4200A22920 /* ResultTitleLabel.swift */; };
 		7254B22F1BD08F4200A22920 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254B22B1BD08F4200A22920 /* ResultsViewController.swift */; };
 		727445221C149FA300E16F6C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727445211C149FA300E16F6C /* StoreKit.framework */; };
+		727445241C14BC8100E16F6C /* ResultMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727445231C14BC8100E16F6C /* ResultMapViewController.swift */; };
+		727445271C14BEC900E16F6C /* ResultMapScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727445261C14BEC900E16F6C /* ResultMapScrollView.swift */; };
+		727445291C1515BE00E16F6C /* ContainerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727445281C1515BD00E16F6C /* ContainerOverlayView.swift */; };
+		7274452C1C152C0E00E16F6C /* FirstMappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7274452B1C152C0E00E16F6C /* FirstMappingModel.xcmappingmodel */; };
+		7274452E1C17461000E16F6C /* ResultMapInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7274452D1C17460F00E16F6C /* ResultMapInfoView.swift */; };
 		727580FF1BE0D6800026A2CC /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727580FE1BE0D6800026A2CC /* MenuButton.swift */; };
 		727581011BE0F7E20026A2CC /* StatusHintButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581001BE0F7E20026A2CC /* StatusHintButton.swift */; };
 		727581031BE0FE0D0026A2CC /* StatusTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */; };
@@ -1391,6 +1396,12 @@
 		7254B22A1BD08F4200A22920 /* ResultTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTitleLabel.swift; sourceTree = "<group>"; };
 		7254B22B1BD08F4200A22920 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		727445211C149FA300E16F6C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		727445231C14BC8100E16F6C /* ResultMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultMapViewController.swift; sourceTree = "<group>"; };
+		727445261C14BEC900E16F6C /* ResultMapScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultMapScrollView.swift; sourceTree = "<group>"; };
+		727445281C1515BD00E16F6C /* ContainerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerOverlayView.swift; sourceTree = "<group>"; };
+		7274452A1C15291400E16F6C /* MapFeud 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MapFeud 2.xcdatamodel"; sourceTree = "<group>"; };
+		7274452B1C152C0E00E16F6C /* FirstMappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = FirstMappingModel.xcmappingmodel; sourceTree = "<group>"; };
+		7274452D1C17460F00E16F6C /* ResultMapInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultMapInfoView.swift; sourceTree = "<group>"; };
 		727580FE1BE0D6800026A2CC /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		727581001BE0F7E20026A2CC /* StatusHintButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusHintButton.swift; sourceTree = "<group>"; };
 		727581021BE0FE0D0026A2CC /* StatusTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTimeButton.swift; sourceTree = "<group>"; };
@@ -1747,6 +1758,7 @@
 		72424A521BC2C468009FED5C /* MapFeud */ = {
 			isa = PBXGroup;
 			children = (
+				727445251C14BD7900E16F6C /* ResultMap */,
 				721EA6661BE6E369000415D3 /* Sounds */,
 				7254B21C1BD08D4800A22920 /* Challenge */,
 				722D8B311BD6A3B700C2EABA /* Finish */,
@@ -1775,6 +1787,7 @@
 				7254B04F1BC69E1000A22920 /* GameData.plist */,
 				7254B1FE1BCD279D00A22920 /* CoordinateHelper.swift */,
 				72BD9D291BD2AA430062FE44 /* MapFeud-Bridging-Header.h */,
+				7274452B1C152C0E00E16F6C /* FirstMappingModel.xcmappingmodel */,
 			);
 			path = MapFeud;
 			sourceTree = "<group>";
@@ -2418,6 +2431,17 @@
 				721D8A941C01509900D488D8 /* UserFilterScrollView.swift */,
 			);
 			name = Result;
+			sourceTree = "<group>";
+		};
+		727445251C14BD7900E16F6C /* ResultMap */ = {
+			isa = PBXGroup;
+			children = (
+				727445231C14BC8100E16F6C /* ResultMapViewController.swift */,
+				727445261C14BEC900E16F6C /* ResultMapScrollView.swift */,
+				727445281C1515BD00E16F6C /* ContainerOverlayView.swift */,
+				7274452D1C17460F00E16F6C /* ResultMapInfoView.swift */,
+			);
+			name = ResultMap;
 			sourceTree = "<group>";
 		};
 		72BD9D221BD27A070062FE44 /* Frameworks */ = {
@@ -3631,13 +3655,18 @@
 				72424A851BC2F319009FED5C /* MapScrollView.swift in Sources */,
 				7254B03B1BC407ED00A22920 /* LinePoint.swift in Sources */,
 				727581031BE0FE0D0026A2CC /* StatusTimeButton.swift in Sources */,
+				727445271C14BEC900E16F6C /* ResultMapScrollView.swift in Sources */,
 				7254B1F71BC9E4F900A22920 /* MagnifyingGlassView.swift in Sources */,
 				72BD9D2C1BD2ADD90062FE44 /* Challenge.swift in Sources */,
+				727445241C14BC8100E16F6C /* ResultMapViewController.swift in Sources */,
+				7274452E1C17461000E16F6C /* ResultMapInfoView.swift in Sources */,
 				7254B2011BD0581800A22920 /* AnswerView.swift in Sources */,
+				7274452C1C152C0E00E16F6C /* FirstMappingModel.xcmappingmodel in Sources */,
 				7254B22E1BD08F4200A22920 /* ResultTitleLabel.swift in Sources */,
 				7254B22F1BD08F4200A22920 /* ResultsViewController.swift in Sources */,
 				7254B1F51BC9B74E00A22920 /* PlayerIconView.swift in Sources */,
 				7254B04C1BC5F95800A22920 /* TileContainerView.swift in Sources */,
+				727445291C1515BE00E16F6C /* ContainerOverlayView.swift in Sources */,
 				7254B1FF1BCD279D00A22920 /* CoordinateHelper.swift in Sources */,
 				7254B1FD1BCC145500A22920 /* StaticValues.swift in Sources */,
 				7254B21B1BD08B4A00A22920 /* RangeSliderTrackLayer.swift in Sources */,
@@ -3938,9 +3967,10 @@
 		7254B0481BC5708700A22920 /* MapFeud.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7274452A1C15291400E16F6C /* MapFeud 2.xcdatamodel */,
 				7254B0491BC5708700A22920 /* MapFeud.xcdatamodel */,
 			);
-			currentVersion = 7254B0491BC5708700A22920 /* MapFeud.xcdatamodel */;
+			currentVersion = 7274452A1C15291400E16F6C /* MapFeud 2.xcdatamodel */;
 			path = MapFeud.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

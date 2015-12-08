@@ -110,6 +110,7 @@ class AnswerView: UIView {
         let measurement = usingKm ? "km" : "miles"
         answerText.text = distance > 0 ? "\(distanceInRightMeasure) \(measurement) \(template)" : "Correct location of \(question.place.name)"
         
+
         
         infoText.text = question.place.info
         infoText.alpha = 0

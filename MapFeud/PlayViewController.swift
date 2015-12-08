@@ -258,6 +258,13 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         {
             qv.setAnswer(currentQuestion, distance: distance)
         }
+        
+        if distance <= 0
+        {
+            currentQuestion.rightAnsw++
+            datactrl.save()
+        }
+        
         showAnswer({() -> Void in
             self.animateDistanceToAdd(distance,completion: {() -> Void in
                 

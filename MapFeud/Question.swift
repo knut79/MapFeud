@@ -10,6 +10,8 @@ class Question: NSManagedObject {
     @NSManaged var image:String
     @NSManaged var answerTemplate:String
     @NSManaged var used:Int32
+    @NSManaged var rightAnsw:Int32
+    @NSManaged var wrongAnsw:Int32
     @NSManaged var place:Place
     @NSManaged var tags:String
     
@@ -22,6 +24,8 @@ class Question: NSManagedObject {
         newitem.answerTemplate = answerTemplate
         newitem.used = 0
         newitem.tags = tags
+        newitem.wrongAnsw = 0
+        newitem.rightAnsw = 0
         return newitem
     }
 }
