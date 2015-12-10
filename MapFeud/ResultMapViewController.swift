@@ -81,9 +81,18 @@ class ResultMapViewController: UIViewController ,ResultMapInfoViewProtocol{
     
     override func viewDidAppear(animated: Bool) {
         
-        map.drawCountries(getFilteredCountriesToDraw())
+        let countriesToDraw = getFilteredCountriesToDraw()
+        map.drawCountries(countriesToDraw)
+        
+        if countriesToDraw.count == 0
+        {
+            let alert = UIAlertView(title: "No countries", message: "No countries revealed. Play challenge", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
         
         displayInfoMessage()
+        
+
     }
     
     func getFilteredCountriesToDraw(tappedPoint:CGPoint? = nil) -> [(Place,Int32,Int)]

@@ -196,7 +196,6 @@ class FinishedViewController:UIViewController {
             
             if error != nil
             {
-                //_??? test this with LogErrorHandler
                 self.activityLabel.text = "Server error"
                 let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
                 let alert = UIAlertView(title: "Server error", message: "Could not send challenge. Sorry for the annoyance.", delegate: nil, cancelButtonTitle: "OK")

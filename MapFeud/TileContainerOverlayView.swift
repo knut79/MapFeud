@@ -78,7 +78,6 @@ class TileContainerOverlayLayer: CALayer {
             drawPlace(ctx,scaleAll:  1.25)
             */
         }
-        //_?
         self.shouldRasterize = true
     }
     

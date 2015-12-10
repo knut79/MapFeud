@@ -261,8 +261,11 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         
         if distance <= 0
         {
-            currentQuestion.rightAnsw++
-            datactrl.save()
+            if gametype != GameType.training
+            {
+                currentQuestion.rightAnsw++
+                datactrl.save()
+            }
         }
         
         showAnswer({() -> Void in
