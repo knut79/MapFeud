@@ -48,10 +48,9 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         let backButtonMargin:CGFloat = 10
         backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - GlobalConstants.smallButtonSide - backButtonMargin, backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
         backButton.backgroundColor = UIColor.whiteColor()
-        backButton.layer.borderColor = UIColor.grayColor().CGColor
-        backButton.layer.borderWidth = 1
-        backButton.layer.borderWidth = 1
-        backButton.layer.cornerRadius = 5
+        backButton.layer.borderColor = UIColor.blueColor().CGColor
+        backButton.layer.borderWidth = 2
+        backButton.layer.cornerRadius = backButton.frame.height / 2
         backButton.setTitle("🔙", forState: UIControlState.Normal)
         backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(backButton)
@@ -90,6 +89,11 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
                 print("UserId2 is: \(userId2)")
                 self.userId = userId2
                 
+                (UIApplication.sharedApplication().delegate as! AppDelegate).backgroundThread(background: {
+                    self.updateUser({() -> Void in
+                    })
+                    
+                })
                 
                 self.initAndCollect()
                 
@@ -105,10 +109,14 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         {
             print("Error: \(error)")
             // Process error
+            let alert = UIAlertView(title: "Facebook login error", message: "Something went wrong at login. Try again later", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+            logOut()
         }
         else if result.isCancelled {
             print("FB login cancelled")
             // Handle cancellations
+            logOut()
         }
         else {
             
@@ -122,6 +130,10 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
             else
             {
                 //TODO show logout button and message telling that friends list must be premitted to continue
+                let alert = UIAlertView(title: "Friendslist", message: "Friendslist must be premitted to play against friends", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+                
+                logOut()
             }
             
             
@@ -134,11 +146,19 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         collectNewResults()
     }
     
-    
+    func logOut()
+    {
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        FBSDKProfile.setCurrentProfile(nil)
+        
+        let manager = FBSDKLoginManager()
+        manager.logOut()
+        
+        self.performSegueWithIdentifier("segueFromResultsToMainMenu", sender: nil)
+    }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        
-        
+        self.logOut()
     }
     
     func initElements()
@@ -166,18 +186,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         activityLabel.textAlignment = NSTextAlignment.Center
         activityLabel.text = ""
         self.view.addSubview(activityLabel)
-        
-        /*
-        let backButtonMargin:CGFloat = 15
-        backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - smallButtonSide - backButtonMargin, backButtonMargin, smallButtonSide, smallButtonSide)
-        backButton.backgroundColor = UIColor.whiteColor()
-        backButton.layer.borderColor = UIColor.grayColor().CGColor
-        backButton.layer.borderWidth = 1
-        backButton.layer.borderWidth = 1
-        backButton.layer.cornerRadius = 5
-        backButton.setTitle("🔙", forState: UIControlState.Normal)
-        backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
-        view.addSubview(backButton)*/
+
 
     }
     
@@ -225,6 +234,35 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         })
     }
     
+    func updateUser(completionClosure: (() -> Void) )
+    {
+        
+        let deviceToken = NSUserDefaults.standardUserDefaults().stringForKey("deviceToken")
+        let jsonDictionary = ["fbid":userId,"name":userName,"token":deviceToken]
+        
+        self.client!.invokeAPI("updateuser", data: nil, HTTPMethod: "POST", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
+            
+            if error != nil
+            {
+                print("\(error)")
+                
+                let reportError = (UIApplication.sharedApplication().delegate as! AppDelegate).reportErrorHandler
+                let alertController = reportError?.alertController("\(error)")
+                self.presentViewController(alertController!,
+                    animated: true,
+                    completion: nil)
+            }
+            /*
+            //NO result
+            */
+            if response != nil
+            {
+                print("\(response)")
+            }
+            
+            completionClosure()
+        })
+    }
     
     func collectStoredResults(oldNumerbOfRecords:Int)
     {

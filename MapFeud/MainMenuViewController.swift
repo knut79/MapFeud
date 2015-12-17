@@ -161,6 +161,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         
         challengePlayButton = UIButton(frame:CGRectZero)
         challengePlayButton.setTitle("New challenge\n\(numOfQuestionsForRound) questions", forState: UIControlState.Normal)
+        challengePlayButton.titleLabel?.textAlignment = NSTextAlignment.Center
         challengePlayButton.titleLabel!.numberOfLines = 2
         challengePlayButton.addTarget(self, action: "playNewChallengeAction", forControlEvents: UIControlEvents.TouchUpInside)
         challengePlayButton.backgroundColor = UIColor.blueColor()
@@ -216,9 +217,9 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         backButton = UIButton(frame: CGRectZero)
         backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - GlobalConstants.smallButtonSide - backButtonMargin, self.statsView.frame.maxY + backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
         backButton.backgroundColor = UIColor.whiteColor()
-        backButton.layer.borderColor = UIColor.grayColor().CGColor
-        backButton.layer.borderWidth = 1
-        backButton.layer.cornerRadius = 5
+        backButton.layer.borderColor = UIColor.blueColor().CGColor
+        backButton.layer.borderWidth = 2
+        backButton.layer.cornerRadius = backButton.frame.height / 2
         backButton.layer.masksToBounds = true
         backButton.setTitle("🔙", forState: UIControlState.Normal)
         backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
@@ -894,6 +895,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             animated: true,
             completion: nil)
     }
+    
     func buyAdFree()
     {
 
@@ -907,7 +909,6 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
                 break
             }
         }
-
     }
     
     func requestBuyHints()

@@ -91,22 +91,17 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             loginButton.readPermissions = ["public_profile", "user_friends"]
             self.view.addSubview(loginButton)
         }
-        
 
-        
-        
         let backButtonMargin:CGFloat = 10
         backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - GlobalConstants.smallButtonSide - backButtonMargin, backButtonMargin, GlobalConstants.smallButtonSide, GlobalConstants.smallButtonSide)
         backButton.backgroundColor = UIColor.whiteColor()
-        backButton.layer.borderColor = UIColor.grayColor().CGColor
-        backButton.layer.borderWidth = 1
-        backButton.layer.cornerRadius = 5
+        backButton.layer.borderColor = UIColor.blueColor().CGColor
+        backButton.layer.borderWidth = 2
+        backButton.layer.cornerRadius = backButton.frame.height / 2
         backButton.layer.masksToBounds = true
         backButton.setTitle("🔙", forState: UIControlState.Normal)
         backButton.addTarget(self, action: "backAction", forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(backButton)
-        
-
 
     }
     
@@ -124,9 +119,13 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         if ((error) != nil)
         {
             // Process error
+            let alert = UIAlertView(title: "Facebook login error", message: "Something went wrong at login. Try again later", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+            logOut()
         }
         else if result.isCancelled {
             // Handle cancellations
+            logOut()
         }
         else {
             activityLabel.alpha = 1
@@ -151,7 +150,10 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             }
             else
             {
-                //TODO show logout button and message telling that friends list must be premitted to continue
+                let alert = UIAlertView(title: "Friendslist", message: "Friendslist must be premitted to play against friends", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
+                
+                logOut()
             }
             
             
@@ -159,11 +161,23 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     }
     
     
+    func logOut()
+    {
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        FBSDKProfile.setCurrentProfile(nil)
+        
+        let manager = FBSDKLoginManager()
+        manager.logOut()
+        
+        self.performSegueWithIdentifier("segueFromChallengeToMainMenu", sender: nil)
+    }
+    
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         
-        
+        self.logOut()
     }
+
     
     func initUserData(completion: (() -> (Void)))
     {
@@ -187,13 +201,18 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 self.userId = userId2
 
                 result
-                self.updateUser({() -> Void in
+                (UIApplication.sharedApplication().delegate as! AppDelegate).backgroundThread(background: {
+                    self.updateUser({() -> Void in
+                        
+                        //self.activityLabel.alpha = 0
+                        //self.activityIndicator.stopAnimating()
+                        //completion()
+                    })
                     
-                    self.activityLabel.alpha = 0
-                    self.activityIndicator.stopAnimating()
-                    
-                    completion()
                 })
+                self.activityLabel.alpha = 0
+                self.activityIndicator.stopAnimating()
+                completion()
             }
         })
     }
