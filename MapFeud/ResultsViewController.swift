@@ -238,7 +238,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
     {
         
         let deviceToken = NSUserDefaults.standardUserDefaults().stringForKey("deviceToken")
-        let jsonDictionary = ["fbid":userId,"name":userName,"token":deviceToken]
+        let jsonDictionary = ["fbid":userId,"name":userName,"token":deviceToken == nil ? "" : deviceToken]
         
         self.client!.invokeAPI("updateuser", data: nil, HTTPMethod: "POST", parameters: jsonDictionary, headers: nil, completion: {(result:NSData!, response: NSHTTPURLResponse!,error: NSError!) -> Void in
             
