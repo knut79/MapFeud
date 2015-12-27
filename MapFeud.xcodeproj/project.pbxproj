@@ -28,6 +28,10 @@
 		722D8B331BD6A3CC00C2EABA /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */; };
 		722D8B351BD6A46800C2EABA /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B341BD6A46800C2EABA /* ClockView.swift */; };
 		722D8B391BDDA42300C2EABA /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B381BDDA42300C2EABA /* StatsView.swift */; };
+		723DA0921C2FEA9F004CAA3B /* crosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA0911C2FEA9F004CAA3B /* crosshair.png */; };
+		723DA3EF1C303410004CAA3B /* crosshair2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA3ED1C303410004CAA3B /* crosshair2.png */; };
+		723DA3F01C303410004CAA3B /* crosshair3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA3EE1C303410004CAA3B /* crosshair3.png */; };
+		723DA3F21C303417004CAA3B /* crosshair4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA3F11C303417004CAA3B /* crosshair4.png */; };
 		72424A541BC2C468009FED5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72424A531BC2C468009FED5C /* AppDelegate.swift */; };
 		72424A561BC2C468009FED5C /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72424A551BC2C468009FED5C /* PlayViewController.swift */; };
 		72424A591BC2C469009FED5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72424A571BC2C469009FED5C /* Main.storyboard */; };
@@ -324,9 +328,6 @@
 		7254B05B1BC7279100A22920 /* 50MaskWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0551BC7279100A22920 /* 50MaskWater.png */; };
 		7254B05C1BC7279100A22920 /* 100MaskLand.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0561BC7279100A22920 /* 100MaskLand.png */; };
 		7254B05D1BC7279100A22920 /* 100MaskWater.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0571BC7279100A22920 /* 100MaskWater.png */; };
-		7254B05F1BC80B4A00A22920 /* 25MaskLandAlpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B05E1BC80B4A00A22920 /* 25MaskLandAlpha.png */; };
-		7254B0621BC99C1A00A22920 /* ArrowGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0611BC99C1A00A22920 /* ArrowGreen.png */; };
-		7254B0641BC99C6400A22920 /* ArrowPurple.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0631BC99C6400A22920 /* ArrowPurple.png */; };
 		7254B12D1BC99CA900A22920 /* AfghanistanFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0661BC99CA900A22920 /* AfghanistanFlag.png */; };
 		7254B12E1BC99CA900A22920 /* AlbaniaFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0671BC99CA900A22920 /* AlbaniaFlag.png */; };
 		7254B12F1BC99CA900A22920 /* AlgeriaFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7254B0681BC99CA900A22920 /* AlgeriaFlag.png */; };
@@ -865,6 +866,10 @@
 		722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		722D8B341BD6A46800C2EABA /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		722D8B381BDDA42300C2EABA /* StatsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		723DA0911C2FEA9F004CAA3B /* crosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair.png; sourceTree = "<group>"; };
+		723DA3ED1C303410004CAA3B /* crosshair2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair2.png; sourceTree = "<group>"; };
+		723DA3EE1C303410004CAA3B /* crosshair3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair3.png; sourceTree = "<group>"; };
+		723DA3F11C303417004CAA3B /* crosshair4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair4.png; sourceTree = "<group>"; };
 		72424A501BC2C468009FED5C /* MapFeud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapFeud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72424A531BC2C468009FED5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72424A551BC2C468009FED5C /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
@@ -1167,9 +1172,6 @@
 		7254B0551BC7279100A22920 /* 50MaskWater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 50MaskWater.png; sourceTree = "<group>"; };
 		7254B0561BC7279100A22920 /* 100MaskLand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100MaskLand.png; sourceTree = "<group>"; };
 		7254B0571BC7279100A22920 /* 100MaskWater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100MaskWater.png; sourceTree = "<group>"; };
-		7254B05E1BC80B4A00A22920 /* 25MaskLandAlpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 25MaskLandAlpha.png; sourceTree = "<group>"; };
-		7254B0611BC99C1A00A22920 /* ArrowGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowGreen.png; sourceTree = "<group>"; };
-		7254B0631BC99C6400A22920 /* ArrowPurple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPurple.png; sourceTree = "<group>"; };
 		7254B0661BC99CA900A22920 /* AfghanistanFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AfghanistanFlag.png; sourceTree = "<group>"; };
 		7254B0671BC99CA900A22920 /* AlbaniaFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlbaniaFlag.png; sourceTree = "<group>"; };
 		7254B0681BC99CA900A22920 /* AlgeriaFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlgeriaFlag.png; sourceTree = "<group>"; };
@@ -2138,7 +2140,6 @@
 		7254B0511BC7278600A22920 /* masks */ = {
 			isa = PBXGroup;
 			children = (
-				7254B05E1BC80B4A00A22920 /* 25MaskLandAlpha.png */,
 				7254B0521BC7279100A22920 /* 25MaskLand.png */,
 				7254B0531BC7279100A22920 /* 25MaskWater.png */,
 				7254B0541BC7279100A22920 /* 50MaskLand.png */,
@@ -2152,8 +2153,10 @@
 		7254B0601BC99C0100A22920 /* gameGraphics */ = {
 			isa = PBXGroup;
 			children = (
-				7254B0631BC99C6400A22920 /* ArrowPurple.png */,
-				7254B0611BC99C1A00A22920 /* ArrowGreen.png */,
+				723DA3F11C303417004CAA3B /* crosshair4.png */,
+				723DA3ED1C303410004CAA3B /* crosshair2.png */,
+				723DA3EE1C303410004CAA3B /* crosshair3.png */,
+				723DA0911C2FEA9F004CAA3B /* crosshair.png */,
 			);
 			name = gameGraphics;
 			sourceTree = "<group>";
@@ -2905,7 +2908,6 @@
 				7254B0261BC3E98000A22920 /* capitalsAsia.txt in Resources */,
 				7254B02B1BC3E98000A22920 /* islands.txt in Resources */,
 				72BD9E0F1BD3D4C40062FE44 /* world_100_border_2_7.jpg in Resources */,
-				7254B0621BC99C1A00A22920 /* ArrowGreen.png in Resources */,
 				7254AFD61BC31E1000A22920 /* world_100_9_0.jpg in Resources */,
 				7254AF711BC31E1000A22920 /* world_100_0_7.jpg in Resources */,
 				7254AFD81BC31E1000A22920 /* world_100_9_2.jpg in Resources */,
@@ -3088,6 +3090,7 @@
 				72BD9E7C1BD3D4C40062FE44 /* world_100_border_11_8.jpg in Resources */,
 				7254B1371BC99CA900A22920 /* BahrainFlag.png in Resources */,
 				72BD9E251BD3D4C40062FE44 /* world_100_border_4_5.jpg in Resources */,
+				723DA3F01C303410004CAA3B /* crosshair3.png in Resources */,
 				7254B0361BC3E98000A22920 /* statesOceania.txt in Resources */,
 				72BD9E4B1BD3D4C40062FE44 /* world_100_border_7_7.jpg in Resources */,
 				7254AF691BC31E1000A22920 /* world_100_15_11.jpg in Resources */,
@@ -3302,6 +3305,7 @@
 				7254AE601BC31DE900A22920 /* world_50_1_0.jpg in Resources */,
 				7254B17C1BC99CA900A22920 /* IndonesiaFlag.png in Resources */,
 				7254AFA91BC31E1000A22920 /* world_100_5_3.jpg in Resources */,
+				723DA0921C2FEA9F004CAA3B /* crosshair.png in Resources */,
 				7254B0231BC3E98000A22920 /* armsOfCoat.txt in Resources */,
 				7254B1C21BC99CAA00A22920 /* SaintLuciaFlag.png in Resources */,
 				7254B1721BC99CA900A22920 /* GrenadaFlag.png in Resources */,
@@ -3395,7 +3399,6 @@
 				72BD9E121BD3D4C40062FE44 /* world_100_border_2_10.jpg in Resources */,
 				7254AF5C1BC31E1000A22920 /* world_100_14_10.jpg in Resources */,
 				7254AF9E1BC31E1000A22920 /* world_100_4_4.jpg in Resources */,
-				7254B0641BC99C6400A22920 /* ArrowPurple.png in Resources */,
 				7254AFB31BC31E1000A22920 /* world_100_6_1.jpg in Resources */,
 				72BD9E581BD3D4C40062FE44 /* world_100_border_8_8.jpg in Resources */,
 				72BD9EAE1BD3D4C40062FE44 /* world_100_border_15_10.jpg in Resources */,
@@ -3449,6 +3452,7 @@
 				72BD9DF21BD3D4C40062FE44 /* world_100_border_0_2.jpg in Resources */,
 				7254AFB71BC31E1000A22920 /* world_100_6_5.jpg in Resources */,
 				7254B1A21BC99CAA00A22920 /* MongoliaFlag.png in Resources */,
+				723DA3F21C303417004CAA3B /* crosshair4.png in Resources */,
 				7254B1A81BC99CAA00A22920 /* NauruFlag.png in Resources */,
 				7254B05C1BC7279100A22920 /* 100MaskLand.png in Resources */,
 				72BD9F0D1BD3D5170062FE44 /* world_50_border_7_2.jpg in Resources */,
@@ -3520,6 +3524,7 @@
 				72BD9E3F1BD3D4C40062FE44 /* world_100_border_6_7.jpg in Resources */,
 				72BD9E901BD3D4C40062FE44 /* world_100_border_13_4.jpg in Resources */,
 				7254AFAC1BC31E1000A22920 /* world_100_5_6.jpg in Resources */,
+				723DA3EF1C303410004CAA3B /* crosshair2.png in Resources */,
 				7254AF4E1BC31E1000A22920 /* world_100_13_8.jpg in Resources */,
 				72BD9E4E1BD3D4C40062FE44 /* world_100_border_7_10.jpg in Resources */,
 				72BD9E4D1BD3D4C40062FE44 /* world_100_border_7_9.jpg in Resources */,
@@ -3577,7 +3582,6 @@
 				7254B1491BC99CA900A22920 /* CanadaFlag.png in Resources */,
 				7254AF751BC31E1000A22920 /* world_100_0_11.jpg in Resources */,
 				72BD9EE11BD3D5170062FE44 /* world_50_border_0_0.jpg in Resources */,
-				7254B05F1BC80B4A00A22920 /* 25MaskLandAlpha.png in Resources */,
 				72BD9DF91BD3D4C40062FE44 /* world_100_border_0_9.jpg in Resources */,
 				7254AF771BC31E1000A22920 /* world_100_1_1.jpg in Resources */,
 				7254AFB41BC31E1000A22920 /* world_100_6_2.jpg in Resources */,

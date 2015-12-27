@@ -57,6 +57,9 @@ struct GlobalConstants {
     
     static let indexOfOpponentNameInGamerecordRow = 1
     static let indexOfOpponentIdInGamerecordRow = 5
+    
+    static let playerSymbolName = "crosshair4.png"
+    static let playerSymbolNameInMagnify = "crosshair.png"
 }
 
 

@@ -73,7 +73,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     
         tileContainerView.frame = CGRectMake(0, 0, mapWith, mapHeight)
         
-        let image = UIImage(named: "ArrowGreen.png")
+        let image = UIImage(named: GlobalConstants.playerSymbolName)
         playerSymbol = UIImageView(image:image)
         playerSymbol.alpha = 0
         
@@ -119,17 +119,17 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         playerSymbol.removeFromSuperview()
         playerSymbol.alpha = 1
-        setPlayerIcon()
+        //setPlayerIcon()
 
     }
-    
+    /*
     func setPlayerIcon()
     {
         if playerSymbol.alpha == 1
         {
             let hPrsSide = UIScreen.mainScreen().bounds.width * 0.12
             let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
-            let side = hPrsSide //* CGFloat(resolutionPercentage / 100)
+            let side = hPrsSide
             playerSymbol.frame = CGRectMake(0, 0, side, side)
             
             playerSymbol.center = CGPointMake(realMapCordsPlayerPoint.x * CGFloat(resolutionPercentage / 100), realMapCordsPlayerPoint.y * CGFloat(resolutionPercentage / 100))
@@ -146,7 +146,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             })
         }
     }
-    
+*/
+
     func animateAnswer(place:Place)
     {
         drawLineToPlace(place)
@@ -341,7 +342,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
         overlayDrawView!.setNeedsDisplay()
         
-        setPlayerIcon()
+        //setPlayerIcon()
 
     }
     

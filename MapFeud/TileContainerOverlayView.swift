@@ -17,8 +17,10 @@ class TileContainerOverlayLayer: CALayer {
     
     override init() {
         super.init()
+        playerSymbol = UIImage(named: GlobalConstants.playerSymbolName)
     }
     
+    var playerSymbol:UIImage!
     var fromPoint:CGPoint?
     var toPoint:CGPoint?
     var regions:[[LinePoint]] = []
@@ -60,6 +62,7 @@ class TileContainerOverlayLayer: CALayer {
         if fromPoint != nil && toPoint != nil
         {
             drawLine(ctx)
+            CGContextSaveGState(ctx)
         }
 
         if regions.count == 1 && regions[0].count == 1
@@ -78,6 +81,12 @@ class TileContainerOverlayLayer: CALayer {
             drawPlace(ctx,scaleAll:  1.25)
             */
         }
+        
+        if fromPoint != nil && toPoint != nil
+        {
+            CGContextRestoreGState (ctx)
+            drawPlayerSymbol(ctx)
+        }
         self.shouldRasterize = true
     }
     
@@ -88,6 +97,16 @@ class TileContainerOverlayLayer: CALayer {
         self.fromPoint = nil
         self.toPoint = nil
         self.setNeedsDisplay()
+    }
+    
+    func drawPlayerSymbol(context:CGContext)
+    {
+
+        let side = UIScreen.mainScreen().bounds.width * 0.2
+        UIGraphicsPushContext(context)
+        playerSymbol?.drawInRect(CGRectMake(fromPoint!.x * (resolutionPercentage / 100.0) - (side / 2),fromPoint!.y * (resolutionPercentage / 100.0) - (side / 2), side, side))
+        UIGraphicsPopContext()
+
     }
     
     func drawMask(context:CGContext)
