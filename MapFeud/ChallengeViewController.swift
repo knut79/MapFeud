@@ -318,15 +318,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         let content = FBSDKShareLinkContent()
         content.contentURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
         content.imageURL = NSURL(string: "https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-xtp1/t39.2081-0/p128x128/12057212_936552496419899_597891191_n.png")
-        content.contentDescription = "Test this iOS geography game"
+        content.contentDescription = "Check out this game"
         content.contentTitle = "Map feud"
         
         let inviteFriendsButton = FBSDKSendButton()
         inviteFriendsButton.frame = CGRectMake(titleLabel.frame.minX, playButton.frame.minY - (margin * 2) - (elementHeight * 2), elementWidth , elementHeight)
         inviteFriendsButton.shareContent = content
-        //self.inviteFriendsButton.addTarget(self, action: "inviteFriendsAction", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        //self.inviteFriendsButton.backgroundColor = UIColor.blueColor()
         inviteFriendsButton.layer.cornerRadius = 5
         inviteFriendsButton.layer.masksToBounds = true
         inviteFriendsButton.setTitle("Invite friends", forState: UIControlState.Normal)
@@ -369,6 +366,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
         
     }
+    
     
     
     func initChallenges()
@@ -565,6 +563,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     
     func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
         //TODO
+        print(results)
     }
     func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
         print(error)

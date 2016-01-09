@@ -132,6 +132,13 @@ class QuestionView: UIView {
                 imageView.frame = CGRectMake(3, 3, image.size.width / heightRatio, self.bounds.height - 6)
                 questionText.frame = CGRectMake(imageView.frame.maxX + 3, 0, self.bounds.width - imageView.frame.width - 9, self.bounds.height)
             }
+            else
+            {
+                print("Waring! Could not find picture file \(question.image)")
+                questionText.text = "Where is \(question.place.name)?"
+                imageView.alpha = 0
+                questionText.frame = CGRectMake(self.bounds.width * 0.05, 0, self.bounds.width * 0.9, self.bounds.height)
+            }
         }
         else
         {
