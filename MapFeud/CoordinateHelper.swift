@@ -181,6 +181,42 @@ class CoordinateHelper {
         }
     }
     
+    func isInsideWindowRadius(playerPoint:CGPoint, mapCordsNearestPoint:CGPoint?, radius:CGFloat) -> Bool
+    {
+        if let centerPoint = mapCordsNearestPoint
+        {
+            return isPointInCircle(centerPoint,radius: radius,pointToTest: playerPoint)
+        }
+        else
+        {
+            return false
+        }
+        
+    }
+    
+    //used by isInsideWindowRadius
+    func isInRectangle(centerPoint:CGPoint, radius:CGFloat, pointToTest:CGPoint) -> Bool
+    {
+        return pointToTest.x >= centerPoint.x - radius && pointToTest.x <= centerPoint.x + radius &&
+            pointToTest.y >= centerPoint.y - radius && pointToTest.y <= centerPoint.y + radius;
+    }
+    
+    //used by isInsideWindowRadius
+    func isPointInCircle(centerPoint:CGPoint, radius:CGFloat, pointToTest:CGPoint) -> Bool
+    {
+        if(isInRectangle(centerPoint, radius: radius, pointToTest: pointToTest))
+        {
+            var dx:CGFloat = centerPoint.x - pointToTest.x;
+            var dy:CGFloat = centerPoint.y - pointToTest.y;
+            dx *= dx;
+            dy *= dy;
+            let distanceSquared:CGFloat = dx + dy;
+            let radiusSquared:CGFloat = radius * radius;
+            return distanceSquared <= radiusSquared;
+        }
+        return false;
+    }
+    
     
     func haversineCalulationDistance(pos1:CGPoint,pos2:CGPoint) -> CGFloat
     {

@@ -12,7 +12,7 @@ import UIKit
 
 protocol MapDelegate
 {
-    func finishedAnimatingAnswer(distance:Int)
+    func finishedAnimatingAnswer(distance:Int,insidePerfectWindow:Bool,insideOkWindow:Bool)
 }
 
 
@@ -32,6 +32,9 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     var drawBorders:Bool = false
     let coordinateHelper = CoordinateHelper()
     
+    var pixelOkWindow:CGFloat!
+    var pixelPerfectWindow:CGFloat!
+    
     var delegate:MapDelegate?
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,13 +43,15 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         
     }
     
-    init(frame: CGRect, drawBorders:Bool = false) {
+    init(frame: CGRect, drawBorders:Bool = false, okWindow:CGFloat = GlobalConstants.pointOkWindowOutlineRadius, perfectWindow:CGFloat = GlobalConstants.pointPerfectWindowOutlineRadius) {
         super.init(frame: frame)
         self.drawBorders = drawBorders
         tileContainerView = TileContainerView(frame: CGRectZero)
 
         //overlayDrawView.backgroundColor = UIColor.clearColor()
         
+        pixelOkWindow = okWindow
+        pixelPerfectWindow = perfectWindow
 /*
         let maskImage = UIImage(named: "25MaskLand.png" )
         let mask = CALayer()
@@ -168,10 +173,22 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         overlayDrawView?.fromPoint = realMapCordsPlayerPoint
         overlayDrawView?.toPoint = realMapCordsNearestPoint
         
-        let distance:Int = coordinateHelper.getDistanceInKm(realMapCordsPlayerPoint, point2: realMapCordsNearestPoint, placeType: PlaceType(rawValue: Int(place.type))!)
+        let placeType = PlaceType(rawValue: Int(place.type))!
+        let distance:Int = coordinateHelper.getDistanceInKm(realMapCordsPlayerPoint, point2: realMapCordsNearestPoint, placeType: placeType)
 
+        var insidePerfectWindow = distance <= 0
+        if placeType == PlaceType.City || placeType == PlaceType.UnDefPlace || placeType == PlaceType.Mountain
+        {
+            insidePerfectWindow = coordinateHelper.isInsideWindowRadius(realMapCordsPlayerPoint, mapCordsNearestPoint: realMapCordsNearestPoint, radius: pixelPerfectWindow)
+        }
+        let insideOkWindow = coordinateHelper.isInsideWindowRadius(realMapCordsPlayerPoint, mapCordsNearestPoint: realMapCordsNearestPoint, radius: pixelOkWindow)
         
-        delegate?.finishedAnimatingAnswer(distance)
+        print("inside ok window \(insideOkWindow)")
+        print("inside perfect window \(insidePerfectWindow)")
+        
+        
+        //Really messy code :( . insideX parameters is exclusivly used to handle badgeChallenges
+        delegate?.finishedAnimatingAnswer(distance,insidePerfectWindow: insidePerfectWindow,insideOkWindow: insideOkWindow)
     }
     
     func drawLineToPlace(place:Place)

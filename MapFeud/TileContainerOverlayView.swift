@@ -38,15 +38,28 @@ class TileContainerOverlayLayer: CALayer {
         CGContextSetLineCap(ctx, CGLineCap.Round)
         CGContextSetLineJoin(ctx, CGLineJoin.Round)
         CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 1)
+        
+        
+        if fromPoint != nil && toPoint != nil
+        {
+            drawLine(ctx)
+            //drawPlayerSymbol(ctx)
+            //save before setting mask so we can draw upon mask after drawing places
+            drawNearestPointWindowOutline(ctx)
+            
+            CGContextSaveGState(ctx)
+        }
+        
+        //Set fill color
         if toPoint == nil
         {
             //correct region placement
-            CGContextSetFillColorWithColor(ctx, UIColor.greenColor().CGColor)
+            CGContextSetFillColorWithColor(ctx, UIColor.greenColor().colorWithAlphaComponent(0.9).CGColor)
             
         }
         else
         {
-            CGContextSetFillColorWithColor(ctx, UIColor.redColor().CGColor)
+            CGContextSetFillColorWithColor(ctx, UIColor.redColor().colorWithAlphaComponent(0.9).CGColor)
         }
         
         
@@ -74,12 +87,6 @@ class TileContainerOverlayLayer: CALayer {
 
             drawMask(ctx)
             drawPlace(ctx)
-            /*
-            CGContextSetFillColorWithColor(ctx, UIColor.greenColor().colorWithAlphaComponent(0.5).CGColor)
-            
-            //TODO ... if you want to scale a path ... do this and use midpoint in regular scale ... and extract new midpoint of the ofset scaled path
-            drawPlace(ctx,scaleAll:  1.25)
-            */
         }
         
         if fromPoint != nil && toPoint != nil
@@ -141,6 +148,28 @@ class TileContainerOverlayLayer: CALayer {
         CGContextAddArc(context, CGFloat(point.x) * (resolutionPercentage / 100.0), CGFloat(point.y) * (resolutionPercentage / 100.0), 4, 0.0, CGFloat(M_PI * 2.0), 1)
 
         CGContextStrokePath(context);
+    }
+    
+    func drawNearestPointWindowOutline(context:CGContext)
+    {
+        if let point = toPoint
+        {
+            //if inside window -- green
+            CGContextSetStrokeColorWithColor(context, UIColor.greenColor().CGColor)
+            CGContextSetFillColorWithColor(context, UIColor.greenColor().colorWithAlphaComponent(0.1).CGColor)
+            //if outside window -- red
+            CGContextSetStrokeColorWithColor(context, UIColor.redColor().CGColor)
+            CGContextSetFillColorWithColor(context, UIColor.redColor().colorWithAlphaComponent(0.1).CGColor)
+            
+            
+            CGContextAddArc(context, CGFloat(point.x) * (resolutionPercentage / 100.0), CGFloat(point.y) * (resolutionPercentage / 100.0), GlobalConstants.pointOkWindowOutlineRadius * (resolutionPercentage / 100.0), 0.0, CGFloat(M_PI * 2.0), 1)
+            
+            //CGContextStrokePath(context)
+            CGContextDrawPath(context, CGPathDrawingMode.EOFillStroke)
+            
+            
+            CGContextSetRGBStrokeColor(context, 1, 1, 1, 1)
+        }
     }
     
     func drawLine(context:CGContext)
