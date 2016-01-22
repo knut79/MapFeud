@@ -50,4 +50,6 @@ inf;City#Where is the non US city;Auckland;10;level3;The Auckland urban area, in
 inf;City#Where is the capital;Washington DC;10;level1;Formally the District of Columbia and commonly referred to as Washington, "the District", or simply D.C., is the capital of the United States. #nor#spn#fra#ger;America#USA;;;#northamerica#america
 1058;1332
 inf;City#Where is the capital;Ottawa;10;level2;The capital of Canada. It stands on the south bank of the Ottawa River in the eastern portion of Southern Ontario. Fourth-largest city in Canada.#nor#spn#fra#ger;America#Canada;;;#northamerica#america
+2056;1106
+inf;City;Gothenburg;10;level4;The second largest city in Sweden and the fifth largest in the Nordic countries#nor#spn#fra#ger;Europe#Sweden
 eof

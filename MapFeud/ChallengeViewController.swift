@@ -40,6 +40,9 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     
     var activityIndicator:UIActivityIndicatorView!
     
+    let elementWidth:CGFloat = 200
+    let elementHeight:CGFloat = 60
+    
     var client: MSClient?
     
     override func viewDidLoad() {
@@ -267,6 +270,9 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             initialValues.updateValue(friendObject.valueForKey("id") as! String, forKey: friendObject.valueForKey("name") as! String )
         }
 
+        
+
+        
         let minNumberOfItemsOnGamerecordRow = 6
         let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
         datactrl.loadGameData()
@@ -299,8 +305,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         }
 
         let margin:CGFloat = 10
-        let elementWidth:CGFloat = 200
-        let elementHeight:CGFloat = 60
+
 
         self.initCommonElements(margin,elementWidth: elementWidth,elementHeight: elementHeight)
         
@@ -316,10 +321,13 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
         
         let content = FBSDKShareLinkContent()
-        content.contentURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+        content.contentURL = NSURL(string: "https://itunes.apple.com/no/app/geo-feud/id1054226772?mt=8")
         content.imageURL = NSURL(string: "https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-xtp1/t39.2081-0/p128x128/12057212_936552496419899_597891191_n.png")
         content.contentDescription = "Check out this game"
         content.contentTitle = "Map feud"
+        
+        
+        
         
         let inviteFriendsButton = FBSDKSendButton()
         inviteFriendsButton.frame = CGRectMake(titleLabel.frame.minX, playButton.frame.minY - (margin * 2) - (elementHeight * 2), elementWidth , elementHeight)
@@ -327,6 +335,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         inviteFriendsButton.layer.cornerRadius = 5
         inviteFriendsButton.layer.masksToBounds = true
         inviteFriendsButton.setTitle("Invite friends", forState: UIControlState.Normal)
+        
+        setFriendsLeftToBonusLabel(friendObjects.count, xPos: inviteFriendsButton.frame.maxX, yPos: inviteFriendsButton.frame.minY)
         
         addRandomUserButton = UIButton(frame:CGRectMake(titleLabel.frame.minX, playButton.frame.minY - margin - elementHeight, elementWidth , elementHeight))
         self.addRandomUserButton.addTarget(self, action: "addRandomUserAction", forControlEvents: UIControlEvents.TouchUpInside)
@@ -367,7 +377,54 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
     }
     
+    func setFriendsLeftToBonusLabel(facebookFriends:Int,xPos:CGFloat,yPos:CGFloat)
+    {
+        let friendsLeftToBonusLabel = UILabel(frame: CGRectMake(xPos, yPos, elementWidth , elementHeight))
+        friendsLeftToBonusLabel.adjustsFontSizeToFitWidth = true
+        //first load of frieds
+        let notFirstTime = NSUserDefaults.standardUserDefaults().boolForKey("loadFacebookFriendsFirstTime")
+        if notFirstTime
+        {
+            
+            let friendsNow = facebookFriends
+            let numberOfFriendsAtBeginning = NSUserDefaults.standardUserDefaults().integerForKey("facebookFriendsBeforBonus")
+
+            let friendsLeftToBonus = 2 - (friendsNow - numberOfFriendsAtBeginning)
+            if friendsLeftToBonus <= 0
+            {
+                //give bonus
+                //reset
+                NSUserDefaults.standardUserDefaults().setInteger(facebookFriends, forKey: "facebookFriendsBeforBonus")
+                friendsLeftToBonusLabel.text = "\(GlobalConstants.friendHintBonus) hints given as a bonus"
+                self.addHints()
+            }
+            else
+            {
+                friendsLeftToBonusLabel.text = "\(friendsLeftToBonus) friends left to bonus"
+            }
+            
+        }
+        else
+        {
+            //first time load
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey:"loadFacebookFriendsFirstTime")
+            NSUserDefaults.standardUserDefaults().setInteger(facebookFriends, forKey: "facebookFriendsBeforBonus")
+            friendsLeftToBonusLabel.text = "2 friends left to bonus"
+        }
+        self.view.addSubview(friendsLeftToBonusLabel)
+
+    }
     
+    func addHints()
+    {
+        var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
+        hints = hints + GlobalConstants.friendHintBonus
+        NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+        datactrl.hintsValue = hints
+        datactrl.saveGameData()
+    }
     
     func initChallenges()
     {
@@ -505,8 +562,8 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     func inviteFriendsAction()
     {
         let content = FBSDKShareLinkContent()
-        content.contentURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
-        content.imageURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
+        content.contentURL = NSURL(string: "https://itunes.apple.com/no/app/geo-feud/id1054226772?mt=8")
+        content.imageURL = NSURL(string: "https://itunes.apple.com/no/app/geo-feud/id1054226772?mt=8")
         content.contentDescription = "bla bla description"
         content.contentTitle = "bla bla title"
         //content.appInvitePreviewImageURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
@@ -531,17 +588,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             alert.show()
             
         }
-        
-        //FBSDKMessageDialog.showWithContent(content, delegate: self)
-        
-        //replace http:// with itms:// or itms-apps:// to avoid redirects.
-        /*
-        let content = FBSDKAppInviteContent()
-        //content.appLinkURL = NSURL(string: "itms-apps://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
-        content.appLinkURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
-        content.appInvitePreviewImageURL = NSURL(string: "https://itunes.apple.com/no/app/year-feud/id1050347083?mt=8")
-        FBSDKAppInviteDialog.showFromViewController(self, withContent: content, delegate: self) //.showWithContent(content, delegate: self)
-*/
+
     }
     
     func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {

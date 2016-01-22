@@ -27,8 +27,9 @@ class BadgeChallenge: Challenge {
     var usingBorders:Int!
     var distancePixelsWindow:CGFloat!
     var won:Bool!
+    var hints:Int!
     
-    init(title:String,image:String,questionIds:[String], border:Int = 0, distancePixelsWindow:CGFloat? = nil)
+    init(title:String,image:String,questionIds:[String], border:Int = 0, distancePixelsWindow:CGFloat? = nil, hints:Int = 2)
     {
         super.init()
         
@@ -36,6 +37,7 @@ class BadgeChallenge: Challenge {
         self.questionIds = questionIds
         self.image = UIImage(named: image)
         self.usingBorders = border
+        self.hints = hints
         if distancePixelsWindow == nil
         {
             let defaultDistancePixelsWindow = GlobalConstants.pointOkWindowOutlineRadius

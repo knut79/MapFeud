@@ -10,23 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "472024713.448538"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "logOut()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "473412266.416389"
+            timestampString = "475076261.160689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "324"
@@ -42,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "473814322.731567"
+            timestampString = "475076431.98416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "566"
-            endingLineNumber = "566"
-            landmarkName = "appInviteDialog(_:didCompleteWithResults:)"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "initForNewChallenge(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "473814322.731567"
+            timestampString = "475112327.07354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "549"
-            endingLineNumber = "549"
-            landmarkName = "sharer(_:didCompleteWithResults:)"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "initUserFriends()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,12 +58,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "473814322.731567"
+            timestampString = "475113460.709074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "557"
-            endingLineNumber = "557"
-            landmarkName = "sharer(_:didFailWithError:)"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "initForNewChallenge(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/ChallengeViewController.swift"
+            timestampString = "475116312.213102"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "setFriendsLeftToBonusLabel(_:xPos:yPos:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/ChallengeViewController.swift"
-            timestampString = "473814322.731567"
+            timestampString = "475119468.620401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "569"
-            endingLineNumber = "569"
-            landmarkName = "appInviteDialog(_:didFailWithError:)"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
+            landmarkName = "setFriendsLeftToBonusLabel(_:xPos:yPos:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

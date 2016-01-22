@@ -20,15 +20,40 @@ class BadgeCollectionView: UIView, BadgeChallengeProtocol {
     
     
     //var hintsLeftText:UILabel!
-    var resultMap:UIImageView!
-    var badgeStates1:BadgeView!
-    var badgeBigCities1:BadgeView!
-    var badgeCapitals1:BadgeView!
-    var badgeBigCities2:BadgeView!
-    var badgeCapitals2:BadgeView!
-    var badgeFamousCities:BadgeView!
-    var badgeCitiesPerfectLocation1:BadgeView!
-    var badgeCitiesPerfectLocation2:BadgeView!
+    
+    // row 1
+    var mapBadge:UIImageView!
+    
+    var countriesBadge1:BadgeView!
+    var countriesBadge2:BadgeView!
+    var countriesBadge3:BadgeView!
+    var countriesBadge4:BadgeView!
+    var countriesBadge5:BadgeView!
+    var countriesBadge6:BadgeView!
+    var countriesBadge7:BadgeView!
+    
+    var capitalsBadge1:BadgeView!
+    var capitalsBadge2:BadgeView!
+    var capitalsBadge3:BadgeView!
+    var capitalsBadge4:BadgeView!
+    
+    // row 2
+    var famousPlacesBadge1:BadgeView!
+    var famousPlacesBadge2:BadgeView!
+    
+    var flagsBadge1:BadgeView!
+    var flagsBadge2:BadgeView!
+    var flagsBadge3:BadgeView!
+    var flagsBadge4:BadgeView!
+    var flagsBadge5:BadgeView!
+    var flagsBadge6:BadgeView!
+    var flagsBadge7:BadgeView!
+    
+    var islandsBadge1:BadgeView!
+    var islandsBadge2:BadgeView!
+    
+    var waterBadge1:BadgeView!
+    var waterBadge2:BadgeView!
     
     var delegate:BadgeCollectionProtocol?
     
@@ -44,12 +69,19 @@ class BadgeCollectionView: UIView, BadgeChallengeProtocol {
         super.init(frame: frame)
 
         
-        let badgesOnOneRow:CGFloat = 8
-        let badgesOnColumn:CGFloat = 2
-        let marginBetweenBadges:CGFloat = 3
-        let marginTopBottom:CGFloat = 3
-        let badgeWidth = (self.bounds.width * 0.2) - (marginBetweenBadges * (badgesOnOneRow - 1)) - (marginTopBottom * 2)
-        let badgeHeight = (self.bounds.height * 0.5) - (marginBetweenBadges * (badgesOnColumn - 1)) - (marginTopBottom * 2)
+        //let badgesOnOneRow:CGFloat = 4
+        let badgesOnColumn:CGFloat = 3
+        let marginBetweenBadges:CGFloat = 5
+        let marginTopBottom:CGFloat = 6
+        
+        let orgHeigth:CGFloat = 429
+        let orgWidth:CGFloat = 370
+        
+        let badgeHeight = (self.bounds.height * 0.36) - (marginBetweenBadges * (badgesOnColumn - 1)) - (marginTopBottom * 2)
+        let heightToWidthRatio = orgHeigth / badgeHeight
+        let badgeWidth = orgWidth / heightToWidthRatio
+        //let badgeWidth = (self.bounds.width * 0.22) - (marginBetweenBadges * (badgesOnOneRow - 1)) - (marginTopBottom * 2)
+        
         
 
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "mapAction:")
@@ -57,42 +89,169 @@ class BadgeCollectionView: UIView, BadgeChallengeProtocol {
         singleTapGestureRecognizer.enabled = true
         singleTapGestureRecognizer.cancelsTouchesInView = false
         
-        resultMap = UIImageView(frame: CGRectMake(marginTopBottom, marginTopBottom, badgeWidth, badgeHeight))
-        resultMap.image = UIImage(named: "testbadge.png")
-        resultMap.userInteractionEnabled = true
+        mapBadge = UIImageView(frame: CGRectMake(marginTopBottom, marginTopBottom, badgeWidth, badgeHeight))
+        mapBadge.image = UIImage(named: "map.png")
+        mapBadge.userInteractionEnabled = true
         //resultMap.setTitle("🌐", forState: UIControlState.Normal)
-        self.addSubview(resultMap)
-        resultMap.addGestureRecognizer(singleTapGestureRecognizer)
+        self.addSubview(mapBadge)
+        mapBadge.addGestureRecognizer(singleTapGestureRecognizer)
+
+
+        let onTopMargin:CGFloat = badgeWidth * 0.3
 
         
         
-        badgeStates1 = BadgeView(frame: CGRectMake(resultMap.frame.maxX, marginTopBottom, badgeWidth, badgeHeight), title: "test1", image: "testbadge.png",questions: ["coaSouthAfrica","coaLiberia"])
-        badgeStates1.delegate = self
-        self.addSubview(badgeStates1)
+        capitalsBadge1 = BadgeView(frame: CGRectMake(mapBadge.frame.maxX + marginTopBottom, marginTopBottom, badgeWidth, badgeHeight), title: "Capitals baby class", image: "capitalsBadge1.png",questions: ["Warsaw","Rome","Paris","Madrid","London","Berlin","Athens","Amsterdam","Tokyo","Shanghai","Seoul","Moscow","Canberra","Beijing","Bangkok","Buenos Aires","Brasilia","Pretoria","Nairobi","Cairo","Cape Town","Ottawa","Washington DC"])
+        capitalsBadge1.delegate = self
+        self.addSubview(capitalsBadge1)
         
-        badgeBigCities1 = BadgeView(frame: CGRectMake(badgeStates1.frame.maxX + marginBetweenBadges, marginTopBottom, badgeWidth, badgeHeight),title: "test2",image: "testbadge.png",questions: ["South Africa","Liberia"])
-        if badgeStates1.complete
+        capitalsBadge2 = BadgeView(frame: CGRectMake(capitalsBadge1.frame.maxX - onTopMargin, marginTopBottom, badgeWidth, badgeHeight), title: "Capitals first class", image: "capitalsBadge2.png",questions: ["Baghdad","Abu Dhabi","Vienna","Stockholm","Kiev","Belfast","Ankara","New Delhi","Kabul","Jakarta","Islamabad","Santiago","Quito","Havana","Bogota","Rabat","Mogadishu","Kinshasa","Dodoma","Dakar","Abuja"])
+        capitalsBadge2.delegate = self
+        if capitalsBadge1.complete
         {
-            badgeBigCities1.delegate = self
-            self.addSubview(badgeBigCities1)
+            self.addSubview(capitalsBadge2)
         }
-        badgeBigCities2 = BadgeView(frame: CGRectMake(badgeBigCities1.frame.maxX + marginBetweenBadges, marginTopBottom, badgeWidth, badgeHeight),title: "test3",image: "testbadge.png",questions: ["New Mexico","Arizona"])
-        badgeBigCities2.delegate = self
-        self.addSubview(badgeBigCities2)
         
-        let nextRowY = badgeStates1.frame.maxY + marginBetweenBadges
-        
-        badgeCapitals1 = BadgeView(frame: CGRectMake(marginTopBottom, nextRowY, badgeWidth, badgeHeight),title: "testx", image: "testbadge.png",questions: ["New Mexico","Arizona"])
-        badgeCapitals1.delegate = self
-        self.addSubview(badgeCapitals1)
-        
-        badgeCapitals2 = BadgeView(frame: CGRectMake(badgeCapitals1.frame.maxX + marginTopBottom, nextRowY, badgeWidth, badgeHeight),title: "testxx", image: "testbadge.png",questions: ["New Mexico","Arizona"])
-        if badgeCapitals1.complete
+        capitalsBadge3 = BadgeView(frame: CGRectMake(capitalsBadge2.frame.maxX - onTopMargin, marginTopBottom, badgeWidth, badgeHeight), title: "Capitals second class", image: "capitalsBadge3.png",questions: ["Tehran","Muscat","Damascus","Sofia","Sarajevo","Oslo","Lisbon","Budapest","Brussels","Bern","Ulan Bator","Pyongyang","Hanoi","Bishkek","Lima","Caracas","Asuncion","Khartoum","Harare","Brazzaville","Addis Ababa"],hints:3)
+        capitalsBadge3.delegate = self
+        if capitalsBadge2.complete
         {
+            self.addSubview(capitalsBadge3)
+        }
+        
+        capitalsBadge4 = BadgeView(frame: CGRectMake(capitalsBadge3.frame.maxX - onTopMargin, marginTopBottom, badgeWidth, badgeHeight), title: "Capitals Sergeant class", image: "capitalsBadge4.png",questions: ["Doha","Valletta","Minsk","Helsinki","Copenhagen","Cardiff","Bucharest","Belgrade","Wellington","Taipei","Manila","Kuala Lumpur","Kathmandu","Karachi","Colombo","Astana","Montevideo","La Paz","N'Djamena","Maputo","Kampala","Asmara"],hints:4)
+        capitalsBadge4.delegate = self
+        if capitalsBadge3.complete
+        {
+            self.addSubview(capitalsBadge4)
+        }
+        
+        waterBadge1 = BadgeView(frame: CGRectMake(capitalsBadge4.frame.maxX + marginTopBottom, marginTopBottom, badgeWidth, badgeHeight),title: "Water first class", image: "waterBadge1.png",questions: ["Aral Sea","Black Sea","Caspian Sea","Red Sea","Adriatic Sea","Bay of Bengal","Bay of Biscay","Caribbean Sea","Great barrier reef","Great Bear lake","Great Slave lake","Gulf of Aden","Hudson Bay","Lake Balkhash","Lake Chad","Mediterranean Sea","Persian Gulf","Lake Baikal","Lake Superior","Lake Victoria"])
+        waterBadge1.delegate = self
+        if capitalsBadge2.complete
+        {
+            self.addSubview(waterBadge1)
+        }
+        
+        waterBadge2 = BadgeView(frame: CGRectMake(waterBadge1.frame.maxX - onTopMargin, marginTopBottom, badgeWidth, badgeHeight),title: "Water second class", image: "waterBadge1.png",questions: ["Adaman Sea","Arafura Sea","Baffin Bay","Barents Sea","Beaufort Sea","Chukchi Sea","Coral Sea","Davis Strait","Gulf of Bothnia","Gulf of Carpentaria","Gulf of Guinea","Gulf of Tonki","Lake Maracaibo","Laptev Sea","Luzon Strait","Lake Erie","Lake Titicaca","lake michigan"])
+        waterBadge2.delegate = self
+        if waterBadge1.complete
+        {
+            self.addSubview(waterBadge2)
+        }
+        self.addSubview(waterBadge2)
+        
+        //-------------------row 2 -------------------------------
+        var nextRowY = capitalsBadge1.frame.maxY + marginBetweenBadges
+        
+        countriesBadge1 = BadgeView(frame: CGRectMake(marginTopBottom, nextRowY, badgeWidth, badgeHeight), title: "Countries infantile class", image: "countriesBadge1.png",questions: ["England","France","Germany","Greece","Italy","Spain","Sweden","United Kingdom","Iraq","Canada","Usa","New Zealand","Australia","Argentina","Brazil","Afghanistan","China","India","Japan","Russia","Turkey","South Africa","Libya","Kenya","Egypt","Algeria"])
+        countriesBadge1.delegate = self
+        self.addSubview(countriesBadge1)
+        
+        countriesBadge2 = BadgeView(frame: CGRectMake(countriesBadge1.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight), title: "Countries baby class", image: "countriesBadge2.png",questions: ["Denmark","Finland","Hungary","Ireland","Netherlands","Northern Ireland","Poland","Ukraine","Iran","Syria","Bolivia","Chile","Colombia","Mexico","Peru","Indonesia","Vietnam","Azerbaijan","South Korea","Thailand","Morocco","Nigeria","Tanzania","Congo","Cameroon"])
+        countriesBadge2.delegate = self
+        if countriesBadge1.complete
+        {
+            self.addSubview(countriesBadge2)
+        }
+        
+        countriesBadge3 = BadgeView(frame: CGRectMake(countriesBadge2.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight), title: "Countries first class", image: "countriesBadge3.png",questions: ["Belgium","Bulgaria","Croatia","Czech Republic","Norway","Portugal","Scotland","Israel","Saudi Arabia","Belarus","Romania","Switzerland","Ecuador","Paraguay","Uruguay","Venezuela","Mongolia","Pakistan","Turkmenistan","Mozambique","Somalia","Angola"],hints:3)
+        countriesBadge3.delegate = self
+        if countriesBadge2.complete
+        {
+            self.addSubview(countriesBadge3)
+        }
+        
+        countriesBadge4 = BadgeView(frame: CGRectMake(countriesBadge3.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight), title: "Countries second class", image: "countriesBadge4.png",questions: ["Austria","Oman","United Arab Emirates","Yemen","Qatar","Costa Rica","El Salvador","Guatemala","Panama","Puerto Rico","Suriname","Georgia","Kazakhstan","North Korea","Tajikistan","Uzbekistan","Malawi","Senegal","Tunisia","Ivory Coast","Ghana","Eritrea","Chad"],hints:3)
+        countriesBadge4.delegate = self
+        if countriesBadge3.complete
+        {
+            self.addSubview(countriesBadge4)
+        }
+        
+        countriesBadge5 = BadgeView(frame: CGRectMake(countriesBadge4.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight), title: "Countries third class", image: "countriesBadge5.png",questions: ["Albania","Latvia","Kosovo","Lithuania","Slovakia","Slovenia","Jordan","Kuwait","Honduras","Nicaragua","Brunei","Malaysia","Bangladesh","Bhutan","Kyrgyzstan","Myanmar","Guyana","Liberia","Rwanda","Sierra Leone","Uganda","Zambia","Zimbabwe","Ethiopia"],hints:4)
+        countriesBadge5.delegate = self
+        if countriesBadge4.complete
+        {
+            self.addSubview(countriesBadge5)
+        }
+        
+        countriesBadge6 = BadgeView(frame: CGRectMake(countriesBadge5.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight), title: "Countries Sergeant class", image: "countriesBadge6.png" ,questions: ["France","Germany","Greece","Spain","Sweden","Iraq","Argentina","Brazil","Afghanistan","China","India","Japan","Russia","Turkey","South Africa","Libya","Kenya","Egypt","Algeria","Vietnam","Mexico"],border:0,hints:4)
+        countriesBadge6.delegate = self
+        if countriesBadge5.complete
+        {
+            self.addSubview(countriesBadge6)
+        }
+        
+        countriesBadge7 = BadgeView(frame: CGRectMake(countriesBadge6.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight), title: "Countries General class", image: "countriesBadge7.png",questions: ["Denmark","Finland","Hungary","Ireland","Netherlands","Northern Ireland","Poland","Ukraine","Iran","Syria","Bolivia","Chile","Colombia","Peru","Indonesia","Azerbaijan","South Korea","Thailand","Morocco","Nigeria","Tanzania","Congo","Cameroon"],border:0,hints:5)
+        countriesBadge7.delegate = self
+        if countriesBadge6.complete
+        {
+            self.addSubview(countriesBadge7)
+        }
+        
+        islandsBadge1 = BadgeView(frame: CGRectMake(countriesBadge7.frame.maxX + marginTopBottom, nextRowY, badgeWidth, badgeHeight),title: "Islands first class", image: "islandsBadge1.png",questions: ["Cyprus","Greenland","Iceland","Malta","Tasmania","Cuba","Galapagos","Haiti","Jamaica","New Guinea","Sri Lanka","Madagascar","Falkland islands","Borneo","Corsica","Newfoundland Island","Philippines","Taiwan"])
+        islandsBadge1.delegate = self
+        if countriesBadge3.complete
+        {
+            self.addSubview(islandsBadge1)
+        }
+        
+        islandsBadge2 = BadgeView(frame: CGRectMake(islandsBadge1.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight),title: "Islands second class", image: "islandsBadge2.png",questions: ["Azores","Bornholm","Faroe Islands","Isle of Man","Shetland","Svalbard","Socotra and Abd al Kuri","Hawaii","Bahamas","Barbados","Madeira","Mauritius","Seyshelles","Cape Verde","Sardinia","Sicily","Socotra","Zanzibar"])
+        islandsBadge2.delegate = self
+        if islandsBadge1.complete
+        {
+            self.addSubview(islandsBadge2)
+        }
+        self.addSubview(islandsBadge2)
+        
+        //-------------------row 3-------------------------------------
+        nextRowY = countriesBadge1.frame.maxY + marginBetweenBadges
+        
+        flagsBadge1 = BadgeView(frame: CGRectMake(marginTopBottom, nextRowY, badgeWidth, badgeHeight),title: "Flags first class", image: "flagsBadge1.png",questions: ["coaEngland","coaFrance","coaGermany","coaGreece","coaItaly","coaSpain","coaSweden","coaUnitedKingdom","coaIraq","coaCanada","coaUsa","coaNewZealand","coaAustralia","coaArgentina","coaBrazil","coaChina","coaIndia","coaJapan","coaRussia"])
+        flagsBadge1.delegate = self
+        if countriesBadge4.complete
+        {
+            self.addSubview(flagsBadge1)
+        }
+        
+        flagsBadge2 = BadgeView(frame: CGRectMake(flagsBadge1.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight),title: "Flags second class", image: "flagsBadge2.png",questions: ["coaAfghanistan","coaDenmark","coaHungary","coaIreland","coaNetherlands","coaPoland","coaUkraine","coaIran","coaColombia","coaMexico","coaVietnam","coaSouthKorea","coaMorocco","coaNigeria","coaPortugal","coaPakistan","coaTurkey","coaSouthAfrica","coaKenya","coaEgypt","coaIsrael"],hints:3)
+        flagsBadge2.delegate = self
+        if flagsBadge1.complete
+        {
+            self.addSubview(flagsBadge2)
+        }
+            
+        flagsBadge3 = BadgeView(frame: CGRectMake(flagsBadge2.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight),title: "Flags third class", image: "flagsBadge3.png",questions: ["coaAlgeria","coaFinland","coaBolivia","coaPeru","coaAzerbaijan","coaBelgium","coaBulgaria","coaCroatia","coaCzechRepublic","coaNorway","coaScotland","coaSwitzerland","coaEcuador","coaParaguay","coaUruguay","coaVenezuela","coaTurkmenistan","coaMozambique","coaIndonesia","coaChile","coaNorthernIreland"],hints:4)
+        flagsBadge3.delegate = self
+        if flagsBadge2.complete
+        {
+            self.addSubview(flagsBadge3)
+        }
+            
+        flagsBadge4 = BadgeView(frame: CGRectMake(flagsBadge3.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight),title: "Flags Sergeant class", image: "flagsBadge4.png",questions: ["coaAustria","coaYemen","coaQatar","coaElSalvador","coaGuatemala","coaPanama","Georgia","coaNorthKorea","coaSenegal","coaIvoryCoast","coaGhana","coaEritrea","coaChad","coaSomalia","coaAngola","coaTanzania","coaCameroon","coaThailand","coaBelarus","coaSaudiArabia","coaRomania","coaCongo","coaSyria"],hints:5)
+        flagsBadge4.delegate = self
+        if flagsBadge3.complete
+        {
+            self.addSubview(flagsBadge4)
+        }
 
-            badgeCapitals2.delegate = self
-            self.addSubview(badgeCapitals2)
+        
+
+        famousPlacesBadge1 = BadgeView(frame: CGRectMake(flagsBadge4.frame.maxX + marginTopBottom, nextRowY, badgeWidth, badgeHeight),title: "Places first class",image: "famousPlacesBadge1.png",questions: ["Cape Canaveral","Cape Horn","Mecca","Barcelona","Hamburg","Istanbul","Munich","Palermo","Venice","Bangalore","Lahore","Melbourne","Kolkata(Calcutta)","Saint Petersburg","Sydney"])
+        famousPlacesBadge1.delegate = self
+        if countriesBadge4.complete
+        {
+            self.addSubview(famousPlacesBadge1)
         }
+        
+        famousPlacesBadge2 = BadgeView(frame: CGRectMake(famousPlacesBadge1.frame.maxX - onTopMargin, nextRowY, badgeWidth, badgeHeight),title: "Places first class",image: "famousPlacesBadge2.png",questions: ["Cape Agulhas","Cape of good hope","Dar es Salaam","Medina","Donetsk","Glasgow","Krakow","Turin(Torino)","Lhasa","Perth","Mumbai","Auckland","Gothenburg"])
+        famousPlacesBadge2.delegate = self
+        if famousPlacesBadge1.complete
+        {
+            self.addSubview(famousPlacesBadge2)
+        }
+        self.addSubview(famousPlacesBadge2)
     }
     
     func mapAction(gesture:UITapGestureRecognizer)

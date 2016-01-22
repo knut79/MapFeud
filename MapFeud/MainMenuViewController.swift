@@ -89,7 +89,8 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         var buttonHeight = UIScreen.mainScreen().bounds.size.width * 0.17
         let buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
         
-        challengeUsersButton = MenuButton(frame:CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), (UIScreen.mainScreen().bounds.size.height * 0.33) + buttonHeight + marginButtons, buttonWidth, buttonHeight),title:"Challenge")
+        //challengeUsersButton = MenuButton(frame:CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), (UIScreen.mainScreen().bounds.size.height * 0.33) + buttonHeight + marginButtons, buttonWidth, buttonHeight),title:"Challenge")
+        challengeUsersButton = MenuButton(frame:CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), (UIScreen.mainScreen().bounds.size.height * 0.5), buttonWidth, buttonHeight),title:"Challenge")
         challengeUsersButton.addTarget(self, action: "challengeAction", forControlEvents: UIControlEvents.TouchUpInside)
         let challengeBadge = NSUserDefaults.standardUserDefaults().integerForKey("challengesBadge")
         challengeUsersButton.setbadge(challengeBadge)
@@ -125,7 +126,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         self.view.addSubview(statsView)
         
 
-        let badgeViewHeight:CGFloat = (UIScreen.mainScreen().bounds.size.height * 0.33) - statsView.frame.maxY
+        let badgeViewHeight:CGFloat = (UIScreen.mainScreen().bounds.size.height * 0.5) - statsView.frame.maxY
         badgeCollectionView = BadgeCollectionView(frame: CGRectMake(0, statsView.frame.maxY, UIScreen.mainScreen().bounds.width, badgeViewHeight))
         badgeCollectionView.delegate = self
         self.view.addSubview(badgeCollectionView)
@@ -448,7 +449,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         let buttonHeight = buttonWidth
 
         buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
-        challengeUsersButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), UIScreen.mainScreen().bounds.size.height * 0.33, buttonWidth, buttonHeight)
+        challengeUsersButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), UIScreen.mainScreen().bounds.size.height * 0.5, buttonWidth, buttonHeight)
         challengeUsersButton.orgCenter = challengeUsersButton.center
         practiceButton.frame = CGRectMake(challengeUsersButton.frame.minX, challengeUsersButton.frame.maxY + marginButtons, buttonWidth, buttonHeight)
         practiceButton.orgCenter = practiceButton.center
@@ -464,7 +465,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         let playbuttonWidth = self.practiceButton.frame.maxX - self.challengeUsersButton.frame.minX
         let playbuttonHeight = self.resultsButton.frame.maxY - self.challengeUsersButton.frame.minY - sliderAndFilterbuttonHeight - margin
 
-        practicePlayButton.frame = CGRectMake(self.challengeUsersButton.frame.minX, self.challengeUsersButton.frame.minY,playbuttonWidth, playbuttonHeight)
+        practicePlayButton.frame = CGRectMake(self.challengeUsersButton.frame.minX, (UIScreen.mainScreen().bounds.size.height / 2) - (playbuttonHeight / 2),playbuttonWidth, playbuttonHeight)
         challengePlayButton.frame = practicePlayButton.frame
         
         print("challengePlayButton.frame \(challengePlayButton.frame.width) \(challengePlayButton.frame.height)")

@@ -1272,7 +1272,7 @@ inf;State;El Salvador;10;level4;The smallest and the most densely populated coun
 1305;1852
 1305;1847;sl
 qst;coaFrenchGuiana##level4#FrenchGuianaFlag.png#What county/department is represented by this flag?##spn#fra#ger##
-inf;State;Colombia;10;level4;Is an overseas department and region of France. Capital: Cayenne##spn#fra#ger;South America#Brazil to the east and south, and Suriname to the west.
+inf;State;French Guiana;10;level4;Is an overseas department and region of France. Capital: Cayenne##spn#fra#ger;South America#Brazil to the east and south, and Suriname to the west.
 1214;1778
 1217;1777
 1218;1774

@@ -19,20 +19,22 @@ class BadgeView: UIView, UIAlertViewDelegate {
     //var hintsLeftText:UILabel!
     
     var imageView:UIImageView!
+    var overlapImageView:UIImageView!
     var complete:Bool = false
     var badgeChallenge:BadgeChallenge!
     var delegate:BadgeChallengeProtocol?
     var title:String!
+    var hints:Int!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    init(frame: CGRect,title:String, image:String, questions:[String]) {
+    init(frame: CGRect,title:String, image:String, questions:[String], border:Int = 1, hints:Int = 2) {
         super.init(frame: frame)
         
         self.title = title
-        
+        self.hints = hints
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapBadge:")
         singleTapGestureRecognizer.numberOfTapsRequired = 1
         singleTapGestureRecognizer.enabled = true
@@ -40,11 +42,20 @@ class BadgeView: UIView, UIAlertViewDelegate {
         
         imageView = UIImageView(frame: self.bounds)
         imageView.image = UIImage(named: image)
+        
+        
         complete = NSUserDefaults.standardUserDefaults().boolForKey(title)
         
-        
-        imageView.alpha = complete ? 1 : 0.5
+
         self.addSubview(imageView)
+        
+        if !complete
+        {
+            overlapImageView = UIImageView(frame: self.bounds)
+            overlapImageView.image = UIImage(named: "overmapBadge.png")
+            overlapImageView.alpha = 0.65
+            self.addSubview(overlapImageView)
+        }
         
         let firsttry = NSUserDefaults.standardUserDefaults().boolForKey("\(title)firsttry")
         if !firsttry
@@ -55,7 +66,7 @@ class BadgeView: UIView, UIAlertViewDelegate {
             self.addSubview(newLabel)
         }
         
-        badgeChallenge = BadgeChallenge(title: title, image: image, questionIds: shuffle(questions))
+        badgeChallenge = BadgeChallenge(title: title, image: image, questionIds: shuffle(questions),border:border,hints:hints)
         
         self.addGestureRecognizer(singleTapGestureRecognizer)
     }
@@ -64,7 +75,7 @@ class BadgeView: UIView, UIAlertViewDelegate {
     {
         if !complete
         {
-            let alert = UIAlertView(title: badgeChallenge.title, message: "Take this challenge to earn a new badge", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
+            let alert = UIAlertView(title: badgeChallenge.title, message: "Take this challenge to earn a new badge and \(hints) hints", delegate: self, cancelButtonTitle: "No", otherButtonTitles: "Yes")
             
             alert.show()
         }

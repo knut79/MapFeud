@@ -50,7 +50,7 @@ struct GlobalConstants {
     static let timeBonusMultiplier:Double = 1.2
     static let hintCostForTimeBonus:Int = 5
     static let timeStart:Double = 14
-    static let numberOfQuestionsForChallenge:Int = 7
+    static let numberOfQuestionsForChallenge:Int = 5
     static let numberOfHintsPrBuy:Int = 12
     
     static let bailedValue = 9999999
@@ -65,7 +65,9 @@ struct GlobalConstants {
     
     //These values are in pixels
     static let pointPerfectWindowOutlineRadius:CGFloat = 6
-    static let pointOkWindowOutlineRadius:CGFloat = 500//250
+    static let pointOkWindowOutlineRadius:CGFloat = 50 // 500
+    
+    static let friendHintBonus:Int = 15
 }
 
 

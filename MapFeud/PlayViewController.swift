@@ -54,7 +54,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     var bannerView:ADBannerView?
     
     var usingKm:Bool = true
-    var questonsLeft:Int!
+    //var questonsLeft:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -551,7 +551,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     var questionindex = 0
     func startGame()
     {
-        questonsLeft = GlobalConstants.numberOfQuestionsForChallenge
+        //questonsLeft = GlobalConstants.numberOfQuestionsForChallenge
         setNextQuestion()
     }
     
@@ -645,8 +645,9 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
     {
         if gametype != GameType.training
         {
+            let questionsLeftOfChallenge = challenge.questionIds.count + 1
             let questionsLeft = UILabel(frame: CGRectMake(clock!.frame.minX, clock!.frame.minY, clock!.frame.width, clock!.frame.height * 0.66))
-            questionsLeft.text = questonsLeft <= 1 ? "Last" : "\(questonsLeft)"
+            questionsLeft.text = questionsLeftOfChallenge <= 1 ? "Last" : "\(questionsLeftOfChallenge)"
             questionsLeft.font = UIFont.boldSystemFontOfSize(50)
             questionsLeft.textAlignment = NSTextAlignment.Center
             questionsLeft.adjustsFontSizeToFitWidth = true
@@ -654,7 +655,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
             self.view.addSubview(questionsLeft)
             
             let textLeft = UILabel(frame: CGRectMake(questionsLeft.frame.minX, questionsLeft.frame.maxY, questionsLeft.frame.width, clock!.frame.height * 0.33))
-            textLeft.text = questonsLeft <= 1 ? "question" : "questions\nleft"
+            textLeft.text = questionsLeftOfChallenge <= 1 ? "question" : "questions\nleft"
             textLeft.font = UIFont.boldSystemFontOfSize(20)
             textLeft.textAlignment = NSTextAlignment.Center
             textLeft.numberOfLines = 2
@@ -669,7 +670,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
                 }, completion: { (value: Bool) in
                     questionsLeft.removeFromSuperview()
                     textLeft.removeFromSuperview()
-                    self.questonsLeft!--
+                    //self.questonsLeft!--
             })
         }
     }

@@ -104,7 +104,7 @@ class FinishedViewController:UIViewController {
                 if badgeChallenge.won!
                 {
                     badgeChallenge.setComplete()
-                    setupResultHeader("New badge aquired 😀")
+                    setupResultHeader("New badge and \(badgeChallenge.hints) hints aquired 😀")
                 }
                 else
                 {
@@ -247,10 +247,25 @@ class FinishedViewController:UIViewController {
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 badge.alpha = 1
                 badge.transform = CGAffineTransformIdentity
-                
+                badge.center = self.resultBackground.center
                 }, completion: { (value: Bool) in
                     self.backToMenuButton.alpha = 1
+                    self.addHints()
             })
+        }
+    }
+    
+    func addHints()
+    {
+        if let badgeChallenge = challenge as? BadgeChallenge
+        {
+            var hints = NSUserDefaults.standardUserDefaults().integerForKey("hintsLeftOnAccount")
+            hints = hints + badgeChallenge.hints
+            NSUserDefaults.standardUserDefaults().setInteger(hints, forKey: "hintsLeftOnAccount")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
+            datactrl.hintsValue = hints
+            datactrl.saveGameData()
         }
     }
     
