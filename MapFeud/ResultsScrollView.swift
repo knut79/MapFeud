@@ -15,6 +15,7 @@ class ResultsScrollView: UIView , UIScrollViewDelegate, UserFilterViewProtocol{
     var scrollView:UIScrollView!
     var totalResultLabel:UILabel!
     var userFilterScrollView:UserFilterScrollView!
+    var opponentsScoreLabel:ResultTitleLabel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -109,6 +110,11 @@ class ResultsScrollView: UIView , UIScrollViewDelegate, UserFilterViewProtocol{
         
     }
     
+    func disableOpponentFilter()
+    {
+        opponentsScoreLabel.text = "    Opponent    "
+        opponentsScoreLabel.userInteractionEnabled = false
+    }
     
     func addItem(myDistance:Int,opponentName:String,opponentId:String, opponentDistance:Int, title:String, date:String, newRecord:Bool)
     {

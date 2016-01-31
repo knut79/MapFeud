@@ -311,6 +311,7 @@ class ResultsViewController: UIViewController, FBSDKLoginButtonDelegate {
         {
             self.activityLabel.alpha = 1
             self.activityLabel.text = "No results😑 Challenge other players😊"
+            self.resultsScrollView.disableOpponentFilter()
         }
         else
         {
