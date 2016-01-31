@@ -45,8 +45,7 @@ class TagCheckScrollView: UIView , UIScrollViewDelegate, TagCheckItemProtocol{
         closeButton = UIButton(frame: CGRectMake(frame.width - 40, 0, 40, 40))
         closeButton.setTitle("❌", forState: UIControlState.Normal)
         closeButton.addTarget(self, action: "closeAction", forControlEvents: UIControlEvents.TouchUpInside)
-        closeButton.layer.borderColor = UIColor.blackColor().CGColor
-        closeButton.layer.borderWidth = 2.0
+        closeButton.backgroundColor = UIColor.blueColor()
         
         
         scrollView = UIScrollView(frame: CGRectMake(0, closeButton.frame.height, frame.width, frame.height - closeButton.frame.height))
@@ -55,8 +54,10 @@ class TagCheckScrollView: UIView , UIScrollViewDelegate, TagCheckItemProtocol{
         self.addSubview(scrollView)
         
         self.backgroundColor = UIColor.whiteColor()
-        self.layer.borderColor = UIColor.blackColor().CGColor
-        self.layer.borderWidth = 2.0
+        self.layer.borderColor = UIColor.blueColor().CGColor
+        self.layer.cornerRadius = 8
+        self.layer.masksToBounds = true
+        self.layer.borderWidth = 5.0
         
         
         tags.append("#capital")
@@ -88,6 +89,8 @@ class TagCheckScrollView: UIView , UIScrollViewDelegate, TagCheckItemProtocol{
         selectedInfoLabel = UILabel(frame: CGRectMake(0, 0, self.frame.width - closeButton.frame.width, itemheight))
         selectedInfoLabel.textAlignment = NSTextAlignment.Center
         selectedInfoLabel.text = "\(tags.count) tags selected"
+        selectedInfoLabel.backgroundColor = UIColor.blueColor()
+        selectedInfoLabel.textColor = UIColor.whiteColor()
 
         
         var contentHeight:CGFloat = 0
