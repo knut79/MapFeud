@@ -29,6 +29,7 @@ class TileContainerOverlayLayer: CALayer {
     var zoomScale:CGFloat = 1
     
     var placeType:PlaceType?
+    var drawWindowOutline:Bool = false
     
 
     override func drawInContext(ctx: CGContext)
@@ -40,7 +41,7 @@ class TileContainerOverlayLayer: CALayer {
         CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 1)
         
         
-        if fromPoint != nil && toPoint != nil
+        if fromPoint != nil && toPoint != nil && drawWindowOutline
         {
             drawLine(ctx)
             //drawPlayerSymbol(ctx)
@@ -154,6 +155,7 @@ class TileContainerOverlayLayer: CALayer {
     {
         if let point = toPoint
         {
+            //_?
             //if inside window -- green
             CGContextSetStrokeColorWithColor(context, UIColor.greenColor().CGColor)
             CGContextSetFillColorWithColor(context, UIColor.greenColor().colorWithAlphaComponent(0.1).CGColor)

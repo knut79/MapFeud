@@ -258,7 +258,7 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
         map.setPoint(playerIcon.center)
         let questionPlace = currentQuestion.place
 
-        map.animateAnswer(questionPlace)
+        map.animateAnswer(questionPlace, drawProximateWindow: self.gametype == GameType.badgeChallenge)
     }
     
     func finishedAnimatingAnswer(distance:Int,insidePerfectWindow:Bool,insideOkWindow:Bool)
@@ -568,7 +568,15 @@ class PlayViewController: UIViewController , MapDelegate,ADBannerViewDelegate, C
             if challenge.questionIds.count > 0
             {
                 let questionID = challenge.questionIds.removeLast()
+                print("fetching question for id \(questionID)")
                 currentQuestion = datactrl.fetchQuestion(questionID)
+                //fail safe. If questionID not found try next questionId
+                if currentQuestion == nil && challenge.questionIds.count > 0
+                {
+                    let questionID = challenge.questionIds.removeLast()
+                    print("fetching question for id \(questionID)")
+                    currentQuestion = datactrl.fetchQuestion(questionID)
+                }
             }
             else
             {

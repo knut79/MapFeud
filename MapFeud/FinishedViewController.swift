@@ -190,10 +190,14 @@ class FinishedViewController:UIViewController {
         audioPlayer.numberOfLoops = 0
         audioPlayer.prepareToPlay()
         audioPlayer.play()
+        let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
+        let distanceText = usingKm ? "Km" : "Miles"
+        let myDistanceRightMeasure =  usingKm ? distance : Int(CGFloat(distance) * 0.621371)
+        let opponentDistanceRightMeasure =  usingKm ? takingChallenge.distanceToBeat : Int(CGFloat(takingChallenge.distanceToBeat) * 0.621371)
         resultLabel.text = "You lost 😖\n\n" +
-            "\(distance) km" +
+            "\(myDistanceRightMeasure) \(distanceText)" +
             "\n\nagainst" +
-            "\n\n\(takingChallenge.distanceToBeat) km"
+        "\n\n\(opponentDistanceRightMeasure) \(distanceText)"
     }
     
     func youWonChallenge(takingChallenge:TakingChallenge)
@@ -228,10 +232,13 @@ class FinishedViewController:UIViewController {
         audioPlayer.numberOfLoops = 0
         audioPlayer.prepareToPlay()
         audioPlayer.play()
+        let usingKm = NSUserDefaults.standardUserDefaults().boolForKey("useKm")
+        let distanceText = usingKm ? "Km" : "Miles"
+        let distanceRightMeasure =  usingKm ? distance : Int(CGFloat(distance) * 0.621371)
         resultLabel.text = "Challenge ended as draw 😐\n\n" +
-            "\(distance) km" +
+            "\(distanceRightMeasure) \(distanceText)" +
             "\n\nagainst" +
-        "\n\n\(takingChallenge.distanceToBeat) km"
+        "\n\n\(distanceRightMeasure) \(distanceText)"
     }
     
     
@@ -239,15 +246,31 @@ class FinishedViewController:UIViewController {
     {
         if let badgeChallenge = challenge as? BadgeChallenge
         {
-            let badge = UIImageView(frame: CGRectMake(resultBackground.frame.width / 4,resultBackground.frame.width / 2,resultBackground.frame.height / 4, resultBackground.frame.height / 2))
+            let orgHeigth:CGFloat = 429
+            let orgWidth:CGFloat = 370
+            
+            let badgeHeight = resultBackground.frame.height / 4
+            let heightToWidthRatio = orgHeigth / badgeHeight
+            let badgeWidth = orgWidth / heightToWidthRatio
+            
+            let badge = UIImageView(frame: CGRectMake((resultBackground.frame.width / 2) - (badgeWidth / 2),(resultBackground.frame.height / 2) - (badgeHeight / 2),badgeWidth, badgeHeight))
             badge.image = badgeChallenge.image
+            
+            let badgeTitle = UILabel(frame: CGRectMake(10,badge.frame.maxY + 10,resultBackground.frame.width - 20,30 ))
+            badgeTitle.adjustsFontSizeToFitWidth = true
+            badgeTitle.font = UIFont.boldSystemFontOfSize(24)
+            badgeTitle.text = badgeChallenge.title
             badge.transform = CGAffineTransformScale(badge.transform, 0.1, 0.1)
+            badgeTitle.transform = CGAffineTransformScale(badgeTitle.transform, 0.1, 0.1)
+            badgeTitle.textAlignment = NSTextAlignment.Center
             resultBackground.addSubview(badge)
+            resultBackground.addSubview(badgeTitle)
             
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 badge.alpha = 1
                 badge.transform = CGAffineTransformIdentity
-                badge.center = self.resultBackground.center
+                badgeTitle.transform = CGAffineTransformIdentity
+                //badge.center = self.resultBackground.center
                 }, completion: { (value: Bool) in
                     self.backToMenuButton.alpha = 1
                     self.addHints()

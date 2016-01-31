@@ -54,8 +54,6 @@ inf;City#Where is the capital;Roseau;10;level4;The capital and largest city of D
 inf;City#Where is the capital;San Jose;10;level3;Is the capital of Costa Rica#nor#spn#fra#ger;America#Caribbean
 1170;1701
 inf;City#Where is the capital;San Juan;10;level4;Is the capital in the Commonwealth of Puerto Rico#nor#spn#fra#ger;America#Caribbean
-906;1757
-inf;City#Where is the capital;Santiago;10;level3;The capital and largest city of Chile.#nor#spn#fra#ger;America#Chile
 1126;1700
 inf;City#Where is the capital;Santo Domingo;10;level4;Known officially as Santo Domingo de Guzmán, is the capital and largest city in the Dominican Republic and is the largest city in the Caribbean region by population.#nor#spn#fra#ger;America#Caribbean
 1217;1775

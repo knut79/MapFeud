@@ -80,7 +80,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationWillEnterForegroundNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForground", name: UIApplicationWillEnterForegroundNotification, object: nil)
 
-        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")
+        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("firstlaunchV2")
 
         datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
 
@@ -256,7 +256,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         if firstLaunch
         {
 
-           if Int(datactrl.dataPopulatedValue as! NSNumber) <= 0
+           if Int(datactrl.dataPopulatedValue as! NSNumber) <= 1
             {
                 loadingDataView = UIView(frame: self.view.frame)
                 loadingDataView.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
@@ -353,7 +353,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     override func viewDidAppear(animated: Bool) {
 
-        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch")
+        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("firstlaunchV2")
         if firstLaunch
         {
             holderView = HolderView(frame: view.bounds)
@@ -361,7 +361,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             view.addSubview(holderView)
             holderView.startAnimation()
 
-            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "firstlaunch")
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "firstlaunchV2")
         }
         
 
@@ -424,17 +424,26 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func populateDataIfNeeded()
     {
+
         if Int(datactrl.dataPopulatedValue as! NSNumber) <= 0
         {
             
             datactrl.populateData({ () in
                 
+                self.datactrl.populateDataSecondUpdate({ () in
+                    self.loadingDataView.alpha = 0
+                    self.loadingDataView.layer.removeAllAnimations()
+                })
                 
+            })
+        }
+        else if Int(datactrl.dataPopulatedValue as! NSNumber) <= 1
+        {
+            datactrl.populateDataSecondUpdate({ () in
                 self.loadingDataView.alpha = 0
                 self.loadingDataView.layer.removeAllAnimations()
             })
         }
-        
     }
     
     

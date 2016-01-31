@@ -153,9 +153,9 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     }
 */
 
-    func animateAnswer(place:Place)
+    func animateAnswer(place:Place, drawProximateWindow:Bool)
     {
-        drawLineToPlace(place)
+        drawLineToPlace(place,drawProximateWindow: drawProximateWindow)
         
         let resolutionPercentage = 100 * pow(Double(2), Double(resolution))
         
@@ -191,9 +191,9 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         delegate?.finishedAnimatingAnswer(distance,insidePerfectWindow: insidePerfectWindow,insideOkWindow: insideOkWindow)
     }
     
-    func drawLineToPlace(place:Place)
+    func drawLineToPlace(place:Place,drawProximateWindow:Bool)
     {
-        drawPlace(place)
+        drawPlace(place,drawProximateWindow: drawProximateWindow)
         
         var excluded:[[LinePoint]] = []
         var included:[[LinePoint]] = []
@@ -242,7 +242,8 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
     var placesToDraw:[[LinePoint]] = []
     var placesToExcludeDraw:[[LinePoint]] = []
     var placeTypeToDraw:PlaceType?
-    func drawPlace(place:Place)
+    var proximateWindow:Bool = false
+    func drawPlace(place:Place,drawProximateWindow:Bool)
     {
         let datactrl = (UIApplication.sharedApplication().delegate as! AppDelegate).datactrl
         let excludedPlaces = datactrl.fetchPlaces(place.excludePlaces)
@@ -269,11 +270,13 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
             }
         }
         placeTypeToDraw = PlaceType(rawValue: Int(place.type))
+        proximateWindow = drawProximateWindow
         
         //overlayDrawView?.resolutionPercentage = resolutionPercentage
         overlayDrawView?.exludedRegions = placesToExcludeDraw
         overlayDrawView?.regions = placesToDraw
         overlayDrawView?.placeType = placeTypeToDraw
+        overlayDrawView?.drawWindowOutline = proximateWindow
 
         overlayDrawView?.setNeedsDisplay()
 
@@ -355,6 +358,7 @@ class MapScrollView:UIView, UIScrollViewDelegate  {
         overlayDrawView?.fromPoint = realMapCordsPlayerPoint
         overlayDrawView?.toPoint = realMapCordsNearestPoint
         overlayDrawView?.placeType = placeTypeToDraw
+        overlayDrawView?.drawWindowOutline = proximateWindow
         
         
         overlayDrawView!.setNeedsDisplay()

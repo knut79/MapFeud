@@ -42,6 +42,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
     
     let elementWidth:CGFloat = 200
     let elementHeight:CGFloat = 60
+    let margin:CGFloat = 10
     
     var client: MSClient?
     
@@ -304,7 +305,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             }
         }
 
-        let margin:CGFloat = 10
+        
 
 
         self.initCommonElements(margin,elementWidth: elementWidth,elementHeight: elementHeight)
@@ -330,13 +331,13 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
         
         let inviteFriendsButton = FBSDKSendButton()
-        inviteFriendsButton.frame = CGRectMake(titleLabel.frame.minX, playButton.frame.minY - (margin * 2) - (elementHeight * 2), elementWidth , elementHeight)
+        inviteFriendsButton.frame = CGRectMake(titleLabel.frame.minX, playButton.frame.minY - (margin * 2) - (elementHeight * 2) -  (elementHeight / 2) , elementWidth , elementHeight)
         inviteFriendsButton.shareContent = content
         inviteFriendsButton.layer.cornerRadius = 5
         inviteFriendsButton.layer.masksToBounds = true
         inviteFriendsButton.setTitle("Invite friends", forState: UIControlState.Normal)
         
-        setFriendsLeftToBonusLabel(friendObjects.count, xPos: inviteFriendsButton.frame.maxX, yPos: inviteFriendsButton.frame.minY)
+        setFriendsLeftToBonusLabel(friendObjects.count, xPos: inviteFriendsButton.frame.minX, yPos: inviteFriendsButton.frame.maxY, width: elementWidth, height: elementHeight / 2)
         
         addRandomUserButton = UIButton(frame:CGRectMake(titleLabel.frame.minX, playButton.frame.minY - margin - elementHeight, elementWidth , elementHeight))
         self.addRandomUserButton.addTarget(self, action: "addRandomUserAction", forControlEvents: UIControlEvents.TouchUpInside)
@@ -377,9 +378,12 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
         
     }
     
-    func setFriendsLeftToBonusLabel(facebookFriends:Int,xPos:CGFloat,yPos:CGFloat)
+    func setFriendsLeftToBonusLabel(facebookFriends:Int,xPos:CGFloat,yPos:CGFloat, width:CGFloat, height:CGFloat)
     {
-        let friendsLeftToBonusLabel = UILabel(frame: CGRectMake(xPos, yPos, elementWidth , elementHeight))
+        let friendsLeftToBonusLabel = UILabel(frame: CGRectMake(xPos, yPos, width , height))
+        friendsLeftToBonusLabel.textColor = UIColor.grayColor()
+        friendsLeftToBonusLabel.font = UIFont.boldSystemFontOfSize(20)
+        friendsLeftToBonusLabel.textAlignment = NSTextAlignment.Center
         friendsLeftToBonusLabel.adjustsFontSizeToFitWidth = true
         //first load of frieds
         let notFirstTime = NSUserDefaults.standardUserDefaults().boolForKey("loadFacebookFriendsFirstTime")
@@ -395,12 +399,14 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
                 //give bonus
                 //reset
                 NSUserDefaults.standardUserDefaults().setInteger(facebookFriends, forKey: "facebookFriendsBeforBonus")
-                friendsLeftToBonusLabel.text = "\(GlobalConstants.friendHintBonus) hints given as a bonus"
+                friendsLeftToBonusLabel.text = "\(GlobalConstants.friendHintBonus) hints given as a bonus😊"
                 self.addHints()
             }
             else
             {
-                friendsLeftToBonusLabel.text = "\(friendsLeftToBonus) friends left to bonus"
+                let multiple:String = friendsLeftToBonus > 1 ? "s" : ""
+                let singlePostfix:String = friendsLeftToBonus == 1 ? "❗️" : ""
+                friendsLeftToBonusLabel.text = "\(friendsLeftToBonus) friend\(multiple) left to bonus\(singlePostfix)"
             }
             
         }
@@ -409,7 +415,7 @@ class ChallengeViewController:UIViewController,FBSDKLoginButtonDelegate, UserVie
             //first time load
             NSUserDefaults.standardUserDefaults().setBool(true, forKey:"loadFacebookFriendsFirstTime")
             NSUserDefaults.standardUserDefaults().setInteger(facebookFriends, forKey: "facebookFriendsBeforBonus")
-            friendsLeftToBonusLabel.text = "2 friends left to bonus"
+            friendsLeftToBonusLabel.text = "2 friends left to bonus❗️"
         }
         self.view.addSubview(friendsLeftToBonusLabel)
 

@@ -311,6 +311,18 @@ class DataHandler
         completePopulating?()
     }
     
+    func populateDataSecondUpdate(completePopulating: (() -> (Void))?)
+    {
+
+        readTxtFile("statesMiddleEast",tags: "#asia")
+
+        print("populated new data v2")
+        save()
+        dataPopulatedValue = 2
+        saveGameData()
+        completePopulating?()
+    }
+    
     func shuffleQuestions()
     {
         questionItems = shuffle(questionItems)
@@ -418,6 +430,7 @@ class DataHandler
         }
         else
         {
+            print("could not find question for id \(idRef)")
             return nil
         }
     }

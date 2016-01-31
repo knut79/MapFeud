@@ -64,7 +64,8 @@ struct GlobalConstants {
     static let maxKmBetweenLinePoints = 100
     
     //These values are in pixels
-    static let pointPerfectWindowOutlineRadius:CGFloat = 6
+    static let pointPerfectWindowOutlineRadius:CGFloat = 10
+    //_? should be 50
     static let pointOkWindowOutlineRadius:CGFloat = 50 // 500
     
     static let friendHintBonus:Int = 15

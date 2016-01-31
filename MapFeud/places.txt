@@ -225,6 +225,22 @@
 inf;UnDefRegion;Tibet;10;level3;Region of China. Tibet is the highest region on Earth, with an average elevation of 4,900 metres#nor#spn#fra#ger;Asia#China
 eof
 
+
+/_?
+906;1757
+inf;City#Where is the capital;San Salvador;10;level3;The capital and largest city of El Salvador.#nor#spn#fra#ger;America#El Salvador
+
+Santiago chile, lacking
+cities in the USA and canada
+cities in china
+cities in russia
+christchurch
+cities in india
+
+mountain tops
+
+
+
 eg.
 765;1185
 qst;northMount##hard##Where is the northern most point against the swedish border?#Hvor ligger det norgligste punktet mot svensk grense?#spn#fra#ger##
