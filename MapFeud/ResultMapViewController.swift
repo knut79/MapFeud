@@ -30,6 +30,7 @@ class ResultMapViewController: UIViewController ,ResultMapInfoViewProtocol{
         map.addGestureRecognizer(singleTapGestureRecognizer)
 
         self.view.addSubview(map)
+        self.view.backgroundColor = UIColor.blueColor()
         
         let backButtonMargin:CGFloat = 10
         backButton.frame = CGRectMake(UIScreen.mainScreen().bounds.size.width - (GlobalConstants.smallButtonSide * 1.5) - backButtonMargin, backButtonMargin, GlobalConstants.smallButtonSide * 1.5, GlobalConstants.smallButtonSide * 1.5)

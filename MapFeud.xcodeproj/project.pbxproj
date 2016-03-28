@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7211B8CD1CA8B5F4000D75A1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7211B8CA1CA8B5F4000D75A1 /* FBSDKCoreKit.framework */; };
+		7211B8CE1CA8B5F4000D75A1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7211B8CB1CA8B5F4000D75A1 /* FBSDKLoginKit.framework */; };
+		7211B8CF1CA8B5F4000D75A1 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7211B8CC1CA8B5F4000D75A1 /* FBSDKShareKit.framework */; };
+		7211B8D11CA8B606000D75A1 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7211B8D01CA8B606000D75A1 /* FBSDKMessengerShareKit.framework */; };
+		7211B8D31CA8B60D000D75A1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7211B8D21CA8B60D000D75A1 /* Bolts.framework */; };
 		721D8A951C01509900D488D8 /* UserFilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721D8A941C01509900D488D8 /* UserFilterScrollView.swift */; };
 		721EA6781BE6E37D000415D3 /* 54008__domingus__yeah-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6671BE6E37D000415D3 /* 54008__domingus__yeah-2.wav */; };
 		721EA6791BE6E37D000415D3 /* 189068__donnieozone__yeah1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 721EA6681BE6E37D000415D3 /* 189068__donnieozone__yeah1.wav */; };
@@ -28,6 +33,38 @@
 		722D8B331BD6A3CC00C2EABA /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */; };
 		722D8B351BD6A46800C2EABA /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B341BD6A46800C2EABA /* ClockView.swift */; };
 		722D8B391BDDA42300C2EABA /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722D8B381BDDA42300C2EABA /* StatsView.swift */; };
+		723CF2D61C618DF000916C8A /* overmapBadgeSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2D41C618DF000916C8A /* overmapBadgeSelect.png */; };
+		723CF2F71C6980C200916C8A /* capitalsBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2DA1C6980C200916C8A /* capitalsBadge1.png */; };
+		723CF2F81C6980C200916C8A /* capitalsBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2DB1C6980C200916C8A /* capitalsBadge2.png */; };
+		723CF2F91C6980C200916C8A /* capitalsBadge3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2DC1C6980C200916C8A /* capitalsBadge3.png */; };
+		723CF2FA1C6980C200916C8A /* capitalsBadge4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2DD1C6980C200916C8A /* capitalsBadge4.png */; };
+		723CF2FB1C6980C200916C8A /* capitalsBadge5.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2DE1C6980C200916C8A /* capitalsBadge5.png */; };
+		723CF2FC1C6980C200916C8A /* capitalsBadge6.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2DF1C6980C200916C8A /* capitalsBadge6.png */; };
+		723CF2FD1C6980C200916C8A /* capitalsBadge7.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E01C6980C200916C8A /* capitalsBadge7.png */; };
+		723CF2FE1C6980C200916C8A /* countriesBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E11C6980C200916C8A /* countriesBadge1.png */; };
+		723CF2FF1C6980C200916C8A /* countriesBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E21C6980C200916C8A /* countriesBadge2.png */; };
+		723CF3001C6980C200916C8A /* countriesBadge3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E31C6980C200916C8A /* countriesBadge3.png */; };
+		723CF3011C6980C200916C8A /* countriesBadge4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E41C6980C200916C8A /* countriesBadge4.png */; };
+		723CF3021C6980C200916C8A /* countriesBadge5.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E51C6980C200916C8A /* countriesBadge5.png */; };
+		723CF3031C6980C200916C8A /* countriesBadge6.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E61C6980C200916C8A /* countriesBadge6.png */; };
+		723CF3041C6980C200916C8A /* countriesBadge7.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E71C6980C200916C8A /* countriesBadge7.png */; };
+		723CF3051C6980C200916C8A /* famousPlacesBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E81C6980C200916C8A /* famousPlacesBadge1.png */; };
+		723CF3061C6980C200916C8A /* famousPlacesBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2E91C6980C200916C8A /* famousPlacesBadge2.png */; };
+		723CF3071C6980C200916C8A /* famousPlacesBadge3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2EA1C6980C200916C8A /* famousPlacesBadge3.png */; };
+		723CF3081C6980C200916C8A /* famousPlacesBadge4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2EB1C6980C200916C8A /* famousPlacesBadge4.png */; };
+		723CF3091C6980C200916C8A /* flagsBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2EC1C6980C200916C8A /* flagsBadge1.png */; };
+		723CF30A1C6980C200916C8A /* flagsBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2ED1C6980C200916C8A /* flagsBadge2.png */; };
+		723CF30B1C6980C200916C8A /* flagsBadge3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2EE1C6980C200916C8A /* flagsBadge3.png */; };
+		723CF30C1C6980C200916C8A /* flagsBadge4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2EF1C6980C200916C8A /* flagsBadge4.png */; };
+		723CF30D1C6980C200916C8A /* flagsBadge5.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2F01C6980C200916C8A /* flagsBadge5.png */; };
+		723CF30E1C6980C200916C8A /* flagsBadge6.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2F11C6980C200916C8A /* flagsBadge6.png */; };
+		723CF30F1C6980C200916C8A /* flagsBadge7.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2F21C6980C200916C8A /* flagsBadge7.png */; };
+		723CF3101C6980C200916C8A /* islandsBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2F31C6980C200916C8A /* islandsBadge1.png */; };
+		723CF3111C6980C200916C8A /* islandsBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2F41C6980C200916C8A /* islandsBadge2.png */; };
+		723CF3121C6980C200916C8A /* waterBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2F51C6980C200916C8A /* waterBadge1.png */; };
+		723CF3131C6980C200916C8A /* waterBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF2F61C6980C200916C8A /* waterBadge2.png */; };
+		723CF3181C69874500916C8A /* overmapBadgeDone.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF3161C69874500916C8A /* overmapBadgeDone.png */; };
+		723CF3191C69874500916C8A /* overmapBadgeSelect2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723CF3171C69874500916C8A /* overmapBadgeSelect2.png */; };
 		723DA0921C2FEA9F004CAA3B /* crosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA0911C2FEA9F004CAA3B /* crosshair.png */; };
 		723DA3EF1C303410004CAA3B /* crosshair2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA3ED1C303410004CAA3B /* crosshair2.png */; };
 		723DA3F01C303410004CAA3B /* crosshair3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA3EE1C303410004CAA3B /* crosshair3.png */; };
@@ -42,39 +79,8 @@
 		723DA4921C4DADAC004CAA3B /* canadaBadge5.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA46E1C4DADAC004CAA3B /* canadaBadge5.png */; };
 		723DA4931C4DADAC004CAA3B /* canadaBadge6.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA46F1C4DADAC004CAA3B /* canadaBadge6.png */; };
 		723DA4941C4DADAC004CAA3B /* canadaBadge7.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4701C4DADAC004CAA3B /* canadaBadge7.png */; };
-		723DA4951C4DADAC004CAA3B /* capitalsBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4711C4DADAC004CAA3B /* capitalsBadge1.png */; };
-		723DA4961C4DADAC004CAA3B /* capitalsBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4721C4DADAC004CAA3B /* capitalsBadge2.png */; };
-		723DA4971C4DADAC004CAA3B /* capitalsBadge3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4731C4DADAC004CAA3B /* capitalsBadge3.png */; };
-		723DA4981C4DADAC004CAA3B /* capitalsBadge4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4741C4DADAC004CAA3B /* capitalsBadge4.png */; };
-		723DA4991C4DADAC004CAA3B /* capitalsBadge5.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4751C4DADAC004CAA3B /* capitalsBadge5.png */; };
-		723DA49A1C4DADAC004CAA3B /* capitalsBadge6.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4761C4DADAC004CAA3B /* capitalsBadge6.png */; };
-		723DA49B1C4DADAC004CAA3B /* capitalsBadge7.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4771C4DADAC004CAA3B /* capitalsBadge7.png */; };
-		723DA49C1C4DADAC004CAA3B /* countriesBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4781C4DADAC004CAA3B /* countriesBadge1.png */; };
-		723DA49D1C4DADAC004CAA3B /* countriesBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4791C4DADAC004CAA3B /* countriesBadge2.png */; };
-		723DA49E1C4DADAC004CAA3B /* countriesBadge3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA47A1C4DADAC004CAA3B /* countriesBadge3.png */; };
-		723DA49F1C4DADAC004CAA3B /* countriesBadge4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA47B1C4DADAC004CAA3B /* countriesBadge4.png */; };
-		723DA4A01C4DADAC004CAA3B /* countriesBadge5.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA47C1C4DADAC004CAA3B /* countriesBadge5.png */; };
-		723DA4A11C4DADAC004CAA3B /* countriesBadge6.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA47D1C4DADAC004CAA3B /* countriesBadge6.png */; };
-		723DA4A21C4DADAC004CAA3B /* countriesBadge7.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA47E1C4DADAC004CAA3B /* countriesBadge7.png */; };
-		723DA4A31C4DADAC004CAA3B /* famousPlacesBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA47F1C4DADAC004CAA3B /* famousPlacesBadge1.png */; };
-		723DA4A41C4DADAC004CAA3B /* famousPlacesBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4801C4DADAC004CAA3B /* famousPlacesBadge2.png */; };
-		723DA4A51C4DADAC004CAA3B /* famousPlacesBadge3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4811C4DADAC004CAA3B /* famousPlacesBadge3.png */; };
-		723DA4A61C4DADAC004CAA3B /* famousPlacesBadge4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4821C4DADAC004CAA3B /* famousPlacesBadge4.png */; };
-		723DA4A71C4DADAC004CAA3B /* flagsBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4831C4DADAC004CAA3B /* flagsBadge1.png */; };
-		723DA4A81C4DADAC004CAA3B /* flagsBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4841C4DADAC004CAA3B /* flagsBadge2.png */; };
-		723DA4A91C4DADAC004CAA3B /* flagsBadge3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4851C4DADAC004CAA3B /* flagsBadge3.png */; };
-		723DA4AA1C4DADAC004CAA3B /* flagsBadge4.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4861C4DADAC004CAA3B /* flagsBadge4.png */; };
-		723DA4AB1C4DADAC004CAA3B /* flagsBadge5.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4871C4DADAC004CAA3B /* flagsBadge5.png */; };
-		723DA4AC1C4DADAC004CAA3B /* flagsBadge6.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4881C4DADAC004CAA3B /* flagsBadge6.png */; };
-		723DA4AD1C4DADAC004CAA3B /* flagsBadge7.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4891C4DADAC004CAA3B /* flagsBadge7.png */; };
-		723DA4AE1C4DADAC004CAA3B /* islandsBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA48A1C4DADAC004CAA3B /* islandsBadge1.png */; };
-		723DA4AF1C4DADAC004CAA3B /* islandsBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA48B1C4DADAC004CAA3B /* islandsBadge2.png */; };
-		723DA4B01C4DADAC004CAA3B /* lakesBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA48C1C4DADAC004CAA3B /* lakesBadge2.png */; };
-		723DA4B31C4DBD44004CAA3B /* lakesBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4B21C4DBD44004CAA3B /* lakesBadge1.png */; };
 		723DA4B71C4DCABA004CAA3B /* mapBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4B61C4DCABA004CAA3B /* mapBadge.png */; };
 		723DA4B91C4DCCCA004CAA3B /* overmapBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4B81C4DCCCA004CAA3B /* overmapBadge.png */; };
-		723DA4C31C51664F004CAA3B /* waterBadge1.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4C21C51664F004CAA3B /* waterBadge1.png */; };
-		723DA4C51C51665B004CAA3B /* waterBadge2.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4C41C51665B004CAA3B /* waterBadge2.png */; };
 		723DA4C71C516664004CAA3B /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 723DA4C61C516664004CAA3B /* map.png */; };
 		72424A541BC2C468009FED5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72424A531BC2C468009FED5C /* AppDelegate.swift */; };
 		72424A561BC2C468009FED5C /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72424A551BC2C468009FED5C /* PlayViewController.swift */; };
@@ -610,9 +616,6 @@
 		72802D5D1BE837430069F51D /* WindowsAzureMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72802D5C1BE837430069F51D /* WindowsAzureMessaging.framework */; };
 		72802D7F1BEC2FCC0069F51D /* ChallengeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72802D7E1BEC2FCC0069F51D /* ChallengeButton.swift */; };
 		72802D811BF009220069F51D /* ReportErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72802D801BF009220069F51D /* ReportErrorHandler.swift */; };
-		728555D41BFC95480009006F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 728555D31BFC95480009006F /* FBSDKShareKit.framework */; };
-		72BD9D261BD27A240062FE44 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */; };
-		72BD9D271BD27A240062FE44 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */; };
 		72BD9D281BD27A240062FE44 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */; };
 		72BD9D2C1BD2ADD90062FE44 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD9D2B1BD2ADD90062FE44 /* Challenge.swift */; };
 		72BD9D2E1BD2FEF60062FE44 /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD9D2D1BD2FEF60062FE44 /* DistanceView.swift */; };
@@ -889,6 +892,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7211B8CA1CA8B5F4000D75A1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		7211B8CB1CA8B5F4000D75A1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		7211B8CC1CA8B5F4000D75A1 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		7211B8D01CA8B606000D75A1 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		7211B8D21CA8B60D000D75A1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		721D8A941C01509900D488D8 /* UserFilterScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFilterScrollView.swift; sourceTree = "<group>"; };
 		721EA6671BE6E37D000415D3 /* 54008__domingus__yeah-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "54008__domingus__yeah-2.wav"; sourceTree = "<group>"; };
 		721EA6681BE6E37D000415D3 /* 189068__donnieozone__yeah1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 189068__donnieozone__yeah1.wav; sourceTree = "<group>"; };
@@ -910,6 +918,38 @@
 		722D8B321BD6A3CC00C2EABA /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		722D8B341BD6A46800C2EABA /* ClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		722D8B381BDDA42300C2EABA /* StatsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		723CF2D41C618DF000916C8A /* overmapBadgeSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overmapBadgeSelect.png; sourceTree = "<group>"; };
+		723CF2DA1C6980C200916C8A /* capitalsBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge1.png; sourceTree = "<group>"; };
+		723CF2DB1C6980C200916C8A /* capitalsBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge2.png; sourceTree = "<group>"; };
+		723CF2DC1C6980C200916C8A /* capitalsBadge3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge3.png; sourceTree = "<group>"; };
+		723CF2DD1C6980C200916C8A /* capitalsBadge4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge4.png; sourceTree = "<group>"; };
+		723CF2DE1C6980C200916C8A /* capitalsBadge5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge5.png; sourceTree = "<group>"; };
+		723CF2DF1C6980C200916C8A /* capitalsBadge6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge6.png; sourceTree = "<group>"; };
+		723CF2E01C6980C200916C8A /* capitalsBadge7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge7.png; sourceTree = "<group>"; };
+		723CF2E11C6980C200916C8A /* countriesBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge1.png; sourceTree = "<group>"; };
+		723CF2E21C6980C200916C8A /* countriesBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge2.png; sourceTree = "<group>"; };
+		723CF2E31C6980C200916C8A /* countriesBadge3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge3.png; sourceTree = "<group>"; };
+		723CF2E41C6980C200916C8A /* countriesBadge4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge4.png; sourceTree = "<group>"; };
+		723CF2E51C6980C200916C8A /* countriesBadge5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge5.png; sourceTree = "<group>"; };
+		723CF2E61C6980C200916C8A /* countriesBadge6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge6.png; sourceTree = "<group>"; };
+		723CF2E71C6980C200916C8A /* countriesBadge7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge7.png; sourceTree = "<group>"; };
+		723CF2E81C6980C200916C8A /* famousPlacesBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = famousPlacesBadge1.png; sourceTree = "<group>"; };
+		723CF2E91C6980C200916C8A /* famousPlacesBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = famousPlacesBadge2.png; sourceTree = "<group>"; };
+		723CF2EA1C6980C200916C8A /* famousPlacesBadge3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = famousPlacesBadge3.png; sourceTree = "<group>"; };
+		723CF2EB1C6980C200916C8A /* famousPlacesBadge4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = famousPlacesBadge4.png; sourceTree = "<group>"; };
+		723CF2EC1C6980C200916C8A /* flagsBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge1.png; sourceTree = "<group>"; };
+		723CF2ED1C6980C200916C8A /* flagsBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge2.png; sourceTree = "<group>"; };
+		723CF2EE1C6980C200916C8A /* flagsBadge3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge3.png; sourceTree = "<group>"; };
+		723CF2EF1C6980C200916C8A /* flagsBadge4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge4.png; sourceTree = "<group>"; };
+		723CF2F01C6980C200916C8A /* flagsBadge5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge5.png; sourceTree = "<group>"; };
+		723CF2F11C6980C200916C8A /* flagsBadge6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge6.png; sourceTree = "<group>"; };
+		723CF2F21C6980C200916C8A /* flagsBadge7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge7.png; sourceTree = "<group>"; };
+		723CF2F31C6980C200916C8A /* islandsBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = islandsBadge1.png; sourceTree = "<group>"; };
+		723CF2F41C6980C200916C8A /* islandsBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = islandsBadge2.png; sourceTree = "<group>"; };
+		723CF2F51C6980C200916C8A /* waterBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterBadge1.png; sourceTree = "<group>"; };
+		723CF2F61C6980C200916C8A /* waterBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterBadge2.png; sourceTree = "<group>"; };
+		723CF3161C69874500916C8A /* overmapBadgeDone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overmapBadgeDone.png; sourceTree = "<group>"; };
+		723CF3171C69874500916C8A /* overmapBadgeSelect2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overmapBadgeSelect2.png; sourceTree = "<group>"; };
 		723DA0911C2FEA9F004CAA3B /* crosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair.png; sourceTree = "<group>"; };
 		723DA3ED1C303410004CAA3B /* crosshair2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair2.png; sourceTree = "<group>"; };
 		723DA3EE1C303410004CAA3B /* crosshair3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair3.png; sourceTree = "<group>"; };
@@ -924,39 +964,8 @@
 		723DA46E1C4DADAC004CAA3B /* canadaBadge5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canadaBadge5.png; sourceTree = "<group>"; };
 		723DA46F1C4DADAC004CAA3B /* canadaBadge6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canadaBadge6.png; sourceTree = "<group>"; };
 		723DA4701C4DADAC004CAA3B /* canadaBadge7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canadaBadge7.png; sourceTree = "<group>"; };
-		723DA4711C4DADAC004CAA3B /* capitalsBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge1.png; sourceTree = "<group>"; };
-		723DA4721C4DADAC004CAA3B /* capitalsBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge2.png; sourceTree = "<group>"; };
-		723DA4731C4DADAC004CAA3B /* capitalsBadge3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge3.png; sourceTree = "<group>"; };
-		723DA4741C4DADAC004CAA3B /* capitalsBadge4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge4.png; sourceTree = "<group>"; };
-		723DA4751C4DADAC004CAA3B /* capitalsBadge5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge5.png; sourceTree = "<group>"; };
-		723DA4761C4DADAC004CAA3B /* capitalsBadge6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge6.png; sourceTree = "<group>"; };
-		723DA4771C4DADAC004CAA3B /* capitalsBadge7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capitalsBadge7.png; sourceTree = "<group>"; };
-		723DA4781C4DADAC004CAA3B /* countriesBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge1.png; sourceTree = "<group>"; };
-		723DA4791C4DADAC004CAA3B /* countriesBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge2.png; sourceTree = "<group>"; };
-		723DA47A1C4DADAC004CAA3B /* countriesBadge3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge3.png; sourceTree = "<group>"; };
-		723DA47B1C4DADAC004CAA3B /* countriesBadge4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge4.png; sourceTree = "<group>"; };
-		723DA47C1C4DADAC004CAA3B /* countriesBadge5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge5.png; sourceTree = "<group>"; };
-		723DA47D1C4DADAC004CAA3B /* countriesBadge6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge6.png; sourceTree = "<group>"; };
-		723DA47E1C4DADAC004CAA3B /* countriesBadge7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = countriesBadge7.png; sourceTree = "<group>"; };
-		723DA47F1C4DADAC004CAA3B /* famousPlacesBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = famousPlacesBadge1.png; sourceTree = "<group>"; };
-		723DA4801C4DADAC004CAA3B /* famousPlacesBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = famousPlacesBadge2.png; sourceTree = "<group>"; };
-		723DA4811C4DADAC004CAA3B /* famousPlacesBadge3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = famousPlacesBadge3.png; sourceTree = "<group>"; };
-		723DA4821C4DADAC004CAA3B /* famousPlacesBadge4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = famousPlacesBadge4.png; sourceTree = "<group>"; };
-		723DA4831C4DADAC004CAA3B /* flagsBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge1.png; sourceTree = "<group>"; };
-		723DA4841C4DADAC004CAA3B /* flagsBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge2.png; sourceTree = "<group>"; };
-		723DA4851C4DADAC004CAA3B /* flagsBadge3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge3.png; sourceTree = "<group>"; };
-		723DA4861C4DADAC004CAA3B /* flagsBadge4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge4.png; sourceTree = "<group>"; };
-		723DA4871C4DADAC004CAA3B /* flagsBadge5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge5.png; sourceTree = "<group>"; };
-		723DA4881C4DADAC004CAA3B /* flagsBadge6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge6.png; sourceTree = "<group>"; };
-		723DA4891C4DADAC004CAA3B /* flagsBadge7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagsBadge7.png; sourceTree = "<group>"; };
-		723DA48A1C4DADAC004CAA3B /* islandsBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = islandsBadge1.png; sourceTree = "<group>"; };
-		723DA48B1C4DADAC004CAA3B /* islandsBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = islandsBadge2.png; sourceTree = "<group>"; };
-		723DA48C1C4DADAC004CAA3B /* lakesBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lakesBadge2.png; sourceTree = "<group>"; };
-		723DA4B21C4DBD44004CAA3B /* lakesBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lakesBadge1.png; sourceTree = "<group>"; };
 		723DA4B61C4DCABA004CAA3B /* mapBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapBadge.png; sourceTree = "<group>"; };
 		723DA4B81C4DCCCA004CAA3B /* overmapBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overmapBadge.png; sourceTree = "<group>"; };
-		723DA4C21C51664F004CAA3B /* waterBadge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterBadge1.png; sourceTree = "<group>"; };
-		723DA4C41C51665B004CAA3B /* waterBadge2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterBadge2.png; sourceTree = "<group>"; };
 		723DA4C61C516664004CAA3B /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		72424A501BC2C468009FED5C /* MapFeud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapFeud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72424A531BC2C468009FED5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -1499,9 +1508,6 @@
 		72802D5C1BE837430069F51D /* WindowsAzureMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMessaging.framework; sourceTree = "<group>"; };
 		72802D7E1BEC2FCC0069F51D /* ChallengeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeButton.swift; sourceTree = "<group>"; };
 		72802D801BF009220069F51D /* ReportErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportErrorHandler.swift; sourceTree = "<group>"; };
-		728555D31BFC95480009006F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 		72BD9D291BD2AA430062FE44 /* MapFeud-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapFeud-Bridging-Header.h"; sourceTree = "<group>"; };
 		72BD9D2B1BD2ADD90062FE44 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -1767,11 +1773,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				72BD9D281BD27A240062FE44 /* WindowsAzureMobileServices.framework in Frameworks */,
-				72BD9D271BD27A240062FE44 /* FBSDKLoginKit.framework in Frameworks */,
-				728555D41BFC95480009006F /* FBSDKShareKit.framework in Frameworks */,
+				7211B8CD1CA8B5F4000D75A1 /* FBSDKCoreKit.framework in Frameworks */,
+				7211B8CF1CA8B5F4000D75A1 /* FBSDKShareKit.framework in Frameworks */,
+				7211B8CE1CA8B5F4000D75A1 /* FBSDKLoginKit.framework in Frameworks */,
 				727445221C149FA300E16F6C /* StoreKit.framework in Frameworks */,
-				72BD9D261BD27A240062FE44 /* FBSDKCoreKit.framework in Frameworks */,
 				72802D5D1BE837430069F51D /* WindowsAzureMessaging.framework in Frameworks */,
+				7211B8D11CA8B606000D75A1 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				7211B8D31CA8B60D000D75A1 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1827,12 +1835,41 @@
 		723DA4691C4DAD5C004CAA3B /* badges */ = {
 			isa = PBXGroup;
 			children = (
+				723CF3161C69874500916C8A /* overmapBadgeDone.png */,
+				723CF3171C69874500916C8A /* overmapBadgeSelect2.png */,
+				723CF2DA1C6980C200916C8A /* capitalsBadge1.png */,
+				723CF2DB1C6980C200916C8A /* capitalsBadge2.png */,
+				723CF2DC1C6980C200916C8A /* capitalsBadge3.png */,
+				723CF2DD1C6980C200916C8A /* capitalsBadge4.png */,
+				723CF2DE1C6980C200916C8A /* capitalsBadge5.png */,
+				723CF2DF1C6980C200916C8A /* capitalsBadge6.png */,
+				723CF2E01C6980C200916C8A /* capitalsBadge7.png */,
+				723CF2E11C6980C200916C8A /* countriesBadge1.png */,
+				723CF2E21C6980C200916C8A /* countriesBadge2.png */,
+				723CF2E31C6980C200916C8A /* countriesBadge3.png */,
+				723CF2E41C6980C200916C8A /* countriesBadge4.png */,
+				723CF2E51C6980C200916C8A /* countriesBadge5.png */,
+				723CF2E61C6980C200916C8A /* countriesBadge6.png */,
+				723CF2E71C6980C200916C8A /* countriesBadge7.png */,
+				723CF2E81C6980C200916C8A /* famousPlacesBadge1.png */,
+				723CF2E91C6980C200916C8A /* famousPlacesBadge2.png */,
+				723CF2EA1C6980C200916C8A /* famousPlacesBadge3.png */,
+				723CF2EB1C6980C200916C8A /* famousPlacesBadge4.png */,
+				723CF2EC1C6980C200916C8A /* flagsBadge1.png */,
+				723CF2ED1C6980C200916C8A /* flagsBadge2.png */,
+				723CF2EE1C6980C200916C8A /* flagsBadge3.png */,
+				723CF2EF1C6980C200916C8A /* flagsBadge4.png */,
+				723CF2F01C6980C200916C8A /* flagsBadge5.png */,
+				723CF2F11C6980C200916C8A /* flagsBadge6.png */,
+				723CF2F21C6980C200916C8A /* flagsBadge7.png */,
+				723CF2F31C6980C200916C8A /* islandsBadge1.png */,
+				723CF2F41C6980C200916C8A /* islandsBadge2.png */,
+				723CF2F51C6980C200916C8A /* waterBadge1.png */,
+				723CF2F61C6980C200916C8A /* waterBadge2.png */,
+				723CF2D41C618DF000916C8A /* overmapBadgeSelect.png */,
 				723DA4C61C516664004CAA3B /* map.png */,
-				723DA4C41C51665B004CAA3B /* waterBadge2.png */,
-				723DA4C21C51664F004CAA3B /* waterBadge1.png */,
 				723DA4B81C4DCCCA004CAA3B /* overmapBadge.png */,
 				723DA4B61C4DCABA004CAA3B /* mapBadge.png */,
-				723DA4B21C4DBD44004CAA3B /* lakesBadge1.png */,
 				723DA46A1C4DADAC004CAA3B /* canadaBadge1.png */,
 				723DA46B1C4DADAC004CAA3B /* canadaBadge2.png */,
 				723DA46C1C4DADAC004CAA3B /* canadaBadge3.png */,
@@ -1840,34 +1877,6 @@
 				723DA46E1C4DADAC004CAA3B /* canadaBadge5.png */,
 				723DA46F1C4DADAC004CAA3B /* canadaBadge6.png */,
 				723DA4701C4DADAC004CAA3B /* canadaBadge7.png */,
-				723DA4711C4DADAC004CAA3B /* capitalsBadge1.png */,
-				723DA4721C4DADAC004CAA3B /* capitalsBadge2.png */,
-				723DA4731C4DADAC004CAA3B /* capitalsBadge3.png */,
-				723DA4741C4DADAC004CAA3B /* capitalsBadge4.png */,
-				723DA4751C4DADAC004CAA3B /* capitalsBadge5.png */,
-				723DA4761C4DADAC004CAA3B /* capitalsBadge6.png */,
-				723DA4771C4DADAC004CAA3B /* capitalsBadge7.png */,
-				723DA4781C4DADAC004CAA3B /* countriesBadge1.png */,
-				723DA4791C4DADAC004CAA3B /* countriesBadge2.png */,
-				723DA47A1C4DADAC004CAA3B /* countriesBadge3.png */,
-				723DA47B1C4DADAC004CAA3B /* countriesBadge4.png */,
-				723DA47C1C4DADAC004CAA3B /* countriesBadge5.png */,
-				723DA47D1C4DADAC004CAA3B /* countriesBadge6.png */,
-				723DA47E1C4DADAC004CAA3B /* countriesBadge7.png */,
-				723DA47F1C4DADAC004CAA3B /* famousPlacesBadge1.png */,
-				723DA4801C4DADAC004CAA3B /* famousPlacesBadge2.png */,
-				723DA4811C4DADAC004CAA3B /* famousPlacesBadge3.png */,
-				723DA4821C4DADAC004CAA3B /* famousPlacesBadge4.png */,
-				723DA4831C4DADAC004CAA3B /* flagsBadge1.png */,
-				723DA4841C4DADAC004CAA3B /* flagsBadge2.png */,
-				723DA4851C4DADAC004CAA3B /* flagsBadge3.png */,
-				723DA4861C4DADAC004CAA3B /* flagsBadge4.png */,
-				723DA4871C4DADAC004CAA3B /* flagsBadge5.png */,
-				723DA4881C4DADAC004CAA3B /* flagsBadge6.png */,
-				723DA4891C4DADAC004CAA3B /* flagsBadge7.png */,
-				723DA48A1C4DADAC004CAA3B /* islandsBadge1.png */,
-				723DA48B1C4DADAC004CAA3B /* islandsBadge2.png */,
-				723DA48C1C4DADAC004CAA3B /* lakesBadge2.png */,
 			);
 			name = badges;
 			sourceTree = "<group>";
@@ -2590,10 +2599,12 @@
 		72BD9D221BD27A070062FE44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				728555D31BFC95480009006F /* FBSDKShareKit.framework */,
+				7211B8D21CA8B60D000D75A1 /* Bolts.framework */,
+				7211B8D01CA8B606000D75A1 /* FBSDKMessengerShareKit.framework */,
+				7211B8CA1CA8B5F4000D75A1 /* FBSDKCoreKit.framework */,
+				7211B8CB1CA8B5F4000D75A1 /* FBSDKLoginKit.framework */,
+				7211B8CC1CA8B5F4000D75A1 /* FBSDKShareKit.framework */,
 				72802D5C1BE837430069F51D /* WindowsAzureMessaging.framework */,
-				72BD9D231BD27A240062FE44 /* FBSDKCoreKit.framework */,
-				72BD9D241BD27A240062FE44 /* FBSDKLoginKit.framework */,
 				72BD9D251BD27A240062FE44 /* WindowsAzureMobileServices.framework */,
 			);
 			name = Frameworks;
@@ -3018,7 +3029,6 @@
 				72BD9E0D1BD3D4C40062FE44 /* world_100_border_2_5.jpg in Resources */,
 				7254B18D1BC99CA900A22920 /* LaosFlag.png in Resources */,
 				7254AFE61BC31E1000A22920 /* world_100_10_4.jpg in Resources */,
-				723DA4B01C4DADAC004CAA3B /* lakesBadge2.png in Resources */,
 				72BD9E171BD3D4C40062FE44 /* world_100_border_3_3.jpg in Resources */,
 				7254B12E1BC99CA900A22920 /* AlbaniaFlag.png in Resources */,
 				723DA4B91C4DCCCA004CAA3B /* overmapBadge.png in Resources */,
@@ -3026,12 +3036,11 @@
 				72BD9E051BD3D4C40062FE44 /* world_100_border_1_9.jpg in Resources */,
 				72BD9DF61BD3D4C40062FE44 /* world_100_border_0_6.jpg in Resources */,
 				7254AF571BC31E1000A22920 /* world_100_14_5.jpg in Resources */,
+				723CF3131C6980C200916C8A /* waterBadge2.png in Resources */,
 				72BD9E6A1BD3D4C40062FE44 /* world_100_border_10_2.jpg in Resources */,
 				7254B12F1BC99CA900A22920 /* AlgeriaFlag.png in Resources */,
 				72BD9E9D1BD3D4C40062FE44 /* world_100_border_14_5.jpg in Resources */,
-				723DA4A21C4DADAC004CAA3B /* countriesBadge7.png in Resources */,
 				7254AFF81BC31E1000A22920 /* world_100_11_10.jpg in Resources */,
-				723DA49B1C4DADAC004CAA3B /* capitalsBadge7.png in Resources */,
 				723DA4681C4C7E2C004CAA3B /* testbadge.png in Resources */,
 				7254AFA11BC31E1000A22920 /* world_100_4_7.jpg in Resources */,
 				7254B1A31BC99CAA00A22920 /* MontenegroFlag.png in Resources */,
@@ -3040,7 +3049,6 @@
 				72BD9EA51BD3D4C40062FE44 /* world_100_border_15_1.jpg in Resources */,
 				7254B19B1BC99CAA00A22920 /* MaltaFlag.png in Resources */,
 				7254AE7A1BC31DE900A22920 /* world_50_5_2.jpg in Resources */,
-				723DA4A01C4DADAC004CAA3B /* countriesBadge5.png in Resources */,
 				7254B1631BC99CA900A22920 /* EstoniaFlag.png in Resources */,
 				7254B1E41BC99CAA00A22920 /* TurkmenistanFlag.png in Resources */,
 				7254AF5A1BC31E1000A22920 /* world_100_14_8.jpg in Resources */,
@@ -3048,6 +3056,7 @@
 				7254B1391BC99CA900A22920 /* BarbadosFlag.png in Resources */,
 				72BD9E7B1BD3D4C40062FE44 /* world_100_border_11_7.jpg in Resources */,
 				72BD9E561BD3D4C40062FE44 /* world_100_border_8_6.jpg in Resources */,
+				723CF2FE1C6980C200916C8A /* countriesBadge1.png in Resources */,
 				72BD9E991BD3D4C40062FE44 /* world_100_border_14_1.jpg in Resources */,
 				721EA67F1BE6E37D000415D3 /* correct.wav in Resources */,
 				7254AE781BC31DE900A22920 /* world_50_5_0.jpg in Resources */,
@@ -3076,10 +3085,10 @@
 				7254AF641BC31E1000A22920 /* world_100_15_6.jpg in Resources */,
 				72BD9E671BD3D4C40062FE44 /* world_100_border_9_11.jpg in Resources */,
 				72BD9E271BD3D4C40062FE44 /* world_100_border_4_7.jpg in Resources */,
+				723CF2FC1C6980C200916C8A /* capitalsBadge6.png in Resources */,
 				7254B1EC1BC99CAA00A22920 /* UzbekistanFlag.png in Resources */,
 				7254AFA01BC31E1000A22920 /* world_100_4_6.jpg in Resources */,
 				7254AF811BC31E1000A22920 /* world_100_1_11.jpg in Resources */,
-				723DA4AA1C4DADAC004CAA3B /* flagsBadge4.png in Resources */,
 				7254AE1E1BC31DB800A22920 /* world_25_1_0.jpg in Resources */,
 				7254AFC81BC31E1000A22920 /* world_100_7_10.jpg in Resources */,
 				7254AFD01BC31E1000A22920 /* world_100_8_6.jpg in Resources */,
@@ -3096,6 +3105,7 @@
 				7254B1D71BC99CAA00A22920 /* SwazilandFlag.png in Resources */,
 				7254AFA71BC31E1000A22920 /* world_100_5_1.jpg in Resources */,
 				7254AF931BC31E1000A22920 /* world_100_3_5.jpg in Resources */,
+				723CF3101C6980C200916C8A /* islandsBadge1.png in Resources */,
 				72BD9E831BD3D4C40062FE44 /* world_100_border_12_3.jpg in Resources */,
 				72BD9E361BD3D4C40062FE44 /* world_100_border_5_10.jpg in Resources */,
 				72BD9DF71BD3D4C40062FE44 /* world_100_border_0_7.jpg in Resources */,
@@ -3123,6 +3133,7 @@
 				7254B19E1BC99CAA00A22920 /* MauritiusFlag.png in Resources */,
 				7254B1971BC99CAA00A22920 /* MalawiFlag.png in Resources */,
 				7254AFB51BC31E1000A22920 /* world_100_6_3.jpg in Resources */,
+				723CF30B1C6980C200916C8A /* flagsBadge3.png in Resources */,
 				7254AE251BC31DB800A22920 /* world_25_3_1.jpg in Resources */,
 				7254B0051BC31E1000A22920 /* world_100_12_11.jpg in Resources */,
 				72BD9F0F1BD3D5170062FE44 /* world_50_border_7_4.jpg in Resources */,
@@ -3133,7 +3144,6 @@
 				72BD9EF31BD3D5170062FE44 /* world_50_border_3_0.jpg in Resources */,
 				7254B13D1BC99CA900A22920 /* BeninFlag.png in Resources */,
 				7254B17F1BC99CA900A22920 /* IrelandFlag.png in Resources */,
-				723DA4951C4DADAC004CAA3B /* capitalsBadge1.png in Resources */,
 				7254B15E1BC99CA900A22920 /* EgyptFlag.png in Resources */,
 				723DA4B71C4DCABA004CAA3B /* mapBadge.png in Resources */,
 				72BD9F081BD3D5170062FE44 /* world_50_border_6_3.jpg in Resources */,
@@ -3157,6 +3167,7 @@
 				7254AE741BC31DE900A22920 /* world_50_4_2.jpg in Resources */,
 				72BD9E771BD3D4C40062FE44 /* world_100_border_11_3.jpg in Resources */,
 				7254B1691BC99CA900A22920 /* FranceFlag.png in Resources */,
+				723CF3021C6980C200916C8A /* countriesBadge5.png in Resources */,
 				7254AF4D1BC31E1000A22920 /* world_100_13_7.jpg in Resources */,
 				7254B19C1BC99CAA00A22920 /* MarshallIslandsFlag.png in Resources */,
 				7254AE261BC31DB800A22920 /* world_25_3_2.jpg in Resources */,
@@ -3208,6 +3219,7 @@
 				7254AF661BC31E1000A22920 /* world_100_15_8.jpg in Resources */,
 				7254B15B1BC99CA900A22920 /* DominicanRepublicFlag.png in Resources */,
 				7254B13E1BC99CA900A22920 /* BhutanFlag.png in Resources */,
+				723CF3081C6980C200916C8A /* famousPlacesBadge4.png in Resources */,
 				72BD9F281BD3D5530062FE44 /* world_25_border_3_1.jpg in Resources */,
 				7254AFEE1BC31E1000A22920 /* world_100_11_0.jpg in Resources */,
 				7254AFCD1BC31E1000A22920 /* world_100_8_3.jpg in Resources */,
@@ -3217,6 +3229,7 @@
 				72BD9E881BD3D4C40062FE44 /* world_100_border_12_8.jpg in Resources */,
 				7254B1BE1BC99CAA00A22920 /* RomaniaFlag.png in Resources */,
 				7254AF621BC31E1000A22920 /* world_100_15_4.jpg in Resources */,
+				723CF30F1C6980C200916C8A /* flagsBadge7.png in Resources */,
 				72BD9EAC1BD3D4C40062FE44 /* world_100_border_15_8.jpg in Resources */,
 				72BD9E651BD3D4C40062FE44 /* world_100_border_9_9.jpg in Resources */,
 				7254AF631BC31E1000A22920 /* world_100_15_5.jpg in Resources */,
@@ -3232,16 +3245,12 @@
 				7254B1851BC99CA900A22920 /* JapanFlag.png in Resources */,
 				7254B1A71BC99CAA00A22920 /* NamibiaFlag.png in Resources */,
 				7254AFC91BC31E1000A22920 /* world_100_7_11.jpg in Resources */,
-				723DA4AF1C4DADAC004CAA3B /* islandsBadge2.png in Resources */,
 				7254AE691BC31DE900A22920 /* world_50_2_3.jpg in Resources */,
 				7254B1C81BC99CAA00A22920 /* SenegalFlag.png in Resources */,
 				7254B0271BC3E98000A22920 /* capitalsEurope.txt in Resources */,
-				723DA4A81C4DADAC004CAA3B /* flagsBadge2.png in Resources */,
 				72BD9E591BD3D4C40062FE44 /* world_100_border_8_9.jpg in Resources */,
 				7254AE7F1BC31DE900A22920 /* world_50_6_1.jpg in Resources */,
 				7254AE6F1BC31DE900A22920 /* world_50_3_3.jpg in Resources */,
-				723DA4C31C51664F004CAA3B /* waterBadge1.png in Resources */,
-				723DA4AD1C4DADAC004CAA3B /* flagsBadge7.png in Resources */,
 				72BD9E7C1BD3D4C40062FE44 /* world_100_border_11_8.jpg in Resources */,
 				7254B1371BC99CA900A22920 /* BahrainFlag.png in Resources */,
 				72BD9E251BD3D4C40062FE44 /* world_100_border_4_5.jpg in Resources */,
@@ -3265,7 +3274,6 @@
 				7254B1BF1BC99CAA00A22920 /* RussiaFlag.png in Resources */,
 				7254B17B1BC99CA900A22920 /* IndiaFlag.png in Resources */,
 				72BD9EE91BD3D5170062FE44 /* world_50_border_1_2.jpg in Resources */,
-				723DA4A71C4DADAC004CAA3B /* flagsBadge1.png in Resources */,
 				7254AFE01BC31E1000A22920 /* world_100_9_10.jpg in Resources */,
 				7254AFD51BC31E1000A22920 /* world_100_8_11.jpg in Resources */,
 				7254AE701BC31DE900A22920 /* world_50_3_4.jpg in Resources */,
@@ -3274,10 +3282,10 @@
 				7254B1D41BC99CAA00A22920 /* SriLankaFlag.png in Resources */,
 				72BD9F101BD3D5170062FE44 /* world_50_border_7_5.jpg in Resources */,
 				7254AF871BC31E1000A22920 /* world_100_2_5.jpg in Resources */,
-				723DA49A1C4DADAC004CAA3B /* capitalsBadge6.png in Resources */,
 				7254B1B81BC99CAA00A22920 /* PeruFlag.png in Resources */,
 				7254B1AC1BC99CAA00A22920 /* NewZealandFlag.png in Resources */,
 				7254AF671BC31E1000A22920 /* world_100_15_9.jpg in Resources */,
+				723CF3001C6980C200916C8A /* countriesBadge3.png in Resources */,
 				7254AFB11BC31E1000A22920 /* world_100_5_11.jpg in Resources */,
 				72BD9F231BD3D5530062FE44 /* world_25_border_1_2.jpg in Resources */,
 				7254AE5C1BC31DE900A22920 /* world_50_0_2.jpg in Resources */,
@@ -3289,6 +3297,8 @@
 				72BD9E8A1BD3D4C40062FE44 /* world_100_border_12_10.jpg in Resources */,
 				7254AF651BC31E1000A22920 /* world_100_15_7.jpg in Resources */,
 				72BD9F201BD3D5530062FE44 /* world_25_border_0_2.jpg in Resources */,
+				723CF2FA1C6980C200916C8A /* capitalsBadge4.png in Resources */,
+				723CF3181C69874500916C8A /* overmapBadgeDone.png in Resources */,
 				72BD9E2D1BD3D4C40062FE44 /* world_100_border_5_1.jpg in Resources */,
 				7254B1351BC99CA900A22920 /* AzerbaijanFlag.png in Resources */,
 				72BD9E971BD3D4C40062FE44 /* world_100_border_13_11.jpg in Resources */,
@@ -3297,8 +3307,9 @@
 				721EA67C1BE6E37D000415D3 /* wrong.wav in Resources */,
 				72BD9DFD1BD3D4C40062FE44 /* world_100_border_1_1.jpg in Resources */,
 				7254AFAE1BC31E1000A22920 /* world_100_5_8.jpg in Resources */,
+				723CF2F81C6980C200916C8A /* capitalsBadge2.png in Resources */,
 				72BD9E5C1BD3D4C40062FE44 /* world_100_border_9_0.jpg in Resources */,
-				723DA49E1C4DADAC004CAA3B /* countriesBadge3.png in Resources */,
+				723CF30E1C6980C200916C8A /* flagsBadge6.png in Resources */,
 				72BD9EFC1BD3D5170062FE44 /* world_50_border_4_3.jpg in Resources */,
 				72BD9E191BD3D4C40062FE44 /* world_100_border_3_5.jpg in Resources */,
 				7254AE291BC31DB800A22920 /* world_25_0_2.jpg in Resources */,
@@ -3327,6 +3338,7 @@
 				7254B1751BC99CA900A22920 /* GuineaFlag.png in Resources */,
 				72BD9F051BD3D5170062FE44 /* world_50_border_6_0.jpg in Resources */,
 				7254AF721BC31E1000A22920 /* world_100_0_8.jpg in Resources */,
+				723CF2F91C6980C200916C8A /* capitalsBadge3.png in Resources */,
 				7254B1511BC99CA900A22920 /* CongoFlag.png in Resources */,
 				7254AF941BC31E1000A22920 /* world_100_3_6.jpg in Resources */,
 				7254AF761BC31E1000A22920 /* world_100_1_0.jpg in Resources */,
@@ -3342,7 +3354,6 @@
 				72BD9E481BD3D4C40062FE44 /* world_100_border_7_4.jpg in Resources */,
 				7254AFE71BC31E1000A22920 /* world_100_10_5.jpg in Resources */,
 				72BD9E8C1BD3D4C40062FE44 /* world_100_border_13_0.jpg in Resources */,
-				723DA4A31C4DADAC004CAA3B /* famousPlacesBadge1.png in Resources */,
 				7254B1801BC99CA900A22920 /* IsleOfManFlag.png in Resources */,
 				7254AF7B1BC31E1000A22920 /* world_100_1_5.jpg in Resources */,
 				7254AE611BC31DE900A22920 /* world_50_1_1.jpg in Resources */,
@@ -3369,6 +3380,7 @@
 				7254B1771BC99CA900A22920 /* HaitiFlag.png in Resources */,
 				72BD9E7A1BD3D4C40062FE44 /* world_100_border_11_6.jpg in Resources */,
 				7254B1521BC99CA900A22920 /* CostaRicaFlag.png in Resources */,
+				723CF3041C6980C200916C8A /* countriesBadge7.png in Resources */,
 				72BD9E071BD3D4C40062FE44 /* world_100_border_1_11.jpg in Resources */,
 				72BD9F061BD3D5170062FE44 /* world_50_border_6_1.jpg in Resources */,
 				72BD9EA91BD3D4C40062FE44 /* world_100_border_15_5.jpg in Resources */,
@@ -3414,6 +3426,7 @@
 				72BD9EFB1BD3D5170062FE44 /* world_50_border_4_2.jpg in Resources */,
 				721EA6851BE6E37D000415D3 /* clockFast.mp3 in Resources */,
 				7254AFF01BC31E1000A22920 /* world_100_11_2.jpg in Resources */,
+				723CF30D1C6980C200916C8A /* flagsBadge5.png in Resources */,
 				72BD9E791BD3D4C40062FE44 /* world_100_border_11_5.jpg in Resources */,
 				72BD9E0C1BD3D4C40062FE44 /* world_100_border_2_4.jpg in Resources */,
 				7254AFA21BC31E1000A22920 /* world_100_4_8.jpg in Resources */,
@@ -3426,7 +3439,6 @@
 				7254AFD71BC31E1000A22920 /* world_100_9_1.jpg in Resources */,
 				7254B1CB1BC99CAA00A22920 /* SierraLeoneFlag.png in Resources */,
 				72BD9E1C1BD3D4C40062FE44 /* world_100_border_3_8.jpg in Resources */,
-				723DA4C51C51665B004CAA3B /* waterBadge2.png in Resources */,
 				7254B1A61BC99CAA00A22920 /* MyanmarFlag.png in Resources */,
 				7254AFD91BC31E1000A22920 /* world_100_9_3.jpg in Resources */,
 				7254AFE31BC31E1000A22920 /* world_100_10_1.jpg in Resources */,
@@ -3455,15 +3467,14 @@
 				7254B1921BC99CAA00A22920 /* LiechtensteinFlag.png in Resources */,
 				7254AE231BC31DB800A22920 /* world_25_2_2.jpg in Resources */,
 				72BD9E681BD3D4C40062FE44 /* world_100_border_10_0.jpg in Resources */,
+				723CF3121C6980C200916C8A /* waterBadge1.png in Resources */,
 				7254AFBC1BC31E1000A22920 /* world_100_6_10.jpg in Resources */,
 				7254AF6F1BC31E1000A22920 /* world_100_0_5.jpg in Resources */,
-				723DA4B31C4DBD44004CAA3B /* lakesBadge1.png in Resources */,
 				7254B1C41BC99CAA00A22920 /* SamoaFlag.png in Resources */,
 				72BD9F261BD3D5530062FE44 /* world_25_border_2_2.jpg in Resources */,
 				7254AE7D1BC31DE900A22920 /* world_50_5_5.jpg in Resources */,
 				7254B1591BC99CA900A22920 /* DjiboutiFlag.png in Resources */,
 				7254B1AD1BC99CAA00A22920 /* NicaraguaFlag.png in Resources */,
-				723DA4A41C4DADAC004CAA3B /* famousPlacesBadge2.png in Resources */,
 				7254AE601BC31DE900A22920 /* world_50_1_0.jpg in Resources */,
 				7254B17C1BC99CA900A22920 /* IndonesiaFlag.png in Resources */,
 				7254AFA91BC31E1000A22920 /* world_100_5_3.jpg in Resources */,
@@ -3476,9 +3487,9 @@
 				7254AF681BC31E1000A22920 /* world_100_15_10.jpg in Resources */,
 				7254AF5F1BC31E1000A22920 /* world_100_15_1.jpg in Resources */,
 				723DA4921C4DADAC004CAA3B /* canadaBadge5.png in Resources */,
+				723CF30C1C6980C200916C8A /* flagsBadge4.png in Resources */,
 				7254AF701BC31E1000A22920 /* world_100_0_6.jpg in Resources */,
 				7254AE831BC31DE900A22920 /* world_50_6_5.jpg in Resources */,
-				723DA4961C4DADAC004CAA3B /* capitalsBadge2.png in Resources */,
 				72BD9DFC1BD3D4C40062FE44 /* world_100_border_1_0.jpg in Resources */,
 				7254B1881BC99CA900A22920 /* KenyaFlag.png in Resources */,
 				7254B18F1BC99CAA00A22920 /* LesothoFlag.png in Resources */,
@@ -3496,6 +3507,7 @@
 				72BD9EF21BD3D5170062FE44 /* world_50_border_2_5.jpg in Resources */,
 				72BD9EFA1BD3D5170062FE44 /* world_50_border_4_1.jpg in Resources */,
 				7254AE851BC31DE900A22920 /* world_50_7_1.jpg in Resources */,
+				723CF3031C6980C200916C8A /* countriesBadge6.png in Resources */,
 				7254B14A1BC99CA900A22920 /* CapeVerdeFlag.png in Resources */,
 				7254AE771BC31DE900A22920 /* world_50_4_5.jpg in Resources */,
 				72BD9E371BD3D4C40062FE44 /* world_100_border_5_11.jpg in Resources */,
@@ -3549,18 +3561,15 @@
 				7254AF8C1BC31E1000A22920 /* world_100_2_10.jpg in Resources */,
 				7254B19A1BC99CAA00A22920 /* MaliFlag.png in Resources */,
 				7254AFBD1BC31E1000A22920 /* world_100_6_11.jpg in Resources */,
-				723DA4A51C4DADAC004CAA3B /* famousPlacesBadge3.png in Resources */,
 				7254B1731BC99CA900A22920 /* GuatemalaFlag.png in Resources */,
 				7254B13F1BC99CA900A22920 /* BoliviaFlag.png in Resources */,
 				7254B1641BC99CA900A22920 /* EthiopiaFlag.png in Resources */,
 				72BD9E951BD3D4C40062FE44 /* world_100_border_13_9.jpg in Resources */,
 				7254AFC41BC31E1000A22920 /* world_100_7_6.jpg in Resources */,
 				7254AFF41BC31E1000A22920 /* world_100_11_6.jpg in Resources */,
-				723DA4991C4DADAC004CAA3B /* capitalsBadge5.png in Resources */,
 				72BD9F0B1BD3D5170062FE44 /* world_50_border_7_0.jpg in Resources */,
 				7254AFF51BC31E1000A22920 /* world_100_11_7.jpg in Resources */,
 				72BD9E101BD3D4C40062FE44 /* world_100_border_2_8.jpg in Resources */,
-				723DA4AC1C4DADAC004CAA3B /* flagsBadge6.png in Resources */,
 				72BD9E2C1BD3D4C40062FE44 /* world_100_border_5_0.jpg in Resources */,
 				7254B14F1BC99CA900A22920 /* ColombiaFlag.png in Resources */,
 				7254AFA51BC31E1000A22920 /* world_100_4_11.jpg in Resources */,
@@ -3574,6 +3583,7 @@
 				7254B13C1BC99CA900A22920 /* BelizeFlag.png in Resources */,
 				72BD9E4C1BD3D4C40062FE44 /* world_100_border_7_8.jpg in Resources */,
 				72BD9EA61BD3D4C40062FE44 /* world_100_border_15_2.jpg in Resources */,
+				723CF3111C6980C200916C8A /* islandsBadge2.png in Resources */,
 				7254AFD41BC31E1000A22920 /* world_100_8_10.jpg in Resources */,
 				7254B1B51BC99CAA00A22920 /* PakistanFlag.png in Resources */,
 				7254B1841BC99CA900A22920 /* JamaicaFlag.png in Resources */,
@@ -3582,11 +3592,9 @@
 				72BD9EE61BD3D5170062FE44 /* world_50_border_0_5.jpg in Resources */,
 				7254B18C1BC99CA900A22920 /* KyrgyzstanFlag.png in Resources */,
 				72BD9EA01BD3D4C40062FE44 /* world_100_border_14_8.jpg in Resources */,
-				723DA49D1C4DADAC004CAA3B /* countriesBadge2.png in Resources */,
 				7254AF501BC31E1000A22920 /* world_100_13_10.jpg in Resources */,
 				72BD9E1F1BD3D4C40062FE44 /* world_100_border_3_11.jpg in Resources */,
 				7254AFAF1BC31E1000A22920 /* world_100_5_9.jpg in Resources */,
-				723DA4A91C4DADAC004CAA3B /* flagsBadge3.png in Resources */,
 				72BD9E311BD3D4C40062FE44 /* world_100_border_5_5.jpg in Resources */,
 				7254B1581BC99CA900A22920 /* DenmarkFlag.png in Resources */,
 				72BD9EF81BD3D5170062FE44 /* world_50_border_3_5.jpg in Resources */,
@@ -3621,13 +3629,12 @@
 				7254B1A11BC99CAA00A22920 /* MonacoFlag.png in Resources */,
 				7254B1501BC99CA900A22920 /* ComorosFlag.png in Resources */,
 				72BD9DF21BD3D4C40062FE44 /* world_100_border_0_2.jpg in Resources */,
-				723DA4AE1C4DADAC004CAA3B /* islandsBadge1.png in Resources */,
 				7254AFB71BC31E1000A22920 /* world_100_6_5.jpg in Resources */,
 				7254B1A21BC99CAA00A22920 /* MongoliaFlag.png in Resources */,
 				723DA3F21C303417004CAA3B /* crosshair4.png in Resources */,
 				7254B1A81BC99CAA00A22920 /* NauruFlag.png in Resources */,
 				7254B05C1BC7279100A22920 /* 100MaskLand.png in Resources */,
-				723DA49C1C4DADAC004CAA3B /* countriesBadge1.png in Resources */,
+				723CF3091C6980C200916C8A /* flagsBadge1.png in Resources */,
 				723DA4941C4DADAC004CAA3B /* canadaBadge7.png in Resources */,
 				72BD9F0D1BD3D5170062FE44 /* world_50_border_7_2.jpg in Resources */,
 				72BD9E871BD3D4C40062FE44 /* world_100_border_12_7.jpg in Resources */,
@@ -3639,6 +3646,8 @@
 				7254AFE11BC31E1000A22920 /* world_100_9_11.jpg in Resources */,
 				7254AFD21BC31E1000A22920 /* world_100_8_8.jpg in Resources */,
 				7254B1BC1BC99CAA00A22920 /* PuertoRicoFlag.png in Resources */,
+				723CF2FF1C6980C200916C8A /* countriesBadge2.png in Resources */,
+				723CF3071C6980C200916C8A /* famousPlacesBadge3.png in Resources */,
 				72BD9EE51BD3D5170062FE44 /* world_50_border_0_4.jpg in Resources */,
 				72BD9E501BD3D4C40062FE44 /* world_100_border_8_0.jpg in Resources */,
 				7254AF4A1BC31E1000A22920 /* world_100_13_4.jpg in Resources */,
@@ -3682,12 +3691,10 @@
 				7254B05D1BC7279100A22920 /* 100MaskWater.png in Resources */,
 				7254B0081BC31E1000A22920 /* world_100_13_2.jpg in Resources */,
 				7254B1451BC99CA900A22920 /* BurkinaFasoFlag.png in Resources */,
-				723DA4971C4DADAC004CAA3B /* capitalsBadge3.png in Resources */,
 				72BD9EF11BD3D5170062FE44 /* world_50_border_2_4.jpg in Resources */,
 				7254B05A1BC7279100A22920 /* 50MaskLand.png in Resources */,
 				7254B1481BC99CA900A22920 /* CameroonFlag.png in Resources */,
 				72BD9E3C1BD3D4C40062FE44 /* world_100_border_6_4.jpg in Resources */,
-				723DA4AB1C4DADAC004CAA3B /* flagsBadge5.png in Resources */,
 				7254AFBA1BC31E1000A22920 /* world_100_6_8.jpg in Resources */,
 				7254B02D1BC3E98000A22920 /* pictureQuestions.txt in Resources */,
 				72BD9F211BD3D5530062FE44 /* world_25_border_1_0.jpg in Resources */,
@@ -3699,12 +3706,15 @@
 				7254AFFC1BC31E1000A22920 /* world_100_12_2.jpg in Resources */,
 				72BD9E3F1BD3D4C40062FE44 /* world_100_border_6_7.jpg in Resources */,
 				72BD9E901BD3D4C40062FE44 /* world_100_border_13_4.jpg in Resources */,
+				723CF30A1C6980C200916C8A /* flagsBadge2.png in Resources */,
+				723CF3011C6980C200916C8A /* countriesBadge4.png in Resources */,
 				7254AFAC1BC31E1000A22920 /* world_100_5_6.jpg in Resources */,
 				723DA3EF1C303410004CAA3B /* crosshair2.png in Resources */,
 				7254AF4E1BC31E1000A22920 /* world_100_13_8.jpg in Resources */,
 				72BD9E4E1BD3D4C40062FE44 /* world_100_border_7_10.jpg in Resources */,
 				72BD9E4D1BD3D4C40062FE44 /* world_100_border_7_9.jpg in Resources */,
 				7254B19D1BC99CAA00A22920 /* MauritaniaFlag.png in Resources */,
+				723CF2FD1C6980C200916C8A /* capitalsBadge7.png in Resources */,
 				7254AE221BC31DB800A22920 /* world_25_2_1.jpg in Resources */,
 				7254AF521BC31E1000A22920 /* world_100_14_0.jpg in Resources */,
 				7254AE641BC31DE900A22920 /* world_50_1_4.jpg in Resources */,
@@ -3716,15 +3726,17 @@
 				7254AF9D1BC31E1000A22920 /* world_100_4_3.jpg in Resources */,
 				7254B0241BC3E98000A22920 /* capitalsAfrica.txt in Resources */,
 				7254B0341BC3E98000A22920 /* statesMiddleEast.txt in Resources */,
+				723CF3061C6980C200916C8A /* famousPlacesBadge2.png in Resources */,
 				7254AFC11BC31E1000A22920 /* world_100_7_3.jpg in Resources */,
 				7254B1AA1BC99CAA00A22920 /* NetherlandsFlag.png in Resources */,
 				7254B1EA1BC99CAA00A22920 /* UruguayFlag.png in Resources */,
 				7254AFCE1BC31E1000A22920 /* world_100_8_4.jpg in Resources */,
 				7254AFED1BC31E1000A22920 /* world_100_10_11.jpg in Resources */,
 				7254AFCF1BC31E1000A22920 /* world_100_8_5.jpg in Resources */,
+				723CF2FB1C6980C200916C8A /* capitalsBadge5.png in Resources */,
 				7254AE681BC31DE900A22920 /* world_50_2_2.jpg in Resources */,
+				723CF2F71C6980C200916C8A /* capitalsBadge1.png in Resources */,
 				7254B1651BC99CA900A22920 /* FaroeIslandsFlag.png in Resources */,
-				723DA4A11C4DADAC004CAA3B /* countriesBadge6.png in Resources */,
 				723DA48F1C4DADAC004CAA3B /* canadaBadge2.png in Resources */,
 				7254B1C91BC99CAA00A22920 /* SerbiaFlag.png in Resources */,
 				7254B1F11BC99CAA00A22920 /* YemenFlag.png in Resources */,
@@ -3752,6 +3764,7 @@
 				7254AE6D1BC31DE900A22920 /* world_50_3_1.jpg in Resources */,
 				723DA4911C4DADAC004CAA3B /* canadaBadge4.png in Resources */,
 				721EA6881BE6E37D000415D3 /* lostChallenge.mp3 in Resources */,
+				723CF3051C6980C200916C8A /* famousPlacesBadge1.png in Resources */,
 				7254AF6D1BC31E1000A22920 /* world_100_0_3.jpg in Resources */,
 				72BD9E891BD3D4C40062FE44 /* world_100_border_12_9.jpg in Resources */,
 				7254AE711BC31DE900A22920 /* world_50_3_5.jpg in Resources */,
@@ -3764,7 +3777,7 @@
 				72BD9DF91BD3D4C40062FE44 /* world_100_border_0_9.jpg in Resources */,
 				7254AF771BC31E1000A22920 /* world_100_1_1.jpg in Resources */,
 				7254AFB41BC31E1000A22920 /* world_100_6_2.jpg in Resources */,
-				723DA4981C4DADAC004CAA3B /* capitalsBadge4.png in Resources */,
+				723CF3191C69874500916C8A /* overmapBadgeSelect2.png in Resources */,
 				7254B1361BC99CA900A22920 /* BahamasFlag.png in Resources */,
 				72BD9E241BD3D4C40062FE44 /* world_100_border_4_4.jpg in Resources */,
 				7254AFC01BC31E1000A22920 /* world_100_7_2.jpg in Resources */,
@@ -3784,11 +3797,10 @@
 				72BD9E851BD3D4C40062FE44 /* world_100_border_12_5.jpg in Resources */,
 				7254B1821BC99CA900A22920 /* ItalyFlag.png in Resources */,
 				72424A591BC2C469009FED5C /* Main.storyboard in Resources */,
-				723DA4A61C4DADAC004CAA3B /* famousPlacesBadge4.png in Resources */,
 				7254AE791BC31DE900A22920 /* world_50_5_1.jpg in Resources */,
 				7254AFBB1BC31E1000A22920 /* world_100_6_9.jpg in Resources */,
 				7254B1461BC99CA900A22920 /* BurundiFlag.png in Resources */,
-				723DA49F1C4DADAC004CAA3B /* countriesBadge4.png in Resources */,
+				723CF2D61C618DF000916C8A /* overmapBadgeSelect.png in Resources */,
 				7254AFFA1BC31E1000A22920 /* world_100_12_0.jpg in Resources */,
 				7254AFDF1BC31E1000A22920 /* world_100_9_9.jpg in Resources */,
 				7254AE661BC31DE900A22920 /* world_50_2_0.jpg in Resources */,

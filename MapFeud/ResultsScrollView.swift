@@ -15,6 +15,7 @@ class ResultsScrollView: UIView , UIScrollViewDelegate, UserFilterViewProtocol{
     var scrollView:UIScrollView!
     var totalResultLabel:UILabel!
     var userFilterScrollView:UserFilterScrollView!
+    var userFilterScrollViewEnableBackground:UIView!
     var opponentsScoreLabel:ResultTitleLabel!
     
     required init?(coder aDecoder: NSCoder) {
@@ -169,12 +170,17 @@ class ResultsScrollView: UIView , UIScrollViewDelegate, UserFilterViewProtocol{
                 self.userFilterScrollView.transform = CGAffineTransformIdentity
                 self.userFilterScrollView.alpha = 1
                 self.userFilterScrollView.center = rightLocation
+                self.userFilterScrollViewEnableBackground.alpha = 1
                 self.listClosed = false
         })
     }
     
     func setFilter(distinctUsers:[String])
     {
+        userFilterScrollViewEnableBackground = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
+        userFilterScrollViewEnableBackground.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+        userFilterScrollViewEnableBackground.alpha = 0
+        
         filteredUsers = distinctUsers
         let margin:CGFloat = 10
         let scrollViewWidth = self.bounds.size.width - (margin * 2)
@@ -182,7 +188,9 @@ class ResultsScrollView: UIView , UIScrollViewDelegate, UserFilterViewProtocol{
         userFilterScrollView.delegate = self
         
         userFilterScrollView.alpha = 0
-        self.addSubview(userFilterScrollView!)
+        //self.addSubview(userFilterScrollView!)
+        userFilterScrollViewEnableBackground.addSubview(userFilterScrollView!)
+        self.addSubview(userFilterScrollViewEnableBackground)
     }
     
     var listClosed = true
@@ -215,6 +223,7 @@ class ResultsScrollView: UIView , UIScrollViewDelegate, UserFilterViewProtocol{
                     self.userFilterScrollView.center = rightLocation
                     self.listClosed = true
                     self.userFilterScrollView.alpha = 0
+                    self.userFilterScrollViewEnableBackground.alpha = 0
             })
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.layoutResult(0)

@@ -89,8 +89,20 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         var buttonHeight = UIScreen.mainScreen().bounds.size.width * 0.17
         let buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
         
-        //challengeUsersButton = MenuButton(frame:CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), (UIScreen.mainScreen().bounds.size.height * 0.33) + buttonHeight + marginButtons, buttonWidth, buttonHeight),title:"Challenge")
-        challengeUsersButton = MenuButton(frame:CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), (UIScreen.mainScreen().bounds.size.height * 0.5), buttonWidth, buttonHeight),title:"Challenge")
+        let statsViewHeight = UIScreen.mainScreen().bounds.height * 0.1
+        statsView = StatsView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, statsViewHeight))
+        statsView.delegate = self
+        self.view.addSubview(statsView)
+        
+        
+        let badgeViewHeight:CGFloat = (UIScreen.mainScreen().bounds.size.height * 0.5) - statsView.frame.maxY
+        badgeCollectionView = BadgeCollectionView(frame: CGRectMake(0, statsView.frame.maxY, UIScreen.mainScreen().bounds.width, badgeViewHeight))
+        badgeCollectionView.delegate = self
+        self.view.addSubview(badgeCollectionView)
+        orgBadgeCollectionViewCenter = badgeCollectionView.center
+        
+        let challengeUsersButtonY = badgeCollectionView.frame.minY + badgeCollectionView.getCollectionsHeight() + marginButtons
+        challengeUsersButton = MenuButton(frame:CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), challengeUsersButtonY, buttonWidth, buttonHeight),title:"Challenge")
         challengeUsersButton.addTarget(self, action: "challengeAction", forControlEvents: UIControlEvents.TouchUpInside)
         let challengeBadge = NSUserDefaults.standardUserDefaults().integerForKey("challengesBadge")
         challengeUsersButton.setbadge(challengeBadge)
@@ -120,17 +132,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             self.bannerView?.hidden = false
         }
         
-        let statsViewHeight = UIScreen.mainScreen().bounds.height * 0.1
-        statsView = StatsView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, statsViewHeight))
-        statsView.delegate = self
-        self.view.addSubview(statsView)
-        
 
-        let badgeViewHeight:CGFloat = (UIScreen.mainScreen().bounds.size.height * 0.5) - statsView.frame.maxY
-        badgeCollectionView = BadgeCollectionView(frame: CGRectMake(0, statsView.frame.maxY, UIScreen.mainScreen().bounds.width, badgeViewHeight))
-        badgeCollectionView.delegate = self
-        self.view.addSubview(badgeCollectionView)
-        orgBadgeCollectionViewCenter = badgeCollectionView.center
         
         //challenge type buttons
         
@@ -456,9 +458,13 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
         let marginButtons:CGFloat = 10
         var buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.17
         let buttonHeight = buttonWidth
-
+        
+        let badgeCollectionViewMaxYAndMargin = badgeCollectionView.frame.minY + badgeCollectionView.getCollectionsHeight() + marginButtons
         buttonWidth = UIScreen.mainScreen().bounds.size.width * 0.65
-        challengeUsersButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), UIScreen.mainScreen().bounds.size.height * 0.5, buttonWidth, buttonHeight)
+        
+        let challengeUserButtonYPosWithPracticeButtonInTheMiddleOfScreen = (UIScreen.mainScreen().bounds.size.height / 2) - (buttonHeight / 2) - marginButtons - buttonHeight
+        let challengeUsersButtonY = badgeCollectionViewMaxYAndMargin > challengeUserButtonYPosWithPracticeButtonInTheMiddleOfScreen ? badgeCollectionViewMaxYAndMargin : challengeUserButtonYPosWithPracticeButtonInTheMiddleOfScreen
+        challengeUsersButton.frame = CGRectMake((UIScreen.mainScreen().bounds.size.width / 2) - (buttonWidth / 2), challengeUsersButtonY, buttonWidth, buttonHeight)
         challengeUsersButton.orgCenter = challengeUsersButton.center
         practiceButton.frame = CGRectMake(challengeUsersButton.frame.minX, challengeUsersButton.frame.maxY + marginButtons, buttonWidth, buttonHeight)
         practiceButton.orgCenter = practiceButton.center
@@ -848,7 +854,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     {
         let bannerViewHeight = bannerView != nil ? bannerView!.frame.height : 0
         tagsScrollViewEnableBackground = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - bannerViewHeight))
-        tagsScrollViewEnableBackground.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.5)
+        tagsScrollViewEnableBackground.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
         tagsScrollViewEnableBackground.alpha = 0
         let scrollViewWidth = UIScreen.mainScreen().bounds.size.width * 0.6
 
@@ -883,7 +889,7 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
     
     func requestBuyAdFree()
     {
-        let adFreePrompt = UIAlertController(title: "Remove ads",
+        let adFreePrompt = UIAlertController(title: "Practice mode\n &\nRemove ads",
             message: "",
             preferredStyle: .Alert)
         
@@ -898,6 +904,10 @@ class MainMenuViewController: UIViewController, TagCheckViewProtocol , ADBannerV
             handler: { (action) -> Void in
                 
                 self.buyAdFree()
+        }))
+        adFreePrompt.addAction(UIAlertAction(title: "Cancel",
+            style: .Default,
+            handler: { (action) -> Void in
         }))
         
         self.presentViewController(adFreePrompt,

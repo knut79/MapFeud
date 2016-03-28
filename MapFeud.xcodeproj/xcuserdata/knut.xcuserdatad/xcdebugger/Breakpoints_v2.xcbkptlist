@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MapFeud/MainMenuViewController.swift"
-            timestampString = "475292413.643177"
+            timestampString = "476680160.710988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "433"
-            endingLineNumber = "433"
+            startingLineNumber = "435"
+            endingLineNumber = "435"
             landmarkName = "populateDataIfNeeded()"
             landmarkType = "5">
             <Locations>
@@ -86,30 +86,30 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MapFeud.MainMenuViewController.(populateDataIfNeeded (MapFeud.MainMenuViewController) -&gt; () -&gt; ()).(closure #1)"
+                  symbolName = "MapFeud.MainMenuViewController.(populateDataIfNeeded () -&gt; ()).(closure #1)"
                   moduleName = "MapFeud"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/knut/Documents/repositories/MapFeud/MapFeud/MainMenuViewController.swift"
-                  timestampString = "475892412.977559"
+                  timestampString = "480818839.247649"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "433"
-                  endingLineNumber = "433"
+                  startingLineNumber = "435"
+                  endingLineNumber = "435"
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MapFeud.MainMenuViewController.(populateDataIfNeeded (MapFeud.MainMenuViewController) -&gt; () -&gt; ()).(closure #1).(closure #1)"
+                  symbolName = "MapFeud.MainMenuViewController.(populateDataIfNeeded () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "MapFeud"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/knut/Documents/repositories/MapFeud/MapFeud/MainMenuViewController.swift"
-                  timestampString = "475892412.977814"
+                  timestampString = "480818839.247874"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "434"
-                  endingLineNumber = "434"
+                  startingLineNumber = "436"
+                  endingLineNumber = "436"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
@@ -208,6 +208,38 @@
             startingLineNumber = "279"
             endingLineNumber = "279"
             landmarkName = "drawPlace(_:drawProximateWindow:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/BadgeCollectionView.swift"
+            timestampString = "476806556.523878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "init(frame:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MapFeud/MainMenuViewController.swift"
+            timestampString = "476807163.976778"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
+            landmarkName = "setupFirstLevelMenu()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
